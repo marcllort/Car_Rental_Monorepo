@@ -11,7 +11,7 @@
         <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+        <script src="app.js"></script>
         <!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
         <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#config-web-app -->
@@ -23,21 +23,19 @@
             <h2>Pressicar Login</h2>
             <form>
                 <div class="user-box">
-                    <input type="text" name="" required="">
+                    <input id="email" type="text" name="">
                     <label>Username</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" name="" required="">
+                    <input id="password" type="password" name="">
                     <label>Password</label>
                 </div>
-
-                <button type="submit" class="button">Login</button>
-                <br>
-                <button type="submit" class="google_button" id="GoogleSignIn" onclick="login()">Login with Google</button>
-
             </form>
+            <button type="submit" class="button" onclick="emailLogin()">Login</button>
+            <br>
+            <button class="google_button" id="GoogleSignIn" onclick="googleLogin()">Login with Google</button>
         </div>
-        <script src="app.js"></script>
+
     </body>
 
 </html>

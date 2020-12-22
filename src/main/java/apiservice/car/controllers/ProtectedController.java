@@ -19,7 +19,11 @@ public class ProtectedController {
     @GetMapping("data")
     public String getProtectedData() {
         String name = securityService.getUser().getName();
-        return name.split("\\s+")[0] + ", you have accessed protected data from spring boot";
+        if (name == null) {
+            return "You have accessed protected data from spring boot";
+        } else {
+            return name.split("\\s+")[0] + ", you have accessed protected data from spring boot";
+        }
     }
 
 }

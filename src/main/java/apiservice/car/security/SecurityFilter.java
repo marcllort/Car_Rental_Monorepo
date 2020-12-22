@@ -69,7 +69,7 @@ public class SecurityFilter extends OncePerRequestFilter {
                 type = Credentials.CredentialType.ID_TOKEN;
             }
         } catch (FirebaseAuthException e) {
-            log.error("Firebase Exception: ", e.getLocalizedMessage());
+            log.error("Firebase Exception: "+ e.getLocalizedMessage());
         }
         List<GrantedAuthority> authorities = new ArrayList<>();
         User user = firebaseTokenToUserDto(decodedToken);
