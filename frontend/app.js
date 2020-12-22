@@ -1,27 +1,33 @@
 function emailLogin() {
     startUp();
-    firebase.auth()
-        .signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value).then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        //var token = result.credential.accessToken;
-        // The signed-in user info.
-        //var user = result.user;
+    var user = firebase.auth().currentUser;
+    if (user == null) {
+        firebase.auth()
+            .signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value).then(function (result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            //var token = result.credential.accessToken;
+            // The signed-in user info.
+            //var user = result.user;
 
-        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
-            axios.get('http://localhost:8090/protected/data', {
-                headers: {
-                    Authorization: 'Bearer ' + idToken
-                }
-            }).then(resp => {
-                console.log(idToken);
-                console.log(resp.data);
+            firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
+                axios.get('http://localhost:8090/protected/data', {
+                    headers: {
+                        Authorization: 'Bearer ' + idToken
+                    }
+                }).then(resp => {
+                    console.log(idToken);
+                    console.log(resp.data);
+                    window.location = 'mainPage.html'
+                });
+            }).catch(function (error) {
+                console.error(error.data);
             });
         }).catch(function (error) {
-            console.error(error.data);
+            console.log(error);
         });
-    }).catch(function (error) {
-        console.log(error);
-    });
+    } else {
+        alert("Already logged in!");
+    }
 }
 
 function googleLogin() {
@@ -30,28 +36,33 @@ function googleLogin() {
 
     provider = new firebase.auth.GoogleAuthProvider();
 
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
+    var user = firebase.auth().currentUser;
+    if (user == null) {
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
 
-        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
-            axios.get('http://localhost:8090/protected/data', {
-                headers: {
-                    Authorization: 'Bearer ' + idToken
-                }
-            }).then(resp => {
-                console.log(idToken);
-                console.log(resp.data);
+            firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
+                axios.get('http://localhost:8090/protected/data', {
+                    headers: {
+                        Authorization: 'Bearer ' + idToken
+                    }
+                }).then(resp => {
+                    console.log(idToken);
+                    console.log(resp.data);
+                });
+            }).catch(function (error) {
+                console.error(error.data);
             });
         }).catch(function (error) {
-            console.error(error.data);
+            console.log(error);
         });
-    }).catch(function (error) {
-        console.log(error);
-    });
 
+    } else {
+        alert("Already logged in!");
+    }
 
     //Error1:; The current domain is not authorized for OAuth operations.
     //This will prevent signInWithPopup, signInWithRedirect, linkWithPopup and linkWithRedirect from working. Add your domain (127.0.0.1) to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.
@@ -63,6 +74,16 @@ function googleLogin() {
 
 
     //Answer:Console log Message and Authentication Google Mail
+};
+
+window.onload = function () {
+    startUp()
+    firebase.auth().onAuthStateChanged(function (user) {
+        console.log(window.location.pathname);
+        if (user && window.location.pathname.includes("index.html")) {
+            window.location = 'mainPage.html'
+        }
+    });
 };
 
 function startUp() {
@@ -81,4 +102,15 @@ function startUp() {
     } else {
         firebase.app(); // if already initialized, use that one
     }
+}
+
+function logOut() {
+    startUp();
+    var user = firebase.auth().currentUser;
+    if (user == null) {
+        alert("User already logged out")
+    } else {
+        firebase.auth().signOut();
+    }
+    window.location = 'index.html'
 }
