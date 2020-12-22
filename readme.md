@@ -37,28 +37,8 @@ This **Spring Boot Starter** is perfect for such situations when you want to ext
 - [Firebase with Spring Boot for Kubernetes Deployment Configuration](https://thepro.io/post/firebase-with-spring-boot-kubernetes-deployment-configuration-RA)
 - [Local Domain Names with SSL for development applications ](https://thepro.io/post/local-domain-names-with-ssl-for-local-development-applications-LG)
 
-### UI Demo
-
-#### UI Demo
-
-Nextjs application demonstrating client side firebase session. [ui-demo](ui-demo/)
-
-#### Screenshots
-
-|                                                                        Logged out                                                                         |                                                                        Logged In                                                                         |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| ![Image of UI Loggedout](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-demo/screenshots/loggedout.png) | ![Image of UI LoggedIn ](https://raw.githubusercontent.com/gladius/firebase-spring-boot-rest-api-authentication/master/ui-demo/screenshots/loggedin.png) |
-
-## Author
-
-👤 **Gladius**
-
-- Website: thepro.io/@/gladius
-- Github: [@gladius](https://github.com/gladius)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
+## Environment vars
+GOOGLE_APPLICATION_CREDENTIALS=car-rental.json;SUPER_ADMINS=mac12llm2@gmail.com
 
 ## License
 

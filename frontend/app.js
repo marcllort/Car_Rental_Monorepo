@@ -79,12 +79,39 @@ function googleLogin() {
 window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
-        console.log(window.location.pathname);
         if (user && window.location.pathname.includes("index.html")) {
             window.location = 'mainPage.html'
+        }else if(user && window.location.pathname.includes("mainPage.html")){
+            firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
+                publicApiCall();
+                protectedApiCall(idToken);
+            }).catch(function (error) {
+                console.error(error.data);
+            });
+        }else {
+            publicApiCall();
+            protectedApiCall("idToken"); // will fail
         }
     });
 };
+
+function protectedApiCall(idToken){
+    axios.get('http://localhost:8090/protected/data', {
+        headers: {
+            Authorization: 'Bearer ' + idToken
+        }
+    }).then(resp => {
+        console.log(resp.data);
+        console.log(idToken);
+    });
+}
+
+function publicApiCall(){
+    axios.get('http://localhost:8090/public/data', {
+    }).then(resp => {
+        console.log(resp.data);
+    });
+}
 
 function startUp() {
     const firebaseConfig = {
