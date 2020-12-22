@@ -8,6 +8,7 @@ import apiservice.car.security.roles.RoleService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseToken;
+import com.google.firebase.auth.UserRecord;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,7 +26,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 @Slf4j
@@ -69,7 +72,7 @@ public class SecurityFilter extends OncePerRequestFilter {
                 type = Credentials.CredentialType.ID_TOKEN;
             }
         } catch (FirebaseAuthException e) {
-            log.error("Firebase Exception: "+ e.getLocalizedMessage());
+            log.error("Firebase Exception: " + e.getLocalizedMessage());
         }
         List<GrantedAuthority> authorities = new ArrayList<>();
         User user = firebaseTokenToUserDto(decodedToken);
