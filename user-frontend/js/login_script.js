@@ -37,7 +37,6 @@ window.emailLogin = function (event) {
                 }).then(resp => {
                     console.log(idToken);
                     console.log(resp.data);
-                    window.location = 'dashboard_user.html'
                 });
             }).catch(function (error) {
                 console.error(error.data);
