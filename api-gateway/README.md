@@ -7,6 +7,18 @@ and the same token is being used when the authenticated user tries to do a call 
 
 It checks if the user is logged in, and has the necessary role/permissions to do the requested call/action.
 
+## Endpoints
+- /public/covid
+- /public/data
+
+- /protected/
+- /protected/
+- /protected/
+- /protected/
+
+- /super/user
+- /super/data
+
 ### Firebase Authentication for Spring boot
 
 Firebase is a backendless platform to run applications without a dedicated backend. But, sometimes you may need to
