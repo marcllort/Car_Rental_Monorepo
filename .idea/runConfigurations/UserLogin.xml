@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="UserLogin" type="JavascriptDebugType" uri="http://localhost:63342/car-rental-monorepo/user-frontend/public/login.html" useBuiltInWebServerPort="true">
+    <method v="2" />
+  </configuration>
+</component>
