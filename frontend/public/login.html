@@ -11,7 +11,7 @@
         <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="../app.js"></script>
+        <script type="module" src="../js/login_script.js"></script>
         <!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
         <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#config-web-app -->
@@ -20,7 +20,20 @@
 
     <body>
         <div class="login-box">
-            <button type="submit" class="button" onclick="logOut()">LogOut</button>
+            <h2>Login</h2>
+            <form>
+                <div class="user-box">
+                    <input id="email" type="text" name="">
+                    <label>Username</label>
+                </div>
+                <div class="user-box">
+                    <input id="password" type="password" name="">
+                    <label>Password</label>
+                </div>
+            </form>
+            <button type="submit" class="button" onclick="emailLogin()">Login</button>
+            <br>
+            <button class="google_button" id="GoogleSignIn" onclick="googleLogin()">Login with Google</button>
         </div>
 
     </body>
