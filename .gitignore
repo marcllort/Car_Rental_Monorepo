@@ -3,4 +3,4 @@
 .project
 .classpath
 /.settings
-/src/main/resources/firebase-server-config.json
+/api-gateway/src/main/resources/firebase-server-config.json
