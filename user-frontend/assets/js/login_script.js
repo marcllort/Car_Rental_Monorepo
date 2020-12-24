@@ -7,10 +7,10 @@ window.onload = function () {
             firebase.auth().currentUser.getIdTokenResult().then((idTokenResult) => {
                 if (!!idTokenResult.claims.role_super) {
                     // Show admin UI.
-                    window.location = 'dashboard_admin.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
+                    window.location = 'table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
                 } else {
                     // Show regular user UI.
-                    window.location = 'dashboard_user.html'
+                    window.location = 'table.html'
                 }
             }).catch((error) => {
                 console.log(error);
@@ -28,7 +28,7 @@ window.emailLogin = function (event) {
             //var token = result.credential.accessToken;
             // The signed-in user info.
             //var user = result.user;
-
+            console.log(document.getElementsByName("email").value);
             firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
                 axios.get('http://localhost:8090/protected/data', {
                     headers: {

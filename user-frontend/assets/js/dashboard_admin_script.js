@@ -3,7 +3,7 @@ import {listUsers, logOut, protectedApiCall, publicApiCall, startUp} from "./api
 window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user && window.location.pathname.includes("dashboard_admin.html")) {
+        if (user) {
             firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
                 publicApiCall();
                 protectedApiCall(idToken);
@@ -11,6 +11,8 @@ window.onload = function () {
             }).catch(function (error) {
                 console.error(error.data);
             });
+        }else {
+            logOut();
         }
     });
 };
