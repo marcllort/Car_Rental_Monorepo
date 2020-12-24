@@ -8,4 +8,9 @@ public class UserRequest {
     private String email;
     private String password;
     private String customClaim; // Role
+
+    private String photoURL;
+    private String disabled;
+    private String emailVerified;
+    private String phoneNumber;
 }

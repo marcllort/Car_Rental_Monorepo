@@ -38,7 +38,7 @@ function protectedApiCall(idToken) {
 function logOut() {
     var user = firebase.auth().currentUser;
     if (user == null) {
-        alert("User already logged out")
+        console.log("User already logged out")
     } else {
         firebase.auth().signOut();
     }

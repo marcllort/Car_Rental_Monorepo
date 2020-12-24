@@ -9,7 +9,10 @@ window.onload = function () {
                 protectedApiCall(idToken);
             }).catch(function (error) {
                 console.error(error.data);
+                logOut();
             });
+        }else {
+            logOut();
         }
     });
 };

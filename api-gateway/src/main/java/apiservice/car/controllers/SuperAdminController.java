@@ -64,6 +64,19 @@ public class SuperAdminController {
                 .setDisplayName(request.getDisplayName())
                 .setDisabled(false);
 
+        if (request.getDisabled().equals("true")) {
+            userRequest.setDisabled(true);
+        }
+        if (request.getEmailVerified().equals("true")) {
+            userRequest.setEmailVerified(true);
+        }
+        if (request.getPhoneNumber() != null) {
+            userRequest.setPhoneNumber(request.getPhoneNumber());
+        }
+        if (request.getPhotoURL() != null) {
+            userRequest.setPhotoUrl(request.getPhotoURL());
+        }
+
         UserRecord response = firebaseAuth.createUser(userRequest);
 
         if (request.getCustomClaim() != null) {
@@ -148,6 +161,18 @@ public class SuperAdminController {
         }
         if (request.getPassword() != null) {
             userRequest.setPassword(request.getPassword());
+        }
+        if (request.getDisabled().equals("true")) {
+            userRequest.setDisabled(true);
+        }
+        if (request.getEmailVerified().equals("true")) {
+            userRequest.setEmailVerified(true);
+        }
+        if (request.getPhoneNumber() != null) {
+            userRequest.setPhoneNumber(request.getPhoneNumber());
+        }
+        if (request.getPhotoURL() != null) {
+            userRequest.setPhotoUrl(request.getPhotoURL());
         }
 
         UserRecord response = firebaseAuth.updateUser(userRequest);

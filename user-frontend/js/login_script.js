@@ -43,6 +43,7 @@ window.emailLogin = function (event) {
             });
         }).catch(function (error) {
             console.log(error);
+            alert(error);
         });
     } else {
         alert("Already logged in!");
@@ -74,6 +75,7 @@ window.googleLogin = function (event) {
             });
         }).catch(function (error) {
             console.log(error);
+            alert(error);
         });
 
     } else {
