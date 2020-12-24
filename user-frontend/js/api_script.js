@@ -45,4 +45,38 @@ function logOut() {
     window.location = 'login.html'
 }
 
-export {startUp, publicApiCall, protectedApiCall, logOut};
+function listUsers(idToken) {
+    axios.get(URL.concat('/admin/list-users'), {
+        headers: {
+            Authorization: 'Bearer ' + idToken
+        }
+    }).then(resp => {
+        console.log(resp.data);
+        var i=0;
+        resp.data.forEach(function(user) {
+            insertNewUser(i,user)
+            i++;
+        });
+
+
+    });
+
+}
+
+function insertNewUser(i, resp){
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    cell1.innerHTML = resp.displayName;
+    cell2.innerHTML = resp.email;
+    cell3.innerHTML = resp.disabled;
+    cell4.innerHTML = "<td class=\"text-right\">\n" +
+                "          <button class=\"button tiny\">View User</button>" +
+                "          <button class=\"button alert tiny\">Delete</button>" +
+                "     </td>"
+}
+
+export {startUp, publicApiCall, protectedApiCall, logOut, listUsers};

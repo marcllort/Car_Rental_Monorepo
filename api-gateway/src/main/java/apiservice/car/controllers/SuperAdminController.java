@@ -1,7 +1,6 @@
 package apiservice.car.controllers;
 
 import apiservice.car.model.UserRequest;
-import apiservice.car.security.SecurityService;
 import apiservice.car.security.roles.IsSuper;
 import apiservice.car.security.roles.RoleService;
 import com.google.firebase.auth.*;
@@ -21,8 +20,6 @@ public class SuperAdminController {
     RoleService securityRoleService;
     @Autowired
     FirebaseAuth firebaseAuth;
-    @Autowired
-    private SecurityService securityService;
 
     @GetMapping("user")
     @IsSuper

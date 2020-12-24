@@ -1,4 +1,4 @@
-import {logOut, protectedApiCall, publicApiCall, startUp} from "./api_script.js";
+import {listUsers, logOut, protectedApiCall, publicApiCall, startUp} from "./api_script.js";
 
 window.onload = function () {
     startUp()
@@ -7,6 +7,7 @@ window.onload = function () {
             firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
                 publicApiCall();
                 protectedApiCall(idToken);
+                listUsers(idToken);
             }).catch(function (error) {
                 console.error(error.data);
             });
