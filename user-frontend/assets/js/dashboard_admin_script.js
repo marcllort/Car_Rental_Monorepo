@@ -1,35 +1,25 @@
-import {logOut, populateTable, protectedApiCall, startUp} from "./api_script.js";
+import {logOut, populateTable, prepareUI, protectedApiCall, redirectUserAdmin, startUp} from "./api_script.js";
 
 var actualPage = 0;
 var token;
 
+
+
 window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            var userNavBar = document.getElementById("userNavBar");
-            var userNavBarImage = document.getElementById("userNavBarImage");
-
-            user.providerData.forEach(function (data) {
-                if (data.photoURL != null) {
-                    userNavBarImage.src = data.photoURL;
-                }
-                if (data.providerId === "google.com") {
-                    userNavBar.innerText = data.displayName;
-                } else if (data.providerId === "password") {
-                    userNavBar.innerText = data.displayName;
-                }
-            });
+        if (user && window.location.pathname.includes("admin_table.html")) {
+            prepareUI(user);
             firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
+                redirectUserAdmin();
                 protectedApiCall(idToken);
                 token = idToken;
                 var selector = document.getElementById("selector");
-                populateTable(idToken, selector.value, actualPage).then((lenghtUsers) => {
-                    if (lenghtUsers > selector.value) {
+                populateTable(idToken, selector.value, actualPage).then((lengthUsers) => {
+                    if (lengthUsers > selector.value) {
                         document.getElementById("nextPage").className = "page-item";
                     }
                 });
-
             }).catch(function (error) {
                 console.error(error.data);
             });

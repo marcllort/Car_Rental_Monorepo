@@ -60,7 +60,6 @@ function populateTable(idToken, numberResults, numberPage) {
     url = url.concat(numberResults);
     url = url.concat('&pageNumber=');
     url = url.concat(numberPage);
-    console.log(url);
 
     return axios.get(url, {
         headers: {
@@ -72,7 +71,6 @@ function populateTable(idToken, numberResults, numberPage) {
         if (resp.data.length !== 0) {
             deleteTable();
             resp.data.forEach(function (user) {
-                console.log(user);
                 insertNewUser(i, user)
                 i++;
             });
@@ -125,4 +123,38 @@ function insertNewUser(i, resp) {
     cell5.innerHTML = provider;
 }
 
-export {startUp, publicApiCall, protectedApiCall, logOut, populateTable, deleteTable};
+function prepareUI(user) {
+    var userNavBar = document.getElementById("userNavBar");
+    var userNavBarImage = document.getElementById("userNavBarImage");
+
+    user.providerData.forEach(function (data) {
+        if (data.photoURL != null) {
+            userNavBarImage.src = data.photoURL;
+        }
+        if (data.providerId === "google.com") {
+            userNavBar.innerText = data.displayName;
+        } else if (data.providerId === "password") {
+            userNavBar.innerText = data.displayName;
+        }
+    });
+}
+
+function redirectUserAdmin() {
+    firebase.auth().currentUser.getIdTokenResult().then((idTokenResult) => {
+        if (!!idTokenResult.claims.role_super) {
+            // Show admin UI.
+            if (!window.location.pathname.includes("admin_table.html")) {
+                window.location = 'admin_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
+            }
+        } else {
+            // Show regular user UI.
+            if (!window.location.pathname.includes("user_table.html")) {
+                window.location = 'user_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
+            }
+        }
+    }).catch((error) => {
+        console.log(error);
+    });
+}
+
+export {startUp, publicApiCall, protectedApiCall, logOut, populateTable, deleteTable, prepareUI, redirectUserAdmin};

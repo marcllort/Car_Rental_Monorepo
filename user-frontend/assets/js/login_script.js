@@ -1,20 +1,12 @@
-import {startUp} from "./api_script.js";
+import {startUp, redirectUserAdmin} from "./api_script.js";
+
+
 
 window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
         if (user && window.location.pathname.includes("login.html")) {
-            firebase.auth().currentUser.getIdTokenResult().then((idTokenResult) => {
-                if (!!idTokenResult.claims.role_super) {
-                    // Show admin UI.
-                    window.location = 'table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
-                } else {
-                    // Show regular user UI.
-                    window.location = 'table.html'
-                }
-            }).catch((error) => {
-                console.log(error);
-            });
+            redirectUserAdmin();
         }
     });
 };
