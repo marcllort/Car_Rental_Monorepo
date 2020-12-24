@@ -6,6 +6,347 @@
 	},
 	"item": [
 		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Admin/User",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/admin/user?emailOrUid=mac12llm@gmail.com",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"user"
+							],
+							"query": [
+								{
+									"key": "emailOrUid",
+									"value": "mac12llm@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin/ListUsers",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/admin/list-users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"list-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin/NewUser",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"displayName\":\"Sergey\",\r\n  \"email\":\"test10@test.com\",\r\n  \"password\":\"123456\",\r\n  \"customClaim\":\"test\" //optional\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/admin/create-user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin/UpdateUser",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"displayName\":\"Sergeyyyyy\",\r\n  \"email\":\"test9@test.com\",\r\n  \"password\":\"123456\",\r\n  \"customClaim\":\"admin\",\r\n  \"disabled\":\"true\",\r\n  \"emailVerified\":\"true\",\r\n  \"phoneNumber\":\"+34 656515050\",\r\n  \"photoURL\":\"https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/admin/update-user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"update-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin/DeleteUser",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/admin/delete-user?emailOrUid=test9@test.com",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"delete-user"
+							],
+							"query": [
+								{
+									"key": "emailOrUid",
+									"value": "test9@test.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin/SetClaim",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"displayName\":\"Sergey\",\r\n  \"email\":\"test9@test.com\",\r\n  \"password\":\"123456\",\r\n  \"customClaim\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/admin/set-claim",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"set-claim"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin/ActivateAccount",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/admin/activate-account?email=test9@test.com",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"activate-account"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "test9@test.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin/ResetPassword",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/admin/reset-password?email=mac12llm@gmail.com",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "mac12llm@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin/RevokeToken",
+					"protocolProfileBehavior": {
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ADMIN_API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/admin/revoke-token?emailOrUid=test9@test.com",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"revoke-token"
+							],
+							"query": [
+								{
+									"key": "emailOrUid",
+									"value": "test9@test.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Login",
 			"protocolProfileBehavior": {
 				"strictSSL": false
@@ -68,6 +409,37 @@
 			"response": []
 		},
 		{
+			"name": "Public/Covid",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNjYmM4ZjIyMDJmNjZkMWIxZTEwMTY1OTFhZTIxNTZiZTM5NWM2ZDciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiTWFyYyBMbG9ydCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzNDTnJYb2pORTV0T3ZqN1dlZEFQM0hWLW9XZkk2LWJkMXFJdktodz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9jYXItcmVudGFsLTI4NjFmIiwiYXVkIjoiY2FyLXJlbnRhbC0yODYxZiIsImF1dGhfdGltZSI6MTYwODcxNzI5MCwidXNlcl9pZCI6IllPUEtzejdmMUlUYkMxVjhXRVM4MUNUZjEySDMiLCJzdWIiOiJZT1BLc3o3ZjFJVGJDMVY4V0VTODFDVGYxMkgzIiwiaWF0IjoxNjA4NzIxNTA2LCJleHAiOjE2MDg3MjUxMDYsImVtYWlsIjoibWFjMTJsbG1AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDYxNjEwMTUyMTIyNjk1Njc0NDYiXSwiZW1haWwiOlsibWFjMTJsbG1AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.IHT-bwlYHHRolha-ABOgVFZ_yD_PbOeZ0NQx45UPo2NR4PZRHE1PbqVOgsjFLIirAIEK0oOTsFR6TgVdaxdtcBl7WxgEm-lkVULwsvL5LAacsuJAH-3YWGRpBCujOCXuRWMOLBugbcX6X1I3zjxZ8G-LTfVGZg9mJ1pyCssfNCqTP6h3752qh6Fy3MpvkhMrUkRZoD0RSWjgsNTmyVyfndDjL2mWgG7t6b1peMpg_ugmrOcTipMwlB6LpkyA9mH7Bkswo4t1lAe5gDOpAtl6MRIF5UGOTWnHKCF3RR9IdUhj7FovKTKmqNeQDPWKACt1JogG7EKM_0Pl4XfgK_22Pw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/public/data",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"public",
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Protected/Data",
 			"protocolProfileBehavior": {
 				"strictSSL": false
@@ -93,112 +465,6 @@
 					"path": [
 						"protected",
 						"data"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Protected/Covid",
-			"protocolProfileBehavior": {
-				"strictSSL": false
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNjYmM4ZjIyMDJmNjZkMWIxZTEwMTY1OTFhZTIxNTZiZTM5NWM2ZDciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiTWFyYyBMbG9ydCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzNDTnJYb2pORTV0T3ZqN1dlZEFQM0hWLW9XZkk2LWJkMXFJdktodz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9jYXItcmVudGFsLTI4NjFmIiwiYXVkIjoiY2FyLXJlbnRhbC0yODYxZiIsImF1dGhfdGltZSI6MTYwODcxNzI5MCwidXNlcl9pZCI6IllPUEtzejdmMUlUYkMxVjhXRVM4MUNUZjEySDMiLCJzdWIiOiJZT1BLc3o3ZjFJVGJDMVY4V0VTODFDVGYxMkgzIiwiaWF0IjoxNjA4NzIxNTA2LCJleHAiOjE2MDg3MjUxMDYsImVtYWlsIjoibWFjMTJsbG1AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDYxNjEwMTUyMTIyNjk1Njc0NDYiXSwiZW1haWwiOlsibWFjMTJsbG1AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.IHT-bwlYHHRolha-ABOgVFZ_yD_PbOeZ0NQx45UPo2NR4PZRHE1PbqVOgsjFLIirAIEK0oOTsFR6TgVdaxdtcBl7WxgEm-lkVULwsvL5LAacsuJAH-3YWGRpBCujOCXuRWMOLBugbcX6X1I3zjxZ8G-LTfVGZg9mJ1pyCssfNCqTP6h3752qh6Fy3MpvkhMrUkRZoD0RSWjgsNTmyVyfndDjL2mWgG7t6b1peMpg_ugmrOcTipMwlB6LpkyA9mH7Bkswo4t1lAe5gDOpAtl6MRIF5UGOTWnHKCF3RR9IdUhj7FovKTKmqNeQDPWKACt1JogG7EKM_0Pl4XfgK_22Pw",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/protected/data",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"protected",
-						"data"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Super/User",
-			"protocolProfileBehavior": {
-				"strictSSL": false
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNjYmM4ZjIyMDJmNjZkMWIxZTEwMTY1OTFhZTIxNTZiZTM5NWM2ZDciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiTWFyYyBMbG9ydCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzNDTnJYb2pORTV0T3ZqN1dlZEFQM0hWLW9XZkk2LWJkMXFJdktodz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9jYXItcmVudGFsLTI4NjFmIiwiYXVkIjoiY2FyLXJlbnRhbC0yODYxZiIsImF1dGhfdGltZSI6MTYwODcxNzI5MCwidXNlcl9pZCI6IllPUEtzejdmMUlUYkMxVjhXRVM4MUNUZjEySDMiLCJzdWIiOiJZT1BLc3o3ZjFJVGJDMVY4V0VTODFDVGYxMkgzIiwiaWF0IjoxNjA4NzIxNTA2LCJleHAiOjE2MDg3MjUxMDYsImVtYWlsIjoibWFjMTJsbG1AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDYxNjEwMTUyMTIyNjk1Njc0NDYiXSwiZW1haWwiOlsibWFjMTJsbG1AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.IHT-bwlYHHRolha-ABOgVFZ_yD_PbOeZ0NQx45UPo2NR4PZRHE1PbqVOgsjFLIirAIEK0oOTsFR6TgVdaxdtcBl7WxgEm-lkVULwsvL5LAacsuJAH-3YWGRpBCujOCXuRWMOLBugbcX6X1I3zjxZ8G-LTfVGZg9mJ1pyCssfNCqTP6h3752qh6Fy3MpvkhMrUkRZoD0RSWjgsNTmyVyfndDjL2mWgG7t6b1peMpg_ugmrOcTipMwlB6LpkyA9mH7Bkswo4t1lAe5gDOpAtl6MRIF5UGOTWnHKCF3RR9IdUhj7FovKTKmqNeQDPWKACt1JogG7EKM_0Pl4XfgK_22Pw",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/super/user?email=mac12llm@gmail.com",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"super",
-						"user"
-					],
-					"query": [
-						{
-							"key": "email",
-							"value": "mac12llm@gmail.com"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Super/Data",
-			"protocolProfileBehavior": {
-				"strictSSL": false
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNjYmM4ZjIyMDJmNjZkMWIxZTEwMTY1OTFhZTIxNTZiZTM5NWM2ZDciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiTWFyYyBMbG9ydCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzNDTnJYb2pORTV0T3ZqN1dlZEFQM0hWLW9XZkk2LWJkMXFJdktodz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9jYXItcmVudGFsLTI4NjFmIiwiYXVkIjoiY2FyLXJlbnRhbC0yODYxZiIsImF1dGhfdGltZSI6MTYwODcxNzI5MCwidXNlcl9pZCI6IllPUEtzejdmMUlUYkMxVjhXRVM4MUNUZjEySDMiLCJzdWIiOiJZT1BLc3o3ZjFJVGJDMVY4V0VTODFDVGYxMkgzIiwiaWF0IjoxNjA4NzIxNTA2LCJleHAiOjE2MDg3MjUxMDYsImVtYWlsIjoibWFjMTJsbG1AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDYxNjEwMTUyMTIyNjk1Njc0NDYiXSwiZW1haWwiOlsibWFjMTJsbG1AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.IHT-bwlYHHRolha-ABOgVFZ_yD_PbOeZ0NQx45UPo2NR4PZRHE1PbqVOgsjFLIirAIEK0oOTsFR6TgVdaxdtcBl7WxgEm-lkVULwsvL5LAacsuJAH-3YWGRpBCujOCXuRWMOLBugbcX6X1I3zjxZ8G-LTfVGZg9mJ1pyCssfNCqTP6h3752qh6Fy3MpvkhMrUkRZoD0RSWjgsNTmyVyfndDjL2mWgG7t6b1peMpg_ugmrOcTipMwlB6LpkyA9mH7Bkswo4t1lAe5gDOpAtl6MRIF5UGOTWnHKCF3RR9IdUhj7FovKTKmqNeQDPWKACt1JogG7EKM_0Pl4XfgK_22Pw",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/super/data",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"super",
-						"data"
-					],
-					"query": [
-						{
-							"key": "email",
-							"value": "mac12llm@gmail.com",
-							"disabled": true
-						}
 					]
 				}
 			},
