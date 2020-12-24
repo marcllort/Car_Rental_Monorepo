@@ -1,4 +1,7 @@
-import {listUsers, logOut, protectedApiCall, startUp} from "./api_script.js";
+import {logOut, populateTable, protectedApiCall, startUp} from "./api_script.js";
+
+var actualPage = 0;
+var token;
 
 window.onload = function () {
     startUp()
@@ -19,8 +22,14 @@ window.onload = function () {
             });
             firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
                 protectedApiCall(idToken);
+                token = idToken;
                 var selector = document.getElementById("selector");
-                listUsers(idToken, selector.value);
+                populateTable(idToken, selector.value, actualPage).then((lenghtUsers) => {
+                    if (lenghtUsers > selector.value) {
+                        document.getElementById("nextPage").className = "page-item";
+                    }
+                });
+
             }).catch(function (error) {
                 console.error(error.data);
             });
@@ -48,6 +57,32 @@ window.searchInTable = function (event) {
         }
     }
 }
+
+window.previousPage = function (event) {
+    if (actualPage > 0) {
+        actualPage--;
+        populateTable(token, selector.value, actualPage);
+        var numPage = actualPage + 1;
+        document.getElementById("dataTable_info").textContent = "Showing page " + numPage;
+    } else {
+        document.getElementById("previousPage").className = "page-item disabled";
+    }
+}
+
+window.nextPage = function (event) {
+    actualPage++;
+    var numPage = actualPage + 1;
+    populateTable(token, selector.value, actualPage).then((lenghtUsers) => {
+        if (lenghtUsers < selector.value) {
+            document.getElementById("nextPage").className = "page-item disabled";
+        } else {
+            document.getElementById("previousPage").className = "page-item";
+            document.getElementById("dataTable_info").textContent = "Showing page " + numPage;
+        }
+    });
+
+}
+
 
 window.logOut = function (event) {
     logOut();

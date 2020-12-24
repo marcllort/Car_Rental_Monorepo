@@ -45,27 +45,48 @@ function logOut() {
     window.location = 'login.html'
 }
 
-function listUsers(idToken, numberResults) {
+function deleteTable() {
+    var tableHeaderRowCount = 1;
+    var table = document.getElementById('dataTable');
+    var rowCount = table.rows.length;
+    for (var i = tableHeaderRowCount; i < rowCount; i++) {
+        table.deleteRow(tableHeaderRowCount);
+    }
+}
+
+function populateTable(idToken, numberResults, numberPage) {
+    var length = 0;
     var url = URL.concat('/admin/list-users?maxResults=');
-    axios.get(url.concat(numberResults), {
+    url = url.concat(numberResults);
+    url = url.concat('&pageNumber=');
+    url = url.concat(numberPage);
+    console.log(url);
+
+    return axios.get(url, {
         headers: {
             Authorization: 'Bearer ' + idToken
         },
     }).then(resp => {
-        var i = 0;
-        resp.data.forEach(function (user) {
-            insertNewUser(i, user)
-            i++;
-        });
+        var i = 1;
 
+        if (resp.data.length !== 0) {
+            deleteTable();
+            resp.data.forEach(function (user) {
+                console.log(user);
+                insertNewUser(i, user)
+                i++;
+            });
 
+            length = resp.data.length + 1;
+            return length;
+        }
+        return 0;
     });
-
 }
 
 function insertNewUser(i, resp) {
     var table = document.getElementById("dataTable");
-    var row = table.insertRow(1);
+    var row = table.insertRow(i);
 
     var cell0 = row.insertCell(0);
     var cell1 = row.insertCell(1);
@@ -78,7 +99,7 @@ function insertNewUser(i, resp) {
     var user = "";
     var photo;
     photo = "assets/img/avatars/avatar5.jpeg"
-    var cont;
+
     resp.providerData.forEach(function (data) {
         if (data.photoUrl != null) {
             photo = data.photoUrl;
@@ -93,8 +114,6 @@ function insertNewUser(i, resp) {
         } else if (data.providerId === "password") {
             user = data.displayName;
         }
-
-        cont++;
     });
 
 
@@ -106,4 +125,4 @@ function insertNewUser(i, resp) {
     cell5.innerHTML = provider;
 }
 
-export {startUp, publicApiCall, protectedApiCall, logOut, listUsers};
+export {startUp, publicApiCall, protectedApiCall, logOut, populateTable, deleteTable};

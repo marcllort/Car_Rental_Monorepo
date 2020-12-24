@@ -30,21 +30,39 @@ public class SuperAdminController {
 
     @GetMapping("list-users")
     @IsSuper
-    public List<ExportedUserRecord> getListUsers(@RequestParam Optional<Integer> maxResults) throws Exception {
+    public List<ExportedUserRecord> getListUsers(@RequestParam Optional<Integer> maxResults, @RequestParam Optional<Integer> pageNumber) throws Exception {
         ListUsersPage page;
+
         if (maxResults.isPresent()) {
             page = firebaseAuth.listUsers(null, maxResults.get());
         } else {
             page = firebaseAuth.listUsers(null, 10);
         }
 
-        List<ExportedUserRecord> users = new ArrayList<>();
-        //while (page != null) {
-            for (ExportedUserRecord user : page.getValues()) {
-                users.add(user);
+        if (pageNumber.isPresent() && pageNumber.get() > 0) {
+            String pageToken = "";
+            for (int i = 0; i < pageNumber.get() && page.hasNextPage(); i++) {
+                pageToken = page.getNextPageToken();
+                page = page.getNextPage();
             }
-          //  page = page.getNextPage();
-        //}
+            if (maxResults.isPresent()) {
+                try {
+                    page = firebaseAuth.listUsers(pageToken, maxResults.get());
+                }catch (Exception e){
+                    List<ExportedUserRecord> users = new ArrayList<>();
+                    return users;
+                }
+            } else {
+                page = firebaseAuth.listUsers(pageToken, 10);
+            }
+        }
+
+        List<ExportedUserRecord> users = new ArrayList<>();
+
+        for (ExportedUserRecord user : page.getValues()) {
+            users.add(user);
+        }
+
         return users;
 
     }
