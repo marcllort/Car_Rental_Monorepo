@@ -7,10 +7,7 @@ import com.google.firebase.auth.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("admin")
@@ -33,16 +30,21 @@ public class SuperAdminController {
 
     @GetMapping("list-users")
     @IsSuper
-    public List<ExportedUserRecord> getListUsers() throws Exception {
+    public List<ExportedUserRecord> getListUsers(@RequestParam Optional<Integer> maxResults) throws Exception {
+        ListUsersPage page;
+        if (maxResults.isPresent()) {
+            page = firebaseAuth.listUsers(null, maxResults.get());
+        } else {
+            page = firebaseAuth.listUsers(null, 10);
+        }
 
-        ListUsersPage page = firebaseAuth.listUsers(null);
         List<ExportedUserRecord> users = new ArrayList<>();
-        while (page != null) {
+        //while (page != null) {
             for (ExportedUserRecord user : page.getValues()) {
                 users.add(user);
             }
-            page = page.getNextPage();
-        }
+          //  page = page.getNextPage();
+        //}
         return users;
 
     }
@@ -102,10 +104,10 @@ public class SuperAdminController {
         if (request.getPassword() != null) {
             userRequest.setPassword(request.getPassword());
         }
-        if (request.getDisabled().equals("true")) {
+        if (request.getDisabled() != null && request.getDisabled().equals("true")) {
             userRequest.setDisabled(true);
         }
-        if (request.getEmailVerified().equals("true")) {
+        if (request.getEmailVerified() != null && request.getEmailVerified().equals("true")) {
             userRequest.setEmailVerified(true);
         }
         if (request.getPhoneNumber() != null) {

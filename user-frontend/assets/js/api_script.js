@@ -45,11 +45,12 @@ function logOut() {
     window.location = 'login.html'
 }
 
-function listUsers(idToken) {
-    axios.get(URL.concat('/admin/list-users'), {
+function listUsers(idToken, numberResults) {
+    var url = URL.concat('/admin/list-users?maxResults=');
+    axios.get(url.concat(numberResults), {
         headers: {
             Authorization: 'Bearer ' + idToken
-        }
+        },
     }).then(resp => {
         var i = 0;
         resp.data.forEach(function (user) {
@@ -74,6 +75,7 @@ function insertNewUser(i, resp) {
     var cell5 = row.insertCell(5);
 
     var provider = "";
+    var user = "";
     var photo;
     photo = "assets/img/avatars/avatar5.jpeg"
     var cont;
@@ -86,11 +88,17 @@ function insertNewUser(i, resp) {
         } else if (data.providerId === "google.com") {
             provider = provider + "Google "
         }
+        if (data.providerId === "google.com") {
+            user = data.displayName;
+        } else if (data.providerId === "password") {
+            user = data.displayName;
+        }
+
         cont++;
     });
 
 
-    cell0.innerHTML = "<img class=\"rounded-circle mr-2\" width=\"30\" height=\"30\" src=" + photo + ">" + resp.displayName
+    cell0.innerHTML = "<img class=\"rounded-circle mr-2\" width=\"30\" height=\"30\" src=" + photo + ">" + user
     cell1.innerHTML = resp.email;
     cell2.innerHTML = resp.phoneNumber;
     cell3.innerHTML = !resp.disabled;
