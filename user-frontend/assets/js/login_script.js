@@ -1,6 +1,5 @@
-import {startUp, redirectUserAdmin} from "./api_script.js";
-
-
+import {protectedApiCall, startUp} from "./api_script.js";
+import {redirectUserAdmin} from "./ui_script.js";
 
 window.onload = function () {
     startUp()
@@ -11,28 +10,14 @@ window.onload = function () {
     });
 };
 
-window.emailLogin = function (event) {
+window.emailLogin = function () {
     const user = firebase.auth().currentUser;
+
     if (user == null) {
         firebase.auth()
-            .signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value).then(function (result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            //var token = result.credential.accessToken;
-            // The signed-in user info.
-            //var user = result.user;
-            console.log(document.getElementsByName("email").value);
-            firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
-                axios.get('http://localhost:8090/protected/data', {
-                    headers: {
-                        Authorization: 'Bearer ' + idToken
-                    }
-                }).then(resp => {
-                    console.log(idToken);
-                    console.log(resp.data);
-                });
-            }).catch(function (error) {
-                console.error(error.data);
-            });
+            .signInWithEmailAndPassword(document.getElementById("email").value,
+                document.getElementById("password").value).then(function (result) {
+            protectedCall();
         }).catch(function (error) {
             console.log(error);
             alert(error);
@@ -42,36 +27,26 @@ window.emailLogin = function (event) {
     }
 }
 
-window.googleLogin = function (event) {
-    var provider = new firebase.auth.GoogleAuthProvider();
+window.googleLogin = function () {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const user = firebase.auth().currentUser;
 
-    var user = firebase.auth().currentUser;
     if (user == null) {
         firebase.auth().signInWithPopup(provider).then(function (result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            console.log(result)
-            firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
-                axios.get('http://localhost:8090/protected/data', {
-                    headers: {
-                        Authorization: 'Bearer ' + idToken
-                    }
-                }).then(resp => {
-                    console.log(idToken);
-                    console.log(resp.data);
-                });
-            }).catch(function (error) {
-                console.error(error.data);
-            });
+            protectedCall();
         }).catch(function (error) {
             console.log(error);
             alert(error);
         });
-
     } else {
         alert("Already logged in!");
     }
-
 };
+
+function protectedCall() {
+    firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
+        protectedApiCall(idToken);
+    }).catch(function (error) {
+        console.error(error.data);
+    });
+}

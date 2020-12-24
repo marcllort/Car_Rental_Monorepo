@@ -1,9 +1,9 @@
-import {logOut, populateTable, prepareUI, protectedApiCall, redirectUserAdmin, startUp} from "./api_script.js";
+import {logOut, protectedApiCall, startUp} from "./api_script.js";
+import {populateTable} from "./table_script.js";
+import {prepareUI, redirectUserAdmin} from "./ui_script.js";
 
 var actualPage = 0;
 var token;
-
-
 
 window.onload = function () {
     startUp()
@@ -29,7 +29,7 @@ window.onload = function () {
     });
 };
 
-window.searchInTable = function (event) {
+window.searchInTable = function () {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
@@ -48,7 +48,7 @@ window.searchInTable = function (event) {
     }
 }
 
-window.previousPage = function (event) {
+window.previousPage = function () {
     if (actualPage > 0) {
         actualPage--;
         populateTable(token, selector.value, actualPage);
@@ -59,7 +59,7 @@ window.previousPage = function (event) {
     }
 }
 
-window.nextPage = function (event) {
+window.nextPage = function () {
     actualPage++;
     var numPage = actualPage + 1;
     populateTable(token, selector.value, actualPage).then((lenghtUsers) => {
@@ -73,7 +73,6 @@ window.nextPage = function (event) {
 
 }
 
-
-window.logOut = function (event) {
+window.logOut = function () {
     logOut();
 }

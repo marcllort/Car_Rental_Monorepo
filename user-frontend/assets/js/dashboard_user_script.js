@@ -1,4 +1,6 @@
-import {logOut, prepareUI, protectedApiCall, redirectUserAdmin, startUp} from "./api_script.js";
+import {logOut, protectedApiCall, startUp} from "./api_script.js";
+import {populateTable} from "./table_script.js";
+import {prepareUI, redirectUserAdmin} from "./ui_script.js";
 
 window.onload = function () {
     startUp()
