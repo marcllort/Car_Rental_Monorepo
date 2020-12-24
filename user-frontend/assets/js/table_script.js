@@ -69,6 +69,12 @@ function populateTable(idToken, numberResults, numberPage) {
     });
 }
 
+function clickTable(){
+    $(document.body).on("click", "tr", function (){
+        console.log(this.cells[1].textContent);
+    })
+}
+
 function deleteTable() {
     var tableHeaderRowCount = 1;
     var table = document.getElementById('dataTable');
@@ -78,4 +84,4 @@ function deleteTable() {
     }
 }
 
-export {populateTable, deleteTable}
+export {populateTable, deleteTable, clickTable}

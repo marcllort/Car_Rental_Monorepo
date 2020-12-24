@@ -1,15 +1,17 @@
 import {logOut, protectedApiCall, startUp} from "./api_script.js";
-import {populateTable} from "./table_script.js";
+import {populateTable, clickTable} from "./table_script.js";
 import {prepareUI, redirectUserAdmin} from "./ui_script.js";
 
 var actualPage = 0;
 var token;
 
 window.onload = function () {
+
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
         if (user && window.location.pathname.includes("admin_table.html")) {
             prepareUI(user);
+            clickTable();
             firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
                 redirectUserAdmin();
                 protectedApiCall(idToken);
