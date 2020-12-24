@@ -73,17 +73,27 @@ function insertNewUser(i, resp) {
     var cell4 = row.insertCell(4);
     var cell5 = row.insertCell(5);
 
-    var provider, phone;
-    if (resp.providerData.providerId === "password"){
-        provider="Email/Password"
-    }else {
-        provider="Google"
-    }
+    var provider = "";
+    var photo;
+    photo = "assets/img/avatars/avatar5.jpeg"
+    var cont;
+    resp.providerData.forEach(function (data) {
+        if (data.photoUrl != null) {
+            photo = data.photoUrl;
+        }
+        if (data.providerId === "password") {
+            provider = provider + "Email/Password "
+        } else if (data.providerId === "google.com") {
+            provider = provider + "Google "
+        }
+        cont++;
+    });
 
-    cell0.innerHTML = "<img class=\"rounded-circle mr-2\" width=\"30\" height=\"30\" src=\"assets/img/avatars/avatar5.jpeg\">"+resp.displayName
+
+    cell0.innerHTML = "<img class=\"rounded-circle mr-2\" width=\"30\" height=\"30\" src=" + photo + ">" + resp.displayName
     cell1.innerHTML = resp.email;
     cell2.innerHTML = resp.phoneNumber;
-    cell3.innerHTML = !resp.disabled.val;
+    cell3.innerHTML = !resp.disabled;
     cell4.innerHTML = new Date(resp.userMetadata.lastSignInTimestamp).toLocaleDateString("es-ES");
     cell5.innerHTML = provider;
 }
