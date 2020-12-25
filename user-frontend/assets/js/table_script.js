@@ -72,7 +72,6 @@ function populateTable(idToken, numberResults, numberPage) {
 function clickTable() {
     $(document.body).on("click", "tr", function () {
         popUp(this.cells[1].textContent);
-
     })
 }
 

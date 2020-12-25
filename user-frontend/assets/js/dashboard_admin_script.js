@@ -75,7 +75,8 @@ window.nextPage = function () {
 
 }
 window.closePopUp = function () {
-    document.getElementById("close-button").display = "none";
+    console.log("closing");
+    document.getElementById("user-form").style.display = "none";
 }
 
 window.logOut = function () {
