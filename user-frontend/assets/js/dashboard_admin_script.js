@@ -77,8 +77,7 @@ window.nextPage = function () {
 
 window.savePopUp = function () {
     console.log("updating");
-    var email = document.getElementById("email-text").value;
-    updateUser(email);
+    updateUser();
     document.getElementById("user-form").style.display = "none";
 }
 

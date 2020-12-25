@@ -48,7 +48,7 @@ public class SuperAdminController {
             if (maxResults.isPresent()) {
                 try {
                     page = firebaseAuth.listUsers(pageToken, maxResults.get());
-                }catch (Exception e){
+                } catch (Exception e) {
                     List<ExportedUserRecord> users = new ArrayList<>();
                     return users;
                 }
@@ -78,10 +78,10 @@ public class SuperAdminController {
                 .setDisplayName(request.getDisplayName())
                 .setDisabled(false);
 
-        if (request.getDisabled().equals("true")) {
+        if (request.getDisabled() != null && request.getDisabled().equals("true")) {
             userRequest.setDisabled(true);
         }
-        if (request.getEmailVerified().equals("true")) {
+        if (request.getEmailVerified() != null && request.getEmailVerified().equals("true")) {
             userRequest.setEmailVerified(true);
         }
         if (request.getPhoneNumber() != null) {
@@ -119,7 +119,7 @@ public class SuperAdminController {
             map.put(request.getCustomClaim(), "true");
             userRequest.setCustomClaims(map);
         }
-        if (request.getPassword() != null) {
+        if (request.getPassword() != null && !request.getPassword().equals("null")) {
             userRequest.setPassword(request.getPassword());
         }
         if (request.getDisabled() != null && request.getDisabled().equals("true")) {
@@ -128,10 +128,10 @@ public class SuperAdminController {
         if (request.getEmailVerified() != null && request.getEmailVerified().equals("true")) {
             userRequest.setEmailVerified(true);
         }
-        if (request.getPhoneNumber() != null) {
+        if (request.getPhoneNumber() != null && !request.getPhoneNumber().equals("")) {
             userRequest.setPhoneNumber(request.getPhoneNumber());
         }
-        if (request.getPhotoURL() != null) {
+        if (request.getPhotoURL() != null && !request.getPhotoURL().equals("")) {
             userRequest.setPhotoUrl(request.getPhotoURL());
         }
 

@@ -77,15 +77,14 @@ function clickTable() {
 
 function popUp(email) {
     getUser(email).then(resp => {
-        console.log(resp.data.customClaims)
         document.getElementById("uid-text").value = resp.data.uid;
         document.getElementById("name-text").value = resp.data.displayName;
         document.getElementById("email-text").value = resp.data.email;
-        //document.getElementById("password-text").value ="";
+        //document.getElementById("password-text").value = undefined;
         document.getElementById("phone-text").value = resp.data.phoneNumber;
 
         let valueClaim;
-        for(var i in resp.data.customClaims){
+        for (var i in resp.data.customClaims) {
             valueClaim = i;
         }
         document.getElementById("claims-select").value = valueClaim;

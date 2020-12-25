@@ -50,9 +50,9 @@ function getUser(email) {
 }
 
 function deleteUser(email) {
-    var url = URL.concat('/admin/delete-use') + '?emailOrUid=' + email
+    var url = URL.concat('/admin/delete-user') + '?emailOrUid=' + email
     console.log(url);
-    return axios.get(url, {
+    return axios.delete(url, {
         headers: {
             Authorization: 'Bearer ' + token
         }
@@ -61,22 +61,42 @@ function deleteUser(email) {
     });
 }
 
-function updateUser(email) {
+function updateUser() {
     var url = URL.concat('/admin/update-user')
+    console.log(document.getElementById("password-text").value);
+    if (document.getElementById("password-text").value === "") {
+        console.log("nullifying");
+        document.getElementById("password-text").value = "null";
+    }
     console.log(url);
-    return axios.post(url, {
-        headers: {
-            Authorization: 'Bearer ' + token
-        }
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+    }
+    const data = {
+        displayName: document.getElementById("name-text").value,
+        email: document.getElementById("email-text").value,
+        password: document.getElementById("password-text").value,
+        customClaim: document.getElementById("claims-select").value,
+        disabled: document.getElementById("formCheck-disabled").checked,
+        emailVerified: document.getElementById("formCheck-email").checked,
+        phoneNumber: document.getElementById("phone-text").value,
+        photoURL: document.getElementById("photo-text").value
+    }
+    axios.post(url, data, {
+        headers: headers
     }).then(resp => {
-        return resp
+        console.log(resp);
+    }).catch(error => {
+        console.log(error.response)
     });
+    ;
 }
 
 function revokeUser(email) {
     var url = URL.concat('/admin/revoke-token') + '?emailOrUid=' + email
     console.log(url);
-    return axios.delete(url, {
+    return axios.get(url, {
         headers: {
             Authorization: 'Bearer ' + token
         }
