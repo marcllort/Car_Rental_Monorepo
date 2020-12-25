@@ -88,7 +88,7 @@ function updateUser() {
     }).then(resp => {
         console.log(resp);
     }).catch(error => {
-        console.log(error.response)
+        alert(capitalizeFirstLetter(error.response.data.message));
     });
     ;
 }
@@ -113,6 +113,10 @@ function logOut() {
         firebase.auth().signOut();
     }
     window.location = 'login.html'
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export {URL, startUp, publicApiCall, protectedApiCall, getUser, updateUser, revokeUser, deleteUser, logOut};
