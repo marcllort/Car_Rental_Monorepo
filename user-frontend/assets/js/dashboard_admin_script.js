@@ -1,5 +1,5 @@
-import {logOut, protectedApiCall, startUp} from "./api_script.js";
-import {populateTable, clickTable} from "./table_script.js";
+import {deleteUser, logOut, protectedApiCall, revokeUser, startUp, updateUser} from "./api_script.js";
+import {clickTable, populateTable} from "./table_script.js";
 import {prepareUI, redirectUserAdmin} from "./ui_script.js";
 
 var actualPage = 0;
@@ -74,8 +74,29 @@ window.nextPage = function () {
     });
 
 }
+
+window.savePopUp = function () {
+    console.log("updating");
+    var email = document.getElementById("email-text").value;
+    updateUser(email);
+    document.getElementById("user-form").style.display = "none";
+}
+
+window.revokePopUp = function () {
+    console.log("revoking");
+    var email = document.getElementById("email-text").value;
+    revokeUser(email);
+    document.getElementById("user-form").style.display = "none";
+}
+
+window.deletePopUp = function () {
+    //potser cal treure el type button
+    console.log("deleting");
+    var email = document.getElementById("email-text").value;
+    deleteUser(email);
+}
+
 window.closePopUp = function () {
-    console.log("closing");
     document.getElementById("user-form").style.display = "none";
 }
 

@@ -49,6 +49,42 @@ function getUser(email) {
     });
 }
 
+function deleteUser(email) {
+    var url = URL.concat('/admin/delete-use') + '?emailOrUid=' + email
+    console.log(url);
+    return axios.get(url, {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    }).then(resp => {
+        return resp
+    });
+}
+
+function updateUser(email) {
+    var url = URL.concat('/admin/update-user')
+    console.log(url);
+    return axios.post(url, {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    }).then(resp => {
+        return resp
+    });
+}
+
+function revokeUser(email) {
+    var url = URL.concat('/admin/revoke-token') + '?emailOrUid=' + email
+    console.log(url);
+    return axios.delete(url, {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    }).then(resp => {
+        return resp
+    });
+}
+
 function logOut() {
     var user = firebase.auth().currentUser;
     if (user == null) {
@@ -59,4 +95,4 @@ function logOut() {
     window.location = 'login.html'
 }
 
-export {URL, startUp, publicApiCall, protectedApiCall, getUser, logOut};
+export {URL, startUp, publicApiCall, protectedApiCall, getUser, updateUser, revokeUser, deleteUser, logOut};
