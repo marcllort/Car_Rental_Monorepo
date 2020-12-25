@@ -18,6 +18,27 @@
   }
 }
 
+tr{
+  cursor: pointer;
+}
+.templateCard {
+  position: fixed;
+  z-index: 999;
+  margin: auto;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+}
+.spinner-border.spinner-border-sm {
+  width: 25px;
+  height: 25px;
+  margin: auto;
+  align-self: center;
+}
+
 .contact-clean form {
   max-width: 480px;
   width: 90%;

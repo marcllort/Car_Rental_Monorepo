@@ -176,6 +176,7 @@
                                 <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input id="searchInput" onkeyup="searchInTable()" type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
                             </div>
                         </div>
+
                         <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info">
                             <table class="table my-0" id="dataTable">
                                 <thead>
@@ -189,18 +190,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <div class="templateCard">
+                                    <span id="spinner" role="status" class="spinner-border spinner-border-sm"></span>
+                                </div>
+
 
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td><strong>Name</strong></td>
-                                        <td><strong>Email</strong></td>
-                                        <td><strong>Phone</strong></td>
-                                        <td><strong>Activated</strong></td>
-                                        <td><strong>Last Sign In</strong></td>
-                                        <td><strong>Provider</strong></td>
-                                    </tr>
-                                </tfoot>
+
                             </table>
                         </div>
                         <div class="row">

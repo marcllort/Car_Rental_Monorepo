@@ -54,7 +54,7 @@ function populateTable(idToken, numberResults, numberPage) {
         },
     }).then(resp => {
         var i = 1;
-
+        document.getElementById("spinner").hidden=true;
         if (resp.data.length !== 0) {
             deleteTable();
             resp.data.forEach(function (user) {

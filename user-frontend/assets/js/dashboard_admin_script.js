@@ -6,7 +6,6 @@ var actualPage = 0;
 var token;
 
 window.onload = function () {
-
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
         if (user && window.location.pathname.includes("admin_table.html")) {

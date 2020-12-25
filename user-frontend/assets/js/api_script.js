@@ -39,7 +39,7 @@ function protectedApiCall(idToken) {
 
 function getUser(email) {
     var url = URL.concat('/admin/user') + '?emailOrUid=' + email
-    console.log(url);
+
     return axios.get(url, {
         headers: {
             Authorization: 'Bearer ' + token
@@ -50,59 +50,66 @@ function getUser(email) {
 }
 
 function deleteUser(email) {
-    var url = URL.concat('/admin/delete-user') + '?emailOrUid=' + email
-    console.log(url);
-    return axios.delete(url, {
-        headers: {
-            Authorization: 'Bearer ' + token
-        }
-    }).then(resp => {
-        return resp
-    });
+    var isconfirm = window.confirm("Do you want to delete the user?");
+    if (isconfirm) {
+        var url = URL.concat('/admin/delete-user') + '?emailOrUid=' + email
+
+        return axios.delete(url, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        }).then(resp => {
+            return resp
+        });
+    }
 }
 
 function updateUser() {
-    var url = URL.concat('/admin/update-user')
-    console.log(document.getElementById("password-text").value);
-    if (document.getElementById("password-text").value === "") {
-        console.log("nullifying");
-        document.getElementById("password-text").value = "null";
+    var isconfirm = window.confirm("Do you want to save the user?");
+    if (isconfirm) {
+        var url = URL.concat('/admin/update-user')
+
+        if (document.getElementById("password-text").value === "") {
+            console.log("nullifying");
+            document.getElementById("password-text").value = "null";
+        }
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        }
+        const data = {
+            displayName: document.getElementById("name-text").value,
+            email: document.getElementById("email-text").value,
+            password: document.getElementById("password-text").value,
+            customClaim: document.getElementById("claims-select").value,
+            disabled: document.getElementById("formCheck-disabled").checked,
+            emailVerified: document.getElementById("formCheck-email").checked,
+            phoneNumber: document.getElementById("phone-text").value,
+            photoURL: document.getElementById("photo-text").value
+        }
+        axios.post(url, data, {
+            headers: headers
+        }).then(resp => {
+            console.log(resp);
+        }).catch(error => {
+            alert(capitalizeFirstLetter(error.response.data.message));
+        });
     }
-    console.log(url);
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token,
-    }
-    const data = {
-        displayName: document.getElementById("name-text").value,
-        email: document.getElementById("email-text").value,
-        password: document.getElementById("password-text").value,
-        customClaim: document.getElementById("claims-select").value,
-        disabled: document.getElementById("formCheck-disabled").checked,
-        emailVerified: document.getElementById("formCheck-email").checked,
-        phoneNumber: document.getElementById("phone-text").value,
-        photoURL: document.getElementById("photo-text").value
-    }
-    axios.post(url, data, {
-        headers: headers
-    }).then(resp => {
-        console.log(resp);
-    }).catch(error => {
-        alert(capitalizeFirstLetter(error.response.data.message));
-    });
-    ;
 }
 
 function revokeUser(email) {
-    var url = URL.concat('/admin/revoke-token') + '?emailOrUid=' + email
-    console.log(url);
-    return axios.get(url, {
-        headers: {
-            Authorization: 'Bearer ' + token
-        }
-    }).then(resp => {
-        return resp
-    });
+    var isconfirm = window.confirm("Do you want to revoke permissions?");
+    if (isconfirm) {
+        var url = URL.concat('/admin/revoke-token') + '?emailOrUid=' + email
+
+        return axios.get(url, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        }).then(resp => {
+            return resp
+        });
+    }
 }
 
 function logOut() {
