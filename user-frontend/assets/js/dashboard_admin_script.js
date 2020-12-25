@@ -74,7 +74,12 @@ window.nextPage = function () {
     });
 
 }
+window.closePopUp = function () {
+    document.getElementById("close-button").display = "none";
+}
 
 window.logOut = function () {
     logOut();
 }
+
+export {token}

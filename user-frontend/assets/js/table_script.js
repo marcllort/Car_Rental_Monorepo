@@ -1,4 +1,4 @@
-import {URL} from "./api_script.js";
+import {getUser, URL} from "./api_script.js";
 
 function insertNewUser(i, resp) {
     var table = document.getElementById("dataTable");
@@ -69,11 +69,34 @@ function populateTable(idToken, numberResults, numberPage) {
     });
 }
 
-function clickTable(){
-    $(document.body).on("click", "tr", function (){
-        console.log(this.cells[1].textContent);
+function clickTable() {
+    $(document.body).on("click", "tr", function () {
+        popUp(this.cells[1].textContent);
+
     })
 }
+
+function popUp(email) {
+    getUser(email).then(resp => {
+        console.log(resp.data.customClaims)
+        document.getElementById("uid-text").value = resp.data.uid;
+        document.getElementById("name-text").value = resp.data.displayName;
+        document.getElementById("email-text").value = resp.data.email;
+        //document.getElementById("password-text").value ="";
+        document.getElementById("phone-text").value = resp.data.phoneNumber;
+
+        let valueClaim;
+        for(var i in resp.data.customClaims){
+            valueClaim = i;
+        }
+        document.getElementById("claims-select").value = valueClaim;
+        document.getElementById("photo-text").value = resp.data.photoUrl;
+        document.getElementById("formCheck-disabled").checked = resp.data.disabled;
+        document.getElementById("formCheck-email").checked = resp.data.emailVerified;
+        document.getElementById("user-form").style.display = "block";
+    });
+}
+
 
 function deleteTable() {
     var tableHeaderRowCount = 1;

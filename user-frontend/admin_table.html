@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body id="page-top">
@@ -142,7 +144,30 @@
                     <div class="card-header py-3">
                         <p class="text-primary m-0 font-weight-bold">Employee Info</p>
                     </div>
-                    <div class="card-body">
+                    <div id="user-form" class="contact-clean">
+                        <form method="post" style="padding: 35px;">
+                            <button id="close-button" class="close" onclick="closePopUp()">×</button>
+                            <h2 class="text-center">User</h2>
+                            <div class="form-group text-left float-left"><label>UID</label><input id="uid-text" class="form-control" type="text" name="uid" placeholder="UID" disabled="" readonly=""></div>
+                            <div class="form-group float-right"><label>Name</label><input id="name-text" class="form-control" type="text" name="name" placeholder="Name"></div>
+                            <div class="form-group text-left float-left"><label>Email</label><input id="email-text" class="form-control" type="text" name="email" placeholder="Email"></div>
+                            <div class="form-group float-right"><label>Password</label><input id="password-text" class="form-control" type="password" name="password" placeholder="Password"></div>
+                            <div class="form-group text-left float-left"><label>Phone</label><input id="phone-text" class="form-control" type="tel" name="phone" placeholder="+34 XXX XX XX XX"></div>
+                            <div class="form-group float-right"><label>Claims</label><select id="claims-select" class="form-control" style="width: 200px;">
+                                <option value="role_super">Admin</option>
+                                <option value="company">Company</option>
+                            </select></div>
+                            <div class="form-group"><label>Photo URL</label><input id="photo-text" class="form-control" type="url" name="PhotoURL" placeholder="PhotoURL"></div>
+                            <div class="form-group text-left float-left" style="width: 200;height: 74;"><label>Status</label>
+                                <div class="form-check" style="width: 200px;"><input class="form-check-input" type="checkbox" id="formCheck-disabled"><label class="form-check-label" for="formCheck-disabled" style="width: 200;">Disabled</label></div>
+                            </div>
+                            <div class="form-group float-right"><label>Email Verified</label>
+                                <div class="form-check" style="width: 200px;"><input class="form-check-input" type="checkbox" id="formCheck-email"><label class="form-check-label" for="formCheck-email">Label</label></div>
+                            </div>
+                            <div class="btn-group" role="group"><button class="btn btn-success active" type="button" style="margin: 15px;">Save</button><button class="btn btn-warning active" type="button" style="margin: 15px;">Revoke</button><button class="btn btn-danger active" type="button" style="margin: 15px;">Delete</button></div>
+                        </form>
+                    </div>
+                    <div class="card-body" id="card-body">
                         <div class="row">
                             <div class="col-md-6 text-nowrap">
                                 <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;<select id="selector" class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
