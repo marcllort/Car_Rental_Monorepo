@@ -1,4 +1,5 @@
 import {getUser, URL} from "./api_script.js";
+import {token} from "./dashboard_admin_script.js";
 
 function insertNewUser(i, resp) {
     var table = document.getElementById("dataTable");
@@ -41,16 +42,18 @@ function insertNewUser(i, resp) {
     cell5.innerHTML = provider;
 }
 
-function populateTable(idToken, numberResults, numberPage) {
+function populateTable(numberPage) {
     var length = 0;
+    var selectorValue = document.getElementById("selector").value;
+
     var url = URL.concat('/admin/list-users?maxResults=');
-    url = url.concat(numberResults);
+    url = url.concat(selectorValue);
     url = url.concat('&pageNumber=');
     url = url.concat(numberPage);
 
     return axios.get(url, {
         headers: {
-            Authorization: 'Bearer ' + idToken
+            Authorization: 'Bearer ' + token
         },
     }).then(resp => {
         var i = 1;

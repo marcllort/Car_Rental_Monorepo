@@ -16,7 +16,7 @@ window.onload = function () {
                 protectedApiCall(idToken);
                 token = idToken;
                 var selector = document.getElementById("selector");
-                populateTable(idToken, selector.value, actualPage).then((lengthUsers) => {
+                populateTable(actualPage).then((lengthUsers) => {
                     if (lengthUsers > selector.value) {
                         document.getElementById("nextPage").className = "page-item";
                     }
@@ -29,6 +29,10 @@ window.onload = function () {
         }
     });
 };
+
+window.populateTable = function (page) {
+    populateTable(page);
+}
 
 window.searchInTable = function () {
     var input, filter, table, tr, td, i, txtValue;
