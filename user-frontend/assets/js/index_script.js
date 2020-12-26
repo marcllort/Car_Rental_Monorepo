@@ -12,3 +12,7 @@ window.onload = function () {
         }
     });
 };
+
+window.logOut = function (event) {
+    logOut();
+}

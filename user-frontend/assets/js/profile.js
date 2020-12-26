@@ -28,3 +28,7 @@ window.updateMyProfile = function () {
         // An error happened.
     });
 }
+
+window.logOut = function (event) {
+    logOut();
+}

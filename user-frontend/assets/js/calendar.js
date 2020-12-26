@@ -1,5 +1,24 @@
+import {logOut, protectedApiCall, startUp} from "./api_script.js";
+import {prepareUI} from "./ui_script.js";
 
-document.addEventListener('DOMContentLoaded', function() {
+window.onload = function () {
+    startUp()
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user && window.location.pathname.includes("calendar.html")) {
+            prepareUI(user);
+            firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
+                protectedApiCall(idToken);
+            }).catch(function (error) {
+                console.error(error.data);
+                logOut();
+            });
+        } else {
+            logOut();
+        }
+    });
+};
+
+document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
 
 
@@ -11,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // To make your own Google API key, follow the directions here:
         // http://fullcalendar.io/docs/google_calendar/
         googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
 
         // US Holidays
         events: 'en.usa#holiday@group.v.calendar.google.com',
-
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
@@ -24,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks: true, // can click day/week names to navigate views
         selectable: true,
         selectMirror: true,
-        select: function(arg) {
+        select: function (arg) {
             var title = prompt('Event Title:');
             if (title) {
                 calendar.addEvent({
@@ -36,24 +55,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             calendar.unselect()
         },
-        eventClick: function(arg) {
+        eventClick: function (arg) {
             if (confirm('Are you sure you want to delete this event?')) {
                 arg.event.remove()
             }
+            arg.jsEvent.preventDefault(); // prevents visiting the calendar event
         },
         editable: true,
         dayMaxEvents: true, // allow "more" link when too many events
-
-        /*eventClick: function(calEvent, jsEvent, view) {
-            window.location = "http://www.domain.com?start=" + calEvent.start;
-
-        }*/
-        /*loading: function(bool) {
-            document.getElementById('loading').style.display =
-                bool ? 'block' : 'none';
-        }*/
 
     });
 
     calendar.render();
 });
+
+window.logOut = function (event) {
+    logOut();
+}
