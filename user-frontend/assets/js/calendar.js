@@ -62,11 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
             /*Open Sweet Alert*/
             calEvent.jsEvent.preventDefault();
 
-            swal({
-                title: calEvent.title,//Event Title
-                text: "Start From : ",//Event Start Date
-                icon: "success",
-            });
+
         },
 
 

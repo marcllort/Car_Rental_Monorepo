@@ -125,7 +125,6 @@ function updateUser() {
             var url = URL.concat('/admin/update-user')
 
             if (document.getElementById("password-text").value === "") {
-                console.log("nullifying");
                 document.getElementById("password-text").value = "null";
             }
             const headers = {
@@ -145,12 +144,13 @@ function updateUser() {
             axios.post(url, data, {
                 headers: headers
             }).then(resp => {
-                console.log(resp);
                 swalWithBootstrapButtons.fire(
                     'Done',
                     "User successfully updated",
                     'success'
-                )
+                ).then((result) => {
+                    location.reload();
+                })
             }).catch(error => {
                 swalWithBootstrapButtons.fire(
                     'Error',

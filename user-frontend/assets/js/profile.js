@@ -24,8 +24,28 @@ window.updateMyProfile = function () {
         photoURL: "https://example.com/jane-q-user/profile.jpg"
     }).then(function () {
         // Update successful.
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Profile successfully updated!',
+        })
     }).catch(function (error) {
-        // An error happened.
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+        })
     });
 }
 
