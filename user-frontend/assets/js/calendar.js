@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 title: 'All Day Event',
                 description: 'Christmas eve, hohoho!',
                 collision: 'event21',
-                availableDrivers: ['me', 'chop', 'lua'],
+                availableDrivers: {'me':"Me", 'chop':"Chop", 'lua':"Lua"},
                 start: '2020-12-01',
                 backgroundColor: '#a20606',
                 borderColor: '#a20606'
@@ -73,11 +73,13 @@ document.addEventListener('DOMContentLoaded', function () {
             calEvent.jsEvent.preventDefault();
             console.log(calEvent.event);
 
-            var htmlContent = calEvent.event.extendedProps.description + '<br>'
-            htmlContent = '    <h4 class="text-muted card-subtitle mb-2">Start/End Time</h4>\n' +
-                '    <p class="card-text">' + calEvent.event.start + ' / ' + calEvent.event.end + '<br /></p>\n' +
+            var htmlContent = '    <h4 class="text-muted card-subtitle mb-2">Start Event</h4>\n' +
+                '    <p class="card-text">'+calEvent.event.start+'<br /></p>\n' +
+                '    <h4 class="text-muted card-subtitle mb-2">End Event</h4>\n' +
+                '    <p class="card-text">'+calEvent.event.end+'<br /></p>\n' +
                 '    <h4 class="text-muted card-subtitle mb-2">Description</h4>\n' +
                 '    <p class="card-text">' + calEvent.event.extendedProps.description + '</p>\n'
+
             if (calEvent.event.extendedProps.collision !== undefined) {
                 htmlContent += 'Collision with event ' + calEvent.event.extendedProps.collision + '<br>';
                 if (calEvent.event.extendedProps.availableDrivers[0] === 'me') {
@@ -98,11 +100,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 progressSteps: ['1', '2', '3']
             }).queue([
                 {
-                    title: 'Question 1',
+                    title: calEvent.event.title,
                     html: htmlContent
                 },
                 {
-                    title: 'Question 2',
+                    title: 'Available',
                     text: 'You are available for this transfer. Want to assign it to yourself?', input: 'radio',
                     inputOptions: inputOptions,
                     inputValidator: (value) => {
@@ -112,8 +114,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 },
                 {
-                    title: 'Question 3',
-                    text: 'Joint service? Assign to someone else? ', input: 'select'
+                    title: 'Drivers',
+                    text: 'Joint service? Assign to someone else? ',
+                    input: 'select',
+                    inputOptions: calEvent.event.extendedProps.availableDrivers
                 },
             ]).then((result) => {
                 if (result.value) {
