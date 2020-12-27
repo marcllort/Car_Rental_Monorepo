@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 title: 'All Day Event',
                 description: 'Christmas eve, hohoho!',
                 collision: 'event21',
-                availableDrivers: {'me':"Me", 'chop':"Chop", 'lua':"Lua"},
+                availableDrivers: {'me': "Me", 'chop': "Chop", 'lua': "Lua"},
                 start: '2020-12-01',
                 backgroundColor: '#a20606',
                 borderColor: '#a20606'
@@ -74,19 +74,22 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(calEvent.event);
 
             var htmlContent = '    <h4 class="text-muted card-subtitle mb-2">Start Event</h4>\n' +
-                '    <p class="card-text">'+calEvent.event.start+'<br /></p>\n' +
+                '    <p class="card-text">' + calEvent.event.start + '<br /></p>\n' +
                 '    <h4 class="text-muted card-subtitle mb-2">End Event</h4>\n' +
-                '    <p class="card-text">'+calEvent.event.end+'<br /></p>\n' +
+                '    <p class="card-text">' + calEvent.event.end + '<br /></p>\n' +
                 '    <h4 class="text-muted card-subtitle mb-2">Description</h4>\n' +
                 '    <p class="card-text">' + calEvent.event.extendedProps.description + '</p>\n'
 
             if (calEvent.event.extendedProps.collision !== undefined) {
-                htmlContent += 'Collision with event ' + calEvent.event.extendedProps.collision + '<br>';
-                if (calEvent.event.extendedProps.availableDrivers[0] === 'me') {
-                    htmlContent += 'You are available to do this event!';
-                }
+                htmlContent += '    <h4 class="text-muted card-subtitle mb-2">Collisions</h4>\n' + 'Collision with event ' + calEvent.event.extendedProps.collision + '<br>';
+                console.log(calEvent.event.extendedProps.availableDrivers['me']);
             }
-
+            var textAvailability;
+            if (calEvent.event.extendedProps.availableDrivers['me'] === 'Me') {
+                textAvailability = 'You are available for this transfer. Want to assign it to yourself?';
+            } else {
+                textAvailability = 'You are NOT available for this transfer. Do you still want to assign it to yourself?';
+            }
 
             var inputOptions = new Promise(function (resolve) {
                 resolve({
@@ -128,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 Your answers:
                                 <pre><code>${answers}</code></pre>
                               `,
-                        confirmButtonText: 'Lovely!'
+                        confirmButtonText: 'Ok'
                     })
                 }
             })
