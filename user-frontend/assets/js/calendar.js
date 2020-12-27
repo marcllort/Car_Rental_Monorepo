@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
 
         // US Holidays
+
         events: 'en.usa#holiday@group.v.calendar.google.com',
         headerToolbar: {
             left: 'prev,next today',
@@ -55,12 +56,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             calendar.unselect()
         },
-        eventClick: function (arg) {
-            if (confirm('Are you sure you want to delete this event?')) {
-                arg.event.remove()
-            }
-            arg.jsEvent.preventDefault(); // prevents visiting the calendar event
+
+
+        eventClick: function(calEvent, jsEvent, view, resourceObj) {
+            /*Open Sweet Alert*/
+            calEvent.jsEvent.preventDefault();
+
+            swal({
+                title: calEvent.title,//Event Title
+                text: "Start From : ",//Event Start Date
+                icon: "success",
+            });
         },
+
+
         editable: true,
         dayMaxEvents: true, // allow "more" link when too many events
 

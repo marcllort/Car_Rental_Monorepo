@@ -50,66 +50,181 @@ function getUser(email) {
 }
 
 function deleteUser(email) {
-    var isconfirm = window.confirm("Do you want to delete the user?");
-    if (isconfirm) {
-        var url = URL.concat('/admin/delete-user') + '?emailOrUid=' + email
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
 
-        return axios.delete(url, {
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
-        }).then(resp => {
-            return resp
-        });
-    }
+    swalWithBootstrapButtons.fire({
+        title: 'Are you sure you want to delete the user?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var url = URL.concat('/admin/delete-user') + '?emailOrUid=' + email
+
+            return axios.delete(url, {
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            }).then(resp => {
+                swalWithBootstrapButtons.fire(
+                    'Deleted',
+                    "User successfully deleted",
+                    'success'
+                )
+                return resp
+            }).catch(error => {
+                swalWithBootstrapButtons.fire(
+                    'Error',
+                    capitalizeFirstLetter(error.response.data.message),
+                    'error'
+                )
+            });
+
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'Cancelled',
+                'User will not be deleted.',
+                'error'
+            )
+        }
+    })
+
 }
 
 function updateUser() {
-    var isconfirm = window.confirm("Do you want to save the user?");
-    if (isconfirm) {
-        var url = URL.concat('/admin/update-user')
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
 
-        if (document.getElementById("password-text").value === "") {
-            console.log("nullifying");
-            document.getElementById("password-text").value = "null";
+    swalWithBootstrapButtons.fire({
+        title: 'Are you sure you want to save the user?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, save it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var url = URL.concat('/admin/update-user')
+
+            if (document.getElementById("password-text").value === "") {
+                console.log("nullifying");
+                document.getElementById("password-text").value = "null";
+            }
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token,
+            }
+            const data = {
+                displayName: document.getElementById("name-text").value,
+                email: document.getElementById("email-text").value,
+                password: document.getElementById("password-text").value,
+                customClaim: document.getElementById("claims-select").value,
+                disabled: document.getElementById("formCheck-disabled").checked,
+                emailVerified: document.getElementById("formCheck-email").checked,
+                phoneNumber: document.getElementById("phone-text").value,
+                photoURL: document.getElementById("photo-text").value
+            }
+            axios.post(url, data, {
+                headers: headers
+            }).then(resp => {
+                console.log(resp);
+                swalWithBootstrapButtons.fire(
+                    'Done',
+                    "User successfully updated",
+                    'success'
+                )
+            }).catch(error => {
+                swalWithBootstrapButtons.fire(
+                    'Error',
+                    capitalizeFirstLetter(error.response.data.message),
+                    'error'
+                )
+            });
+
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'Cancelled',
+                'User will not be saved.',
+                'error'
+            )
         }
-        const headers = {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token,
-        }
-        const data = {
-            displayName: document.getElementById("name-text").value,
-            email: document.getElementById("email-text").value,
-            password: document.getElementById("password-text").value,
-            customClaim: document.getElementById("claims-select").value,
-            disabled: document.getElementById("formCheck-disabled").checked,
-            emailVerified: document.getElementById("formCheck-email").checked,
-            phoneNumber: document.getElementById("phone-text").value,
-            photoURL: document.getElementById("photo-text").value
-        }
-        axios.post(url, data, {
-            headers: headers
-        }).then(resp => {
-            console.log(resp);
-        }).catch(error => {
-            alert(capitalizeFirstLetter(error.response.data.message));
-        });
-    }
+    })
+
 }
 
 function revokeUser(email) {
-    var isconfirm = window.confirm("Do you want to revoke permissions?");
-    if (isconfirm) {
-        var url = URL.concat('/admin/revoke-token') + '?emailOrUid=' + email
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
 
-        return axios.get(url, {
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
-        }).then(resp => {
-            return resp
-        });
-    }
+    swalWithBootstrapButtons.fire({
+        title: 'Are you sure you want to revoke the token?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, revoke!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var url = URL.concat('/admin/revoke-token') + '?emailOrUid=' + email
+
+            return axios.get(url, {
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            }).then(resp => {
+                swalWithBootstrapButtons.fire(
+                    'Revoked',
+                    'User\'s token successfully revoked.',
+                    'success'
+                )
+                return resp
+            }).catch(error => {
+                swalWithBootstrapButtons.fire(
+                    'Error',
+                    capitalizeFirstLetter(error.response.data.message),
+                    'error'
+                )
+            });
+
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'Cancelled',
+                'User\'s token not revoked.',
+                'error'
+            )
+        }
+    })
+
 }
 
 function logOut() {
