@@ -1,4 +1,4 @@
-import {deleteUser, logOut, protectedApiCall, revokeUser, startUp, updateUser} from "./api_script.js";
+import {deleteUser, logOut, protectedApiCall, revokeUser, setToken, startUp, updateUser} from "./api_script.js";
 import {clickTable, populateTable} from "./table_script.js";
 import {prepareUI, redirectUserAdmin} from "./ui_script.js";
 
@@ -13,7 +13,7 @@ window.onload = function () {
             clickTable();
             firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
                 redirectUserAdmin();
-                protectedApiCall(idToken);
+                setToken(idToken);
                 token = idToken;
                 var selector = document.getElementById("selector");
                 populateTable(actualPage).then((lengthUsers) => {

@@ -1,6 +1,11 @@
-import {token} from "./dashboard_admin_script.js";
+var idToken;
 
 const URL = "http://localhost:8090";
+
+function setToken(idToken1){
+    idToken=idToken1;
+    console.log(idToken);
+}
 
 function startUp() {
     const firebaseConfig = {
@@ -26,14 +31,13 @@ function publicApiCall() {
     });
 }
 
-function protectedApiCall(idToken) {
+function protectedApiCall() {
     axios.get(URL.concat('/protected/data'), {
         headers: {
             Authorization: 'Bearer ' + idToken
         }
     }).then(resp => {
         console.log(resp.data);
-        console.log(idToken);
     });
 }
 
@@ -42,7 +46,18 @@ function getUser(email) {
 
     return axios.get(url, {
         headers: {
-            Authorization: 'Bearer ' + token
+            Authorization: 'Bearer ' + idToken
+        }
+    }).then(resp => {
+        return resp
+    });
+}
+
+function getCalendar() {
+    var url = URL.concat('/protected/calendar')
+    return axios.get(url, {
+        headers: {
+            Authorization: 'Bearer ' + idToken
         }
     }).then(resp => {
         return resp
@@ -72,7 +87,7 @@ function deleteUser(email) {
 
             return axios.delete(url, {
                 headers: {
-                    Authorization: 'Bearer ' + token
+                    Authorization: 'Bearer ' + idToken
                 }
             }).then(resp => {
                 swalWithBootstrapButtons.fire(
@@ -129,7 +144,7 @@ function updateUser() {
             }
             const headers = {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + idToken,
             }
             const data = {
                 displayName: document.getElementById("name-text").value,
@@ -196,7 +211,7 @@ function revokeUser(email) {
 
             return axios.get(url, {
                 headers: {
-                    Authorization: 'Bearer ' + token
+                    Authorization: 'Bearer ' + idToken
                 }
             }).then(resp => {
                 swalWithBootstrapButtons.fire(
@@ -241,4 +256,4 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export {URL, startUp, publicApiCall, protectedApiCall, getUser, updateUser, revokeUser, deleteUser, logOut};
+export {URL,setToken, startUp, publicApiCall, protectedApiCall, getUser, updateUser, revokeUser, deleteUser, logOut, getCalendar};

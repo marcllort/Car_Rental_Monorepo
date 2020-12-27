@@ -1,5 +1,7 @@
-import {logOut, protectedApiCall, startUp} from "./api_script.js";
+import {getCalendar, logOut, setToken, startUp} from "./api_script.js";
 import {prepareUI} from "./ui_script.js";
+
+var eventsString;
 
 window.onload = function () {
     startUp()
@@ -7,7 +9,11 @@ window.onload = function () {
         if (user && window.location.pathname.includes("calendar.html")) {
             prepareUI(user);
             firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
-                protectedApiCall(idToken);
+                setToken(idToken);
+                getCalendar().then((response) => {
+                    eventsString = response.data;
+                    createCalendar();
+                });
             }).catch(function (error) {
                 console.error(error.data);
                 logOut();
@@ -18,9 +24,9 @@ window.onload = function () {
     });
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+function createCalendar() {
+    document.getElementById("spinner").hidden=true;
     var calendarEl = document.getElementById('calendar');
-
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         displayEventTime: false, // don't show the time column in list view
@@ -34,17 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // US Holidays
 
-        events: [
-            {
-                title: 'All Day Event',
-                description: 'Christmas eve, hohoho!',
-                collision: 'event21',
-                availableDrivers: {'me': "Me", 'chop': "Chop", 'lua': "Lua"},
-                start: '2020-12-01',
-                backgroundColor: '#a20606',
-                borderColor: '#a20606'
-            }
-        ],
+        events: eventsString,
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
@@ -69,9 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         eventClick: function (calEvent, jsEvent, view, resourceObj) {
-            /*Open Sweet Alert*/
             calEvent.jsEvent.preventDefault();
-            console.log(calEvent.event);
 
             var htmlContent = '    <h4 class="text-muted card-subtitle mb-2">Start Event</h4>\n' +
                 '    <p class="card-text">' + calEvent.event.start + '<br /></p>\n' +
@@ -82,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (calEvent.event.extendedProps.collision !== undefined) {
                 htmlContent += '    <h4 class="text-muted card-subtitle mb-2">Collisions</h4>\n' + 'Collision with event ' + calEvent.event.extendedProps.collision + '<br>';
-                console.log(calEvent.event.extendedProps.availableDrivers['me']);
             }
             var textAvailability;
             if (calEvent.event.extendedProps.availableDrivers['me'] === 'Me') {
@@ -108,7 +101,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 {
                     title: 'Available',
-                    text: 'You are available for this transfer. Want to assign it to yourself?', input: 'radio',
+                    text: textAvailability,
+                    input: 'radio',
                     inputOptions: inputOptions,
                     inputValidator: (value) => {
                         if (!value) {
@@ -137,19 +131,13 @@ document.addEventListener('DOMContentLoaded', function () {
             })
         },
 
-        eventDidMount: function (event, element) {
-            if (event.event.extendedProps.availableDrivers[0] === 'me') {
-                console.log(event);
-                event.backgroundColor = '#a20606';
-            }
-        },
         editable: true,
         dayMaxEvents: true, // allow "more" link when too many events
-
     });
 
     calendar.render();
-});
+}
+
 
 window.logOut = function (event) {
     logOut();

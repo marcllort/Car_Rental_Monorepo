@@ -1,5 +1,4 @@
-import {logOut, protectedApiCall, startUp} from "./api_script.js";
-import {populateTable} from "./table_script.js";
+import {logOut, setToken, startUp} from "./api_script.js";
 import {prepareUI, redirectUserAdmin} from "./ui_script.js";
 
 window.onload = function () {
@@ -8,7 +7,7 @@ window.onload = function () {
         if (user && window.location.pathname.includes("user_table.html")) {
             prepareUI(user);
             firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
-                protectedApiCall(idToken);
+                setToken(idToken);
                 redirectUserAdmin();
             }).catch(function (error) {
                 console.error(error.data);
