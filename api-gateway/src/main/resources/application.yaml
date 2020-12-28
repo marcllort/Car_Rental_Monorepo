@@ -19,6 +19,7 @@ security:
    - http://localhost:4000
    - http://localhost:63342
    - http://localhost:63343
+   - https://marcllort.github.io
    allowed-methods:
    - GET
    - POST
