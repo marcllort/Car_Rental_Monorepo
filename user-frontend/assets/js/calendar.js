@@ -25,7 +25,7 @@ window.onload = function () {
 };
 
 function createCalendar() {
-    document.getElementById("spinner").hidden=true;
+    document.getElementById("spinner").hidden = true;
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -51,6 +51,7 @@ function createCalendar() {
         selectable: true,
         selectMirror: true,
         select: function (arg) {
+
             var title = prompt('Event Title:');
             if (title) {
                 calendar.addEvent({
@@ -66,11 +67,11 @@ function createCalendar() {
 
         eventClick: function (calEvent, jsEvent, view, resourceObj) {
             calEvent.jsEvent.preventDefault();
-
+            console.log(calEvent);
             var htmlContent = '    <h4 class="text-muted card-subtitle mb-2">Start Event</h4>\n' +
-                '    <p class="card-text">' + calEvent.event.start + '<br /></p>\n' +
+                '    <p class="card-text">' + calEvent.event.start.toLocaleString("es-ES") + '<br /></p>\n' +
                 '    <h4 class="text-muted card-subtitle mb-2">End Event</h4>\n' +
-                '    <p class="card-text">' + calEvent.event.end + '<br /></p>\n' +
+                '    <p class="card-text">' + calEvent.event.end.toLocaleString("es-ES") + '<br /></p>\n' +
                 '    <h4 class="text-muted card-subtitle mb-2">Description</h4>\n' +
                 '    <p class="card-text">' + calEvent.event.extendedProps.description + '</p>\n'
 

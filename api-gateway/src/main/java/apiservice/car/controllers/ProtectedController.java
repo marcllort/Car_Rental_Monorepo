@@ -5,6 +5,7 @@ import apiservice.car.security.SecurityService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,13 @@ public class ProtectedController {
     @GetMapping("calendar")
     public String getProtectedCalendar() {
 
+        JsonArray array = generateExample();
+
+        return array.toString();
+    }
+
+    @NotNull
+    private JsonArray generateExample() {
         JsonArray array = new JsonArray();
         JsonObject item = new JsonObject();
         JsonObject availableDrivers = new JsonObject();
@@ -43,13 +51,12 @@ public class ProtectedController {
         item.addProperty("description", "Christmas eve, hohoho!");
         item.addProperty("collision", "event21");
         item.add("availableDrivers", availableDrivers);
-        item.addProperty("start", "2020-12-01");
-        item.addProperty("end", "2020-12-01");
+        item.addProperty("start", "2020-12-01 12:15");
+        item.addProperty("end", "2020-12-01 14:30");
         item.addProperty("backgroundColor", "#a20606");
         item.addProperty("borderColor", "#a20606");
         array.add(item);
-        String event = array.toString();
-        return event;
+        return array;
     }
 
 }
