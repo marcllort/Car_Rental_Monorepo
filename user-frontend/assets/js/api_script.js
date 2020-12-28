@@ -1,6 +1,6 @@
 var idToken;
 
-const URL = "http://localhost:8090";
+const URL = "http://62.57.42.225:8090";
 
 function setToken(idToken1){
     idToken=idToken1;
