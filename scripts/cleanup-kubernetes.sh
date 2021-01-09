@@ -1,2 +1,2 @@
-kubectl delete daemonsets,replicasets,services,deployments,pods,rc,secrets --all
+kubectl delete all --all --all-namespaces
 helm del ingress-controller
