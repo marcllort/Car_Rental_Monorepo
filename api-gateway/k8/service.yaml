@@ -6,9 +6,10 @@ metadata:
   name: firebase-middleware-service
 spec:
   ports:
-  - port: 8080
+  - name: http
+    port: 50000
     protocol: TCP
     targetPort: 8080
   selector:
     app: firebase-middleware
-  type: ClusterIP
+  type: NodePort
