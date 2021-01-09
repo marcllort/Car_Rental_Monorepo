@@ -48,7 +48,6 @@ function populateTable(numberPage) {
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "text/plain");
-    myHeaders.append("X-Auth-Token", "SUPER_SECRET_API_KEY");
     myHeaders.append("Access-Control-Allow-Origin", "*");
     myHeaders.append("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers");
     myHeaders.append('Authorization', 'Bearer ' + token);
