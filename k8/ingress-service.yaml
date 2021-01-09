@@ -14,6 +14,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: firebase-middleware-service
+                name: apigw-service
                 port:
                   number: 50000

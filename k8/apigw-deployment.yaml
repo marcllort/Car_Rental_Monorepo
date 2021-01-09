@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: firebase-middleware-deployment
+  name: apigw-deployment
   labels:
-    app: firebase-middleware
+    app: apigw-middleware
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: firebase-middleware
+      app: apigw-middleware
   template:
     metadata:
       labels:
-        app: firebase-middleware
+        app: apigw-middleware
     spec:
       containers:
-        - name: firebase-middleware
+        - name: apigw-middleware
           image: marcllort/car-rental:latest
           ports:
             - containerPort: 8080

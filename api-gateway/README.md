@@ -61,21 +61,7 @@ GOOGLE_APPLICATION_CREDENTIALS=api-gateway/car-rental.json
 SUPER_ADMINS=mac12llm2@gmail.com
 
 ##Docker
-1. Build image
-docker build -t marcllort/car-rental .
-docker push marcllort/car-rental 
-
-2. Create secret in kubernetes cluster
-kubectl create secret generic firebase-secret --from-file car-rental.json
-   
-3. Configure NGINX
-   https://kubernetes.github.io/ingress-nginx/deploy/
-    Steps:
-    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-    helm repo update
-    helm install my-release ingress-nginx/ingress-nginx
-
-
+Checkout the scripts folder, where setup and cleanup scripts are implemented.
 
 
 apiVersion: networking.k8s.io/v1beta1
