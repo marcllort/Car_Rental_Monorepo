@@ -16,16 +16,21 @@ spec:
     spec:
       containers:
         - name: firebase-middleware
-          image: firebase-middleware:latest
-          env:
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: "/app/thepro-firebase-config.json"
+          image: marcllort/car-rental:latest
           ports:
             - containerPort: 8080
+          env:
+            - name: SUPER_ADMINS
+              value: "mac12llm2@gmail.com"
+            - name: CORS_DOMAIN
+              value: "http://localhost:63343"
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /app/car-rental.json
           volumeMounts:
-            - name: config-volume
-              mountPath: /app/firebase-service-account.json
+            - name: firebase-config-volume
+              mountPath: /app/
+              readOnly: true # no editing!
       volumes:
         - name: firebase-config-volume
           secret:
-            secretName: firebase-admin-config
+            secretName: firebase-secret
