@@ -7,6 +7,7 @@ function setToken(idToken1){
     console.log(idToken);
 }
 
+
 function startUp() {
     const firebaseConfig = {
         apiKey: "AIzaSyCiCPnNzBZm-er7Hd6cHMdTpYO9KQ7l5OU",

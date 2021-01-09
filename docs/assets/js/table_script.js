@@ -46,15 +46,20 @@ function populateTable(numberPage) {
     var length = 0;
     var selectorValue = document.getElementById("selector").value;
 
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "text/plain");
+    myHeaders.append("X-Auth-Token", "SUPER_SECRET_API_KEY");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
+    myHeaders.append("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers");
+    myHeaders.append('Authorization', 'Bearer ' + token);
+
     var url = URL.concat('/admin/list-users?maxResults=');
     url = url.concat(selectorValue);
     url = url.concat('&pageNumber=');
     url = url.concat(numberPage);
 
     return axios.get(url, {
-        headers: {
-            Authorization: 'Bearer ' + token
-        },
+        headers: myHeaders,
     }).then(resp => {
         var i = 1;
         document.getElementById("spinner").hidden=true;
