@@ -7,6 +7,7 @@ import com.google.firebase.auth.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 @RestController
@@ -26,6 +27,12 @@ public class SuperAdminController {
         } else {
             return firebaseAuth.getUser(emailOrUid);
         }
+    }
+
+    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
+    public void getOption(HttpServletResponse response) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
     }
 
     @GetMapping("list-users")

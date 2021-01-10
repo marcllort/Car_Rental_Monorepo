@@ -9,12 +9,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.SessionCookieOptions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -27,6 +25,12 @@ public class SessionController {
     private CookieService cookieUtils;
     @Autowired
     private SecurityProperties secProps;
+
+    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
+    public void getOption(HttpServletResponse response) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    }
 
     @PostMapping("login")
     public void sessionLogin(HttpServletRequest request) {

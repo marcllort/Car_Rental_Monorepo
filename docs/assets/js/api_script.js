@@ -1,6 +1,6 @@
 var idToken;
 
-const URL = "https://carrentalbarcelona.tk";
+const URL = "https://62.57.42.225";
 
 function setToken(idToken1){
     idToken=idToken1;

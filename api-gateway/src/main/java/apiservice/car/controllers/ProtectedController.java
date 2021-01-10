@@ -9,7 +9,10 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("protected")
@@ -37,6 +40,12 @@ public class ProtectedController {
         JsonArray array = generateExample();
 
         return array.toString();
+    }
+
+    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
+    public void getOption(HttpServletResponse response) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
     }
 
     @NotNull

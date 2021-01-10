@@ -47,9 +47,6 @@ function populateTable(numberPage) {
     var selectorValue = document.getElementById("selector").value;
 
     const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "text/plain");
-    myHeaders.append("Access-Control-Allow-Origin", "*");
-    myHeaders.append("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers");
     myHeaders.append('Authorization', 'Bearer ' + token);
 
     var url = URL.concat('/admin/list-users?maxResults=');
