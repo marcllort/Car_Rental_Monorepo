@@ -46,16 +46,15 @@ function populateTable(numberPage) {
     var length = 0;
     var selectorValue = document.getElementById("selector").value;
 
-    const myHeaders = new Headers();
-    myHeaders.append('Authorization', 'Bearer ' + token);
-
     var url = URL.concat('/admin/list-users?maxResults=');
     url = url.concat(selectorValue);
     url = url.concat('&pageNumber=');
     url = url.concat(numberPage);
 
     return axios.get(url, {
-        headers: myHeaders,
+        headers: {
+            Authorization: 'Bearer ' + token
+        },
     }).then(resp => {
         var i = 1;
         document.getElementById("spinner").hidden=true;
