@@ -4,3 +4,7 @@
 .classpath
 /.settings
 /api-gateway/src/main/resources/firebase-server-config.json
+/api-gateway/creds/https-server.key
+/api-gateway/creds/https-server.crt
+/api-gateway/car-rental.json
+/api-gateway/creds/car-rental.json

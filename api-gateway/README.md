@@ -11,13 +11,25 @@ It checks if the user is logged in, and has the necessary role/permissions to do
 - /public/covid
 - /public/data
 
-- /protected/
-- /protected/
+- /protected/data
+- /protected/calendar
 - /protected/
 - /protected/
 
 - /super/user
-- /super/data
+- /super/list-users
+- /super/create-user
+- /super/update-user
+- /super/delete-user
+- /super/set-claim
+- /super/activate-account
+- /super/reset-password
+- /super/revoke-token
+
+- /session/login
+- /session/logout
+- /session/me
+- /session/create/token
 
 ### Firebase Authentication for Spring boot
 
@@ -57,51 +69,13 @@ with **Spring Security** to seamlessly create and use protected rest API's.
 
 ## Environment vars
 
-GOOGLE_APPLICATION_CREDENTIALS=api-gateway/car-rental.json 
-SUPER_ADMINS=mac12llm2@gmail.com
+- GOOGLE_APPLICATION_CREDENTIALS=api-gateway/scripts/car-rental.json 
+- SUPER_ADMINS=mac12llm2@gmail.com
+- CORS_DOMAIN=http://localhost:63343
 
 ##Docker
-Checkout the scripts folder, where setup and cleanup scripts are implemented.
+As Kubernetes is being used to host the infrastructure of the project, all the microservices must be containerized.
 
+The api-gw, and all the other microservices, have a Dockerfile that builds the image that will later be used by Kubernetes.
 
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-annotations:
-kubernetes.io/ingress.class: nginx
-name: example
-namespace: foo
-spec:
-rules:
-- host: www.example.com
-http:
-paths:
-- backend:
-serviceName: exampleService
-servicePort: 80
-path: /
-# This section is only required if TLS is to be enabled for the Ingress
-tls:
-- hosts:
-- www.example.com
-secretName: example-tls
-
-If TLS is enabled for the Ingress, a Secret containing the certificate and key must also be provided:
-
-apiVersion: v1
-kind: Secret
-metadata:
-name: example-tls
-namespace: foo
-data:
-tls.crt: <base64 encoded cert>
-tls.key: <base64 encoded key>
-type: kubernetes.io/tls
-
-  
-
-## Related Tutorials :
-
-- [Firebase Authentication for Spring Boot Rest API](https://thepro.io/post/firebase-authentication-for-spring-boot-rest-api-5V)
-- [Firebase with Spring Boot for Kubernetes Deployment Configuration](https://thepro.io/post/firebase-with-spring-boot-kubernetes-deployment-configuration-RA)
-- [Local Domain Names with SSL for development applications ](https://thepro.io/post/local-domain-names-with-ssl-for-local-development-applications-LG)
+There is also, in the scripts folder, a docker-build.sh script to automatize the creation of the image with the necessary tag, and its upload to the registry.

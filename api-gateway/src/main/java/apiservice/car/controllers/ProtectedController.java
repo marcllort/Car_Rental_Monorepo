@@ -42,6 +42,7 @@ public class ProtectedController {
         return array.toString();
     }
 
+    // Needed? must be tested without it
     @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
     public void getOption(HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin", "*");
