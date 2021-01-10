@@ -23,12 +23,6 @@ public class PublicController {
         return covidCall();
     }
 
-    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
-    public void getOption(HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-    }
-
     // Implement command pattern
     private String covidCall() {
         try {

@@ -26,12 +26,6 @@ public class SessionController {
     @Autowired
     private SecurityProperties secProps;
 
-    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
-    public void getOption(HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-    }
-
     @PostMapping("login")
     public void sessionLogin(HttpServletRequest request) {
         String idToken = securityService.getBearerToken(request);

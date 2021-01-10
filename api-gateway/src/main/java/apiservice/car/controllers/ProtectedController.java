@@ -42,13 +42,6 @@ public class ProtectedController {
         return array.toString();
     }
 
-    // Needed? must be tested without it
-    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
-    public void getOption(HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-    }
-
     @NotNull
     private JsonArray generateExample() {
         JsonArray array = new JsonArray();
