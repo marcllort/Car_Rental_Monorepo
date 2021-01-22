@@ -9,10 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("protected")
@@ -47,9 +44,9 @@ public class ProtectedController {
         JsonArray array = new JsonArray();
         JsonObject item = new JsonObject();
         JsonObject availableDrivers = new JsonObject();
-        availableDrivers.addProperty("me","Me");
-        availableDrivers.addProperty("chop","Chop");
-        availableDrivers.addProperty("lua","Lua");
+        availableDrivers.addProperty("me", "Me");
+        availableDrivers.addProperty("chop", "Chop");
+        availableDrivers.addProperty("lua", "Lua");
         item.addProperty("title", "All Day Event");
         item.addProperty("description", "Christmas eve, hohoho!");
         item.addProperty("collision", "event21");

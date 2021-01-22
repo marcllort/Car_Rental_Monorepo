@@ -3,9 +3,6 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/google/apis/google-api-services-storage/v1-rev20200430-1.30.9/google-api-services-storage-v1-rev20200430-1.30.9.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/google/apis/google-api-services-storage/v1-rev20200430-1.30.9/google-api-services-storage-v1-rev20200430-1.30.9-javadoc.jar!/" />
-    </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/google/apis/google-api-services-storage/v1-rev20200430-1.30.9/google-api-services-storage-v1-rev20200430-1.30.9-sources.jar!/" />
     </SOURCES>

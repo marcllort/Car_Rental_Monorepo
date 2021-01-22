@@ -3,9 +3,6 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/google/api-client/google-api-client/1.30.10/google-api-client-1.30.10.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/google/api-client/google-api-client/1.30.10/google-api-client-1.30.10-javadoc.jar!/" />
-    </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/google/api-client/google-api-client/1.30.10/google-api-client-1.30.10-sources.jar!/" />
     </SOURCES>
