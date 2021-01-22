@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Creation of calendar and legal microservice, with RabbitMQ implementation working">
-      <change afterPath="$PROJECT_DIR$/email/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/UserLogin.xml" beforeDir="false" />
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/calendar/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legal/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +59,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/email" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -69,11 +71,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\legal\src\main\kotlin\com\car\rental\legal" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\creds" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\k8" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\user-frontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\creds" />
@@ -133,14 +135,7 @@
       <workItem from="1610217329691" duration="20962000" />
       <workItem from="1610443371178" duration="1188000" />
       <workItem from="1611330719427" duration="5364000" />
-      <workItem from="1611338549393" duration="1681000" />
-    </task>
-    <task id="LOCAL-00008" summary="Update Postman requests">
-      <created>1608802750010</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1608802750010</updated>
+      <workItem from="1611338549393" duration="2348000" />
     </task>
     <task id="LOCAL-00009" summary="Fix frontend">
       <created>1608810841490</created>
@@ -478,14 +473,20 @@
       <option name="project" value="LOCAL" />
       <updated>1611339457946</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Add intellij Configs and email microservice">
+      <created>1611340287358</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1611340287358</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Pagination implemented" />
     <MESSAGE value="UI redirect" />
     <MESSAGE value="Refactor scripts" />
     <MESSAGE value="Click on table row" />
@@ -510,7 +511,8 @@
     <MESSAGE value="Added READMEs" />
     <MESSAGE value="Remove unnecessary CORS code" />
     <MESSAGE value="Creation of calendar and legal microservice, with RabbitMQ implementation working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation of calendar and legal microservice, with RabbitMQ implementation working" />
+    <MESSAGE value="Add intellij Configs and email microservice" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add intellij Configs and email microservice" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
