@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/calendar/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legal/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,7 @@
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\docs\assets\css" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.API-Gateway">
+  <component name="RunManager" selected="Docker.calendar/Dockerfile">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -99,14 +97,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="calendar/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="calendar/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="legal/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="legal/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Go Build.Calendar" />
       <item itemvalue="Go Build.Email" />
       <item itemvalue="Spring Boot.API-Gateway" />
       <item itemvalue="Spring Boot.Legal" />
+      <item itemvalue="Docker.legal/Dockerfile" />
+      <item itemvalue="Docker.calendar/Dockerfile" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.calendar/Dockerfile" />
+        <item itemvalue="Docker.legal/Dockerfile" />
         <item itemvalue="Go Build.Email" />
         <item itemvalue="Spring Boot.Legal" />
         <item itemvalue="Go Build.Calendar" />
@@ -135,14 +160,7 @@
       <workItem from="1610217329691" duration="20962000" />
       <workItem from="1610443371178" duration="1188000" />
       <workItem from="1611330719427" duration="5364000" />
-      <workItem from="1611338549393" duration="2348000" />
-    </task>
-    <task id="LOCAL-00009" summary="Fix frontend">
-      <created>1608810841490</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1608810841490</updated>
+      <workItem from="1611338549393" duration="4311000" />
     </task>
     <task id="LOCAL-00010" summary="Refactor frontend">
       <created>1608811105654</created>
@@ -480,14 +498,20 @@
       <option name="project" value="LOCAL" />
       <updated>1611340287358</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Added dockerfiles for all projects">
+      <created>1611340937263</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1611340937263</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UI redirect" />
     <MESSAGE value="Refactor scripts" />
     <MESSAGE value="Click on table row" />
     <MESSAGE value="Added popup" />
@@ -512,7 +536,8 @@
     <MESSAGE value="Remove unnecessary CORS code" />
     <MESSAGE value="Creation of calendar and legal microservice, with RabbitMQ implementation working" />
     <MESSAGE value="Add intellij Configs and email microservice" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add intellij Configs and email microservice" />
+    <MESSAGE value="Added dockerfiles for all projects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added dockerfiles for all projects" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
