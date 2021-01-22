@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Creation of calendar and legal microservice, with RabbitMQ implementation working">
+      <change afterPath="$PROJECT_DIR$/email/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/UserLogin.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="Class" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1m3OnMybHEet2CfYpyhZuVLm3Ch" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/api-gateway/k8/ingress-service.yaml" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\legal\src\main\kotlin\com\car\rental\legal" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\creds" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\k8" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\user-frontend" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\creds" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\scripts" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\docs\assets\css" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.API-Gateway">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.Calendar" />
+      <item itemvalue="Go Build.Email" />
+      <item itemvalue="Spring Boot.API-Gateway" />
+      <item itemvalue="Spring Boot.Legal" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.Email" />
+        <item itemvalue="Spring Boot.Legal" />
+        <item itemvalue="Go Build.Calendar" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="" />
+      <created>1608718974123</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608718974123</updated>
+      <workItem from="1608718975278" duration="216000" />
+      <workItem from="1608719324289" duration="6806000" />
+      <workItem from="1608728641352" duration="41000" />
+      <workItem from="1608728687060" duration="88061000" />
+      <workItem from="1609674666530" duration="12000" />
+      <workItem from="1609695208547" duration="613000" />
+      <workItem from="1609871927235" duration="1821000" />
+      <workItem from="1610015890525" duration="12000" />
+      <workItem from="1610015956860" duration="52000" />
+      <workItem from="1610032407036" duration="1190000" />
+      <workItem from="1610184850576" duration="27367000" />
+      <workItem from="1610217329691" duration="20962000" />
+      <workItem from="1610443371178" duration="1188000" />
+      <workItem from="1611330719427" duration="5364000" />
+      <workItem from="1611338549393" duration="1681000" />
+    </task>
+    <task id="LOCAL-00008" summary="Update Postman requests">
+      <created>1608802750010</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608802750010</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fix frontend">
+      <created>1608810841490</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608810841490</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Refactor frontend">
+      <created>1608811105654</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608811105654</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Refactor frontend">
+      <created>1608813219648</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1608813219648</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fix table">
+      <created>1608813934160</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1608813934160</updated>
+    </task>
+    <task id="LOCAL-00013" summary="UI fixes">
+      <created>1608819100055</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608819100055</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Pagination implemented">
+      <created>1608824433089</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1608824433089</updated>
+    </task>
+    <task id="LOCAL-00015" summary="UI redirect">
+      <created>1608826035492</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1608826035492</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Refactor scripts">
+      <created>1608826941456</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1608826941456</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Click on table row">
+      <created>1608829607853</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1608829607853</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added popup">
+      <created>1608895617136</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1608895617136</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Close button fix">
+      <created>1608895975184</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1608895975184</updated>
+    </task>
+    <task id="LOCAL-00020" summary="New API calls">
+      <created>1608896546722</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1608896546722</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Admin frontend working">
+      <created>1608918488889</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1608918488889</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Admin frontend working">
+      <created>1608919187752</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1608919187752</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Admin frontend working">
+      <created>1608925355424</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1608925355424</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Admin frontend working">
+      <created>1608928474379</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1608928474379</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Admin frontend working">
+      <created>1608928583172</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1608928583172</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Small improvements on UI">
+      <created>1608974287511</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1608974287511</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Calendar first implementation">
+      <created>1608981984015</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1608981984016</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Calendar first implementation">
+      <created>1609009862534</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1609009862534</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added cool alerts">
+      <created>1609061479178</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1609061479178</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added cool alerts">
+      <created>1609062388447</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1609062388448</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added cool alerts">
+      <created>1609068786211</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1609068786211</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added cool alerts">
+      <created>1609070406967</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1609070406967</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Added cool alerts">
+      <created>1609071291204</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1609071291204</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Calendar endpoint">
+      <created>1609084274018</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1609084274018</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Calendar endpoint">
+      <created>1609154411297</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1609154411297</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Calendar endpoint">
+      <created>1609155679777</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1609155679777</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Calendar endpoint">
+      <created>1609155946072</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1609155946072</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Refactor folders">
+      <created>1609156656162</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1609156656162</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Refactor folders">
+      <created>1609159774110</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1609159774110</updated>
+    </task>
+    <task id="LOCAL-00040" summary="IP fix">
+      <created>1610185289104</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1610185289104</updated>
+    </task>
+    <task id="LOCAL-00041" summary="IP fix">
+      <created>1610194812516</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1610194812516</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Kubernetes inital setup">
+      <created>1610205309912</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1610205309912</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Delete allowed domains">
+      <created>1610206071153</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1610206071153</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Added kubernetes scripts">
+      <created>1610207491150</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1610207491150</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Fix scripts">
+      <created>1610208034135</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1610208034135</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Working">
+      <created>1610218098130</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1610218098130</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Working SSL">
+      <created>1610220269963</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1610220269963</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Working SSL in frontend">
+      <created>1610221293374</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1610221293374</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Working SSL in frontend">
+      <created>1610224485940</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1610224485940</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Test frontend">
+      <created>1610224607575</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1610224607576</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Test frontend">
+      <created>1610271094813</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1610271094813</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Test frontend">
+      <created>1610271231121</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1610271231121</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Test frontend">
+      <created>1610271333188</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1610271333188</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Added READMEs">
+      <created>1610275241547</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1610275241547</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Remove unnecessary CORS code">
+      <created>1610275432904</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1610275432904</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Creation of calendar and legal microservice, with RabbitMQ implementation working">
+      <created>1611339457946</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1611339457946</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Pagination implemented" />
+    <MESSAGE value="UI redirect" />
+    <MESSAGE value="Refactor scripts" />
+    <MESSAGE value="Click on table row" />
+    <MESSAGE value="Added popup" />
+    <MESSAGE value="Close button fix" />
+    <MESSAGE value="New API calls" />
+    <MESSAGE value="Admin frontend working" />
+    <MESSAGE value="Small improvements on UI" />
+    <MESSAGE value="Calendar first implementation" />
+    <MESSAGE value="Added cool alerts" />
+    <MESSAGE value="Calendar endpoint" />
+    <MESSAGE value="Refactor folders" />
+    <MESSAGE value="IP fix" />
+    <MESSAGE value="Kubernetes inital setup" />
+    <MESSAGE value="Delete allowed domains" />
+    <MESSAGE value="Added kubernetes scripts" />
+    <MESSAGE value="Fix scripts" />
+    <MESSAGE value="Working" />
+    <MESSAGE value="Working SSL" />
+    <MESSAGE value="Working SSL in frontend" />
+    <MESSAGE value="Test frontend" />
+    <MESSAGE value="Added READMEs" />
+    <MESSAGE value="Remove unnecessary CORS code" />
+    <MESSAGE value="Creation of calendar and legal microservice, with RabbitMQ implementation working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation of calendar and legal microservice, with RabbitMQ implementation working" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.Optional" memberName="value" />
+        <PinnedItemInfo parentTag="com.google.firebase.auth.ListUsersPage" memberName="maxResults" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

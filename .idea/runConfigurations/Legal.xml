@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Legal" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="legal" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.car.rental.legal.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.car.rental.legal.ConsumerApplication" />
+    <option name="VM_PARAMETERS" value="-Dserver.port=8081" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
