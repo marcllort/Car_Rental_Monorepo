@@ -1,6 +1,15 @@
-FROM openjdk:15
-VOLUME /tmp
-COPY /target/api-gateway-0.0.1-SNAPSHOT.jar app.jar
-RUN sh -c 'touch /app.jar'
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+#
+# Build stage
+#
+FROM maven:3.6.0-jdk-11-slim AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+
+#
+# Package stage
+#
+FROM openjdk:11-jre-slim
+COPY --from=build /home/app/target/api-gateway-0.0.1-SNAPSHOT.jar /usr/local/lib/api-gateway.jar
 EXPOSE 8080
+ENTRYPOINT ["java","-jar","/usr/local/lib/api-gateway.jar","-Dspring.profiles.active=docker"]

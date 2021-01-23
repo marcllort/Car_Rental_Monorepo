@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: "dev"
   rabbitmq:
     host: localhost
     username: guest
@@ -6,9 +8,21 @@ spring:
     virtual-host: /
     port: 5672
 
-jsa:
+logging:
+  level:
+    org: ERROR
+
+---
+
+spring:
+  profiles:
+    active: "docker"
   rabbitmq:
-    queue: hello
+    host: rabbitmq
+    username: guest
+    password: guest
+    virtual-host: /
+    port: 5672
 
 logging:
   level:

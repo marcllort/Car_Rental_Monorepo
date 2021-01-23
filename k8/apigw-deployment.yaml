@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: apigw-middleware
-          image: marcllort/car-rental:latest
+          image: marcllort/car-rental-apigw:latest
           ports:
             - containerPort: 8080
           env:

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: legal-deployment
+  labels:
+    app: legal-middleware
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: legal-middleware
+  template:
+    metadata:
+      labels:
+        app: legal-middleware
+    spec:
+      containers:
+        - name: legal-middleware
+          image: marcllort/car-rental-legal:latest
+          ports:
+            - containerPort: 8080
