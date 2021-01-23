@@ -14,12 +14,25 @@ This script will do a few installations:
 
 ## Deployments
 - apigw-deployment: Retrieves the apigw image, and starts X amounts of replicas, with the proper environment variables. The firebase-config JSON is retrieved as a secret.
+- legal-deployment:  Retrieves the legal image, and starts X amounts of replicas, without any environment variables. No need for a service, as it connects to the other services using RabbitMQ.
 
 ## Services
 - apigw-service: NodePort. Sets the port to connect to if another service wants to connect to the apigw-deployment.
+- rabbitmq-service: Two services an internal clusterIP, and an external LoadBalancer, so all the microservices can connect using the dns name: `rabbitmq`. 
+  This loadBalancer points to the internal RabbitMQ ClusterIP service, which points to the RabbitMQ deployment.
 
 ## Ingress
 - ingress-service: Configuration of the nginx ingress. Uses the TLS secret to decrypt the incoming requests.
+
+## RBAC
+- rabbitmq-rbac: Is a method of regulating access to computer or network resources based on the roles of individual users within your organization.
+
+## ConfigMaps
+- rabbitmq-configmap: Useful to set up some environment variables to be later used by the deployment.
+
+## Stateful Set
+- rabbitmq-stateful-set: StatefulSets represent a set of Pods with unique, persistent identities and stable hostnames that GKE maintains regardless of where they are scheduled.
+  Once created, the StatefulSet ensures that the desired number of Pods are running and available at all times. Useful in case a RabbitMQ pod fails.
 
 ## Troubleshooting
 Problems with TLS:

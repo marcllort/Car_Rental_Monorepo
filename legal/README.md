@@ -1,6 +1,6 @@
 # Legal
-When doing transportation services, there is also the need to create some simple legal documents, where it states the passengers, origin, and destination points. The invoice of the
-service must also be generated. This microservice will deal with the creation of these documents.
+When doing transportation services, there is also the need to create some simple legal documents, where it states the passengers, origin, and destination 
+points. The invoice of the service must also be generated. This microservice deals with the creation of these documents.
 
 The microservice is coded in Kotlin.
 

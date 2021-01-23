@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/rabbitmq/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/legal/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rabbitmq/definitions.json" beforeDir="false" afterPath="$PROJECT_DIR$/rabbitmq/definitions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rabbitmq/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rabbitmq/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/email/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/rabbitmq-stateful-set.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/rabbitmq-stateful-set.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,14 +200,7 @@
       <workItem from="1610443371178" duration="1188000" />
       <workItem from="1611330719427" duration="5364000" />
       <workItem from="1611338549393" duration="4558000" />
-      <workItem from="1611343719411" duration="14443000" />
-    </task>
-    <task id="LOCAL-00014" summary="Pagination implemented">
-      <created>1608824433089</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1608824433089</updated>
+      <workItem from="1611343719411" duration="15363000" />
     </task>
     <task id="LOCAL-00015" summary="UI redirect">
       <created>1608826035492</created>
@@ -548,14 +538,20 @@
       <option name="project" value="LOCAL" />
       <updated>1611403950356</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Improved readmes">
+      <created>1611405900065</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1611405900065</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Close button fix" />
     <MESSAGE value="New API calls" />
     <MESSAGE value="Admin frontend working" />
     <MESSAGE value="Small improvements on UI" />
@@ -580,7 +576,8 @@
     <MESSAGE value="Fix dockerfiles" />
     <MESSAGE value="RabbitMQ kubernetes working" />
     <MESSAGE value="Added local development script" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added local development script" />
+    <MESSAGE value="Improved readmes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved readmes" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
