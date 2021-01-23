@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Legal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Legal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rabbitmq/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/docker-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/docker-build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/local-development.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/local-development.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/legal/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rabbitmq/definitions.json" beforeDir="false" afterPath="$PROJECT_DIR$/rabbitmq/definitions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rabbitmq/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rabbitmq/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,14 +203,7 @@
       <workItem from="1610443371178" duration="1188000" />
       <workItem from="1611330719427" duration="5364000" />
       <workItem from="1611338549393" duration="4558000" />
-      <workItem from="1611343719411" duration="12690000" />
-    </task>
-    <task id="LOCAL-00013" summary="UI fixes">
-      <created>1608819100055</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1608819100055</updated>
+      <workItem from="1611343719411" duration="14443000" />
     </task>
     <task id="LOCAL-00014" summary="Pagination implemented">
       <created>1608824433089</created>
@@ -547,14 +541,20 @@
       <option name="project" value="LOCAL" />
       <updated>1611401985961</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Added local development script">
+      <created>1611403950356</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1611403950356</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added popup" />
     <MESSAGE value="Close button fix" />
     <MESSAGE value="New API calls" />
     <MESSAGE value="Admin frontend working" />
@@ -579,7 +579,8 @@
     <MESSAGE value="Added dockerfiles for all projects" />
     <MESSAGE value="Fix dockerfiles" />
     <MESSAGE value="RabbitMQ kubernetes working" />
-    <option name="LAST_COMMIT_MESSAGE" value="RabbitMQ kubernetes working" />
+    <MESSAGE value="Added local development script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added local development script" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

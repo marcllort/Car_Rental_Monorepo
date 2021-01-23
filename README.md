@@ -2,7 +2,7 @@
 
 ## What is CarRental?
 
-A transport oriented e-commerce website. It will have two parts, a user-oriented website, and an admin/company
+Transport oriented e-commerce website. It will have two parts, a user-oriented website, and an admin/company
 owner website.
 
 When it comes to hire a luxury car with a driver, usually you need to contact with the company to get the prices,
