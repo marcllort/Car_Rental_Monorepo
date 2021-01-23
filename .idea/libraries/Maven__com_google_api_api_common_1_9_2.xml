@@ -3,6 +3,9 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/google/api/api-common/1.9.2/api-common-1.9.2.jar!/" />
     </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/api/api-common/1.9.2/api-common-1.9.2-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/google/api/api-common/1.9.2/api-common-1.9.2-sources.jar!/" />
     </SOURCES>
