@@ -5,62 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_rabbitmq_amqp_client_5_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_41.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_41.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_reflect_1_4_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_4_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_4_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_4_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_4_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_6_28.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_6_28.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_amqp_spring_amqp_2_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_amqp_spring_rabbit_2_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_retry_spring_retry_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8/legal-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8/rabbitmq-configmap.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8/rabbitmq-rbac.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8/rabbitmq-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8/rabbitmq-stateful-set.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legal/legal.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/local-development.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Legal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Legal.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/legal/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rabbitmq/definitions.json" beforeDir="false" afterPath="$PROJECT_DIR$/rabbitmq/definitions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/cleanup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/cleanup-kubernetes.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/docker-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/docker-build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/local-development.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/local-development.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +92,7 @@
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\docs\assets\css" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.api-gateway/Dockerfile">
+  <component name="RunManager" selected="Spring Boot.Legal">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -157,6 +107,12 @@
     <configuration name="api-gateway/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
+          <option name="imageTag" value="" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="commandLineOptions" value="" />
           <option name="sourceFilePath" value="api-gateway/Dockerfile" />
         </settings>
       </deployment>
@@ -208,11 +164,11 @@
       <item itemvalue="Docker.legal/Dockerfile" />
       <item itemvalue="Docker.calendar/Dockerfile" />
       <item itemvalue="Docker.email/Dockerfile" />
+      <item itemvalue="Docker.api-gateway/Dockerfile" />
       <item itemvalue="Go Build.Calendar" />
       <item itemvalue="Go Build.Email" />
       <item itemvalue="Spring Boot.API-Gateway" />
       <item itemvalue="Spring Boot.Legal" />
-      <item itemvalue="Docker.api-gateway/Dockerfile" />
     </list>
     <recent_temporary>
       <list>
@@ -246,14 +202,7 @@
       <workItem from="1610443371178" duration="1188000" />
       <workItem from="1611330719427" duration="5364000" />
       <workItem from="1611338549393" duration="4558000" />
-      <workItem from="1611343719411" duration="10595000" />
-    </task>
-    <task id="LOCAL-00012" summary="Fix table">
-      <created>1608813934160</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1608813934160</updated>
+      <workItem from="1611343719411" duration="12690000" />
     </task>
     <task id="LOCAL-00013" summary="UI fixes">
       <created>1608819100055</created>
@@ -591,14 +540,20 @@
       <option name="project" value="LOCAL" />
       <updated>1611392454427</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="RabbitMQ kubernetes working">
+      <created>1611401985961</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1611401985961</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Click on table row" />
     <MESSAGE value="Added popup" />
     <MESSAGE value="Close button fix" />
     <MESSAGE value="New API calls" />
@@ -623,7 +578,8 @@
     <MESSAGE value="Add intellij Configs and email microservice" />
     <MESSAGE value="Added dockerfiles for all projects" />
     <MESSAGE value="Fix dockerfiles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix dockerfiles" />
+    <MESSAGE value="RabbitMQ kubernetes working" />
+    <option name="LAST_COMMIT_MESSAGE" value="RabbitMQ kubernetes working" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

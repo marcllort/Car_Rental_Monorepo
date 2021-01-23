@@ -17,18 +17,27 @@ case $1 in
     ;;
 
   calendar)
-    STATEMENTS
+    pushd ../calendar
+    docker build -t marcllort/car-rental-calendar .
+    docker push marcllort/car-rental-calendar
+    popd
     ;;
 
   email)
-    STATEMENTS
+    pushd ../email
+    docker build -t marcllort/car-rental-email .
+    docker push marcllort/car-rental-email
+    popd
     ;;
 
   payment)
-    STATEMENTS
+    pushd ../payment
+    docker build -t marcllort/car-rental-payment .
+    docker push marcllort/car-rental-payment
+    popd
     ;;
 
   *)
-    STATEMENTS
+    echo "Error, non-existing option"
     ;;
 esac

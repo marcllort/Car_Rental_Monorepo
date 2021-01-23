@@ -1,14 +1,22 @@
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+# Add needed Helm repos
+helm repo add ingress-nginx   https://kubernetes.github.io/ingress-nginx
+helm repo add stable          https://charts.helm.sh/stable
+helm repo add jetstack        https://charts.jetstack.io
 helm repo update
+
+# Install NGINX ingress-controller with Helm
 helm install ingress-controller ingress-nginx/ingress-nginx
 
+# Install the Helm RabbitMQ, specifying user and password
 #https://phoenixnap.com/kb/install-and-configure-rabbitmq-on-kubernetes
 helm install rabbitmq --set rabbitmq.username=guest,rabbitmq.password=guest stable/rabbitmq
 
+# Setup the Kubernetes dashboard
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
 
+# Secrets creation, first the Firebase secret and second the TLS CloudFlare secrets
 kubectl create secret generic firebase-secret --from-file ../api-gateway/creds/car-rental.json
-
 kubectl create secret tls cloudflare-tls --key ../api-gateway/creds/https-server.key --cert ../api-gateway/creds/https-server.crt
 
+# Apply all kubernetes configurations
 kubectl apply -f ../k8
