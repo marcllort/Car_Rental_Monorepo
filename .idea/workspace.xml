@@ -5,58 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_amqp_spring_amqp_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_retry_spring_retry_1_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/EndpointHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/HandlerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/HandlerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/RabbitMQDirectConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/CalendarHandlerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/CalendarHandlerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/RetrieveCalendarHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/RetrieveCalendarProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/RetrieveCalendarProducerAbstract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/email/RetrieveEmailHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/calendar.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/email.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8/calendar-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8/email-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/api-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/api-gateway.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/APIServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/APIServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/config/FirebaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/config/FirebaseConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/config/JacksonConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/config/JacksonConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/controllers/ProtectedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/controllers/PublicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/controllers/SessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/SuperAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/controllers/SuperAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/model/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/model/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/CookieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/CookieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/SecurityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/SecurityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/SecurityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/models/CookieProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/models/CookieProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/models/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/models/Credentials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/models/FirebaseProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/models/FirebaseProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/models/SecurityProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/models/SecurityProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/roles/IsSuper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/roles/IsSuper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/roles/RoleConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/roles/RoleConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/roles/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/roles/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/roles/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/roles/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/roles/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/security/roles/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/LegalApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/LegalApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rabbitmq/definitions.json" beforeDir="false" afterPath="$PROJECT_DIR$/rabbitmq/definitions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +93,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.API-Gateway">
+  <component name="RunManager" selected="Go Build.go build calendar">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -252,14 +201,7 @@
       <workItem from="1611330719427" duration="5364000" />
       <workItem from="1611338549393" duration="4558000" />
       <workItem from="1611343719411" duration="15800000" />
-      <workItem from="1611478824507" duration="11029000" />
-    </task>
-    <task id="LOCAL-00016" summary="Refactor scripts">
-      <created>1608826941456</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1608826941456</updated>
+      <workItem from="1611478824507" duration="11247000" />
     </task>
     <task id="LOCAL-00017" summary="Click on table row">
       <created>1608829607853</created>
@@ -597,14 +539,20 @@
       <option name="project" value="LOCAL" />
       <updated>1611406884750</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Implementation of rabbitmq configuration">
+      <created>1611491914815</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1611491914816</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New API calls" />
     <MESSAGE value="Admin frontend working" />
     <MESSAGE value="Small improvements on UI" />
     <MESSAGE value="Calendar first implementation" />
@@ -629,7 +577,8 @@
     <MESSAGE value="RabbitMQ kubernetes working" />
     <MESSAGE value="Added local development script" />
     <MESSAGE value="Improved readmes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved readmes" />
+    <MESSAGE value="Implementation of rabbitmq configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of rabbitmq configuration" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

@@ -1,9 +1,8 @@
 package main
 
 import (
-	"log"
-
 	"github.com/streadway/amqp"
+	"log"
 )
 
 func failOnError(err error, msg string) {
@@ -21,26 +20,38 @@ func main() {
 	failOnError(err, "Failed to open a channel")
 	defer ch.Close()
 
-	q, err := ch.QueueDeclare(
-		"legal", // name
-		true,    // durable
-		false,   // delete when unused
-		false,   // exclusive
-		false,   // no-wait
-		nil,     // arguments
+	msgs, err := ch.Consume(
+		"legal-queue", // queue
+		"",            // consumer
+		true,          // auto-ack
+		false,         // exclusive
+		false,         // no-local
+		false,         // no-wait
+		nil,           // args
 	)
-	failOnError(err, "Failed to declare a queue")
+	failOnError(err, "Failed to register a consumer")
 
-	body := "Hello World!"
-	err = ch.Publish(
-		"",     // exchange
-		q.Name, // routing key
-		false,  // mandatory
-		false,  // immediate
-		amqp.Publishing{
-			ContentType: "text/plain",
-			Body:        []byte(body),
-		})
-	failOnError(err, "Failed to publish a message")
-	log.Printf(" [x] Sent %s", body)
+	forever := make(chan bool)
+
+	go func() {
+		for d := range msgs {
+			log.Printf("Received a message: %s", d.Body)
+			err = ch.Publish(
+				"",        // exchange
+				d.ReplyTo, // routing key
+				false,     // mandatory
+				false,     // immediate
+				amqp.Publishing{
+					ContentType:   "text/plain",
+					CorrelationId: d.CorrelationId,
+					Body:          []byte("answer reeceived"),
+				})
+			failOnError(err, "Failed to publish a message")
+
+			d.Ack(false)
+		}
+	}()
+
+	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
+	<-forever
 }
