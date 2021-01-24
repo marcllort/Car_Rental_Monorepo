@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calendar/calendar.iml" filepath="$PROJECT_DIR$/calendar/calendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/car-rental-monorepo.iml" filepath="$PROJECT_DIR$/.idea/car-rental-monorepo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/email/email.iml" filepath="$PROJECT_DIR$/email/email.iml" />
       <module fileurl="file://$PROJECT_DIR$/legal/legal.iml" filepath="$PROJECT_DIR$/legal/legal.iml" />
       <module fileurl="file://$PROJECT_DIR$/docs/user-frontend.iml" filepath="$PROJECT_DIR$/docs/user-frontend.iml" />
     </modules>

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-deployment
+  labels:
+    app: email-middleware
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: email-middleware
+  template:
+    metadata:
+      labels:
+        app: email-middleware
+    spec:
+      containers:
+        - name: legal-middleware
+          image: marcllort/car-rental-email:latest
+          ports:
+            - containerPort: 8080

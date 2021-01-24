@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="API-Gateway" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="api-gateway" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="apiservice.car.APIServiceApplication" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="apiservice.car.controller.APIServiceApplication" />
     <option name="VM_PARAMETERS" value="-Dspring.profiles.active=dev" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <envs>
