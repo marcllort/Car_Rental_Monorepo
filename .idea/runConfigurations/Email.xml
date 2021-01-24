@@ -2,6 +2,9 @@
   <configuration default="false" name="Email" type="GoApplicationRunConfiguration" factoryName="Go Application">
     <module name="car-rental-monorepo" />
     <working_directory value="$PROJECT_DIR$" />
+    <envs>
+      <env name="URL" value="amqp://guest:guest@localhost:5672" />
+    </envs>
     <kind value="FILE" />
     <filePath value="$PROJECT_DIR$/email/main.go" />
     <directory value="$PROJECT_DIR$" />

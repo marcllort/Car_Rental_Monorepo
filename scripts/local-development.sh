@@ -13,7 +13,7 @@ if [ $1 == 'start' ]; then
     kubectl port-forward --namespace default svc/rabbitmq 5672:5672 </dev/null &>/dev/null &
   fi
   # Link Dashboard: http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
-  # Link RabbitMQ: http://http://127.0.0.1:15672/#/
+  # Link RabbitMQ: http://127.0.0.1:15672/#/
 elif [ $1 == 'stop' ]; then
   echo 'Stopping local development!'
   ps aux | grep -i kubectl | grep -v grep | awk {'print $2'} | xargs kill

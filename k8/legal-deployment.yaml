@@ -19,3 +19,6 @@ spec:
           image: marcllort/car-rental-legal:latest
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "docker"
