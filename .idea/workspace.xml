@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/email/model/EmailHandlerRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/email/model/EmailHandlerResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/legal/RetrieveLegalHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/legal/RetrieveLegalProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/legal/model/LegalHandlerRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/legal/model/LegalHandlerResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/controllers/ProtectedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/CalendarHandlerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/model/CalendarHandlerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/CalendarHandlerResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/model/CalendarHandlerResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/RetrieveCalendarHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/RetrieveCalendarHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/RetrieveCalendarProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/RetrieveCalendarProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/calendar/RetrieveCalendarProducerAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/email/RetrieveEmailProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/email/RetrieveEmailHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/email/RetrieveEmailHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +76,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/k8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controller/handler/email" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -73,11 +88,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\src\main\java\apiservice\car\controller\handler\email" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\src\main\java\apiservice\car\controller\handler\legal" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\k8" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\legal\src\main\kotlin\com\car\rental\legal" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\creds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\creds" />
@@ -90,10 +105,11 @@
       <recent name="apiservice.car.handler.calendar" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="apiservice.car.controller.handler.legal" />
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build calendar">
+  <component name="RunManager" selected="Go Build.go build email">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -113,6 +129,15 @@
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/calendar/main.go" />
       <package value="calendar" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build email" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="email" />
+      <working_directory value="$PROJECT_DIR$/email" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/email/main.go" />
+      <package value="email" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -167,9 +192,11 @@
       <item itemvalue="Go Build.go build calendar" />
       <item itemvalue="Spring Boot.API-Gateway" />
       <item itemvalue="Spring Boot.Legal" />
+      <item itemvalue="Go Build.go build email" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build email" />
         <item itemvalue="Go Build.go build calendar" />
         <item itemvalue="Docker.api-gateway/Dockerfile" />
         <item itemvalue="Docker.legal/Dockerfile" />
@@ -201,14 +228,7 @@
       <workItem from="1611330719427" duration="5364000" />
       <workItem from="1611338549393" duration="4558000" />
       <workItem from="1611343719411" duration="15800000" />
-      <workItem from="1611478824507" duration="11247000" />
-    </task>
-    <task id="LOCAL-00017" summary="Click on table row">
-      <created>1608829607853</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1608829607853</updated>
+      <workItem from="1611478824507" duration="12442000" />
     </task>
     <task id="LOCAL-00018" summary="Added popup">
       <created>1608895617136</created>
@@ -546,14 +566,20 @@
       <option name="project" value="LOCAL" />
       <updated>1611491914816</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Golang response working">
+      <created>1611492267308</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1611492267308</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Admin frontend working" />
     <MESSAGE value="Small improvements on UI" />
     <MESSAGE value="Calendar first implementation" />
     <MESSAGE value="Added cool alerts" />
@@ -578,7 +604,8 @@
     <MESSAGE value="Added local development script" />
     <MESSAGE value="Improved readmes" />
     <MESSAGE value="Implementation of rabbitmq configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of rabbitmq configuration" />
+    <MESSAGE value="Golang response working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Golang response working" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

@@ -1,10 +1,16 @@
 package apiservice.car.controller.controllers;
 
 
-import apiservice.car.controller.security.SecurityService;
-import apiservice.car.controller.handler.calendar.CalendarHandlerRequest;
-import apiservice.car.controller.handler.calendar.CalendarHandlerResponse;
 import apiservice.car.controller.handler.calendar.RetrieveCalendarHandler;
+import apiservice.car.controller.handler.calendar.model.CalendarHandlerRequest;
+import apiservice.car.controller.handler.calendar.model.CalendarHandlerResponse;
+import apiservice.car.controller.handler.email.RetrieveEmailHandler;
+import apiservice.car.controller.handler.email.model.EmailHandlerRequest;
+import apiservice.car.controller.handler.email.model.EmailHandlerResponse;
+import apiservice.car.controller.handler.legal.RetrieveLegalHandler;
+import apiservice.car.controller.handler.legal.model.LegalHandlerRequest;
+import apiservice.car.controller.handler.legal.model.LegalHandlerResponse;
+import apiservice.car.controller.security.SecurityService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -20,11 +26,18 @@ public class ProtectedController {
 
     @Autowired
     FirebaseAuth firebaseAuth;
+
     @Autowired
     private SecurityService securityService;
 
     @Autowired
-    private RetrieveCalendarHandler handler;
+    private RetrieveCalendarHandler calendarHandler;
+
+    @Autowired
+    private RetrieveLegalHandler legalHandler;
+
+    @Autowired
+    private RetrieveEmailHandler emailHandler;
 
     @GetMapping("data")
     public String getProtectedData() {
@@ -40,26 +53,28 @@ public class ProtectedController {
     @GetMapping("calendar")
     public String getProtectedCalendar() {
         CalendarHandlerRequest calendarHandlerRequest = new CalendarHandlerRequest();
-        calendarHandlerRequest.setText("test");
-        CalendarHandlerResponse response = (CalendarHandlerResponse) handler.handle(calendarHandlerRequest);
+        calendarHandlerRequest.setText("calendar-test");
+        CalendarHandlerResponse response = (CalendarHandlerResponse) calendarHandler.handle(calendarHandlerRequest);
 
         return response.getText();
     }
 
     @GetMapping("email")
     public String getProtectedEmail() {
+        EmailHandlerRequest emailHandlerRequest = new EmailHandlerRequest();
+        emailHandlerRequest.setText("email-test");
+        EmailHandlerResponse response = (EmailHandlerResponse) emailHandler.handle(emailHandlerRequest);
 
-        JsonArray array = generateExample();
-
-        return array.toString();
+        return response.getText();
     }
 
     @GetMapping("legal")
     public String getProtectedLegal() {
+        LegalHandlerRequest legalHandlerRequest = new LegalHandlerRequest();
+        legalHandlerRequest.setText("legal-test");
+        LegalHandlerResponse response = (LegalHandlerResponse) legalHandler.handle(legalHandlerRequest);
 
-        JsonArray array = generateExample();
-
-        return array.toString();
+        return response.getText();
     }
 
     @NotNull

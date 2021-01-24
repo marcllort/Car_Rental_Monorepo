@@ -1,10 +1,10 @@
-package apiservice.car.controller.handler.calendar;
+package apiservice.car.controller.handler.legal.model;
 
 import apiservice.car.controller.handler.HandlerResponse;
 import lombok.Data;
 
 @Data
-public class CalendarHandlerResponse extends HandlerResponse {
+public class LegalHandlerResponse extends HandlerResponse {
 
     private String text;
 

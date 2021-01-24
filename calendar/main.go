@@ -21,13 +21,13 @@ func main() {
 	defer ch.Close()
 
 	msgs, err := ch.Consume(
-		"legal-queue", // queue
-		"",            // consumer
-		true,          // auto-ack
-		false,         // exclusive
-		false,         // no-local
-		false,         // no-wait
-		nil,           // args
+		"calendar-queue", // queue
+		"",               // consumer
+		true,             // auto-ack
+		false,            // exclusive
+		false,            // no-local
+		false,            // no-wait
+		nil,              // args
 	)
 	failOnError(err, "Failed to register a consumer")
 
@@ -36,6 +36,7 @@ func main() {
 	go func() {
 		for d := range msgs {
 			log.Printf("Received a message: %s", d.Body)
+			//HALF WORKING, ONLY THE FIRST REQUEST
 			err = ch.Publish(
 				"",        // exchange
 				d.ReplyTo, // routing key
@@ -47,8 +48,6 @@ func main() {
 					Body:          []byte("answer reeceived"),
 				})
 			failOnError(err, "Failed to publish a message")
-
-			d.Ack(false)
 		}
 	}()
 
