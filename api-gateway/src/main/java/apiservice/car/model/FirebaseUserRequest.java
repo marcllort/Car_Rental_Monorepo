@@ -13,4 +13,10 @@ public class FirebaseUserRequest {
     private String emailSign;
     private String calendarURL;
 
+
+    // Optional
+    private boolean checked;
+    private String city;
+    private String country;
+    private String phone;
 }

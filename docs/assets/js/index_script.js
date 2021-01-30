@@ -9,7 +9,6 @@ window.onload = function () {
             prepareUI(user);
             firebase.auth().currentUser.getIdToken(true).then(function (idToken1) {
                 setToken(idToken1);
-
             }).catch(function (error) {
                 console.error(error.data);
             });
@@ -109,9 +108,9 @@ function createUserFirebaseAPI(user) {
             text: 'Preferred language? ',
             input: 'select',
             inputOptions: {
-                'English': 'ENG',
-                'Spanish': 'ES',
-                'Catalan': 'CAT'
+                'ENG': 'English',
+                'ES': 'Spanish',
+                'CAT': 'Catalan'
             }
         },
         {
@@ -157,7 +156,6 @@ function createUserFirebaseAPI(user) {
     })
 
 }
-
 
 function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;

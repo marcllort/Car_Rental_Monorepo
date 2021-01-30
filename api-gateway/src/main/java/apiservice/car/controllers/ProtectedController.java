@@ -110,6 +110,17 @@ public class ProtectedController {
             if (!request.getCalendarURL().isEmpty()) {
                 data.put("calendarURL", request.getCalendarURL());
             }
+            if (!request.getCity().isEmpty()) {
+                data.put("city", request.getCity());
+            }
+            if (!request.getCountry().isEmpty()) {
+                data.put("country", request.getCountry());
+            }
+            if (!request.getPhone().isEmpty()) {
+                data.put("phone", request.getPhone());
+            }
+            data.put("checked", request.isChecked());
+
 
             ApiFuture<WriteResult> future2 = docRef.update(data);
             WriteResult result = future2.get();
