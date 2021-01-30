@@ -257,4 +257,17 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export {URL,setToken, startUp, publicApiCall, protectedApiCall, getUser, updateUser, revokeUser, deleteUser, logOut, getCalendar};
+export {
+    URL,
+    setToken,
+    startUp,
+    publicApiCall,
+    protectedApiCall,
+    getUser,
+    updateUser,
+    revokeUser,
+    deleteUser,
+    logOut,
+    getCalendar,
+    idToken
+};

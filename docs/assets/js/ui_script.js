@@ -16,7 +16,11 @@ function prepareUI(user) {
 
 function redirectUserAdmin() {
     firebase.auth().currentUser.getIdTokenResult().then((idTokenResult) => {
-        if (!!idTokenResult.claims.role_super) {
+
+        if (!window.location.pathname.includes("index.html")) {
+            window.location = 'index.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
+        }
+        /*if (!!idTokenResult.claims.role_super) {
             // Show admin UI.
             if (!window.location.pathname.includes("admin_table.html")) {
                 window.location = 'admin_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
@@ -26,7 +30,7 @@ function redirectUserAdmin() {
             if (!window.location.pathname.includes("user_table.html")) {
                 window.location = 'user_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
             }
-        }
+        }*/
     }).catch((error) => {
         console.log(error);
     });
