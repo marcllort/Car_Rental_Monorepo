@@ -2,12 +2,13 @@
 
 Microservice responsible for the authentication of the user, and protecting the endpoints of the backend.
 
-To do the authentication, Firebase (from Google) is used to provide a token, and also allow for advanced sign-in options,
-and the same token is being used when the authenticated user tries to do a call to the API.
+To do the authentication, Firebase (from Google) is used to provide a token, and also allow for advanced sign-in
+options, and the same token is being used when the authenticated user tries to do a call to the API.
 
 It checks if the user is logged in, and has the necessary role/permissions to do the requested call/action.
 
 ## Endpoints
+
 - /public/covid
 - /public/data
 
@@ -50,7 +51,8 @@ with **Spring Security** to seamlessly create and use protected rest API's.
   Adding self-signed ssl certificate with reverse proxied host will work perfectly fine. Read this article
   => [Local Domain Names with SSL for development applications ](https://thepro.io/post/local-domain-names-with-ssl-for-local-development-applications-LG)
 - Following application properties can edited to customize for your needs.
-- In the (not public) '/creds' folder, the Firebase and TLS secrets are stored, which as explained earlier, are passed as parameters when executing the project.
+- In the (not public) '/creds' folder, the Firebase and TLS secrets are stored, which as explained earlier, are passed
+  as parameters when executing the project.
 
 ### Role Management
 
@@ -70,23 +72,33 @@ with **Spring Security** to seamlessly create and use protected rest API's.
 
 ## Environment vars
 
-- GOOGLE_APPLICATION_CREDENTIALS=api-gateway/scripts/car-rental.json 
+- GOOGLE_APPLICATION_CREDENTIALS=api-gateway/scripts/car-rental.json
 - SUPER_ADMINS=mac12llm2@gmail.com
 - CORS_DOMAIN=http://localhost:63343
+- SECRET_HASH=xxxxxxx   (used for the encryption and decryption of the user email password stored in firebase)
 
 ## RabbitMQ
+
 This microservice, as all the other ones, is using RabbitMQ to communicate between themselves.
 
-RabbitMQ is an open-source general message broker, which supports protocols including MQTT, AMQP and STOMP.
-It can handle high-throughput use cases, such as online payment processing.
-It can handle background jobs or act as a message broker between microservices.
+RabbitMQ is an open-source general message broker, which supports protocols including MQTT, AMQP and STOMP. It can
+handle high-throughput use cases, such as online payment processing. It can handle background jobs or act as a message
+broker between microservices.
 
-RabbitMQ is a good option for a simple publish/subscribe message broker, as it will perform better and have an easier implementation,
-plus lots of support online due to the large userbase. Kafka would be better in case the messages would have to be stored even after being read by the
-subscriber, like in case of metrics analytics.
+RabbitMQ is a good option for a simple publish/subscribe message broker, as it will perform better and have an easier
+implementation, plus lots of support online due to the large userbase. Kafka would be better in case the messages would
+have to be stored even after being read by the subscriber, like in case of metrics analytics.
+
+## Encryption/Decryption
+
+This service needs to store the email password of the user in the Firestore storage DB. To do so, it must be encrypted,
+so it is not in plain text and insecure. For this, the AES encryption is being used. The password is hashed with the
+password received as an environment variable.
 
 ## Spring Profile
-Profiles are a core feature of the Spring framework — allowing us to map our beans to different profiles — for example, dev, test, and prod.
+
+Profiles are a core feature of the Spring framework — allowing us to map our beans to different profiles — for example,
+dev, test, and prod.
 
 ```
 spring:
@@ -102,21 +114,28 @@ spring:
       ...
 ```
 
-In this project there are two Spring profiles: "dev" and "docker". Most of the configurations are the same, but one: spring.rabbitmq.host
+In this project there are two Spring profiles: "dev" and "docker". Most of the configurations are the same, but one:
+spring.rabbitmq.host
 
-- dev: When running on dev profile, which is when developing/running the project locally, the URL for RabbitMQ must be set to localhost, as the local instance will be used.
-- docker: It only runs in the docker profile when running on Kubernetes. Then, the url must be set to "rabbitmq", which is the name set for the loadbalancer in Kubernetes. Without this change, the project wouldn't be able to connect to RabbitMQ.
+- dev: When running on dev profile, which is when developing/running the project locally, the URL for RabbitMQ must be
+  set to localhost, as the local instance will be used.
+- docker: It only runs in the docker profile when running on Kubernetes. Then, the url must be set to "rabbitmq", which
+  is the name set for the loadbalancer in Kubernetes. Without this change, the project wouldn't be able to connect to
+  RabbitMQ.
 
 To define the profile to use, is done through the VM parameter:
 
 `-Dspring.profiles.active=dev`
 
 ## Docker
+
 As Kubernetes is being used to host the infrastructure of the project, all the microservices must be containerized.
 
-The api-gw, and all the other microservices, have a Dockerfile that builds the image that will later be used by Kubernetes.
+The api-gw, and all the other microservices, have a Dockerfile that builds the image that will later be used by
+Kubernetes.
 
 Important to notice that the dockerfile is setting the spring profile to "docker", to use the correct RabbitMQ URL.
+
 ```
 #
 # Build stage
@@ -135,4 +154,5 @@ EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/api-gateway.jar","-Dspring.profiles.active=docker"]
 ```
 
-There is also, in the scripts folder, a docker-build.sh script to automatize the creation of the image with the necessary tag, and its upload to the registry.
+There is also, in the scripts folder, a docker-build.sh script to automatize the creation of the image with the
+necessary tag, and its upload to the registry.

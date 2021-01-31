@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/firebase/FirebaseUserHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/EncryptionUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/model/FirebaseUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/model/FirebaseUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/index_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/index_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/apigw-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/apigw-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +166,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Database Script.test_data.sql" />
       <item itemvalue="Docker.legal/Dockerfile" />
       <item itemvalue="Docker.calendar/Dockerfile" />
       <item itemvalue="Docker.api-gateway/Dockerfile" />
@@ -169,7 +174,6 @@
       <item itemvalue="Go Build.Email" />
       <item itemvalue="Spring Boot.API-Gateway" />
       <item itemvalue="Spring Boot.Legal" />
-      <item itemvalue="Database Script.test_data.sql" />
     </list>
     <recent_temporary>
       <list>
@@ -206,14 +210,7 @@
       <workItem from="1611343719411" duration="15800000" />
       <workItem from="1611478824507" duration="17482000" />
       <workItem from="1611861973595" duration="175000" />
-      <workItem from="1611862200340" duration="22028000" />
-    </task>
-    <task id="LOCAL-00022" summary="Admin frontend working">
-      <created>1608919187752</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1608919187752</updated>
+      <workItem from="1611862200340" duration="29109000" />
     </task>
     <task id="LOCAL-00023" summary="Admin frontend working">
       <created>1608925355424</created>
@@ -551,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612011581655</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Update firebase profile working">
+      <created>1612022507597</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1612022507597</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +563,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Refactor folders" />
     <MESSAGE value="IP fix" />
     <MESSAGE value="Kubernetes inital setup" />
     <MESSAGE value="Delete allowed domains" />
@@ -584,7 +587,8 @@
     <MESSAGE value="Communication working. Kubuernetes bootup to improve" />
     <MESSAGE value="Added database + Covid microservice" />
     <MESSAGE value="Added firebase user creation backend and frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added firebase user creation backend and frontend" />
+    <MESSAGE value="Update firebase profile working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update firebase profile working" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

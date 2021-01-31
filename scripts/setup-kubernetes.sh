@@ -1,7 +1,7 @@
 # Add needed Helm repos
-helm repo add ingress-nginx   https://kubernetes.github.io/ingress-nginx
-helm repo add stable          https://charts.helm.sh/stable
-helm repo add jetstack        https://charts.jetstack.io
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo add stable https://charts.helm.sh/stable
+helm repo add jetstack https://charts.jetstack.io
 helm repo update
 
 # Install NGINX ingress-controller with Helm
@@ -17,6 +17,9 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/a
 # Secrets creation, first the Firebase secret and second the TLS CloudFlare secrets
 kubectl create secret generic firebase-secret --from-file ../api-gateway/creds/car-rental.json
 kubectl create secret tls cloudflare-tls --key ../api-gateway/creds/https-server.key --cert ../api-gateway/creds/https-server.crt
+
+# Set the password through the parameters of the scripts
+kubectl create secret generic secret-hash --from-literal="SECRET_HASH=$1"
 
 # Apply all kubernetes configurations
 kubectl apply -f ../k8

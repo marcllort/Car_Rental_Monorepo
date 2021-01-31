@@ -25,19 +25,33 @@ This script will do a few installations:
 - ingress-service: Configuration of the nginx ingress. Uses the TLS secret to decrypt the incoming requests.
 
 ## RBAC
-- rabbitmq-rbac: Is a method of regulating access to computer or network resources based on the roles of individual users within your organization.
+
+- rabbitmq-rbac: Is a method of regulating access to computer or network resources based on the roles of individual
+  users within your organization.
 
 ## ConfigMaps
+
 - rabbitmq-configmap: Useful to set up some environment variables to be later used by the deployment.
 
 ## Stateful Set
-- rabbitmq-stateful-set: StatefulSets represent a set of Pods with unique, persistent identities and stable hostnames that GKE maintains regardless of where they are scheduled.
-  Once created, the StatefulSet ensures that the desired number of Pods are running and available at all times. Useful in case a RabbitMQ pod fails.
+
+- rabbitmq-stateful-set: StatefulSets represent a set of Pods with unique, persistent identities and stable hostnames
+  that GKE maintains regardless of where they are scheduled. Once created, the StatefulSet ensures that the desired
+  number of Pods are running and available at all times. Useful in case a RabbitMQ pod fails.
+
+## Secrets
+
+They are created in the `setup-kubernetes.sh` script. Important to notice that when running the script, you must pass
+the SECRET_HASH environment variable for the api-gw.
 
 ## Troubleshooting
+
 Problems with TLS:
-- Check Cloudflare project configuration, [must be set to Full encryption](https://dash.cloudflare.com/8d08c56f89fa90a2165e3f6f8005cb3a/carrentalbarcelona.tk/ssl-tls)
+
+- Check Cloudflare project
+  configuration, [must be set to Full encryption](https://dash.cloudflare.com/8d08c56f89fa90a2165e3f6f8005cb3a/carrentalbarcelona.tk/ssl-tls)
 - Check that port :443 in your machine is available, sometimes the server binds it even if it's being used.
 - Check credentials for the TLS certificate are correct and working.
 - Check the port forwarding settings of the router.
-- Check that the public ip or private ip of the server haven't changed. Then modify accordingly in Cloudflare or router settings.
+- Check that the public ip or private ip of the server haven't changed. Then modify accordingly in Cloudflare or router
+  settings.

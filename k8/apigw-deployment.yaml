@@ -28,6 +28,11 @@ spec:
               value: /app/car-rental.json
             - name: SPRING_PROFILES_ACTIVE
               value: "docker"
+            - name: SECRET_HASH
+              valueFrom:
+                secretKeyRef:
+                  name: secret-hash
+                  key: SECRET_HASH
           volumeMounts:
             - name: firebase-config-volume
               mountPath: /app/
