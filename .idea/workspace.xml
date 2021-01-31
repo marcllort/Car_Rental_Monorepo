@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calendar/Model/ClientUser.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calendar/Model/DriverUser.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calendar/Model/Service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calendar/Utils/credentials.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/calendar-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/calendar-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/email-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/email-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/legal-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/legal-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/rabbitmq-rbac.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/rabbitmq-rbac.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/firebase/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +33,7 @@
         <option value="Go File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Go Application" />
       </list>
     </option>
   </component>
@@ -52,9 +58,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="DefaultGoTemplateProperty" value="Go Application" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -69,7 +76,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/database" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/calendar" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -81,11 +88,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\database" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\src\main\java\apiservice\car\controller\handler\email" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\src\main\java\apiservice\car\controller\handler\legal" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\k8" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\creds" />
@@ -208,14 +215,7 @@
       <workItem from="1611343719411" duration="15800000" />
       <workItem from="1611478824507" duration="17482000" />
       <workItem from="1611861973595" duration="175000" />
-      <workItem from="1611862200340" duration="29640000" />
-    </task>
-    <task id="LOCAL-00024" summary="Admin frontend working">
-      <created>1608928474379</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1608928474379</updated>
+      <workItem from="1611862200340" duration="32970000" />
     </task>
     <task id="LOCAL-00025" summary="Admin frontend working">
       <created>1608928583172</created>
@@ -553,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612091085350</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="AWS Password in kubernetes">
+      <created>1612091620791</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1612091620791</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,7 +568,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Kubernetes inital setup" />
     <MESSAGE value="Delete allowed domains" />
     <MESSAGE value="Added kubernetes scripts" />
     <MESSAGE value="Fix scripts" />
@@ -586,7 +592,8 @@
     <MESSAGE value="Added firebase user creation backend and frontend" />
     <MESSAGE value="Update firebase profile working" />
     <MESSAGE value="Encryption of passwords in apigw and kuberentes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Encryption of passwords in apigw and kuberentes" />
+    <MESSAGE value="AWS Password in kubernetes" />
+    <option name="LAST_COMMIT_MESSAGE" value="AWS Password in kubernetes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
