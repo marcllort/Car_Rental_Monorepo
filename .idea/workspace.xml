@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/firebase/FirebaseUserHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/security/EncryptionUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/apigw-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/apigw-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/calendar-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/calendar-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/email-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/email-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/legal-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/legal-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/rabbitmq-rbac.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/rabbitmq-rbac.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
     </list>
@@ -210,14 +208,7 @@
       <workItem from="1611343719411" duration="15800000" />
       <workItem from="1611478824507" duration="17482000" />
       <workItem from="1611861973595" duration="175000" />
-      <workItem from="1611862200340" duration="29109000" />
-    </task>
-    <task id="LOCAL-00023" summary="Admin frontend working">
-      <created>1608925355424</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1608925355424</updated>
+      <workItem from="1611862200340" duration="29640000" />
     </task>
     <task id="LOCAL-00024" summary="Admin frontend working">
       <created>1608928474379</created>
@@ -555,7 +546,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612022507597</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Encryption of passwords in apigw and kuberentes">
+      <created>1612091085350</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1612091085350</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,7 +561,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="IP fix" />
     <MESSAGE value="Kubernetes inital setup" />
     <MESSAGE value="Delete allowed domains" />
     <MESSAGE value="Added kubernetes scripts" />
@@ -588,7 +585,8 @@
     <MESSAGE value="Added database + Covid microservice" />
     <MESSAGE value="Added firebase user creation backend and frontend" />
     <MESSAGE value="Update firebase profile working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update firebase profile working" />
+    <MESSAGE value="Encryption of passwords in apigw and kuberentes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Encryption of passwords in apigw and kuberentes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

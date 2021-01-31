@@ -22,3 +22,8 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "docker"
+            - name: SECRET_DB
+              valueFrom:
+                secretKeyRef:
+                  name: secret-db
+                  key: SECRET_DB

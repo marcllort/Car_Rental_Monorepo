@@ -27,7 +27,8 @@ For now, they are empty
 ## Secrets
 
 They are created in the `setup-kubernetes.sh` script. Important to notice that when running the script, you must pass
-the SECRET_HASH environment variable for the api-gw.
+the SECRET_HASH environment variable for the api-gw. The same is applicable for the AWS DB password, used in the rest of
+microservices.
 
 ## Local development
 

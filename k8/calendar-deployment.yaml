@@ -22,3 +22,8 @@ spec:
           env:
             - name: URL
               value: "amqp://guest:guest@rabbitmq:5672"
+            - name: SECRET_DB
+              valueFrom:
+                secretKeyRef:
+                  name: secret-db
+                  key: SECRET_DB
