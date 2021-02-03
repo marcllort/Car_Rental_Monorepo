@@ -8,10 +8,10 @@ import (
 
 func main() {
 
-	creds := os.Args[1]
-	dbpass := os.Args[2]
-	_ = Database.CreateConnection(creds, dbpass)
-
+	creds := os.Getenv("creds")
+	dbpass := os.Getenv("dbpass")
+	db := Database.CreateConnection(creds, dbpass)
+	Database.ReadData(db)
 	RabbitMQ.Connect()
 
 }

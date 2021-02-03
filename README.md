@@ -21,3 +21,6 @@ In this repository, all the different submodules of the project are being tracke
 
 Each of them, has its own README.md file, with an explanation of what its purpose is, how it works and the process of
 implementing it.
+
+## Frontend
+

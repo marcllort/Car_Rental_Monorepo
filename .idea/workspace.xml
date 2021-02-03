@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/Model/ClientUser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/Model/DriverUser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/Model/Service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/Utils/credentials.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Calendar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Calendar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/firebase/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/service_view.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/service_view.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,16 +102,14 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.API-Gateway">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.Calendar">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -215,14 +206,8 @@
       <workItem from="1611343719411" duration="15800000" />
       <workItem from="1611478824507" duration="17482000" />
       <workItem from="1611861973595" duration="175000" />
-      <workItem from="1611862200340" duration="32970000" />
-    </task>
-    <task id="LOCAL-00025" summary="Admin frontend working">
-      <created>1608928583172</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1608928583172</updated>
+      <workItem from="1611862200340" duration="33074000" />
+      <workItem from="1612378428356" duration="2792000" />
     </task>
     <task id="LOCAL-00026" summary="Small improvements on UI">
       <created>1608974287511</created>
@@ -560,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612091620791</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Readme updates">
+      <created>1612105837079</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1612105837079</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +560,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Delete allowed domains" />
     <MESSAGE value="Added kubernetes scripts" />
     <MESSAGE value="Fix scripts" />
     <MESSAGE value="Working" />
@@ -593,7 +584,8 @@
     <MESSAGE value="Update firebase profile working" />
     <MESSAGE value="Encryption of passwords in apigw and kuberentes" />
     <MESSAGE value="AWS Password in kubernetes" />
-    <option name="LAST_COMMIT_MESSAGE" value="AWS Password in kubernetes" />
+    <MESSAGE value="Readme updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme updates" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
