@@ -163,7 +163,7 @@ function validateEmail(email) {
 }
 
 function createUserAPICall(data) {
-    var url = 'http://localhost:8080/protected/create-user-firebase';
+    var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
 
     /*if (document.getElementById("password-text").value === "") {
         document.getElementById("password-text").value = "null";

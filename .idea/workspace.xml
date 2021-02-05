@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Calendar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Calendar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/service_view.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/service_view.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/index_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/index_script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,17 +99,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Go Build.Calendar">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="test_data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/database/test_data.sql" />
       <script-mode>FILE</script-mode>
@@ -208,6 +193,8 @@
       <workItem from="1611861973595" duration="175000" />
       <workItem from="1611862200340" duration="33074000" />
       <workItem from="1612378428356" duration="2792000" />
+      <workItem from="1612451722173" duration="3736000" />
+      <workItem from="1612515205805" duration="869000" />
     </task>
     <task id="LOCAL-00026" summary="Small improvements on UI">
       <created>1608974287511</created>
