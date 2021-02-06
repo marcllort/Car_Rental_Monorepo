@@ -11,7 +11,7 @@ func main() {
 	creds := os.Getenv("creds")
 	dbpass := os.Getenv("dbpass")
 	db := Database.CreateConnection(creds, dbpass)
-	Database.ReadData(db)
+	Database.GetAllServices(db)
 	RabbitMQ.Connect()
 
 }

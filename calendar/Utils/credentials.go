@@ -51,6 +51,7 @@ func ReadCredentials(credentials, dbpass string) string {
 	url.WriteString(creds.port)
 	url.WriteString(")/")
 	url.WriteString(creds.database)
+	url.WriteString("?parseTime=true")
 
 	dbURL := url.String()
 

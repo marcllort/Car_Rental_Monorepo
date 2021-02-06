@@ -3,117 +3,71 @@ package Database
 import (
 	"calendar/Model"
 	"calendar/Utils"
-	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-	"strings"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
-func CreateConnection(creds, dbpass string) *sql.DB {
+func CreateConnection(creds, dbpass string) *gorm.DB {
 
 	dbURL := Utils.ReadCredentials(creds+"/creds.json", dbpass)
 
-	db, err := sql.Open("mysql", dbURL)
+	db, err := gorm.Open(mysql.Open(dbURL), &gorm.Config{})
 	if err != nil {
-		fmt.Println(err.Error())
-		defer db.Close()
-
-		err = db.Ping()
-		fmt.Println(err)
-		if err != nil {
-			fmt.Println("MySQL db is not connected")
-			fmt.Println(err.Error())
-		}
+		panic("failed to connect database")
 	}
 	fmt.Println("DB is connected!")
 
 	return db
 }
 
-/*func SelectCountryOriginDest(db *sql.DB, destination string, origin string) Model.Service {
+func GetAllServices(db *gorm.DB) []Model.ServiceView {
 
-	destination = strings.ReplaceAll(destination, " ", "_")
-	origin = strings.ReplaceAll(origin, " ", "_")
+	var services []Model.ServiceView
 
-	var query strings.Builder
-	query.WriteString("SELECT ")
-	query.WriteString("*")
-	query.WriteString(" FROM Service")
-	//query.WriteString(origin)
-	// query.WriteString("'")
+	db.Table("service_view").Find(&services)
 
-	finalQuery := query.String()
-
-	selDB, err := db.Query(finalQuery)
-
-	if err != nil {
-		panic(err.Error())
-	}
-	//var country Model.InfoCountry
-	var info string
-
-	for selDB.Next() {
-		selDB.Scan(&info)
-
-		if err != nil {
-			panic(err.Error())
-		}
-		//	country.Info = info
+	for _, service := range services {
+		fmt.Printf("ID: %d - Origin: %s - Destination: %s - Description: %s - ServiceDateTime: %s - CalendarEvent: %s "+
+			"- PayedDateTime: %s \n\t\tBasePrice: %.2f - ExtraPrice: %.2f - ConfirmedDateTime: %s - Passengers: %d - SpecialNeeds: %s \n",
+			service.ServiceId, service.Origin, service.Destination, service.Description, service.ServiceDatetime, service.CalendarEvent,
+			service.PayedDatetime, service.BasePrice, service.ExtraPrice, service.ConfirmedDatetime, service.Passengers, service.SpecialNeeds)
+		fmt.Printf("Client ID: %d - Name: %s - Email: %s - Country: %s - Phone: %s \n", service.ClientId, service.ClientName,
+			service.ClientMail, service.ClientCountry, service.ClientPhone)
+		fmt.Printf("Driver ID: %d - Name: %s - Email: %s - Country: %s - Phone: %s \n", service.DriverId, service.DriverName,
+			service.DriverMail, service.DriverCountry, service.DriverPhone)
 	}
 
-	//return country
-
-}*/
-
-func ReadData(db *sql.DB) {
-
-	rows, err := db.Query("select * from company_pressicar.service_view")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	defer rows.Close()
-	var services []Model.Service
-	var clients []Model.ClientUser
-	var drivers []Model.DriverUser
-
-	var service Model.Service
-	var client Model.ClientUser
-	var driver Model.DriverUser
-	for rows.Next() {
-		err := rows.Scan(&service.ServiceId, &service.Origin, &service.Destination, &driver.UserId, &driver.Name, &driver.Phone, &driver.Email, &driver.Country,
-			&client.UserId, &client.Name, &client.Phone, &client.Email, &client.Country,
-			&service.Description, &service.ServiceDatetime, &service.CalendarEvent,
-			&service.PayedDatetime, &service.BasePrice, &service.ExtraPrice, &service.ConfirmedDatetime, &service.Passengers, &service.SpecialNeeds)
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
-		fmt.Printf("ID: %d - Origin: %s - Destination: %s \n", service.ServiceId, service.Origin, service.Destination)
-		services = append(services, service)
-		fmt.Printf("Client ID: %d - Name: %s - Email: %s \n", client.UserId, client.Name, client.Name)
-		clients = append(clients, client)
-		fmt.Printf("Driver ID: %d - Name: %s - Email: %s \n", driver.UserId, driver.Name, driver.Name)
-		drivers = append(drivers, driver)
-	}
-	return
+	return services
 }
 
-func ExistsCountry(db *sql.DB, countrySelect string) bool {
-	var query strings.Builder
-	query.WriteString("SELECT EXISTS(SELECT * FROM PassportInfo WHERE Passport LIKE '")
-	query.WriteString(countrySelect)
-	query.WriteString("')")
+func createService(db *gorm.DB, service Model.Service) int {
+	result := db.Omit("ClientId").Create(&service)
 
-	finalQuery := query.String()
-
-	var exists bool
-	row := db.QueryRow(finalQuery)
-	err := row.Scan(&exists)
-
-	if err != nil {
-		panic(err.Error())
+	if result.Error != nil {
+		panic(result.Error)
 	}
 
-	return exists
+	return service.ServiceId
+}
+
+func createDriverUser(db *gorm.DB, driver Model.DriverUser) int {
+	result := db.Omit("DriverId").Create(&driver)
+
+	if result.Error != nil {
+		panic(result.Error)
+	}
+
+	return driver.UserId
+}
+
+func createClientUser(db *gorm.DB, client Model.ClientUser) int {
+	result := db.Omit("ClientId").Create(&client)
+
+	if result.Error != nil {
+		panic(result.Error)
+	}
+
+	return client.UserId
 }
