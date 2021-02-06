@@ -6,17 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/postman/CarRental.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/postman/CarRental.postman_collection.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Model/Service.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Model/Service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Utils/credentials.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Utils/credentials.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/covid/BusinessHandler/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/covid/BusinessHandler/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/calendar-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/calendar-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/email-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/email-deployment.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,14 +194,7 @@
       <workItem from="1611862200340" duration="33074000" />
       <workItem from="1612378428356" duration="2792000" />
       <workItem from="1612451722173" duration="3736000" />
-      <workItem from="1612515205805" duration="12486000" />
-    </task>
-    <task id="LOCAL-00028" summary="Calendar first implementation">
-      <created>1609009862534</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1609009862534</updated>
+      <workItem from="1612515205805" duration="16618000" />
     </task>
     <task id="LOCAL-00029" summary="Added cool alerts">
       <created>1609061479178</created>
@@ -549,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612516315715</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Impletented GORM for calendar">
+      <created>1612632444785</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1612632444785</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +547,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Added kubernetes scripts" />
     <MESSAGE value="Fix scripts" />
     <MESSAGE value="Working" />
     <MESSAGE value="Working SSL" />
@@ -582,7 +571,8 @@
     <MESSAGE value="Encryption of passwords in apigw and kuberentes" />
     <MESSAGE value="AWS Password in kubernetes" />
     <MESSAGE value="Readme updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Readme updates" />
+    <MESSAGE value="Impletented GORM for calendar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Impletented GORM for calendar" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
