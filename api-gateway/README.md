@@ -89,6 +89,9 @@ RabbitMQ is a good option for a simple publish/subscribe message broker, as it w
 implementation, plus lots of support online due to the large userbase. Kafka would be better in case the messages would
 have to be stored even after being read by the subscriber, like in case of metrics analytics.
 
+The RabbitMQ URL is dependent on the profile we are working at, as if we are locally the `localhost` will be used, but
+if it is running on Docker, the `rabbitmq` URL (of the Kubernetes cluster) will be used instead.
+
 ## Encryption/Decryption
 
 This service needs to store the email password of the user in the Firestore storage DB. To do so, it must be encrypted,
