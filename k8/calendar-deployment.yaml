@@ -27,3 +27,13 @@ spec:
                 secretKeyRef:
                   name: secret-db
                   key: SECRET_DB
+            - name: CREDS
+              value: /app/creds.json
+          volumeMounts:
+            - name: database-config-volume
+              mountPath: /app/
+              readOnly: true # no editing!
+      volumes:
+        - name: database-config-volume
+          secret:
+            secretName: dbcreds-secret

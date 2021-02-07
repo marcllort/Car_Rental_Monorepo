@@ -1,8 +1,8 @@
 package Database
 
 import (
-	"calendar/Model"
-	"calendar/Utils"
+	"email/Model"
+	"email/Utils"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"gorm.io/driver/mysql"

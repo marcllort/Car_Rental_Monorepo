@@ -8,8 +8,8 @@ import (
 
 func main() {
 
-	creds := os.Getenv("creds")
-	dbpass := os.Getenv("dbpass")
+	creds := os.Getenv("CREDS")
+	dbpass := os.Getenv("SECRET_DB")
 	db := Database.CreateConnection(creds, dbpass)
 	Database.GetAllServices(db)
 	RabbitMQ.Connect()

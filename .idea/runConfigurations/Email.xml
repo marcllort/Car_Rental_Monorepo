@@ -4,6 +4,8 @@
     <working_directory value="$PROJECT_DIR$" />
     <envs>
       <env name="URL" value="amqp://guest:guest@localhost:5672" />
+      <env name="SECRET_DB" value="marcpassword" />
+      <env name="CREDS" value="email/Creds/creds.json" />
     </envs>
     <kind value="FILE" />
     <filePath value="$PROJECT_DIR$/email/main.go" />

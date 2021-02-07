@@ -14,8 +14,9 @@ helm install rabbitmq --set rabbitmq.username=guest,rabbitmq.password=guest stab
 # Setup the Kubernetes dashboard
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
 
-# Secrets creation, first the Firebase secret and second the TLS CloudFlare secrets
+# Secrets creation, first the Firebase secret and second the TLS CloudFlare secrets and DB creds
 kubectl create secret generic firebase-secret --from-file ../api-gateway/creds/car-rental.json
+kubectl create secret generic dbcreds-secret --from-file ../calendar/Creds/creds.json
 kubectl create secret tls cloudflare-tls --key ../api-gateway/creds/https-server.key --cert ../api-gateway/creds/https-server.crt
 
 # Set the password through the parameters of the scripts
