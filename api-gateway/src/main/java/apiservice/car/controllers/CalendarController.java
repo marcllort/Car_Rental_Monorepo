@@ -76,7 +76,7 @@ public class CalendarController {
         return this.events;
     }
 
-    private String authorize() throws Exception {
+    private void authorize() throws Exception {
         AuthorizationCodeRequestUrl authorizationUrl;
         if (flow == null) {
             GoogleClientSecrets.Details web = new GoogleClientSecrets.Details();
@@ -87,9 +87,7 @@ public class CalendarController {
             flow = new GoogleAuthorizationCodeFlow.Builder(httpTransport, JSON_FACTORY, clientSecrets,
                     Collections.singleton(CalendarScopes.CALENDAR)).build();
         }
-        authorizationUrl = flow.newAuthorizationUrl().setRedirectUri(redirectURI);
-        System.out.println("cal authorizationUrl->" + authorizationUrl);
-        return authorizationUrl.build();
+        flow.newAuthorizationUrl().setRedirectUri(redirectURI);
     }
 
 }

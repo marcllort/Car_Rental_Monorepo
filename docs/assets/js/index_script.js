@@ -151,7 +151,7 @@ function createUserFirebaseAPI(user) {
                 calendarURL: result.value[5]
             }
 
-            createUserAPICall(data)
+            updateUserAPICall(data)
         }
     })
 
@@ -162,8 +162,8 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-function createUserAPICall(data) {
-    var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
+function updateUserAPICall(data) {
+    var url = 'https://carrentalbarcelona.tk/protected/update-user-firebase';
 
     /*if (document.getElementById("password-text").value === "") {
         document.getElementById("password-text").value = "null";

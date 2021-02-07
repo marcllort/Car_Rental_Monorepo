@@ -22,6 +22,7 @@ kubectl create secret tls cloudflare-tls --key ../api-gateway/creds/https-server
 # Set the password through the parameters of the scripts
 kubectl create secret generic secret-hash --from-literal="SECRET_HASH=$1"
 kubectl create secret generic secret-db --from-literal="SECRET_DB=$1"
+kubectl create secret generic secret-goole-api --from-literal="google.client.client-secret=$2"
 
 # Apply all kubernetes configurations
 kubectl apply -f ../k8

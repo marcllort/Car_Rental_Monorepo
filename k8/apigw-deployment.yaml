@@ -33,6 +33,11 @@ spec:
                 secretKeyRef:
                   name: secret-hash
                   key: SECRET_HASH
+            - name: SECRET_HASH
+              valueFrom:
+                secretKeyRef:
+                  name: secret-goole-api
+                  key: google.client.client-secret
           volumeMounts:
             - name: firebase-config-volume
               mountPath: /app/

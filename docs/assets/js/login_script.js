@@ -1,10 +1,19 @@
-import {protectedApiCall, startUp} from "./api_script.js";
+import {idToken, protectedApiCall, startUp} from "./api_script.js";
+
+var accessToken;
 
 window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
         if (user && window.location.pathname.includes("login.html")) {
-            //redirectUserAdmin();
+            console.log(accessToken)
+            const data = {
+                uid: user.uid,
+                accessToken: accessToken,
+            }
+            createUserAPICall(data)
+
+            redirectUserAdmin();
         }
     });
 };
@@ -35,17 +44,7 @@ window.googleLogin = function () {
         firebase.auth().signInWithPopup(provider).then(function (result) {
             if (result.credential) {
                 // This gives you a Google Access Token.
-                var token = result.credential.accessToken;
-                console.log(token)
-                var requestOptions = {
-                    method: 'GET',
-                    redirect: 'follow'
-                };
-
-                fetch("https://www.googleapis.com/calendar/v3/users/me/calendarList?access_token=" + token, requestOptions)
-                    .then(response => response.text())
-                    .then(result => console.log(result))
-                    .catch(error => console.log('error', error));
+                accessToken = result.credential.accessToken;
             }
             protectedCall();
         }).catch(function (error) {
@@ -62,5 +61,29 @@ function protectedCall() {
         protectedApiCall(idToken);
     }).catch(function (error) {
         console.error(error.data);
+    });
+}
+
+function createUserAPICall(data) {
+    var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
+
+    /*if (document.getElementById("password-text").value === "") {
+        document.getElementById("password-text").value = "null";
+    }*/
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + idToken,
+    }
+
+    axios.post(url, data, {
+        headers: headers
+    }).then(resp => {
+        console.log(resp);
+    }).catch(error => {
+        swalWithBootstrapButtons.fire(
+            'Error',
+            capitalizeFirstLetter(error.response.data.message),
+            'error'
+        )
     });
 }

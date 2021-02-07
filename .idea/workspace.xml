@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_apis_google_api_services_calendar_v3_rev305_1_23_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/api-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/api-gateway.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/PublicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/firebase/FirebaseUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/firebase/FirebaseUserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/model/FirebaseUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/model/FirebaseUserRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/covid/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/index_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/index_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/assets/js/login_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/login_script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/apigw-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/apigw-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,14 +216,7 @@
       <workItem from="1611862200340" duration="33074000" />
       <workItem from="1612378428356" duration="2792000" />
       <workItem from="1612451722173" duration="3736000" />
-      <workItem from="1612515205805" duration="35245000" />
-    </task>
-    <task id="LOCAL-00034" summary="Calendar endpoint">
-      <created>1609084274018</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1609084274018</updated>
+      <workItem from="1612515205805" duration="36945000" />
     </task>
     <task id="LOCAL-00035" summary="Calendar endpoint">
       <created>1609154411297</created>
@@ -560,7 +554,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612699038347</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Calendar retrieval endpoint">
+      <created>1612722312076</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1612722312076</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +569,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Added READMEs" />
     <MESSAGE value="Remove unnecessary CORS code" />
     <MESSAGE value="Creation of calendar and legal microservice, with RabbitMQ implementation working" />
     <MESSAGE value="Add intellij Configs and email microservice" />
@@ -593,7 +593,8 @@
     <MESSAGE value="Added firestore connection to email" />
     <MESSAGE value="Updated readme" />
     <MESSAGE value="Updated readme and postman" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated readme and postman" />
+    <MESSAGE value="Calendar retrieval endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calendar retrieval endpoint" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

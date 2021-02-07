@@ -6,6 +6,7 @@ import lombok.Data;
 public class FirebaseUserRequest {
 
     private String uid;
+    private String accessToken;
     private String name;
     private String language;
     private String email;

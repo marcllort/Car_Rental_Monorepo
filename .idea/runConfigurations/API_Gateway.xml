@@ -9,6 +9,7 @@
       <env name="SUPER_ADMINS" value="mac12llm2@gmail.com" />
       <env name="CORS_DOMAIN" value="http://localhost:63343" />
       <env name="SECRET_HASH" value="marcpassword" />
+      <env name="google.client.client-secret" value="CjIp6Jd7-g6I2V4VcLbh4Ylc" />
     </envs>
     <method v="2">
       <option name="Make" enabled="true" />

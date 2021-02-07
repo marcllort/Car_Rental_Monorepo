@@ -26,6 +26,25 @@ public class FirebaseUserHandler {
     @Value("${SECRET_HASH}") // value after ':' is the default
     private String key; // 128 bit key
 
+    public String createUserFirebaseToken(FirebaseUserRequest request) throws ExecutionException, InterruptedException {
+
+        DocumentReference docRef = db.collection("users").document(request.getUid());
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot document = future.get();
+
+        if (document.exists()) {
+            return "User already existed. No changes were applied.";
+        } else {
+            // Add document data  with id of the request using a hashmap
+            Map<String, Object> data = new HashMap<>();
+            data.put("accessToken", request.getAccessToken());
+
+            docRef.set(data);
+
+            return "User succesfully created";
+        }
+    }
+
     public String createUserFirebase(FirebaseUserRequest request) throws ExecutionException, InterruptedException {
 
         DocumentReference docRef = db.collection("users").document(request.getUid());
@@ -33,6 +52,10 @@ public class FirebaseUserHandler {
         DocumentSnapshot document = future.get();
 
         if (document.exists()) {
+            Map<String, Object> data = new HashMap<>();
+            data.put("accessToken", request.getAccessToken());
+
+            docRef.update(data);
             return "User already existed. No changes were applied.";
         } else {
             // Add document data  with id of the request using a hashmap
