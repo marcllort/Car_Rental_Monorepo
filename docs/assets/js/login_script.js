@@ -1,11 +1,10 @@
 import {protectedApiCall, startUp} from "./api_script.js";
-import {redirectUserAdmin} from "./ui_script.js";
 
 window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
         if (user && window.location.pathname.includes("login.html")) {
-            redirectUserAdmin();
+            //redirectUserAdmin();
         }
     });
 };
@@ -29,10 +28,25 @@ window.emailLogin = function () {
 
 window.googleLogin = function () {
     const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/calendar');
     const user = firebase.auth().currentUser;
 
     if (user == null) {
         firebase.auth().signInWithPopup(provider).then(function (result) {
+            if (result.credential) {
+                // This gives you a Google Access Token.
+                var token = result.credential.accessToken;
+                console.log(token)
+                var requestOptions = {
+                    method: 'GET',
+                    redirect: 'follow'
+                };
+
+                fetch("https://www.googleapis.com/calendar/v3/users/me/calendarList?access_token=" + token, requestOptions)
+                    .then(response => response.text())
+                    .then(result => console.log(result))
+                    .catch(error => console.log('error', error));
+            }
             protectedCall();
         }).catch(function (error) {
             console.log(error);

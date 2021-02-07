@@ -71,6 +71,11 @@ logging:
         thepro: DEBUG
    pattern:
      console: "%d{HH:mm:ss} || %highlight(%5p) < %highlight(%-35.35logger{35}) > %highlight(%m%n)"
+google:
+   client:
+      client-id: 294401568654-agao4nqpvntfa4h9d2ni6h1akqujplh1.apps.googleusercontent.com
+      client-secret: CjIp6Jd7-g6I2V4VcLbh4Ylc
+      redirectUri: http://localhost:8080/public/login
 
 ---
 

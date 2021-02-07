@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_apis_google_api_services_calendar_v3_rev305_1_23_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/api-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/api-gateway.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/PublicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/covid/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/covid/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/login_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/login_script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +27,9 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Go Application" />
         <option value="Go File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -41,6 +47,9 @@
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1m3OnMybHEet2CfYpyhZuVLm3Ch" />
   <component name="ProjectViewState">
@@ -66,7 +75,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/email/Creds" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/calendar/Creds" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -78,11 +87,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar\Creds" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Creds" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\database" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
@@ -99,7 +108,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Email">
+  <component name="RunManager" selected="Spring Boot.API-Gateway">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -206,14 +215,7 @@
       <workItem from="1611862200340" duration="33074000" />
       <workItem from="1612378428356" duration="2792000" />
       <workItem from="1612451722173" duration="3736000" />
-      <workItem from="1612515205805" duration="26721000" />
-    </task>
-    <task id="LOCAL-00033" summary="Added cool alerts">
-      <created>1609071291204</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1609071291204</updated>
+      <workItem from="1612515205805" duration="35245000" />
     </task>
     <task id="LOCAL-00034" summary="Calendar endpoint">
       <created>1609084274018</created>
@@ -551,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612697159452</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Updated readme and postman">
+      <created>1612699038346</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1612699038347</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +568,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Test frontend" />
     <MESSAGE value="Added READMEs" />
     <MESSAGE value="Remove unnecessary CORS code" />
     <MESSAGE value="Creation of calendar and legal microservice, with RabbitMQ implementation working" />
@@ -584,7 +592,8 @@
     <MESSAGE value="Added credentials and kubernetes configuration for email and calendar" />
     <MESSAGE value="Added firestore connection to email" />
     <MESSAGE value="Updated readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated readme" />
+    <MESSAGE value="Updated readme and postman" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated readme and postman" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

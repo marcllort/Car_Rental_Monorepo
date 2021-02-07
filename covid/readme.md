@@ -2,6 +2,15 @@
 
 **REFER TO ITS OWN [REPOSITORY](https://github.com/marcllort/CanITravelTo_Backend/)**
 
+The Covid Service is a separated project from the rest of the car-rental project. This is why it is hosted separately,
+and consumed by the main project like an external API. This is because the Covid service is the backend for another
+project of mine, called [canitravelto.com](canitravelto.com) which lets the user **know if they can travel to a
+destination country from a country of origin**. The functionality is partially working. Amongst the functionalities of
+the web service we can find: It shows if with the passport of the user, if they can travel there VISA free, only an
+specific amount of days or if the VISA is always required.
+
+As it is a separated project, it hosted in AWS (EC2 micro instance).
+
 ![CI](https://github.com/marcllort/CanITravelTo_Backend/workflows/CI/badge.svg)
 ![CD](https://github.com/marcllort/CanITravelTo_Backend/workflows/CD/badge.svg)
 
@@ -196,8 +205,8 @@ own.
 In the backend, when responding to the requests there is the following headers that must be added to the response, so
 it **complies with the CORS policies**:
 
-```golang
-    c.Header("Access-Control-Allow-Origin", "*")
+```
+c.Header("Access-Control-Allow-Origin", "*")
 c.Header("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers")
 ```
 
@@ -207,8 +216,8 @@ implications to user data (my case, as **frontend and backend are hosted separat
 preflight (OPTIONS request), we will also, in case that we use an API key, add the following header ("X-Auth-Token"), so
 the client knows that the requests must contain an API key/token:
 
-```golang
-    c.Header("Access-Control-Allow-Origin", "*")
+```
+c.Header("Access-Control-Allow-Origin", "*")
 c.Header("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers, X-Auth-Token")
 ```
 
