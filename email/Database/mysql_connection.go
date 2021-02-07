@@ -175,6 +175,10 @@ func updateDriverForService(db *gorm.DB, driverId int, serviceId int) Model.Serv
 	return service
 }
 
+// Retrieve email and password of X user --> Firestore
+
+// Retrieve X service , receive id --> Not needed, email ms will receive everything, just needs to handle the password
+
 func printServices(services []Model.ServiceView) {
 	for _, service := range services {
 		fmt.Printf("ID: %d - Origin: %s - Destination: %s - Description: %s - ServiceDateTime: %s - CalendarEvent: %s "+

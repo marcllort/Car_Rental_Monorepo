@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Implemented DB methods, not tested">
-      <change afterPath="$PROJECT_DIR$/email/Database/mysql_connection.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Model/ClientUser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Model/DriverUser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Model/Service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Utils/credentials.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Calendar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Calendar.xml" afterDir="false" />
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Added credentials and kubernetes configuration for email and calendar">
+      <change afterPath="$PROJECT_DIR$/email/Firestore/firestore_conenction.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Database/mysql_connection.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/email/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/calendar-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/calendar-deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/k8/email-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/email-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +24,10 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Go File" />
         <option value="Interface" />
         <option value="Class" />
         <option value="Go Application" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -65,7 +55,7 @@
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="DefaultGoTemplateProperty" value="Go Application" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -80,7 +70,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/email" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/email/Creds" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -92,11 +82,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Creds" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\database" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\src\main\java\apiservice\car\controller\handler\email" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
@@ -113,7 +103,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Calendar">
+  <component name="RunManager" selected="Go Build.Email">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -220,14 +210,7 @@
       <workItem from="1611862200340" duration="33074000" />
       <workItem from="1612378428356" duration="2792000" />
       <workItem from="1612451722173" duration="3736000" />
-      <workItem from="1612515205805" duration="18903000" />
-    </task>
-    <task id="LOCAL-00030" summary="Added cool alerts">
-      <created>1609062388447</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1609062388448</updated>
+      <workItem from="1612515205805" duration="22882000" />
     </task>
     <task id="LOCAL-00031" summary="Added cool alerts">
       <created>1609068786211</created>
@@ -565,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612636562587</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Added credentials and kubernetes configuration for email and calendar">
+      <created>1612691265089</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1612691265089</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +563,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Working" />
     <MESSAGE value="Working SSL" />
     <MESSAGE value="Working SSL in frontend" />
     <MESSAGE value="Test frontend" />
@@ -598,7 +587,8 @@
     <MESSAGE value="Readme updates" />
     <MESSAGE value="Impletented GORM for calendar" />
     <MESSAGE value="Implemented DB methods, not tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented DB methods, not tested" />
+    <MESSAGE value="Added credentials and kubernetes configuration for email and calendar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added credentials and kubernetes configuration for email and calendar" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
