@@ -1,21 +1,12 @@
 import {protectedApiCall, startUp} from "./api_script.js";
-import {redirectUserAdmin} from "./ui_script";
 
-var accessToken;
+var credential;
 
 window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
         if (user && window.location.pathname.includes("login.html")) {
-            console.log(accessToken)
-            const data = {
-                uid: user.uid,
-                accessToken: accessToken,
-            }
-            firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
-                createUserAPICall(data, idToken);
-            });
-            redirectUserAdmin();
+            //redirectUserAdmin();
         }
     });
 };
@@ -46,8 +37,9 @@ window.googleLogin = function () {
         firebase.auth().signInWithPopup(provider).then(function (result) {
             if (result.credential) {
                 // This gives you a Google Access Token.
-                accessToken = result.credential.accessToken;
+                credential = result.credential;
             }
+            createUserAPICall(credential)
             protectedCall();
         }).catch(function (error) {
             console.log(error);
@@ -66,26 +58,58 @@ function protectedCall() {
     });
 }
 
-function createUserAPICall(data, idToken) {
+function createUserAPICall(credential) {
     var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
 
-    /*if (document.getElementById("password-text").value === "") {
-        document.getElementById("password-text").value = "null";
-    }*/
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + idToken,
-    }
+    firebase.auth().onAuthStateChanged(function (user) {
+        console.log(user)
+        const data = {
+            uid: user.uid,
+            accessToken: credential.accessToken,
+        }
 
-    axios.post(url, data, {
-        headers: headers
-    }).then(resp => {
-        console.log(resp);
-    }).catch(error => {
-        swalWithBootstrapButtons.fire(
-            'Error',
-            capitalizeFirstLetter(error.response.data.message),
-            'error'
-        )
+        firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
+
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + idToken,
+            }
+
+            axios.post(url, data, {
+                headers: headers
+            }).then(resp => {
+                console.log(resp);
+            }).catch(error => {
+                swalWithBootstrapButtons.fire(
+                    'Error',
+                    capitalizeFirstLetter(error.response.data.message),
+                    'error'
+                )
+            });
+        }).catch(function (error) {
+            console.error(error.data);
+        });
+    });
+}
+
+function redirectUserAdmin() {
+    firebase.auth().currentUser.getIdTokenResult().then((idTokenResult) => {
+
+        /*if (!window.location.pathname.includes("index.html")) {
+            window.location = 'index.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
+        }*/
+        if (!!idTokenResult.claims.role_super) {
+            // Show admin UI.
+            if (!window.location.pathname.includes("admin_table.html")) {
+                window.location = 'admin_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
+            }
+        } else {
+            // Show regular user UI.
+            if (!window.location.pathname.includes("user_table.html")) {
+                window.location = 'user_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
+            }
+        }
+    }).catch((error) => {
+        console.log(error);
     });
 }

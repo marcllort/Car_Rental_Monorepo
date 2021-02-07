@@ -60,12 +60,7 @@ public class FirebaseUserHandler {
         } else {
             // Add document data  with id of the request using a hashmap
             Map<String, Object> data = new HashMap<>();
-            data.put("name", request.getName());
-            data.put("email", request.getEmail());
-            data.put("password", encryptionUtility.encrypt(key, request.getPassword()));
-            data.put("language", request.getLanguage());
-            data.put("emailSign", request.getEmailSign());
-            data.put("calendarURL", request.getCalendarURL());
+            data.put("accessToken", request.getAccessToken());
 
             docRef.set(data);
 
