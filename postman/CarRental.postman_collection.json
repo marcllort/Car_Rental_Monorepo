@@ -373,7 +373,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNjYmM4ZjIyMDJmNjZkMWIxZTEwMTY1OTFhZTIxNTZiZTM5NWM2ZDciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiTWFyYyBMbG9ydCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzNDTnJYb2pORTV0T3ZqN1dlZEFQM0hWLW9XZkk2LWJkMXFJdktodz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9jYXItcmVudGFsLTI4NjFmIiwiYXVkIjoiY2FyLXJlbnRhbC0yODYxZiIsImF1dGhfdGltZSI6MTYwODcxNzI5MCwidXNlcl9pZCI6IllPUEtzejdmMUlUYkMxVjhXRVM4MUNUZjEySDMiLCJzdWIiOiJZT1BLc3o3ZjFJVGJDMVY4V0VTODFDVGYxMkgzIiwiaWF0IjoxNjA4NzIxNTA2LCJleHAiOjE2MDg3MjUxMDYsImVtYWlsIjoibWFjMTJsbG1AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDYxNjEwMTUyMTIyNjk1Njc0NDYiXSwiZW1haWwiOlsibWFjMTJsbG1AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.IHT-bwlYHHRolha-ABOgVFZ_yD_PbOeZ0NQx45UPo2NR4PZRHE1PbqVOgsjFLIirAIEK0oOTsFR6TgVdaxdtcBl7WxgEm-lkVULwsvL5LAacsuJAH-3YWGRpBCujOCXuRWMOLBugbcX6X1I3zjxZ8G-LTfVGZg9mJ1pyCssfNCqTP6h3752qh6Fy3MpvkhMrUkRZoD0RSWjgsNTmyVyfndDjL2mWgG7t6b1peMpg_ugmrOcTipMwlB6LpkyA9mH7Bkswo4t1lAe5gDOpAtl6MRIF5UGOTWnHKCF3RR9IdUhj7FovKTKmqNeQDPWKACt1JogG7EKM_0Pl4XfgK_22Pw",
+							"value": "{{ADMIN_API_KEY}}",
 							"type": "string"
 						}
 					]
@@ -404,7 +404,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNjYmM4ZjIyMDJmNjZkMWIxZTEwMTY1OTFhZTIxNTZiZTM5NWM2ZDciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiTWFyYyBMbG9ydCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzNDTnJYb2pORTV0T3ZqN1dlZEFQM0hWLW9XZkk2LWJkMXFJdktodz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9jYXItcmVudGFsLTI4NjFmIiwiYXVkIjoiY2FyLXJlbnRhbC0yODYxZiIsImF1dGhfdGltZSI6MTYwODcxNzI5MCwidXNlcl9pZCI6IllPUEtzejdmMUlUYkMxVjhXRVM4MUNUZjEySDMiLCJzdWIiOiJZT1BLc3o3ZjFJVGJDMVY4V0VTODFDVGYxMkgzIiwiaWF0IjoxNjA4NzIxNTA2LCJleHAiOjE2MDg3MjUxMDYsImVtYWlsIjoibWFjMTJsbG1AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDYxNjEwMTUyMTIyNjk1Njc0NDYiXSwiZW1haWwiOlsibWFjMTJsbG1AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.IHT-bwlYHHRolha-ABOgVFZ_yD_PbOeZ0NQx45UPo2NR4PZRHE1PbqVOgsjFLIirAIEK0oOTsFR6TgVdaxdtcBl7WxgEm-lkVULwsvL5LAacsuJAH-3YWGRpBCujOCXuRWMOLBugbcX6X1I3zjxZ8G-LTfVGZg9mJ1pyCssfNCqTP6h3752qh6Fy3MpvkhMrUkRZoD0RSWjgsNTmyVyfndDjL2mWgG7t6b1peMpg_ugmrOcTipMwlB6LpkyA9mH7Bkswo4t1lAe5gDOpAtl6MRIF5UGOTWnHKCF3RR9IdUhj7FovKTKmqNeQDPWKACt1JogG7EKM_0Pl4XfgK_22Pw",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -412,9 +412,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{LOCAL_URL_K8S}}/public/data",
+					"raw": "{{PUBLIC_URL}}/public/data",
 					"host": [
-						"{{LOCAL_URL_K8S}}"
+						"{{PUBLIC_URL}}"
 					],
 					"path": [
 						"public",
@@ -435,7 +435,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNjYmM4ZjIyMDJmNjZkMWIxZTEwMTY1OTFhZTIxNTZiZTM5NWM2ZDciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiTWFyYyBMbG9ydCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzNDTnJYb2pORTV0T3ZqN1dlZEFQM0hWLW9XZkk2LWJkMXFJdktodz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9jYXItcmVudGFsLTI4NjFmIiwiYXVkIjoiY2FyLXJlbnRhbC0yODYxZiIsImF1dGhfdGltZSI6MTYwODcxNzI5MCwidXNlcl9pZCI6IllPUEtzejdmMUlUYkMxVjhXRVM4MUNUZjEySDMiLCJzdWIiOiJZT1BLc3o3ZjFJVGJDMVY4V0VTODFDVGYxMkgzIiwiaWF0IjoxNjA4NzIxNTA2LCJleHAiOjE2MDg3MjUxMDYsImVtYWlsIjoibWFjMTJsbG1AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDYxNjEwMTUyMTIyNjk1Njc0NDYiXSwiZW1haWwiOlsibWFjMTJsbG1AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.IHT-bwlYHHRolha-ABOgVFZ_yD_PbOeZ0NQx45UPo2NR4PZRHE1PbqVOgsjFLIirAIEK0oOTsFR6TgVdaxdtcBl7WxgEm-lkVULwsvL5LAacsuJAH-3YWGRpBCujOCXuRWMOLBugbcX6X1I3zjxZ8G-LTfVGZg9mJ1pyCssfNCqTP6h3752qh6Fy3MpvkhMrUkRZoD0RSWjgsNTmyVyfndDjL2mWgG7t6b1peMpg_ugmrOcTipMwlB6LpkyA9mH7Bkswo4t1lAe5gDOpAtl6MRIF5UGOTWnHKCF3RR9IdUhj7FovKTKmqNeQDPWKACt1JogG7EKM_0Pl4XfgK_22Pw",
+							"value": "{{ADMIN_API_KEY}}",
 							"type": "string"
 						}
 					]
@@ -466,7 +466,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNjYmM4ZjIyMDJmNjZkMWIxZTEwMTY1OTFhZTIxNTZiZTM5NWM2ZDciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiTWFyYyBMbG9ydCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzNDTnJYb2pORTV0T3ZqN1dlZEFQM0hWLW9XZkk2LWJkMXFJdktodz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9jYXItcmVudGFsLTI4NjFmIiwiYXVkIjoiY2FyLXJlbnRhbC0yODYxZiIsImF1dGhfdGltZSI6MTYwODcxNzI5MCwidXNlcl9pZCI6IllPUEtzejdmMUlUYkMxVjhXRVM4MUNUZjEySDMiLCJzdWIiOiJZT1BLc3o3ZjFJVGJDMVY4V0VTODFDVGYxMkgzIiwiaWF0IjoxNjA4NzIxNTA2LCJleHAiOjE2MDg3MjUxMDYsImVtYWlsIjoibWFjMTJsbG1AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDYxNjEwMTUyMTIyNjk1Njc0NDYiXSwiZW1haWwiOlsibWFjMTJsbG1AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.IHT-bwlYHHRolha-ABOgVFZ_yD_PbOeZ0NQx45UPo2NR4PZRHE1PbqVOgsjFLIirAIEK0oOTsFR6TgVdaxdtcBl7WxgEm-lkVULwsvL5LAacsuJAH-3YWGRpBCujOCXuRWMOLBugbcX6X1I3zjxZ8G-LTfVGZg9mJ1pyCssfNCqTP6h3752qh6Fy3MpvkhMrUkRZoD0RSWjgsNTmyVyfndDjL2mWgG7t6b1peMpg_ugmrOcTipMwlB6LpkyA9mH7Bkswo4t1lAe5gDOpAtl6MRIF5UGOTWnHKCF3RR9IdUhj7FovKTKmqNeQDPWKACt1JogG7EKM_0Pl4XfgK_22Pw",
+							"value": "{{ADMIN_API_KEY}}",
 							"type": "string"
 						}
 					]
@@ -474,13 +474,134 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{LOCAL_URL_K8S}}/protected/data",
+					"raw": "{{PUBLIC_URL}}/protected/data",
 					"host": [
-						"{{LOCAL_URL_K8S}}"
+						"{{PUBLIC_URL}}"
 					],
 					"path": [
 						"protected",
 						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Protected/Calendar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ADMIN_API_KEY}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PUBLIC_URL}}/protected/calendar",
+					"host": [
+						"{{PUBLIC_URL}}"
+					],
+					"path": [
+						"protected",
+						"calendar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Protected/Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ADMIN_API_KEY}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PUBLIC_URL}}/protected/email",
+					"host": [
+						"{{PUBLIC_URL}}"
+					],
+					"path": [
+						"protected",
+						"email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Protected/Legal",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ADMIN_API_KEY}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PUBLIC_URL}}/protected/legal",
+					"host": [
+						"{{PUBLIC_URL}}"
+					],
+					"path": [
+						"protected",
+						"legal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prected/CreateUserFirebase",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ADMIN_API_KEY}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uid\":\"uid\",\r\n    \"name\":\"name\",\r\n    \"language\":\"lang\",\r\n    \"email\":\"mail\",\r\n    \"password\":\"pass\",\r\n    \"emailSign\":\"sign\",\r\n    \"calendarURL\":\"url\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PUBLIC_URL}}/protected/create-user-firebase",
+					"host": [
+						"{{PUBLIC_URL}}"
+					],
+					"path": [
+						"protected",
+						"create-user-firebase"
 					]
 				}
 			},

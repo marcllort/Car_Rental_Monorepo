@@ -1,5 +1,7 @@
 # CanITravelTo
 
+**REFER TO ITS OWN [REPOSITORY](https://github.com/marcllort/CanITravelTo_Backend/)**
+
 ![CI](https://github.com/marcllort/CanITravelTo_Backend/workflows/CI/badge.svg)
 ![CD](https://github.com/marcllort/CanITravelTo_Backend/workflows/CD/badge.svg)
 
@@ -163,8 +165,8 @@ The request to the backend should always be a `POST`, and this could be an examp
 
 ```json
 {
-    "destination": "Spain",
-    "origin": "France"
+  "destination": "Spain",
+  "origin": "France"
 }
 ```
 
@@ -195,8 +197,8 @@ In the backend, when responding to the requests there is the following headers t
 it **complies with the CORS policies**:
 
 ```golang
-    c.Header("Access-Control-Allow-Origin", "*")  
-    c.Header("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers")
+    c.Header("Access-Control-Allow-Origin", "*")
+c.Header("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers")
 ```
 
 "Preflighted" requests first send an HTTP request by the OPTIONS method to the resource on the other domain, to
@@ -206,8 +208,8 @@ preflight (OPTIONS request), we will also, in case that we use an API key, add t
 the client knows that the requests must contain an API key/token:
 
 ```golang
-    c.Header("Access-Control-Allow-Origin", "*")  	
-    c.Header("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers, X-Auth-Token")
+    c.Header("Access-Control-Allow-Origin", "*")
+c.Header("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers, X-Auth-Token")
 ```
 
 The "Access-Control-Allow-Origin", determines what origin/website can use the endpoint. I could configure it, so the
