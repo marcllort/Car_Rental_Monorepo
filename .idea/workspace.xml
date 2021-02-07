@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/API_Gateway.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/firebase/FirebaseUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/firebase/FirebaseUserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/model/FirebaseUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/model/FirebaseUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/index_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/index_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/assets/js/login_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/login_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/k8/apigw-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/apigw-deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
@@ -216,14 +210,7 @@
       <workItem from="1611862200340" duration="33074000" />
       <workItem from="1612378428356" duration="2792000" />
       <workItem from="1612451722173" duration="3736000" />
-      <workItem from="1612515205805" duration="36945000" />
-    </task>
-    <task id="LOCAL-00035" summary="Calendar endpoint">
-      <created>1609154411297</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1609154411297</updated>
+      <workItem from="1612515205805" duration="37823000" />
     </task>
     <task id="LOCAL-00036" summary="Calendar endpoint">
       <created>1609155679777</created>
@@ -561,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612722312076</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Calendar retrieval endpoint">
+      <created>1612723992228</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1612723992228</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

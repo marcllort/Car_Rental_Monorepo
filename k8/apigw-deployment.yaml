@@ -33,10 +33,10 @@ spec:
                 secretKeyRef:
                   name: secret-hash
                   key: SECRET_HASH
-            - name: SECRET_HASH
+            - name: google.client.client-secret
               valueFrom:
                 secretKeyRef:
-                  name: secret-goole-api
+                  name: secret-google-api
                   key: google.client.client-secret
           volumeMounts:
             - name: firebase-config-volume

@@ -1,4 +1,5 @@
-import {idToken, protectedApiCall, startUp} from "./api_script.js";
+import {protectedApiCall, startUp} from "./api_script.js";
+import {redirectUserAdmin} from "./ui_script";
 
 var accessToken;
 
@@ -11,8 +12,9 @@ window.onload = function () {
                 uid: user.uid,
                 accessToken: accessToken,
             }
-            createUserAPICall(data)
-
+            firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
+                createUserAPICall(data, idToken);
+            });
             redirectUserAdmin();
         }
     });
@@ -64,7 +66,7 @@ function protectedCall() {
     });
 }
 
-function createUserAPICall(data) {
+function createUserAPICall(data, idToken) {
     var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
 
     /*if (document.getElementById("password-text").value === "") {
