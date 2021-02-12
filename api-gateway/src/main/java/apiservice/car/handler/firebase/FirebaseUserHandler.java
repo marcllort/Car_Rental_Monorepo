@@ -43,6 +43,7 @@ public class FirebaseUserHandler {
             Map<String, Object> data = new HashMap<>();
             data.put("accessToken", request.getAccessToken());
             data.put("refreshToken", request.getRefreshToken());
+            data.put("code", request.getCode());
 
             docRef.set(data);
 
@@ -60,6 +61,7 @@ public class FirebaseUserHandler {
             Map<String, Object> data = new HashMap<>();
             data.put("accessToken", request.getAccessToken());
             data.put("refreshToken", request.getRefreshToken());
+            data.put("code", request.getCode());
 
             docRef.update(data);
             return "User already existed. No changes were applied.";
@@ -68,6 +70,7 @@ public class FirebaseUserHandler {
             Map<String, Object> data = new HashMap<>();
             data.put("accessToken", request.getAccessToken());
             data.put("refreshToken", request.getRefreshToken());
+            data.put("code", request.getCode());
 
             docRef.set(data);
 

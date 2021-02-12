@@ -3,11 +3,13 @@ package apiservice.car.controllers;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.auth.oauth2.TokenResponse;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
+import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeTokenRequest;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
-import com.google.api.client.googleapis.auth.oauth2.GoogleRefreshTokenRequest;
+import com.google.api.client.googleapis.auth.oauth2.GoogleTokenResponse;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.DateTime;
@@ -33,7 +35,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 @RestController
@@ -43,7 +48,6 @@ public class CalendarController {
     private static final String APPLICATION_NAME = "Car Rental";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static HttpTransport httpTransport;
-    private static com.google.api.services.calendar.Calendar client;
 
     final DateTime date1 = new DateTime("2017-05-05T16:30:00.000+05:30");
     final DateTime date2 = new DateTime(new Date());
@@ -102,7 +106,7 @@ public class CalendarController {
     private Events getEvents(TokenResponse token) throws IOException {
         Events eventList;
         credential = flow.createAndStoreCredential(token, "userID");
-        client = new Calendar.Builder(httpTransport, JSON_FACTORY, credential)
+        Calendar client = new Calendar.Builder(httpTransport, JSON_FACTORY, credential)
                 .setApplicationName(APPLICATION_NAME).build();
 
         Calendar.Events events = client.events();
@@ -118,9 +122,9 @@ public class CalendarController {
 
         DocumentSnapshot document = future.get();
         if (document.exists()) {
-            System.out.println("Document data: " + document.getData());
             tokenResponse.setAccessToken(String.valueOf(document.getData().get("accessToken")));
             tokenResponse.setRefreshToken(String.valueOf(document.getData().get("refreshToken")));
+            tokenResponse.setScope(String.valueOf(document.getData().get("code")));
         } else {
             System.out.println("No such document!");
         }
@@ -136,22 +140,61 @@ public class CalendarController {
             clientSecrets = new GoogleClientSecrets().setWeb(web);
             httpTransport = GoogleNetHttpTransport.newTrustedTransport();
             flow = new GoogleAuthorizationCodeFlow.Builder(httpTransport, JSON_FACTORY, clientSecrets,
-                    Collections.singleton(CalendarScopes.CALENDAR)).setAccessType("offline").setApprovalPrompt("force").build();
+                    Collections.singleton(CalendarScopes.CALENDAR)).setAccessType("offline").setApprovalPrompt("consent").build();
         }
         flow.newAuthorizationUrl().setRedirectUri(redirectURI);
     }
 
+
     public String getNewToken(String authHeader) throws IOException, GeneralSecurityException, ExecutionException, InterruptedException, FirebaseAuthException {
-        ArrayList<String> scopes = new ArrayList<>();
+        TokenResponse token = getUserToken(authHeader);
+        String code = token.getScope();
+
+
+        GoogleTokenResponse tokenResponse =
+                new GoogleAuthorizationCodeTokenRequest(
+                        new NetHttpTransport(),
+                        JacksonFactory.getDefaultInstance(),
+                        "https://oauth2.googleapis.com/token",
+                        "294401568654-agao4nqpvntfa4h9d2ni6h1akqujplh1.apps.googleusercontent.com",
+                        "CjIp6Jd7-g6I2V4VcLbh4Ylc",
+                        "4/0AY0e-g7MSTS2NWnnB1DrrF9ez0vD2gmzoxyLiiwwR3vnB-Ttr5_H4qEoFk_F_0iFhY0PxA",
+                        "postmessage")  // Specify the same redirect URI that you use with your web
+                        // app. If you don't have a web version of your app, you can
+                        // specify an empty string.
+                        .execute();
+
+        String accessToken = tokenResponse.getAccessToken();
+
+        /*try {
+            TokenResponse response =
+                    new GoogleRefreshTokenRequest(new NetHttpTransport(), new JacksonFactory(),
+                            token.getRefreshToken(), clientId, clientSecret).execute();
+            System.out.println("Access token: " + response.getAccessToken());
+            return response.getAccessToken();
+        } catch (TokenResponseException e) {
+            if (e.getDetails() != null) {
+                System.err.println("Error: " + e.getDetails().getError());
+                if (e.getDetails().getErrorDescription() != null) {
+                    System.err.println(e.getDetails().getErrorDescription());
+                }
+                if (e.getDetails().getErrorUri() != null) {
+                    System.err.println(e.getDetails().getErrorUri());
+                }
+            } else {
+                System.err.println(e.getMessage());
+            }*/
+        /*ArrayList<String> scopes = new ArrayList<>();
 
         TokenResponse token = getUserToken(authHeader);
 
         scopes.add(CalendarScopes.CALENDAR);
         httpTransport = GoogleNetHttpTransport.newTrustedTransport();
         TokenResponse tokenResponse = new GoogleRefreshTokenRequest(httpTransport, JSON_FACTORY,
-                token.getRefreshToken(), clientId, clientSecret).setScopes(scopes).setGrantType("refresh_token").execute();
+                token.getRefreshToken(), clientId, clientSecret).setScopes(scopes).execute();
 
-        return tokenResponse.getAccessToken();
+        return tokenResponse.getAccessToken();*/
+        return accessToken;
+
     }
-
 }

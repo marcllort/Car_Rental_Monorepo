@@ -15,8 +15,7 @@ window.onload = function () {
 window.loadAuth2 = function () {
     gapi.load('auth2', function () {
         gapi.auth2.init({
-            client_id: '294401568654-k5lbeg7mqh9l8mmormfqpq18soihrdfu.apps.googleusercontent.com',
-            cookie_policy: 'single_host_origin',
+            client_id: '294401568654-agao4nqpvntfa4h9d2ni6h1akqujplh1.apps.googleusercontent.com',
             scope: 'https://www.googleapis.com/auth/calendar'
         });
     });
@@ -43,6 +42,7 @@ window.googleLogin = function () {
 
     const user = firebase.auth().currentUser;
     var credentialAuth;
+    var code;
     if (user == null) {
         const auth = gapi.auth2.getAuthInstance();
         auth.then(() => {
@@ -51,12 +51,15 @@ window.googleLogin = function () {
                 'prompt': 'consent'
             }).then(offlineAccessExchangeCode => {
                 // send offline access exchange code to server ...
+                console.log(offlineAccessExchangeCode)
                 const authResp = auth.currentUser.get().getAuthResponse();
+                console.log(authResp);
                 credentialAuth = authResp;
+                code = offlineAccessExchangeCode;
                 const credential = firebase.auth.GoogleAuthProvider.credential(authResp.id_token);
                 return firebase.auth().signInWithCredential(credential);
             }).then(user => {
-                createUserAPICall(credentialAuth)
+                createUserAPICall(credentialAuth, code)
                 protectedCall();
             });
         });
@@ -73,7 +76,7 @@ function protectedCall() {
     });
 }
 
-function createUserAPICall(credential) {
+function createUserAPICall(credential, code) {
     var localurl = 'http://localhost:8080/protected/create-user-firebase';
     var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
 
@@ -83,6 +86,7 @@ function createUserAPICall(credential) {
             uid: user.uid,
             accessToken: credential.access_token,
             refreshToken: user.refreshToken,
+            code: code.code
         }
 
         firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
@@ -96,6 +100,7 @@ function createUserAPICall(credential) {
                 headers: headers
             }).then(resp => {
                 console.log(resp);
+                //redirectUserAdmin();
             }).catch(error => {
                 swalWithBootstrapButtons.fire(
                     'Error',
@@ -107,7 +112,7 @@ function createUserAPICall(credential) {
             console.error(error.data);
         });
     });
-    redirectUserAdmin();
+
 }
 
 function redirectUserAdmin() {
