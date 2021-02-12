@@ -74,11 +74,11 @@ function protectedCall() {
 }
 
 function createUserAPICall(credential) {
-    var url = 'http://localhost:8080/protected/create-user-firebase';
+    var localurl = 'http://localhost:8080/protected/create-user-firebase';
+    var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
 
     console.log(credential)
     firebase.auth().onAuthStateChanged(function (user) {
-        console.log(user)
         const data = {
             uid: user.uid,
             accessToken: credential.access_token,
@@ -92,7 +92,7 @@ function createUserAPICall(credential) {
                 'Authorization': 'Bearer ' + idToken,
             }
 
-            axios.post(url, data, {
+            axios.post(localurl, data, {
                 headers: headers
             }).then(resp => {
                 console.log(resp);
@@ -107,6 +107,7 @@ function createUserAPICall(credential) {
             console.error(error.data);
         });
     });
+    redirectUserAdmin();
 }
 
 function redirectUserAdmin() {
