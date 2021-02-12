@@ -6,6 +6,7 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
+import com.google.firebase.auth.FirebaseAuth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,9 @@ public class FirebaseUserHandler {
 
     @Autowired
     private Firestore db;
+
+    @Autowired
+    FirebaseAuth firebaseAuth;
 
     @Autowired
     private EncryptionUtility encryptionUtility;

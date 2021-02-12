@@ -5,26 +5,32 @@ import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.auth.oauth2.TokenResponse;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
+import com.google.api.client.googleapis.auth.oauth2.GoogleRefreshTokenRequest;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.DateTime;
+import com.google.api.core.ApiFuture;
 import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Event;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.Firestore;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("public")
@@ -40,6 +46,8 @@ public class CalendarController {
     GoogleClientSecrets clientSecrets;
     GoogleAuthorizationCodeFlow flow;
     Credential credential;
+    @Autowired
+    private Firestore db;
     @Value("${google.client.client-id}")
     private String clientId;
     @Value("${google.client.client-secret}")
@@ -48,15 +56,13 @@ public class CalendarController {
     private String redirectURI;
 
     @GetMapping(value = "login")
-    public ResponseEntity<String> oauth2Callback() throws Exception {
+    public ResponseEntity<String> oauth2Callback(@RequestParam(name = "uid") String uid) throws Exception {
         com.google.api.services.calendar.model.Events eventList;
         authorize();
         String message;
         try {
-            TokenResponse response = new TokenResponse();
-            response.setAccessToken("ya29.A0AfH6SMAeUw1E08vr42aovDDphK3JJVAoYSNw8KgIRy7j11xDESk-bEwjDeOElow5UQ9Z9SX_YV8OOWbaEPVZtUcNQYGIg9XisBiG68hXzUjJNFMUhgmOZTRmxJXJoj_gydogBrZvvzGlOEDxfprJTbx-3qJl");
-            response.setRefreshToken("");
-            credential = flow.createAndStoreCredential(response, "userID");
+            TokenResponse token = getUserToken(uid);
+            credential = flow.createAndStoreCredential(token, "userID");
             client = new com.google.api.services.calendar.Calendar.Builder(httpTransport, JSON_FACTORY, credential)
                     .setApplicationName(APPLICATION_NAME).build();
             Calendar.Events events = client.events();
@@ -71,6 +77,24 @@ public class CalendarController {
 
         System.out.println("cal message:" + message);
         return new ResponseEntity<>(message, HttpStatus.OK);
+    }
+
+    private TokenResponse getUserToken(String uid) throws ExecutionException, InterruptedException {
+        TokenResponse tokenResponse = new TokenResponse();
+
+        DocumentReference docRef = db.collection("users").document(uid);
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+
+        DocumentSnapshot document = future.get();
+        if (document.exists()) {
+            System.out.println("Document data: " + document.getData());
+            tokenResponse.setAccessToken(String.valueOf(document.getData().get("accessToken")));
+            tokenResponse.setRefreshToken(String.valueOf(document.getData().get("refreshToken")));
+        } else {
+            System.out.println("No such document!");
+        }
+
+        return tokenResponse;
     }
 
     public Set<Event> getEvents() throws IOException {
@@ -89,6 +113,17 @@ public class CalendarController {
                     Collections.singleton(CalendarScopes.CALENDAR)).build();
         }
         flow.newAuthorizationUrl().setRedirectUri(redirectURI);
+    }
+
+    public String getNewToken(String refreshToken, String clientId, String clientSecret) throws IOException {
+        ArrayList<String> scopes = new ArrayList<>();
+
+        scopes.add(CalendarScopes.CALENDAR);
+
+        TokenResponse tokenResponse = new GoogleRefreshTokenRequest(new NetHttpTransport(), new JacksonFactory(),
+                refreshToken, clientId, clientSecret).setScopes(scopes).setGrantType("refresh_token").execute();
+
+        return tokenResponse.getAccessToken();
     }
 
 }
