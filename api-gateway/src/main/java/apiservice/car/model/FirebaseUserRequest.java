@@ -7,6 +7,7 @@ public class FirebaseUserRequest {
 
     private String uid;
     private String accessToken;
+    private String refreshToken;
     private String name;
     private String language;
     private String email;

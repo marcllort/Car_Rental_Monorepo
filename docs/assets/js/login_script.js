@@ -9,7 +9,18 @@ window.onload = function () {
             //redirectUserAdmin();
         }
     });
+    loadAuth2()
 };
+
+window.loadAuth2 = function () {
+    gapi.load('auth2', function () {
+        gapi.auth2.init({
+            client_id: '294401568654-k5lbeg7mqh9l8mmormfqpq18soihrdfu.apps.googleusercontent.com',
+            cookie_policy: 'single_host_origin',
+            scope: 'https://www.googleapis.com/auth/calendar'
+        });
+    });
+}
 
 window.emailLogin = function () {
     const user = firebase.auth().currentUser;
@@ -29,21 +40,25 @@ window.emailLogin = function () {
 }
 
 window.googleLogin = function () {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/calendar');
-    const user = firebase.auth().currentUser;
 
+    const user = firebase.auth().currentUser;
+    var credentialAuth;
     if (user == null) {
-        firebase.auth().signInWithPopup(provider).then(function (result) {
-            if (result.credential) {
-                // This gives you a Google Access Token.
-                credential = result.credential;
-            }
-            createUserAPICall(credential)
-            protectedCall();
-        }).catch(function (error) {
-            console.log(error);
-            alert(error);
+        const auth = gapi.auth2.getAuthInstance();
+        auth.then(() => {
+            auth.grantOfflineAccess({
+                'redirect_uri': 'postmessage',
+                'prompt': 'consent'
+            }).then(offlineAccessExchangeCode => {
+                // send offline access exchange code to server ...
+                const authResp = auth.currentUser.get().getAuthResponse();
+                credentialAuth = authResp;
+                const credential = firebase.auth.GoogleAuthProvider.credential(authResp.id_token);
+                return firebase.auth().signInWithCredential(credential);
+            }).then(user => {
+                createUserAPICall(credentialAuth)
+                protectedCall();
+            });
         });
     } else {
         alert("Already logged in!");
@@ -59,13 +74,15 @@ function protectedCall() {
 }
 
 function createUserAPICall(credential) {
-    var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
+    var url = 'http://localhost:8080/protected/create-user-firebase';
 
+    console.log(credential)
     firebase.auth().onAuthStateChanged(function (user) {
         console.log(user)
         const data = {
             uid: user.uid,
-            accessToken: credential.accessToken,
+            accessToken: credential.access_token,
+            refreshToken: user.refreshToken,
         }
 
         firebase.auth().currentUser.getIdToken(true).then(function (idToken) {

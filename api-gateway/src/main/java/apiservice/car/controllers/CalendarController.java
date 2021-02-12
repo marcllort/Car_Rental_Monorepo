@@ -54,7 +54,8 @@ public class CalendarController {
         String message;
         try {
             TokenResponse response = new TokenResponse();
-            response.setAccessToken("ya29.a0AfH6SMA9lAXpHEZQmoYSD5waxk3wuqaz4q_2SbyvI-FJgz5s8vy_I_45bMrXNyIxPiZfeSz-RWdtSVFo3KUwA1pCynnPd92Fqnfc2zJdKMAEFc8j3_ByK2LtNmz_1CiU8rHHWO8rjGwIH_gC0_vJE5RAd_L344R5eO6A4DX1NbM");
+            response.setAccessToken("ya29.A0AfH6SMAeUw1E08vr42aovDDphK3JJVAoYSNw8KgIRy7j11xDESk-bEwjDeOElow5UQ9Z9SX_YV8OOWbaEPVZtUcNQYGIg9XisBiG68hXzUjJNFMUhgmOZTRmxJXJoj_gydogBrZvvzGlOEDxfprJTbx-3qJl");
+            response.setRefreshToken("");
             credential = flow.createAndStoreCredential(response, "userID");
             client = new com.google.api.services.calendar.Calendar.Builder(httpTransport, JSON_FACTORY, credential)
                     .setApplicationName(APPLICATION_NAME).build();
