@@ -89,7 +89,7 @@ function createUserAPICall(code) {
                 'Authorization': 'Bearer ' + idToken,
             }
 
-            axios.post(localurl, data, {
+            axios.post(url, data, {
                 headers: headers
             }).then(resp => {
                 console.log(resp);
