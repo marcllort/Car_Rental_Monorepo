@@ -62,12 +62,12 @@ with **Spring Security** to seamlessly create and use protected rest API's.
   like **`@Secured, @RolesAllowed, @PreAuthorize, @PostAuthorized`** etc will work out of the box.
 - I personally like to define per role annotations like **`@IsSuper`** etc for the sake of simplicity.
 
-```
+```java
     @GetMapping("data")
-	@isSuper
-	public String getProtectedData() {
-		return "You have accessed seller only data from spring boot";
-	}
+@isSuper
+public String getProtectedData(){
+        return"You have accessed seller only data from spring boot";
+        }
 ```
 
 ## Environment vars
@@ -103,18 +103,18 @@ password received as an environment variable.
 Profiles are a core feature of the Spring framework — allowing us to map our beans to different profiles — for example,
 dev, test, and prod.
 
-```
+```yaml
 spring:
-   profiles:
-      active: "dev"
-   rabbitmq:
-      host: localhost
-      username: guest
-      password: guest
-      virtual-host: /
-      port: 5672
-      
-      ...
+  profiles:
+    active: "dev"
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    virtual-host: /
+    port: 5672
+
+    ...
 ```
 
 In this project there are two Spring profiles: "dev" and "docker". Most of the configurations are the same, but one:
@@ -139,7 +139,7 @@ Kubernetes.
 
 Important to notice that the dockerfile is setting the spring profile to "docker", to use the correct RabbitMQ URL.
 
-```
+```dockerfile
 #
 # Build stage
 #
@@ -159,3 +159,91 @@ ENTRYPOINT ["java","-jar","/usr/local/lib/api-gateway.jar","-Dspring.profiles.ac
 
 There is also, in the scripts folder, a docker-build.sh script to automatize the creation of the image with the
 necessary tag, and its upload to the registry.
+
+## Google Cloud API
+
+To access the Google Calendar API with the user credentials, later needed in Calendar Microservice, there is a complex
+flow that must be followed. The main problem, is that Firebase Authentication, even though it includes an option to
+sign-in with Google, it does not allow you to ask permission for certain APIs, while Google Sig-in project does.
+
+The first step is to go to [Google developer console](https://console.developers.google.com/apis/library?project=X) and
+enable the api that will be used. Then it will generate some OAuth2 credentials in the Credentials section, which must
+be configured in your frontend and backend project (clientId and clientSecret, can be seen in the following scripts).
+
+The second step was to partially replace the FirebaseGoogle Sign-in for the Google Sign-in project. I say partially
+because now, once the Google sign-in process is completed it returns a credential that is passed to Firebase, so it
+knows that it has been authenticated using a 3rd party library.
+
+```js
+auth.then(() => {
+    auth.grantOfflineAccess({
+        'redirect_uri': 'postmessage',
+        'prompt': 'consent'
+    }).then(offlineAccessExchangeCode => {
+        // send offline access exchange code to server ...
+        const authResp = auth.currentUser.get().getAuthResponse();
+        code = offlineAccessExchangeCode;
+        const credential = firebase.auth.GoogleAuthProvider.credential(authResp.id_token);
+        return firebase.auth().signInWithCredential(credential);
+    }).then(user => {
+        createUserAPICall(code)
+        protectedCall();
+    });
+});
+```
+
+Once the login is completed, and the user has given permissions to the application to see its calendar,
+an `offlineAccessExchangeCode` is generated. This code will then be stored in firestore, in the users document. The code
+is a single-use mechanism that allows your backend to retrieve an access and refresh tokens, that will allow you to
+connect to the API needed.
+
+To specify the API you request the access to, the "scopes" are used, which indicate the API with a link.
+
+![Flow.png](../assets/oauth_flow.png)
+
+There are some important configurations for this flow to work:
+
+- Once asking for permissions, you must specify that it will work in "offline mode". This is a configuration that allows
+  the refresh token to be created in your backend and then use this token to create as many Access Tokens to use the API
+  as you want. So once the access token expires (by default after one hour), you can use your refresh token to generate
+  a new one.
+  ```js
+  gapi.load('auth2', function () {
+        gapi.auth2.init({
+            client_id: '294401568654-agao4nqpvntfa4h9d2ni6h1akqujplh1.apps.googleusercontent.com',
+            scope: 'https://www.googleapis.com/auth/calendar'
+        });
+    });
+  ```
+- Once the code has been used to retrieve an access and refresh token, it won't be useful anymore, it can be deleted
+  from the DB (in this case, Firestore). Instead, you must store the refreshToken in the users document, to later on use
+  it once the access token expires.
+  ```java
+  private GoogleTokenResponse getNewToken(String idToken) throws Exception {
+        String code = getCodeToken(idToken);
+
+        GoogleTokenResponse tokenResponse = new GoogleAuthorizationCodeTokenRequest(httpTransport,
+                JSON_FACTORY, "https://oauth2.googleapis.com/token", clientId,
+                clientSecret, code, redirectURI).execute();
+
+        updateRefreshToken(idToken, tokenResponse);
+
+        return tokenResponse;
+    }
+  ```
+- There is also the redirectURI to be configured. In this case I used the default one, `postmessage`, which is the
+  authorization popup that appears to the user.
+
+Some details of the implementation:
+
+- In the Java Spring project, the clientId and redirectUri are configured in the `application.yaml`, while the secret is
+  configured as an environment variable.
+
+- There are two differentiated flows, one for the first time, where the `code` is used to retrieve the access and
+  refresh tokens, and another one for when only the refresh token is used to get a new accessToken.
+
+Reference links:
+
+- https://developers.google.com/identity/sign-in/web/server-side-flow
+- https://stackoverflow.com/questions/14948530/refresh-token-with-google-api-java-client-library
+- https://developers.google.com/identity/protocols/oauth2/native-app?hl=RU#choosingredirecturi

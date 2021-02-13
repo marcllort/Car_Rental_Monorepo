@@ -62,7 +62,7 @@ public class CalendarController {
     private String redirectURI;
 
     @GetMapping(value = "login")
-    public ResponseEntity<String> oauth2Callback(@RequestHeader("Authorization") String authHeader) throws Exception {
+    public ResponseEntity<String> getCalendarEvents(@RequestHeader("Authorization") String authHeader) throws Exception {
         com.google.api.services.calendar.model.Events eventList;
         String message = "";
         String idToken = getIdToken(authHeader);
@@ -74,7 +74,7 @@ public class CalendarController {
             eventList = getEvents(token);
             message = eventList.getItems().toString();
         } else {
-            TokenResponse token = refreshToken(idToken);
+            TokenResponse token = getTokenWithRefreshToken(idToken);
             eventList = getEvents(token);
             message = eventList.getItems().toString();
         }
@@ -116,7 +116,7 @@ public class CalendarController {
         }
     }
 
-    private TokenResponse refreshToken(String idToken) throws Exception {
+    private TokenResponse getTokenWithRefreshToken(String idToken) throws Exception {
         ArrayList<String> scopes = new ArrayList<>();
         scopes.add(CalendarScopes.CALENDAR);
 
