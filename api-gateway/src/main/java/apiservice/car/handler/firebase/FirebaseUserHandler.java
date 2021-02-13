@@ -41,8 +41,6 @@ public class FirebaseUserHandler {
         } else {
             // Add document data  with id of the request using a hashmap
             Map<String, Object> data = new HashMap<>();
-            data.put("accessToken", request.getAccessToken());
-            data.put("refreshToken", request.getRefreshToken());
             data.put("code", request.getCode());
 
             docRef.set(data);
@@ -59,8 +57,6 @@ public class FirebaseUserHandler {
 
         if (document.exists()) {
             Map<String, Object> data = new HashMap<>();
-            data.put("accessToken", request.getAccessToken());
-            data.put("refreshToken", request.getRefreshToken());
             data.put("code", request.getCode());
 
             docRef.update(data);
@@ -68,8 +64,6 @@ public class FirebaseUserHandler {
         } else {
             // Add document data  with id of the request using a hashmap
             Map<String, Object> data = new HashMap<>();
-            data.put("accessToken", request.getAccessToken());
-            data.put("refreshToken", request.getRefreshToken());
             data.put("code", request.getCode());
 
             docRef.set(data);

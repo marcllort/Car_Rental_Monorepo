@@ -5,14 +5,12 @@ import com.google.api.client.auth.oauth2.TokenResponse;
 import com.google.api.client.googleapis.auth.oauth2.*;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
-import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.DateTime;
 import com.google.api.core.ApiFuture;
 import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.CalendarScopes;
-import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.Events;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -30,7 +28,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.security.GeneralSecurityException;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 
@@ -44,7 +41,6 @@ public class CalendarController {
 
     final DateTime date1 = new DateTime("2017-05-05T16:30:00.000+05:30");
     final DateTime date2 = new DateTime(new Date());
-    private final Set<Event> events = new HashSet<>();
     GoogleClientSecrets clientSecrets;
     GoogleAuthorizationCodeFlow flow;
     Credential credential;
@@ -65,53 +61,70 @@ public class CalendarController {
     private String redirectURI;
 
     @GetMapping(value = "login")
-    public ResponseEntity<String> oauth2Callback(@RequestHeader("Authorization") String idToken) throws Exception {
+    public ResponseEntity<String> oauth2Callback(@RequestHeader("Authorization") String authHeader) throws Exception {
         com.google.api.services.calendar.model.Events eventList;
-        String[] arr = idToken.split(" ", 2);
-
-        idToken = arr[1];
-
         String message = "";
+        String idToken = getIdToken(authHeader);
 
-        authorize();
-        //TokenResponse token = getNewToken(idToken);
+        flowSetup();
 
-
-        //eventList = getEvents(token);
-
-        TokenResponse token2 = getUserToken(idToken);
-        token2.setAccessToken(refreshToken(token2.getRefreshToken()));
-        eventList = getEvents(token2);
-        /*try {
-            TokenResponse token = getNewToken(idToken);
-
+        if (isFirstTime(idToken)) {
+            GoogleTokenResponse token = getNewToken(idToken);
             eventList = getEvents(token);
             message = eventList.getItems().toString();
-        } catch (Exception e) {
-            GoogleJsonResponseException googleJsonResponseException = (GoogleJsonResponseException) e;
-            if (googleJsonResponseException.getStatusCode() == 401) {
-                TokenResponse token = getUserToken(idToken);
-                token.setAccessToken(refreshToken(token.getRefreshToken()));
-                eventList = getEvents(token);
-                message = eventList.getItems().toString();
-            } else {
-                message = "Exception while handling OAuth2 callback (" + e.getMessage() + ")."
-                        + " Redirecting to google connection status page.";
-            }
-        }*/
+        } else {
+            TokenResponse token = refreshToken(idToken);
+            eventList = getEvents(token);
+            message = eventList.getItems().toString();
+        }
 
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
-    public String refreshToken(String refreshToken) throws IOException {
-        ArrayList<String> scopes = new ArrayList<>();
+    private String getIdToken(String idToken) {
+        String[] arr = idToken.split(" ", 2);
+        idToken = arr[1];
+        return idToken;
+    }
 
+    private void flowSetup() throws Exception {
+        if (flow == null) {
+            GoogleClientSecrets.Details web = new GoogleClientSecrets.Details();
+            web.setClientId(clientId);
+            web.setClientSecret(clientSecret);
+            clientSecrets = new GoogleClientSecrets().setWeb(web);
+            httpTransport = GoogleNetHttpTransport.newTrustedTransport();
+            flow = new GoogleAuthorizationCodeFlow.Builder(httpTransport, JSON_FACTORY, clientSecrets,
+                    Collections.singleton(CalendarScopes.CALENDAR)).setAccessType("offline").setApprovalPrompt("consent").build();
+        }
+        flow.newAuthorizationUrl().setRedirectUri(redirectURI);
+    }
+
+    private boolean isFirstTime(String idToken) throws Exception {
+        FirebaseToken uid = firebaseAuth.verifyIdToken(idToken);
+        DocumentReference docRef = db.collection("users").document(uid.getUid());
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot document = future.get();
+
+        if (document.exists()) {
+            if (document.getData().get("refreshToken") != null) {
+                return false;
+            } else return document.getData().get("code") != null;
+        } else {
+            throw new Exception("No such document!");
+        }
+    }
+
+    private TokenResponse refreshToken(String idToken) throws Exception {
+        ArrayList<String> scopes = new ArrayList<>();
         scopes.add(CalendarScopes.CALENDAR);
 
-        TokenResponse tokenResponse = new GoogleRefreshTokenRequest(new NetHttpTransport(), new JacksonFactory(),
+        String refreshToken = getRefreshToken(idToken);
+
+        TokenResponse tokenResponse = new GoogleRefreshTokenRequest(httpTransport, JSON_FACTORY,
                 refreshToken, clientId, clientSecret).setScopes(scopes).setGrantType("refresh_token").execute();
 
-        return tokenResponse.getAccessToken();
+        return tokenResponse;
     }
 
     private Events getEvents(TokenResponse token) throws IOException {
@@ -125,77 +138,69 @@ public class CalendarController {
         return eventList;
     }
 
-    private TokenResponse getUserToken(String authHeader) throws ExecutionException, InterruptedException, FirebaseAuthException {
-        TokenResponse tokenResponse = new TokenResponse();
-        FirebaseToken uid = firebaseAuth.verifyIdToken(authHeader);
+    private String getRefreshToken(String idToken) throws Exception {
+        String refreshToken = null;
+
+        FirebaseToken uid = firebaseAuth.verifyIdToken(idToken);
         DocumentReference docRef = db.collection("users").document(uid.getUid());
         ApiFuture<DocumentSnapshot> future = docRef.get();
-
         DocumentSnapshot document = future.get();
+
         if (document.exists()) {
-            tokenResponse.setAccessToken(String.valueOf(document.getData().get("accessToken")));
-            tokenResponse.setRefreshToken(String.valueOf(document.getData().get("refreshToken")));
-            tokenResponse.setScope(String.valueOf(document.getData().get("code")));
+            refreshToken = String.valueOf(document.getData().get("refreshToken"));
         } else {
-            System.out.println("No such document!");
+            throw new Exception("No such document!");
         }
+
+        return refreshToken;
+    }
+
+    private String getCodeToken(String idToken) throws Exception {
+        String code = null;
+
+        FirebaseToken uid = firebaseAuth.verifyIdToken(idToken);
+        DocumentReference docRef = db.collection("users").document(uid.getUid());
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot document = future.get();
+
+        if (document.exists()) {
+            code = String.valueOf(document.getData().get("code"));
+        } else {
+            throw new Exception("No such document!");
+        }
+
+        return code;
+    }
+
+    private GoogleTokenResponse getNewToken(String idToken) throws Exception {
+        String code = getCodeToken(idToken);
+
+        GoogleTokenResponse tokenResponse = new GoogleAuthorizationCodeTokenRequest(httpTransport,
+                JSON_FACTORY, "https://oauth2.googleapis.com/token", clientId,
+                clientSecret, code, redirectURI).execute();
+
+        updateRefreshToken(idToken, tokenResponse);
 
         return tokenResponse;
     }
 
-    private void authorize() throws Exception {
-        if (flow == null) {
-            GoogleClientSecrets.Details web = new GoogleClientSecrets.Details();
-            web.setClientId(clientId);
-            web.setClientSecret(clientSecret);
-            clientSecrets = new GoogleClientSecrets().setWeb(web);
-            httpTransport = GoogleNetHttpTransport.newTrustedTransport();
-            flow = new GoogleAuthorizationCodeFlow.Builder(httpTransport, JSON_FACTORY, clientSecrets,
-                    Collections.singleton(CalendarScopes.CALENDAR)).setAccessType("offline").setApprovalPrompt("consent").build();
-        }
-        flow.newAuthorizationUrl().setRedirectUri(redirectURI);
-    }
-
-
-    public GoogleTokenResponse getNewToken(String authHeader) throws IOException, GeneralSecurityException, ExecutionException, InterruptedException, FirebaseAuthException {
-        TokenResponse token = getUserToken(authHeader);
-        String code = token.getScope();
-
-
-        GoogleTokenResponse tokenResponse =
-                new GoogleAuthorizationCodeTokenRequest(
-                        new NetHttpTransport(),
-                        JacksonFactory.getDefaultInstance(),
-                        "https://oauth2.googleapis.com/token",
-                        clientId,
-                        clientSecret,
-                        code,
-                        "postmessage")  // Specify the same redirect URI that you use with your web
-                        // app. If you don't have a web version of your app, you can
-                        // specify an empty string.
-                        .execute();
-        FirebaseToken uid = firebaseAuth.verifyIdToken(authHeader);
+    private void updateRefreshToken(String idToken, GoogleTokenResponse tokenResponse) throws FirebaseAuthException, InterruptedException, ExecutionException {
+        FirebaseToken uid = firebaseAuth.verifyIdToken(idToken);
         DocumentReference docRef = db.collection("users").document(uid.getUid());
         ApiFuture<DocumentSnapshot> future = docRef.get();
         DocumentSnapshot document = future.get();
 
         if (document.exists()) {
             Map<String, Object> data = new HashMap<>();
-            data.put("accessToken", tokenResponse.getAccessToken());
             data.put("refreshToken", tokenResponse.getRefreshToken());
-
+            data.remove("code", data.get("code"));
             docRef.update(data);
         } else {
             // Add document data  with id of the request using a hashmap
             Map<String, Object> data = new HashMap<>();
-            data.put("accessToken", tokenResponse.getAccessToken());
             data.put("refreshToken", tokenResponse.getRefreshToken());
 
             docRef.set(data);
         }
-
-
-        return tokenResponse;
-
     }
 }

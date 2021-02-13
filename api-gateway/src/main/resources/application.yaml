@@ -63,7 +63,7 @@ security:
 google:
    client:
       client-id: 294401568654-agao4nqpvntfa4h9d2ni6h1akqujplh1.apps.googleusercontent.com
-      redirectUri: http://localhost:8080/public/login
+      redirectUri: postmessage
 logging:
    level:
       root: WARN
@@ -142,7 +142,7 @@ security:
 google:
    client:
       client-id: 294401568654-agao4nqpvntfa4h9d2ni6h1akqujplh1.apps.googleusercontent.com
-      redirectUri: http://localhost:8080/public/login
+      redirectUri: postmessage
 logging:
    level:
       root: WARN

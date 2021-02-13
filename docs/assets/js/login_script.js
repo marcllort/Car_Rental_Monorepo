@@ -41,7 +41,6 @@ window.emailLogin = function () {
 window.googleLogin = function () {
 
     const user = firebase.auth().currentUser;
-    var credentialAuth;
     var code;
     if (user == null) {
         const auth = gapi.auth2.getAuthInstance();
@@ -51,15 +50,12 @@ window.googleLogin = function () {
                 'prompt': 'consent'
             }).then(offlineAccessExchangeCode => {
                 // send offline access exchange code to server ...
-                console.log(offlineAccessExchangeCode)
                 const authResp = auth.currentUser.get().getAuthResponse();
-                console.log(authResp);
-                credentialAuth = authResp;
                 code = offlineAccessExchangeCode;
                 const credential = firebase.auth.GoogleAuthProvider.credential(authResp.id_token);
                 return firebase.auth().signInWithCredential(credential);
             }).then(user => {
-                createUserAPICall(credentialAuth, code)
+                createUserAPICall(code)
                 protectedCall();
             });
         });
@@ -76,16 +72,13 @@ function protectedCall() {
     });
 }
 
-function createUserAPICall(credential, code) {
+function createUserAPICall(code) {
     var localurl = 'http://localhost:8080/protected/create-user-firebase';
     var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
 
-    console.log(credential)
     firebase.auth().onAuthStateChanged(function (user) {
         const data = {
             uid: user.uid,
-            accessToken: credential.access_token,
-            refreshToken: user.refreshToken,
             code: code.code
         }
 
