@@ -14,6 +14,7 @@ import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Events;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.FieldValue;
 import com.google.cloud.firestore.Firestore;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
@@ -193,7 +194,7 @@ public class CalendarController {
         if (document.exists()) {
             Map<String, Object> data = new HashMap<>();
             data.put("refreshToken", tokenResponse.getRefreshToken());
-            data.remove("code", data.get("code"));
+            data.put("code", FieldValue.delete());
             docRef.update(data);
         } else {
             // Add document data  with id of the request using a hashmap
