@@ -2,12 +2,8 @@ package apiservice.car.controllers;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.auth.oauth2.TokenResponse;
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeTokenRequest;
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
-import com.google.api.client.googleapis.auth.oauth2.GoogleTokenResponse;
+import com.google.api.client.googleapis.auth.oauth2.*;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -35,10 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 @RestController
@@ -78,29 +71,47 @@ public class CalendarController {
 
         idToken = arr[1];
 
-        String message;
+        String message = "";
 
         authorize();
+        //TokenResponse token = getNewToken(idToken);
 
-        try {
-            TokenResponse token = getUserToken(idToken);
+
+        //eventList = getEvents(token);
+
+        TokenResponse token2 = getUserToken(idToken);
+        token2.setAccessToken(refreshToken(token2.getRefreshToken()));
+        eventList = getEvents(token2);
+        /*try {
+            TokenResponse token = getNewToken(idToken);
 
             eventList = getEvents(token);
             message = eventList.getItems().toString();
         } catch (Exception e) {
             GoogleJsonResponseException googleJsonResponseException = (GoogleJsonResponseException) e;
             if (googleJsonResponseException.getStatusCode() == 401) {
-                TokenResponse token = new TokenResponse();
-                token.setAccessToken(getNewToken(idToken));
+                TokenResponse token = getUserToken(idToken);
+                token.setAccessToken(refreshToken(token.getRefreshToken()));
                 eventList = getEvents(token);
                 message = eventList.getItems().toString();
             } else {
                 message = "Exception while handling OAuth2 callback (" + e.getMessage() + ")."
                         + " Redirecting to google connection status page.";
             }
-        }
+        }*/
 
         return new ResponseEntity<>(message, HttpStatus.OK);
+    }
+
+    public String refreshToken(String refreshToken) throws IOException {
+        ArrayList<String> scopes = new ArrayList<>();
+
+        scopes.add(CalendarScopes.CALENDAR);
+
+        TokenResponse tokenResponse = new GoogleRefreshTokenRequest(new NetHttpTransport(), new JacksonFactory(),
+                refreshToken, clientId, clientSecret).setScopes(scopes).setGrantType("refresh_token").execute();
+
+        return tokenResponse.getAccessToken();
     }
 
     private Events getEvents(TokenResponse token) throws IOException {
@@ -146,7 +157,7 @@ public class CalendarController {
     }
 
 
-    public String getNewToken(String authHeader) throws IOException, GeneralSecurityException, ExecutionException, InterruptedException, FirebaseAuthException {
+    public GoogleTokenResponse getNewToken(String authHeader) throws IOException, GeneralSecurityException, ExecutionException, InterruptedException, FirebaseAuthException {
         TokenResponse token = getUserToken(authHeader);
         String code = token.getScope();
 
@@ -156,45 +167,35 @@ public class CalendarController {
                         new NetHttpTransport(),
                         JacksonFactory.getDefaultInstance(),
                         "https://oauth2.googleapis.com/token",
-                        "294401568654-agao4nqpvntfa4h9d2ni6h1akqujplh1.apps.googleusercontent.com",
-                        "CjIp6Jd7-g6I2V4VcLbh4Ylc",
-                        "4/0AY0e-g7MSTS2NWnnB1DrrF9ez0vD2gmzoxyLiiwwR3vnB-Ttr5_H4qEoFk_F_0iFhY0PxA",
+                        clientId,
+                        clientSecret,
+                        code,
                         "postmessage")  // Specify the same redirect URI that you use with your web
                         // app. If you don't have a web version of your app, you can
                         // specify an empty string.
                         .execute();
+        FirebaseToken uid = firebaseAuth.verifyIdToken(authHeader);
+        DocumentReference docRef = db.collection("users").document(uid.getUid());
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot document = future.get();
 
-        String accessToken = tokenResponse.getAccessToken();
+        if (document.exists()) {
+            Map<String, Object> data = new HashMap<>();
+            data.put("accessToken", tokenResponse.getAccessToken());
+            data.put("refreshToken", tokenResponse.getRefreshToken());
 
-        /*try {
-            TokenResponse response =
-                    new GoogleRefreshTokenRequest(new NetHttpTransport(), new JacksonFactory(),
-                            token.getRefreshToken(), clientId, clientSecret).execute();
-            System.out.println("Access token: " + response.getAccessToken());
-            return response.getAccessToken();
-        } catch (TokenResponseException e) {
-            if (e.getDetails() != null) {
-                System.err.println("Error: " + e.getDetails().getError());
-                if (e.getDetails().getErrorDescription() != null) {
-                    System.err.println(e.getDetails().getErrorDescription());
-                }
-                if (e.getDetails().getErrorUri() != null) {
-                    System.err.println(e.getDetails().getErrorUri());
-                }
-            } else {
-                System.err.println(e.getMessage());
-            }*/
-        /*ArrayList<String> scopes = new ArrayList<>();
+            docRef.update(data);
+        } else {
+            // Add document data  with id of the request using a hashmap
+            Map<String, Object> data = new HashMap<>();
+            data.put("accessToken", tokenResponse.getAccessToken());
+            data.put("refreshToken", tokenResponse.getRefreshToken());
 
-        TokenResponse token = getUserToken(authHeader);
+            docRef.set(data);
+        }
 
-        scopes.add(CalendarScopes.CALENDAR);
-        httpTransport = GoogleNetHttpTransport.newTrustedTransport();
-        TokenResponse tokenResponse = new GoogleRefreshTokenRequest(httpTransport, JSON_FACTORY,
-                token.getRefreshToken(), clientId, clientSecret).setScopes(scopes).execute();
 
-        return tokenResponse.getAccessToken();*/
-        return accessToken;
+        return tokenResponse;
 
     }
 }
