@@ -1,6 +1,8 @@
 package RabbitMQ
 
 import (
+	"calendar/CalendarAPI"
+	"cloud.google.com/go/firestore"
 	"github.com/streadway/amqp"
 	"log"
 	"os"
@@ -12,7 +14,7 @@ func failOnError(err error, msg string) {
 	}
 }
 
-func Connect() {
+func Connect(firestore *firestore.Client) {
 	host := os.Getenv("URL")
 	conn, err := amqp.Dial(host)
 	failOnError(err, "Failed to connect to RabbitMQ")
@@ -38,6 +40,7 @@ func Connect() {
 	go func() {
 		for d := range msgs {
 			log.Printf("Received a message: %s", d.Body)
+			CalendarAPI.GetRefreshToken(firestore, string(d.Body))
 			//HALF WORKING, ONLY THE FIRST REQUEST
 			err = ch.Publish(
 				"",        // exchange

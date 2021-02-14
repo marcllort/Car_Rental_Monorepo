@@ -1,6 +1,7 @@
 package main
 
 import (
+	"calendar/CalendarAPI"
 	"calendar/Database"
 	"calendar/RabbitMQ"
 	"os"
@@ -12,6 +13,9 @@ func main() {
 	dbpass := os.Getenv("SECRET_DB")
 	db := Database.CreateConnection(creds, dbpass)
 	Database.GetAllServices(db)
-	RabbitMQ.Connect()
+	firestore := CalendarAPI.ConnectFirestore()
+	//CalendarAPI.GetRefreshToken(firestore, "YOPKsz7f1ITbC1V8WES81CTf12H3")
+	CalendarAPI.GetEvents(firestore, "YOPKsz7f1ITbC1V8WES81CTf12H3")
+	RabbitMQ.Connect(firestore)
 
 }

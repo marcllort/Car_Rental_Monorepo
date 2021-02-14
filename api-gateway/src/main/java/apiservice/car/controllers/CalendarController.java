@@ -62,23 +62,27 @@ public class CalendarController {
     private String redirectURI;
 
     @GetMapping(value = "login")
-    public ResponseEntity<String> getCalendarEvents(@RequestHeader("Authorization") String authHeader) throws Exception {
+    public ResponseEntity<String> getCalendarEvents(@RequestHeader("Authorization") String authHeader) {
         com.google.api.services.calendar.model.Events eventList;
-        String message = "";
+        String message;
         String idToken = getIdToken(authHeader);
 
-        flowSetup();
+        try {
+            flowSetup();
 
-        if (isFirstTime(idToken)) {
-            GoogleTokenResponse token = getNewToken(idToken);
-            eventList = getEvents(token);
-            message = eventList.getItems().toString();
-        } else {
-            TokenResponse token = getTokenWithRefreshToken(idToken);
-            eventList = getEvents(token);
-            message = eventList.getItems().toString();
+            if (isFirstTime(idToken)) {
+                GoogleTokenResponse token = getNewToken(idToken);
+                eventList = getEvents(token);
+                message = eventList.getItems().toString();
+            } else {
+                TokenResponse token = getTokenWithRefreshToken(idToken);
+                eventList = getEvents(token);
+                message = eventList.getItems().toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 

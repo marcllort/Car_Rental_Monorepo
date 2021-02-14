@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/oauth_flow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calendar/CalendarAPI/firestore_connection.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/login_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/login_script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +27,8 @@
         <option value="CSS File" />
         <option value="Interface" />
         <option value="Go Application" />
-        <option value="Go File" />
         <option value="Class" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -103,16 +107,14 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.API-Gateway">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.Calendar">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,6 +122,15 @@
     <configuration name="test_data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/database/test_data.sql" />
       <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <configuration name="go build calendar" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="calendar" />
+      <working_directory value="$PROJECT_DIR$/calendar" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/calendar/main.go" />
+      <package value="calendar" />
+      <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <configuration name="api-gateway/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
@@ -173,9 +184,11 @@
       <item itemvalue="Go Build.Email" />
       <item itemvalue="Spring Boot.API-Gateway" />
       <item itemvalue="Spring Boot.Legal" />
+      <item itemvalue="Go Build.go build calendar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build calendar" />
         <item itemvalue="Database Script.test_data.sql" />
         <item itemvalue="Docker.api-gateway/Dockerfile" />
         <item itemvalue="Docker.legal/Dockerfile" />
@@ -213,21 +226,8 @@
       <workItem from="1612378428356" duration="2792000" />
       <workItem from="1612451722173" duration="3736000" />
       <workItem from="1612515205805" duration="40283000" />
-      <workItem from="1613120127843" duration="26248000" />
-    </task>
-    <task id="LOCAL-00044" summary="Added kubernetes scripts">
-      <created>1610207491150</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1610207491150</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Fix scripts">
-      <created>1610208034135</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1610208034135</updated>
+      <workItem from="1613120127843" duration="27591000" />
+      <workItem from="1613293600723" duration="5112000" />
     </task>
     <task id="LOCAL-00046" summary="Working">
       <created>1610218098130</created>
@@ -558,7 +558,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613210612417</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Update readme">
+      <created>1613212789446</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1613212789446</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Update readme">
+      <created>1613212861287</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1613212861287</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +580,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Improved readmes" />
     <MESSAGE value="Implementation of rabbitmq configuration" />
     <MESSAGE value="Golang response working" />
     <MESSAGE value="Implemented email and calendar endpoints" />
@@ -591,7 +604,8 @@
     <MESSAGE value="Calendar Token refresh working" />
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Delete firestore code field" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete firestore code field" />
+    <MESSAGE value="Update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update readme" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

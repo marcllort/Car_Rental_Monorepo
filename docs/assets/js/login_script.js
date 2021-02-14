@@ -93,7 +93,7 @@ function createUserAPICall(code) {
                 headers: headers
             }).then(resp => {
                 console.log(resp);
-                //redirectUserAdmin();
+                redirectUserAdmin();
             }).catch(error => {
                 swalWithBootstrapButtons.fire(
                     'Error',
@@ -122,7 +122,8 @@ function redirectUserAdmin() {
         } else {
             // Show regular user UI.
             if (!window.location.pathname.includes("user_table.html")) {
-                window.location = 'user_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
+                //window.location = 'user_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
+                window.location = 'index.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
             }
         }
     }).catch((error) => {
