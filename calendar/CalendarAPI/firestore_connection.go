@@ -49,31 +49,16 @@ func GetRefreshToken(client *firestore.Client, uid string) string {
 	return refreshToken
 }
 
-func getClient(client *firestore.Client, uid string, config *oauth2.Config) *http.Client {
-	// The file token.json stores the user's access and refresh tokens, and is
-	// created automatically when the authorization flow completes for the first
-	// time.
-
-	tok := getTokenFromWeb(client, uid, config)
-
-	return config.Client(context.Background(), tok)
-}
-
-func getTokenFromWeb(client *firestore.Client, uid string, config *oauth2.Config) *oauth2.Token {
+func getClientToken(client *firestore.Client, uid string, config *oauth2.Config) *http.Client {
 	//var authCode string
 	ctx := context.Background()
-	//authCode = GetRefreshToken(client, uid)
+
 	var token oauth2.Token
 	token.RefreshToken = GetRefreshToken(client, uid)
+
 	config.Client(ctx, &token)
-	//tok, err := config.Exchange(context.TODO(), authCode)
-	/*if err != nil {
-		log.Fatalf("Unable to retrieve token from web: %v", err)
-	}*/
 
-	// save token in
-
-	return &token
+	return config.Client(context.Background(), &token)
 }
 
 func GetEvents(client *firestore.Client, uid string) {
@@ -87,7 +72,7 @@ func GetEvents(client *firestore.Client, uid string) {
 	if err != nil {
 		log.Fatalf("Unable to parse client secret file to config: %v", err)
 	}
-	client2 := getClient(client, uid, config)
+	client2 := getClientToken(client, uid, config)
 
 	srv, err := calendar.New(client2)
 	if err != nil {
