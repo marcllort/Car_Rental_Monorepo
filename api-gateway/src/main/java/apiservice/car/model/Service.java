@@ -14,7 +14,6 @@ public class Service {
     private String Description;
     private ZonedDateTime ServiceDatetime;
     private String CalendarEvent;
-    private ZonedDateTime CalendarDatetime;
     private ZonedDateTime PayedDatetime;
     private Float BasePrice;
     private Float ExtraPrice;

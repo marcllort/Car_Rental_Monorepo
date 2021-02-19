@@ -68,9 +68,9 @@ func confirmService(db *gorm.DB, calendarClient *calendar.Service, request Model
 
 func createNewServiceDB(db *gorm.DB, request Model.CalendarRequest) string {
 	fmt.Print("newService")
-	service := Database.CreateService(db, request.Service)
+	Database.CreateService(db, request.Service)
 
-	return "Service with ID:" + string(service.ServiceId) + " confirmed successfully!"
+	return "Service created successfully!"
 }
 
 func getFreeDrivers(request Model.CalendarRequest, calendarClient *calendar.Service, excludeEmails []string) string {

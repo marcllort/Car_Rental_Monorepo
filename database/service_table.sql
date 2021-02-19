@@ -2,24 +2,24 @@ USE company_pressicar;
 
 create table Service
 (
-    ServiceId         int auto_increment,
-    Origin            VARCHAR(255)   not null,
-    Destination       VARCHAR(255)   not null,
-    ClientId          int            not null,
-    DriverId          int            not null,
-    Description       VARCHAR(32765) null,
-    ServiceDatetime   datetime       not null,
-    CalendarEvent     VARCHAR(256)   null,
-    PayedDatetime     datetime       null,
-    BasePrice         float          null,
-    ExtraPrice        float          null,
-    ConfirmedDatetime datetime       null,
-    Passengers        int            null,
-    SpecialNeeds      VARCHAR(1024)  null,
-    PRIMARY KEY (ServiceId),
-    FOREIGN KEY (ClientId)
-        REFERENCES ClientUser (UserId),
-    FOREIGN KEY (DriverId)
-        REFERENCES DriverUser (UserId)
+    service_id         int auto_increment,
+    origin             VARCHAR(255)   not null,
+    destination        VARCHAR(255)   not null,
+    client_id          int            not null,
+    driver_id          int            not null,
+    description        VARCHAR(32765) null,
+    service_datetime   datetime       not null,
+    calendar_event     VARCHAR(256)   null,
+    payed_datetime     datetime       null,
+    base_price         float          null,
+    extra_price        float          null,
+    confirmed_datetime datetime       null,
+    passengers         int            null,
+    special_needs      VARCHAR(1024)  null,
+    PRIMARY KEY (service_id),
+    FOREIGN KEY (client_id)
+        REFERENCES ClientUser (user_id),
+    FOREIGN KEY (driver_id)
+        REFERENCES DriverUser (user_id)
 );
 

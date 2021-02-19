@@ -11,7 +11,6 @@ type Service struct {
 	Description       string
 	ServiceDatetime   *time.Time
 	CalendarEvent     string
-	CalendarDatetime  *time.Time
 	PayedDatetime     *time.Time
 	BasePrice         float32
 	ExtraPrice        float32

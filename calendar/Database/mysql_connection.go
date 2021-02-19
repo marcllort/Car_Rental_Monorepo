@@ -106,7 +106,7 @@ func GetFreeDrivers(db *gorm.DB, startTimeString string, endTimeString string) [
 }
 
 func CreateService(db *gorm.DB, service Model.Service) Model.Service {
-	result := db.Omit("ClientId").Create(&service)
+	result := db.Table("Service").Omit("service_id", "confirmed_datetime").Create(&service)
 
 	if result.Error != nil {
 		panic(result.Error)
@@ -129,7 +129,7 @@ func CreateDriverFromList(db *gorm.DB, emails []string) {
 }
 
 func createDriverUser(db *gorm.DB, driver Model.DriverUser) int {
-	result := db.Omit("DriverId").Create(&driver)
+	result := db.Table("DriverUser").Omit("DriverId").Create(&driver)
 
 	if result.Error != nil {
 		panic(result.Error)
@@ -151,7 +151,7 @@ func createClientUser(db *gorm.DB, client Model.ClientUser) int {
 // Update confirmed time
 func UpdateConfirmedTime(db *gorm.DB, serviceId int) Model.Service {
 	var service Model.Service
-	db.Model(&service).Update("ConfirmedDatetime", time.Now())
+	db.Table("Service").Where("service_id = ?", serviceId).Model(&service).Update("confirmed_datetime", time.Now())
 
 	return service
 }

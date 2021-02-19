@@ -92,7 +92,7 @@ public class ProtectedController {
         CalendarHandlerRequest calendarHandlerRequest = new CalendarHandlerRequest();
         ZonedDateTime zdt = ZonedDateTime.of(2020, 02, 20, 0, 0, 0, 0, ZoneId.of("UTC"));
         Service service = new Service();
-        service.setServiceId(1);
+        service.setServiceId(4);
         service.setOrigin("BCN Airport");
         service.setDestination("Girona Airport");
         service.setClientId(1);
@@ -100,16 +100,14 @@ public class ProtectedController {
         service.setDescription("Test description");
         service.setServiceDatetime(zdt);
         service.setCalendarEvent("calendarURL");
-        service.setCalendarDatetime(zdt);
         service.setPayedDatetime(zdt.plusDays(5));
         service.setBasePrice(12F);
         service.setExtraPrice((float) 0);
-        service.setConfirmedDatetime(zdt.plusDays(2));
+        //service.setConfirmedDatetime(zdt.plusDays(2));
         service.setPassengers(3);
         service.setSpecialNeeds("none");
 
-        calendarHandlerRequest.setUserId("ads");
-        calendarHandlerRequest.setFlow("eventsMonth");
+        calendarHandlerRequest.setFlow("confirmService");
         calendarHandlerRequest.setService(service);
 
         return calendarHandlerRequest;
