@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -222,14 +226,7 @@
       <workItem from="1612451722173" duration="3736000" />
       <workItem from="1612515205805" duration="40283000" />
       <workItem from="1613120127843" duration="27591000" />
-      <workItem from="1613293600723" duration="19800000" />
-    </task>
-    <task id="LOCAL-00050" summary="Test frontend">
-      <created>1610224607575</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1610224607576</updated>
+      <workItem from="1613293600723" duration="25320000" />
     </task>
     <task id="LOCAL-00051" summary="Test frontend">
       <created>1610271094813</created>
@@ -567,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613736452562</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Calendar Logic createEvent">
+      <created>1613737479095</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1613737479095</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +579,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Added database + Covid microservice" />
     <MESSAGE value="Added firebase user creation backend and frontend" />
     <MESSAGE value="Update firebase profile working" />
     <MESSAGE value="Encryption of passwords in apigw and kuberentes" />
@@ -600,7 +603,8 @@
     <MESSAGE value="Logic refactor" />
     <MESSAGE value="Calendar Logic refactor" />
     <MESSAGE value="Calendar Logic getDrivers working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calendar Logic getDrivers working" />
+    <MESSAGE value="Calendar Logic createEvent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calendar Logic createEvent" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

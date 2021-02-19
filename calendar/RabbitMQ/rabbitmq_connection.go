@@ -1,9 +1,9 @@
 package RabbitMQ
 
 import (
-	"calendar/CalendarAPI"
-	"cloud.google.com/go/firestore"
 	"github.com/streadway/amqp"
+	"google.golang.org/api/calendar/v3"
+	"gorm.io/gorm"
 	"log"
 	"os"
 )
@@ -14,7 +14,7 @@ func failOnError(err error, msg string) {
 	}
 }
 
-func Connect(firestore *firestore.Client) {
+func Connect(db *gorm.DB, calendar *calendar.Service) {
 	host := os.Getenv("URL")
 	conn, err := amqp.Dial(host)
 	failOnError(err, "Failed to connect to RabbitMQ")
@@ -39,23 +39,25 @@ func Connect(firestore *firestore.Client) {
 
 	go func() {
 		for d := range msgs {
-			log.Printf("Received a message: %s", d.Body)
-			CalendarAPI.GetRefreshToken(firestore, string(d.Body))
-			//HALF WORKING, ONLY THE FIRST REQUEST
-			err = ch.Publish(
-				"",        // exchange
-				d.ReplyTo, // routing key
-				false,     // mandatory
-				false,     // immediate
-				amqp.Publishing{
-					ContentType:   "text/plain",
-					CorrelationId: d.CorrelationId,
-					Body:          []byte("answer reeceived"),
-				})
-			failOnError(err, "Failed to publish a message")
+			response := Consume(string(d.Body), db, calendar)
+			publishMessage(err, ch, d, response)
 		}
 	}()
 
 	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
 	<-forever
+}
+
+func publishMessage(err error, ch *amqp.Channel, d amqp.Delivery, response string) {
+	err = ch.Publish(
+		"",        // exchange
+		d.ReplyTo, // routing key
+		false,     // mandatory
+		false,     // immediate
+		amqp.Publishing{
+			ContentType:   "text/plain",
+			CorrelationId: d.CorrelationId,
+			Body:          []byte(response),
+		})
+	failOnError(err, "Failed to publish a message")
 }

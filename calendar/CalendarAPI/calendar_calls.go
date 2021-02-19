@@ -2,7 +2,6 @@ package CalendarAPI
 
 import (
 	"calendar/Utils"
-	"cloud.google.com/go/firestore"
 	"errors"
 	"fmt"
 	"golang.org/x/oauth2/google"
@@ -74,7 +73,7 @@ func getDriverEvents(srv *calendar.Service, id string, startTime string, endTime
 	return res.Items
 }
 
-func GetFreeDrivers(srv *calendar.Service, startTime time.Time, duration time.Duration, excludeCalendars []string) []string {
+func GetFreeDrivers(srv *calendar.Service, startTime *time.Time, duration time.Duration, excludeCalendars []string) []string {
 	err, _, listRes := getEventList("all", srv)
 	if err != nil {
 		log.Fatalf("Unable to retrieve list of calendars: %v", err)
@@ -94,23 +93,21 @@ func GetFreeDrivers(srv *calendar.Service, startTime time.Time, duration time.Du
 	return freeDrivers
 }
 
-func CreateCalendarEvent(srv *calendar.Service, startTime time.Time, duration time.Duration) {
+func CreateCalendarEvent(srv *calendar.Service, summary string, location string, description string, driver string, startTime *time.Time, duration time.Duration) {
 	event := &calendar.Event{
-		Summary:     "Google I/O 2015",
-		Location:    "800 Howard St., San Francisco, CA 94103",
-		Description: "A chance to hear more about Google's developer products.",
+		Summary:     summary,
+		Location:    location,
+		Description: description,
 		Start: &calendar.EventDateTime{
 			DateTime: startTime.Format(time.RFC3339),
-			TimeZone: "America/Los_Angeles",
+			TimeZone: "Europe/Madrid",
 		},
 		End: &calendar.EventDateTime{
 			DateTime: startTime.Add(duration).Format(time.RFC3339),
-			TimeZone: "America/Los_Angeles",
+			TimeZone: "Europe/Madrid",
 		},
-		Recurrence: []string{"RRULE:FREQ=DAILY;COUNT=2"},
 		Attendees: []*calendar.EventAttendee{
-			{Email: "lpage@example.com"},
-			{Email: "sbrin@example.com"},
+			{Email: driver},
 		},
 	}
 
@@ -122,7 +119,26 @@ func CreateCalendarEvent(srv *calendar.Service, startTime time.Time, duration ti
 	fmt.Printf("Event created: %s\n", event.HtmlLink)
 }
 
-func GetCalendarClient(client *firestore.Client, uid string) (error, *calendar.Service) {
+func GetDriversEmail(srv *calendar.Service, excludeCalendars []string) []string {
+	err, _, listRes := getEventList("all", srv)
+	if err != nil {
+		log.Fatalf("Unable to retrieve list of calendars: %v", err)
+	}
+
+	var emails []string
+
+	for _, v := range listRes.Items {
+		if !Utils.Contains(excludeCalendars, v.Id) {
+			emails = append(emails, v.Id)
+		}
+	}
+
+	return emails
+}
+
+func GetCalendarClient(uid string) *calendar.Service {
+	client := ConnectFirestore()
+
 	b, err := ioutil.ReadFile("calendar/Creds/calendar-api-credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
@@ -136,5 +152,5 @@ func GetCalendarClient(client *firestore.Client, uid string) (error, *calendar.S
 	client2 := getClientToken(client, uid, config)
 
 	srv, err := calendar.New(client2)
-	return err, srv
+	return srv
 }
