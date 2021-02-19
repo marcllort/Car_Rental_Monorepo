@@ -9,6 +9,7 @@ import (
 	"google.golang.org/api/calendar/v3"
 	"io/ioutil"
 	"log"
+	"time"
 )
 
 func getEventList(calendarName string, srv *calendar.Service) (error, string, *calendar.CalendarList) {
@@ -73,15 +74,52 @@ func getDriverEvents(srv *calendar.Service, id string, startTime string, endTime
 	return res.Items
 }
 
-func GetFreeDrivers(srv *calendar.Service, startTime string, endTime string) {
+func GetFreeDrivers(srv *calendar.Service, startTime time.Time, duration time.Duration, excludeCalendars []string) []string {
 	err, _, listRes := getEventList("all", srv)
 	if err != nil {
 		log.Fatalf("Unable to retrieve list of calendars: %v", err)
 	}
 
+	var freeDrivers []string
+
 	for _, v := range listRes.Items {
-		getDriverEvents(srv, v.Id, startTime, endTime)
+		if !Utils.Contains(excludeCalendars, v.Id) {
+			services := getDriverEvents(srv, v.Id, startTime.Format(time.RFC3339), startTime.Add(duration).Format(time.RFC3339))
+			if len(services) == 0 {
+				freeDrivers = append(freeDrivers, v.Id)
+			}
+		}
 	}
+	fmt.Printf("%v\n", freeDrivers)
+	return freeDrivers
+}
+
+func CreateCalendarEvent(srv *calendar.Service, startTime time.Time, duration time.Duration) {
+	event := &calendar.Event{
+		Summary:     "Google I/O 2015",
+		Location:    "800 Howard St., San Francisco, CA 94103",
+		Description: "A chance to hear more about Google's developer products.",
+		Start: &calendar.EventDateTime{
+			DateTime: startTime.Format(time.RFC3339),
+			TimeZone: "America/Los_Angeles",
+		},
+		End: &calendar.EventDateTime{
+			DateTime: startTime.Add(duration).Format(time.RFC3339),
+			TimeZone: "America/Los_Angeles",
+		},
+		Recurrence: []string{"RRULE:FREQ=DAILY;COUNT=2"},
+		Attendees: []*calendar.EventAttendee{
+			{Email: "lpage@example.com"},
+			{Email: "sbrin@example.com"},
+		},
+	}
+
+	calendarId := "primary"
+	event, err := srv.Events.Insert(calendarId, event).Do()
+	if err != nil {
+		log.Fatalf("Unable to create event. %v\n", err)
+	}
+	fmt.Printf("Event created: %s\n", event.HtmlLink)
 }
 
 func GetCalendarClient(client *firestore.Client, uid string) (error, *calendar.Service) {
