@@ -15,6 +15,7 @@ func main() {
 	Database.GetAllServices(db)
 	firestore := CalendarAPI.ConnectFirestore()
 	//CalendarAPI.GetRefreshToken(firestore, "YOPKsz7f1ITbC1V8WES81CTf12H3")
+
 	CalendarAPI.GetEvents(firestore, "YOPKsz7f1ITbC1V8WES81CTf12H3")
 	RabbitMQ.Connect(firestore)
 
