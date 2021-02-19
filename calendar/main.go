@@ -1,7 +1,6 @@
 package main
 
 import (
-	"calendar/CalendarAPI"
 	"calendar/Database"
 	"calendar/RabbitMQ"
 	"os"
@@ -13,9 +12,8 @@ func main() {
 	dbpass := os.Getenv("SECRET_DB")
 
 	db := Database.CreateConnection(creds, dbpass)
-	calendarClient := CalendarAPI.GetCalendarClient("YOPKsz7f1ITbC1V8WES81CTf12H3")
 
-	RabbitMQ.Connect(db, calendarClient)
+	RabbitMQ.Connect(db)
 	//Database.GetAllServices(db)
 
 	//startTime := time.Date(2021, 2, 12, 12, 0, 0, 0, time.UTC)

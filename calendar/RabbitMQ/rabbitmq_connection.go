@@ -2,7 +2,6 @@ package RabbitMQ
 
 import (
 	"github.com/streadway/amqp"
-	"google.golang.org/api/calendar/v3"
 	"gorm.io/gorm"
 	"log"
 	"os"
@@ -14,7 +13,7 @@ func failOnError(err error, msg string) {
 	}
 }
 
-func Connect(db *gorm.DB, calendar *calendar.Service) {
+func Connect(db *gorm.DB) {
 	host := os.Getenv("URL")
 	conn, err := amqp.Dial(host)
 	failOnError(err, "Failed to connect to RabbitMQ")
@@ -39,7 +38,7 @@ func Connect(db *gorm.DB, calendar *calendar.Service) {
 
 	go func() {
 		for d := range msgs {
-			response := Consume(string(d.Body), db, calendar)
+			response := Consume(string(d.Body), db)
 			publishMessage(err, ch, d, response)
 		}
 	}()

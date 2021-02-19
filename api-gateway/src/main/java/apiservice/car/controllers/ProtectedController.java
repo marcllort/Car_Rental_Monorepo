@@ -12,10 +12,17 @@ import apiservice.car.handler.legal.RetrieveLegalHandler;
 import apiservice.car.handler.legal.model.LegalHandlerRequest;
 import apiservice.car.handler.legal.model.LegalHandlerResponse;
 import apiservice.car.model.FirebaseUserRequest;
+import apiservice.car.model.Service;
 import apiservice.car.security.SecurityService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.concurrent.ExecutionException;
 
 @RestController
@@ -36,6 +43,9 @@ public class ProtectedController {
 
     @Autowired
     private FirebaseUserHandler firebaseHandler;
+
+    @Autowired
+    private FirebaseAuth firebaseAuth;
 
     @GetMapping("data")
     public String getProtectedData() {
@@ -59,12 +69,50 @@ public class ProtectedController {
     }
 
     @GetMapping("calendar")
-    public String getProtectedCalendar() {
-        CalendarHandlerRequest calendarHandlerRequest = new CalendarHandlerRequest();
-        calendarHandlerRequest.setText("calendar-test");
+    public String getProtectedCalendar(@RequestHeader("Authorization") String authHeader) throws JsonProcessingException, FirebaseAuthException {
+        String idToken = getIdToken(authHeader);
+        FirebaseToken decodedToken = firebaseAuth.verifyIdToken(idToken);
+        String uid = decodedToken.getUid();
+
+        CalendarHandlerRequest calendarHandlerRequest = generateCalendarRequest();
+        calendarHandlerRequest.setUserId(uid);
+
         CalendarHandlerResponse response = (CalendarHandlerResponse) calendarHandler.handle(calendarHandlerRequest);
 
         return response.getText();
+    }
+
+    private String getIdToken(String idToken) {
+        String[] arr = idToken.split(" ", 2);
+        idToken = arr[1];
+        return idToken;
+    }
+
+    private CalendarHandlerRequest generateCalendarRequest() {
+        CalendarHandlerRequest calendarHandlerRequest = new CalendarHandlerRequest();
+        ZonedDateTime zdt = ZonedDateTime.of(2020, 02, 20, 0, 0, 0, 0, ZoneId.of("UTC"));
+        Service service = new Service();
+        service.setServiceId(1);
+        service.setOrigin("BCN Airport");
+        service.setDestination("Girona Airport");
+        service.setClientId(1);
+        service.setDriverId(1);
+        service.setDescription("Test description");
+        service.setServiceDatetime(zdt);
+        service.setCalendarEvent("calendarURL");
+        service.setCalendarDatetime(zdt);
+        service.setPayedDatetime(zdt.plusDays(5));
+        service.setBasePrice(12F);
+        service.setExtraPrice((float) 0);
+        service.setConfirmedDatetime(zdt.plusDays(2));
+        service.setPassengers(3);
+        service.setSpecialNeeds("none");
+
+        calendarHandlerRequest.setUserId("ads");
+        calendarHandlerRequest.setFlow("eventsMonth");
+        calendarHandlerRequest.setService(service);
+
+        return calendarHandlerRequest;
     }
 
     @GetMapping("email")

@@ -5,30 +5,32 @@ import (
 	"calendar/Database"
 	"calendar/Model"
 	"encoding/json"
-	"golang.org/x/tools/go/ssa/interp/testdata/src/fmt"
+	"fmt"
 	"google.golang.org/api/calendar/v3"
 	"gorm.io/gorm"
 	"time"
 )
 
-func Consume(body string, db *gorm.DB, calendarClient *calendar.Service) string {
+func Consume(body string, db *gorm.DB) string {
 	var response string
 	excludeEmails := []string{"es.spain#holiday@group.v.calendar.google.com", "addressbook#contacts@group.v.calendar.google.com"}
 
 	var request Model.CalendarRequest
 	json.Unmarshal([]byte(body), &request)
 
+	calendarClient := CalendarAPI.GetCalendarClient("YOPKsz7f1ITbC1V8WES81CTf12H3")
+
 	switch request.Flow {
 	case "eventsMonth":
-		getEventsMonth(request, calendarClient, excludeEmails)
+		response = getEventsMonth(request, calendarClient, excludeEmails)
 	case "freeDrivers":
-		getFreeDrivers(request, calendarClient, excludeEmails)
+		response = getFreeDrivers(request, calendarClient, excludeEmails)
 	case "newService":
-		createNewServiceDB(db, request)
+		response = createNewServiceDB(db, request)
 	case "confirmService":
-		confirmService(db, calendarClient, request)
+		response = confirmService(db, calendarClient, request)
 	case "driverSetup":
-		setupDrivers(calendarClient, excludeEmails, db)
+		response = setupDrivers(calendarClient, excludeEmails, db)
 	default:
 		fmt.Print("default")
 
@@ -86,12 +88,12 @@ func getFreeDrivers(request Model.CalendarRequest, calendarClient *calendar.Serv
 }
 
 func getEventsMonth(request Model.CalendarRequest, calendarClient *calendar.Service, excludeEmails []string) string {
-	fmt.Print("eventsMonth")
+	fmt.Print("eventsMonth\n")
 	startTime := request.Service.ServiceDatetime
-	duration, _ := time.ParseDuration("1h30m")
+	duration, _ := time.ParseDuration("720h")
 	endTime := startTime.Add(duration)
 	events := CalendarAPI.GetEvents(calendarClient, request.Service.ServiceDatetime.Format(time.RFC3339), endTime.Format(time.RFC3339), excludeEmails)
-
+	fmt.Print(events)
 	eventsJson, err := json.Marshal(events)
 	if err != nil {
 		fmt.Println(err)

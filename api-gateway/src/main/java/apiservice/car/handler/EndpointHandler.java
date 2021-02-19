@@ -1,7 +1,9 @@
 package apiservice.car.handler;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 public interface EndpointHandler {
 
-    public HandlerResponse handle(final HandlerRequest request);
+    HandlerResponse handle(final HandlerRequest request) throws JsonProcessingException;
 
 }
