@@ -14,8 +14,8 @@ import (
 
 func ConnectFirestore() *firestore.Client {
 	ctx := context.Background()
-	creds_firestore := os.Getenv("CREDS_FIRESTORE")
-	sa := option.WithCredentialsFile(creds_firestore)
+	credsFirestore := os.Getenv("CREDS_FIRESTORE")
+	sa := option.WithCredentialsFile(credsFirestore)
 
 	app, err := firebase.NewApp(ctx, nil, sa)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"google.golang.org/api/calendar/v3"
 	"gorm.io/gorm"
+	"strconv"
 	"time"
 )
 
@@ -17,29 +18,31 @@ func Consume(body string, db *gorm.DB) string {
 
 	var request Model.CalendarRequest
 	json.Unmarshal([]byte(body), &request)
-	// todo projectid must be defined
+
 	calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
 
 	switch request.Flow {
 	case "eventsMonth":
-		response = getEventsMonth(request, calendarClient, excludeEmails)
+		response = getEventsMonth(calendarClient, request, excludeEmails)
 	case "freeDrivers":
-		response = getFreeDrivers(request, calendarClient, excludeEmails)
+		response = getFreeDrivers(calendarClient, request, excludeEmails)
 	case "newService":
 		response = createNewServiceDB(db, request)
 	case "confirmService":
 		response = confirmService(db, calendarClient, request)
 	case "driverSetup":
-		response = setupDrivers(calendarClient, excludeEmails, db)
+		response = setupDrivers(db, calendarClient, excludeEmails)
+	case "modifyService":
+		response = modifyService(db, calendarClient, request, excludeEmails)
 	default:
 		fmt.Print("default")
-
+		response = "CALENDAR: Error - Unknown flow"
 	}
 
 	return response
 }
 
-func setupDrivers(calendarClient *calendar.Service, excludeEmails []string, db *gorm.DB) string {
+func setupDrivers(db *gorm.DB, calendarClient *calendar.Service, excludeEmails []string) string {
 	fmt.Print("driverSetup")
 	emails := CalendarAPI.GetDriversEmail(calendarClient, excludeEmails)
 	Database.CreateDriverFromList(db, emails)
@@ -59,11 +62,31 @@ func confirmService(db *gorm.DB, calendarClient *calendar.Service, request Model
 	} else {
 		summary = driver.Email
 	}
-	summary = summary + ": " + request.Service.Origin + " - " + request.Service.Destination
+	summary = "[" + string(request.Service.ServiceId) + "]" + summary + ": " + request.Service.Origin + " - " + request.Service.Destination
 	CalendarAPI.CreateCalendarEvent(calendarClient, summary, request.Service.Origin, request.Service.Description, driver.Email, startTime, duration)
-	service := Database.UpdateConfirmedTime(db, request.Service.ServiceId)
+	Database.UpdateConfirmedTime(db, request.Service.ServiceId)
 
-	return "Service with ID:" + string(service.ServiceId) + " confirmed successfully!"
+	return "Service with confirmed successfully!"
+}
+
+func modifyService(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string) string {
+	fmt.Print("modifyService")
+
+	var summary string
+	driver := Database.GetDriver(db, request.Service.DriverId)
+	startTime := request.Service.ServiceDatetime
+	duration, _ := time.ParseDuration("1h30m")
+	if driver.Name != "default" {
+		summary = driver.Name
+	} else {
+		summary = driver.Email
+	}
+	summary = summary + ": " + request.Service.Origin + " - " + request.Service.Destination
+	id := strconv.Itoa(request.Service.ServiceId)
+	CalendarAPI.UpdateCalendarEvent(calendarClient, id, summary, request.Service.Origin, request.Service.Description, driver.Email, startTime, duration, excludeEmails)
+	Database.UpdateService(db, request.Service)
+
+	return "Service with updated successfully!"
 }
 
 func createNewServiceDB(db *gorm.DB, request Model.CalendarRequest) string {
@@ -73,7 +96,7 @@ func createNewServiceDB(db *gorm.DB, request Model.CalendarRequest) string {
 	return "Service created successfully!"
 }
 
-func getFreeDrivers(request Model.CalendarRequest, calendarClient *calendar.Service, excludeEmails []string) string {
+func getFreeDrivers(calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string) string {
 	fmt.Print("freeDrivers")
 	startTime := request.Service.ServiceDatetime
 	duration, _ := time.ParseDuration("1h30m")
@@ -87,12 +110,12 @@ func getFreeDrivers(request Model.CalendarRequest, calendarClient *calendar.Serv
 	return string(driversJson)
 }
 
-func getEventsMonth(request Model.CalendarRequest, calendarClient *calendar.Service, excludeEmails []string) string {
+func getEventsMonth(calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string) string {
 	fmt.Print("eventsMonth\n")
 	startTime := request.Service.ServiceDatetime
 	duration, _ := time.ParseDuration("720h")
 	endTime := startTime.Add(duration)
-	events := CalendarAPI.GetEvents(calendarClient, request.Service.ServiceDatetime.Format(time.RFC3339), endTime.Format(time.RFC3339), excludeEmails)
+	events, _ := CalendarAPI.GetEvents(calendarClient, request.Service.ServiceDatetime.Format(time.RFC3339), endTime.Format(time.RFC3339), excludeEmails)
 	fmt.Print(events)
 	eventsJson, err := json.Marshal(events)
 	if err != nil {

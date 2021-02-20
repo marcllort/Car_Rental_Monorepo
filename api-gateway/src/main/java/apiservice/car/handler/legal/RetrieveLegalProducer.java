@@ -11,11 +11,8 @@ public class RetrieveLegalProducer {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @Autowired
-    private RabbitMQDirectConfig rabbitMQDirectConfig;
-
     public String produce(String request) {
-        Object response = rabbitTemplate.convertSendAndReceive(rabbitMQDirectConfig.EXCHANGE, rabbitMQDirectConfig.LEGAL_KEY, request);
+        Object response = rabbitTemplate.convertSendAndReceive(RabbitMQDirectConfig.EXCHANGE, RabbitMQDirectConfig.LEGAL_KEY, request);
         return response.toString();
     }
 

@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -29,31 +30,6 @@ func getEventList(calendarName string, srv *calendar.Service) (error, string, *c
 	return errors.New("Non-existing calendar string"), "", listRes
 }
 
-func GetEvents(srv *calendar.Service, startTime string, endTime string, excludeCalendars []string) []*calendar.Event {
-	err, _, listRes := getEventList("all", srv)
-	if err != nil {
-		log.Fatalf("Unable to retrieve list of calendars: %v", err)
-	}
-
-	var events []*calendar.Event
-	for _, v := range listRes.Items {
-		if !Utils.Contains(excludeCalendars, v.Id) {
-			events = append(events, getDriverEvents(srv, v.Id, startTime, endTime)...)
-		}
-	}
-
-	return events
-}
-
-func GetDriverEventsByEmail(srv *calendar.Service, driver string, startTime string, endTime string) []*calendar.Event {
-	err, id, _ := getEventList(driver, srv)
-	if err != nil {
-		log.Fatalf("%v", err)
-	}
-
-	return getDriverEvents(srv, id, startTime, endTime)
-}
-
 func getDriverEvents(srv *calendar.Service, id string, startTime string, endTime string) []*calendar.Event {
 
 	res, err := srv.Events.List(id).ShowDeleted(false).
@@ -72,6 +48,33 @@ func getDriverEvents(srv *calendar.Service, id string, startTime string, endTime
 	//log.Printf("Calendar ID %q Summary: %v Summary: %v\n", id, res.Summary)
 
 	return res.Items
+}
+
+func GetEvents(srv *calendar.Service, startTime string, endTime string, excludeCalendars []string) ([]*calendar.Event, []string) {
+	err, _, listRes := getEventList("all", srv)
+	if err != nil {
+		log.Fatalf("Unable to retrieve list of calendars: %v", err)
+	}
+
+	var events []*calendar.Event
+	var eventsCalendar []string
+	for _, v := range listRes.Items {
+		if !Utils.Contains(excludeCalendars, v.Id) {
+			events = append(events, getDriverEvents(srv, v.Id, startTime, endTime)...)
+			eventsCalendar = append(eventsCalendar, v.Id)
+		}
+	}
+
+	return events, eventsCalendar
+}
+
+func GetDriverEventsByEmail(srv *calendar.Service, driver string, startTime string, endTime string) []*calendar.Event {
+	err, id, _ := getEventList(driver, srv)
+	if err != nil {
+		log.Fatalf("%v", err)
+	}
+
+	return getDriverEvents(srv, id, startTime, endTime)
 }
 
 func GetFreeDrivers(srv *calendar.Service, startTime *time.Time, duration time.Duration, excludeCalendars []string) []string {
@@ -118,6 +121,38 @@ func CreateCalendarEvent(srv *calendar.Service, summary string, location string,
 		log.Fatalf("Unable to create event. %v\n", err)
 	}
 	fmt.Printf("Event created: %s\n", event.HtmlLink)
+}
+
+func UpdateCalendarEvent(srv *calendar.Service, eventId string, summary string, location string, description string, driver string, startTime *time.Time, duration time.Duration, excludeCalendars []string) {
+	durationParse, _ := time.ParseDuration("1h30m")
+	events, eventsCalendar := GetEvents(srv, startTime.Format(time.RFC3339), startTime.Add(durationParse).Format(time.RFC3339), excludeCalendars)
+
+	var event *calendar.Event
+	var calendarId string
+	for i, v := range events {
+		if strings.Contains(v.Summary, "["+eventId+"]") {
+			event = v
+			calendarId = eventsCalendar[i]
+		}
+	}
+
+	event.Summary = summary
+	event.Location = location
+	event.Description = description
+	event.Attendees = []*calendar.EventAttendee{
+		{Email: driver},
+	}
+	event.Start = &calendar.EventDateTime{
+		DateTime: startTime.Format(time.RFC3339),
+		TimeZone: "Europe/Madrid",
+	}
+	event.End = &calendar.EventDateTime{
+		DateTime: startTime.Add(duration).Format(time.RFC3339),
+		TimeZone: "Europe/Madrid",
+	}
+
+	srv.Events.Update(calendarId, event.Id, event).Do() //Update with Id
+
 }
 
 func GetDriversEmail(srv *calendar.Service, excludeCalendars []string) []string {

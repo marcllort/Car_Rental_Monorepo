@@ -6,9 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/config/FirebaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/config/FirebaseConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/config/JacksonConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/config/JacksonConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/CalendarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Utils/credentials.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Utils/credentials.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/covid/DataRetriever/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/PublicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/SessionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/SuperAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/SuperAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/calendar/RetrieveCalendarHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/calendar/RetrieveCalendarHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/calendar/RetrieveCalendarProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/calendar/RetrieveCalendarProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/RetrieveEmailHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/RetrieveEmailHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/RetrieveEmailProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/RetrieveEmailProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/model/EmailHandlerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/model/EmailHandlerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/legal/RetrieveLegalHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/legal/RetrieveLegalHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/legal/RetrieveLegalProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/legal/RetrieveLegalProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/legal/model/LegalHandlerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/legal/model/LegalHandlerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/firestore_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/firestore_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postman/CarRental.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/postman/CarRental.postman_collection.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +117,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Calendar">
+  <component name="RunManager" selected="Spring Boot.API-Gateway">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -209,14 +226,7 @@
       <workItem from="1612451722173" duration="3736000" />
       <workItem from="1612515205805" duration="40283000" />
       <workItem from="1613120127843" duration="27591000" />
-      <workItem from="1613293600723" duration="35549000" />
-    </task>
-    <task id="LOCAL-00055" summary="Remove unnecessary CORS code">
-      <created>1610275432904</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1610275432904</updated>
+      <workItem from="1613293600723" duration="41455000" />
     </task>
     <task id="LOCAL-00056" summary="Creation of calendar and legal microservice, with RabbitMQ implementation working">
       <created>1611339457946</created>
@@ -554,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613812547752</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Parametrized calendar endpoint">
+      <created>1613813793095</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1613813793095</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +579,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Readme updates" />
     <MESSAGE value="Impletented GORM for calendar" />
     <MESSAGE value="Implemented DB methods, not tested" />
     <MESSAGE value="Added credentials and kubernetes configuration for email and calendar" />
@@ -587,7 +603,8 @@
     <MESSAGE value="EventsMonth working" />
     <MESSAGE value="Calendar ALL flows working" />
     <MESSAGE value="Calendar working in K8s" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calendar working in K8s" />
+    <MESSAGE value="Parametrized calendar endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Parametrized calendar endpoint" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -600,8 +617,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go</url>
-          <line>38</line>
-          <option name="timeStamp" value="7" />
+          <line>138</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

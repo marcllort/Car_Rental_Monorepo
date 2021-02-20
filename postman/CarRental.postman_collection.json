@@ -412,15 +412,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{PUBLIC_URL}}/public/data",
-					"host": [
-						"{{PUBLIC_URL}}"
-					],
-					"path": [
-						"public",
-						"data"
-					]
-				}
+                  "raw": "{{LOCAL_URL}}/public/data",
+                  "host": [
+                    "{{LOCAL_URL}}"
+                  ],
+                  "path": [
+                    "public",
+                    "data"
+                  ]
+                }
 			},
 			"response": []
 		},
@@ -486,31 +486,43 @@
 			},
 			"response": []
 		},
-		{
-			"name": "Protected/Calendar",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{ADMIN_API_KEY}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{PUBLIC_URL}}/protected/calendar",
-					"host": [
-						"{{PUBLIC_URL}}"
-					],
-					"path": [
-						"protected",
-						"calendar"
-					]
-				}
+      {
+        "name": "Protected/Calendar",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{ADMIN_API_KEY}}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    \"service\": {\r\n        \"description\": \"Test description\",\r\n        \"origin\": \"BCN Airporttttt\",\r\n        \"destination\": \"Girona Airport\",\r\n        \"serviceId\": 4,\r\n        \"driverId\": 1,\r\n        \"extraPrice\": 0.0,\r\n        \"serviceDatetime\": \"2021-02-20T00:00:00Z\",\r\n        \"payedDatetime\": \"2020-02-25T00:00:00Z\",\r\n        \"specialNeeds\": \"none\",\r\n        \"passengers\": 3,\r\n        \"basePrice\": 12.0,\r\n        \"calendarEvent\": \"calendarURL\",\r\n        \"clientId\": 1,\r\n        \"confirmedDatetime\": null\r\n    },\r\n    \"flow\": \"confirmService\"\r\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "{{LOCAL_URL}}/protected/calendar",
+            "host": [
+              "{{LOCAL_URL}}"
+            ],
+            "path": [
+              "protected",
+              "calendar"
+            ]
+          }
 			},
 			"response": []
 		},
@@ -560,26 +572,54 @@
 				"url": {
 					"raw": "{{PUBLIC_URL}}/protected/legal",
 					"host": [
-						"{{PUBLIC_URL}}"
-					],
-					"path": [
-						"protected",
-						"legal"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Prected/CreateUserFirebase",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{ADMIN_API_KEY}}",
-							"type": "string"
+                      "{{PUBLIC_URL}}"
+                    ],
+                  "path": [
+                    "protected",
+                    "legal"
+                  ]
+                }
+            },
+          "response": []
+        },
+      {
+        "name": "Public/Login",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{ADMIN_API_KEY}}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{LOCAL_URL_K8S}}/public/login",
+            "host": [
+              "{{LOCAL_URL_K8S}}"
+            ],
+            "path": [
+              "public",
+              "login"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Prected/CreateUserFirebase",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{ADMIN_API_KEY}}",
+                "type": "string"
 						}
 					]
 				},

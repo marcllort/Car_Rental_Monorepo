@@ -22,7 +22,7 @@ public class FirebaseConfig {
 
     @Primary
     @Bean
-    public FirebaseApp getfirebaseApp() throws IOException {
+    public FirebaseApp getFirebaseApp() throws IOException {
 
         FirebaseOptions options = FirebaseOptions.builder().setCredentials(GoogleCredentials.getApplicationDefault())
                 .setDatabaseUrl(secProps.getFirebaseProps().getDatabaseUrl()).build();
@@ -35,11 +35,11 @@ public class FirebaseConfig {
 
     @Bean
     public FirebaseAuth getAuth() throws IOException {
-        return FirebaseAuth.getInstance(getfirebaseApp());
+        return FirebaseAuth.getInstance(getFirebaseApp());
     }
 
     @Bean
-    public Firestore getDB() throws IOException {
+    public Firestore getDB() {
         return FirestoreClient.getFirestore();
     }
 

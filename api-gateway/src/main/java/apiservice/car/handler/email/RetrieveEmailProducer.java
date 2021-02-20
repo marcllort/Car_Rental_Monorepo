@@ -11,11 +11,8 @@ public class RetrieveEmailProducer {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @Autowired
-    private RabbitMQDirectConfig rabbitMQDirectConfig;
-
     public String produce(String request) {
-        Object response = rabbitTemplate.convertSendAndReceive(rabbitMQDirectConfig.EXCHANGE, rabbitMQDirectConfig.EMAIL_KEY, request);
+        Object response = rabbitTemplate.convertSendAndReceive(RabbitMQDirectConfig.EXCHANGE, RabbitMQDirectConfig.EMAIL_KEY, request);
         return response.toString();
     }
 

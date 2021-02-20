@@ -14,9 +14,9 @@ import java.util.*;
 public class SuperAdminController {
 
     @Autowired
-    RoleService securityRoleService;
+    private RoleService securityRoleService;
     @Autowired
-    FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
 
     @GetMapping("user")
     @IsSuper
@@ -49,8 +49,7 @@ public class SuperAdminController {
                 try {
                     page = firebaseAuth.listUsers(pageToken, maxResults.get());
                 } catch (Exception e) {
-                    List<ExportedUserRecord> users = new ArrayList<>();
-                    return users;
+                    return new ArrayList<>();
                 }
             } else {
                 page = firebaseAuth.listUsers(pageToken, 10);
@@ -64,7 +63,6 @@ public class SuperAdminController {
         }
 
         return users;
-
     }
 
     @PostMapping("create-user")

@@ -35,6 +35,7 @@ import java.util.concurrent.ExecutionException;
 @RestController
 @RequestMapping("public")
 public class CalendarController {
+    // TODO: To be moved to payments/orchestrator MS
 
     private static final String APPLICATION_NAME = "Car Rental";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
@@ -83,6 +84,7 @@ public class CalendarController {
             e.printStackTrace();
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
@@ -208,4 +210,5 @@ public class CalendarController {
             docRef.set(data);
         }
     }
+
 }

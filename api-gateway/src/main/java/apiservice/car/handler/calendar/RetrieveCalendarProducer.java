@@ -11,11 +11,8 @@ public class RetrieveCalendarProducer {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @Autowired
-    private RabbitMQDirectConfig rabbitMQDirectConfig;
-
     public String produce(String request) {
-        Object response = rabbitTemplate.convertSendAndReceive(rabbitMQDirectConfig.EXCHANGE, rabbitMQDirectConfig.CALENDAR_KEY, request);
+        Object response = rabbitTemplate.convertSendAndReceive(RabbitMQDirectConfig.EXCHANGE, RabbitMQDirectConfig.CALENDAR_KEY, request);
         return response.toString();
     }
 

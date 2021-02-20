@@ -23,6 +23,7 @@ public class RetrieveCalendarHandler implements EndpointHandler {
     public HandlerResponse handle(HandlerRequest request) throws JsonProcessingException {
         CalendarHandlerRequest calendarHandlerRequest = (CalendarHandlerRequest) request;
         String json = jacksonObjectMapper.writeValueAsString(calendarHandlerRequest);
+
         String response = producer.produce(json);
 
         CalendarHandlerResponse calendarHandlerResponse = new CalendarHandlerResponse();

@@ -148,6 +148,13 @@ func createClientUser(db *gorm.DB, client Model.ClientUser) int {
 	return client.UserId
 }
 
+func UpdateService(db *gorm.DB, service Model.Service) Model.Service {
+
+	db.Table("Service").Where("service_id = ?", service.ServiceId).Save(service)
+
+	return service
+}
+
 // Update confirmed time
 func UpdateConfirmedTime(db *gorm.DB, serviceId int) Model.Service {
 	var service Model.Service

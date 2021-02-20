@@ -3,6 +3,7 @@ package apiservice.car.controllers;
 import okhttp3.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
@@ -17,23 +18,21 @@ public class PublicController {
     }
 
     @GetMapping("covid")
-    public String getProtectedCovidData() {
-        return covidCall();
+    public String getProtectedCovidData(@RequestParam String origin, @RequestParam String destination) {
+        return covidCall(origin, destination);
     }
 
-    // Implement command pattern
-    private String covidCall() {
+    private String covidCall(String origin, String destination) {
         try {
             OkHttpClient client = new OkHttpClient().newBuilder()
                     .build();
             MediaType mediaType = MediaType.parse("text/plain");
-            RequestBody body = RequestBody.create(mediaType, "{\r\n    \"destination\": \"Spain\",\r\n    \"origin\": \"France\"\r\n}");
+            RequestBody body = RequestBody.create(mediaType, "{\r\n    \"destination\": " + destination + ",\r\n    \"origin\": " + origin + "\r\n}");
             Request request = new Request.Builder()
                     .url("https://canitravelto.wtf/travel")
                     .method("POST", body)
                     .addHeader("X-Auth-Token", "SUPER_SECRET_API_KEY")
                     .addHeader("Content-Type", "text/plain")
-                    .addHeader("Cookie", "__cfduid=d92e76abef0fafb49acf4087bee8a085a1608641092")
                     .build();
             Response response = client.newCall(request).execute();
 

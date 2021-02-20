@@ -1,6 +1,5 @@
 package apiservice.car.controllers;
 
-
 import apiservice.car.handler.calendar.RetrieveCalendarHandler;
 import apiservice.car.handler.calendar.model.CalendarHandlerRequest;
 import apiservice.car.handler.calendar.model.CalendarHandlerResponse;
@@ -69,7 +68,8 @@ public class ProtectedController {
     }
 
     @GetMapping("calendar")
-    public String getProtectedCalendar(@RequestHeader("Authorization") String authHeader, @RequestBody CalendarHandlerRequest request) throws JsonProcessingException, FirebaseAuthException {
+    public String getProtectedCalendar(@RequestHeader("Authorization") String authHeader, @RequestBody CalendarHandlerRequest request)
+            throws JsonProcessingException, FirebaseAuthException {
         FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
         request.setUserId(decodedToken.getUid());
 
@@ -79,19 +79,23 @@ public class ProtectedController {
     }
 
     @GetMapping("email")
-    public String getProtectedEmail() {
-        EmailHandlerRequest emailHandlerRequest = new EmailHandlerRequest();
-        emailHandlerRequest.setText("email-test");
-        EmailHandlerResponse response = (EmailHandlerResponse) emailHandler.handle(emailHandlerRequest);
+    public String getProtectedEmail(@RequestHeader("Authorization") String authHeader, @RequestBody EmailHandlerRequest request)
+            throws JsonProcessingException, FirebaseAuthException {
+        FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
+        request.setUserId(decodedToken.getUid());
+
+        EmailHandlerResponse response = (EmailHandlerResponse) emailHandler.handle(request);
 
         return response.getText();
     }
 
     @GetMapping("legal")
-    public String getProtectedLegal() {
-        LegalHandlerRequest legalHandlerRequest = new LegalHandlerRequest();
-        legalHandlerRequest.setText("legal-test");
-        LegalHandlerResponse response = (LegalHandlerResponse) legalHandler.handle(legalHandlerRequest);
+    public String getProtectedLegal(@RequestHeader("Authorization") String authHeader, @RequestBody LegalHandlerRequest request)
+            throws JsonProcessingException, FirebaseAuthException {
+        FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
+        request.setUserId(decodedToken.getUid());
+
+        LegalHandlerResponse response = (LegalHandlerResponse) legalHandler.handle(request);
 
         return response.getText();
     }
