@@ -76,3 +76,65 @@ This is a simple example of how the retrieval of all the Services would be store
 - SECRET_DB: The password of the AWS RDS database.
 
 - CREDS: A json file that contains the user, port, URL and database name of the DB.
+
+- CREDS_CALENDAR: A json file that contains Google Calendar API credentials.
+
+- CREDS_FIRESTORE: A json file that contains Firebase API credentials.
+
+## Flows
+
+All the flows (but `newService`) require access to the `calendarClient`, which is the connection to the Google Calendar
+API. In conjunction with the calendarClient, there is always the slice of `exlcludeEmails`, to avoid looking at Birthday
+or Vacation calendars.
+
+It is important to note is that a request of type `Model.CalendarRequest` is always used to select the flow and also has
+the data later used by the specific flow. In some cases only some fields are needed, instead of all of them. These
+needed fields are specified in the following section:
+
+### Get Month Service
+
+- Required data: The request contains the startTime. The endTime is calculated adding 1 month of duration to the
+  startTime.
+- Functionality: Returns the services in the given month. Improvement possible would be to be able to filter per driver.
+- Involved services: Calendar API
+- Response: JSON Array of calendar events
+
+### Create New Service
+
+- Required data: The request contains all the service data but the confirmedDatetime.
+- Functionality: Create a new unconfirmed (not in calendar) service. Basically a request for service, that the company
+  must accept/deny.
+- Involved services: Database
+- Response: Success/Error message
+
+### Confirm Service
+
+- Required data: The request contains all the service data but the confirmedDatetime.
+- Functionality: Once a service has been confirmed, a confirmedDatetime will be added to the Database table, and a
+  Calendar event will be created, which will send invitations to the drivers, add the description, destination...
+- Involved services: Database and Calendar API
+- Response: Success/Error message
+
+### Update Service
+
+- Required data: The request contains all the service data but the confirmedDatetime.
+- Functionality: Updates the service that has been sent. In case it has a confirmedDatetime (which means it already has
+  a calendar event), will also update the calendar event.
+- Involved services: Database and Calendar API
+- Response: Success/Error message
+
+### Free drivers
+
+- Required data: The request contains the startTime. The endTime is calculated adding 1:30h of duration to the
+  startTime. To be improved, by making this parametrized instead of hardcoded.
+- Functionality: Returns the drivers that are free between the specified timeframe.
+- Involved services: Calendar API
+- Response: Array of drivers emails.
+
+### Driver Setup
+
+- Required data: No data required. As an improvement, a slice of extra excludedEmails will be added.
+- Functionality: Retrieves all the "shared with you" calendars (ignoring the ones in the excludedEmails array) and
+  creates a driverUser in the DB.
+- Involved services: Database and Calendar API
+- Response: Success/Error message

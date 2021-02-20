@@ -88,7 +88,10 @@ func modifyService(db *gorm.DB, calendarClient *calendar.Service, request Model.
 	id := strconv.Itoa(request.Service.ServiceId)
 	summary = "[" + id + "]" + summary + ": " + request.Service.Origin + " - " + request.Service.Destination
 
-	CalendarAPI.UpdateCalendarEvent(calendarClient, id, summary, request.Service.Origin, request.Service.Description, driver.Email, startTime, duration, excludeEmails)
+	if request.Service.ConfirmedDatetime != nil {
+		CalendarAPI.UpdateCalendarEvent(calendarClient, id, summary, request.Service.Origin, request.Service.Description,
+			driver.Email, startTime, duration, excludeEmails)
+	}
 	Database.UpdateService(db, request.Service)
 
 	return "Service with updated successfully!"
@@ -120,7 +123,7 @@ func getEventsMonth(calendarClient *calendar.Service, request Model.CalendarRequ
 	startTime := request.Service.ServiceDatetime
 	duration, _ := time.ParseDuration("720h")
 	endTime := startTime.Add(duration)
-	events, _ := CalendarAPI.GetEvents(calendarClient, request.Service.ServiceDatetime.Format(time.RFC3339), endTime.Format(time.RFC3339), excludeEmails)
+	events, _ := CalendarAPI.GetEvents(calendarClient, startTime.Format(time.RFC3339), endTime.Format(time.RFC3339), excludeEmails)
 	fmt.Print(events)
 	eventsJson, err := json.Marshal(events)
 	if err != nil {
