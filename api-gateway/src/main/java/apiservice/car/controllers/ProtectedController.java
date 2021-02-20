@@ -69,15 +69,29 @@ public class ProtectedController {
     }
 
     @GetMapping("calendar")
-    public String getProtectedCalendar(@RequestHeader("Authorization") String authHeader) throws JsonProcessingException, FirebaseAuthException {
-        String idToken = getIdToken(authHeader);
-        FirebaseToken decodedToken = firebaseAuth.verifyIdToken(idToken);
-        String uid = decodedToken.getUid();
+    public String getProtectedCalendar(@RequestHeader("Authorization") String authHeader, @RequestBody CalendarHandlerRequest request) throws JsonProcessingException, FirebaseAuthException {
+        FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
+        request.setUserId(decodedToken.getUid());
 
-        CalendarHandlerRequest calendarHandlerRequest = generateCalendarRequest();
-        calendarHandlerRequest.setUserId(uid);
+        CalendarHandlerResponse response = (CalendarHandlerResponse) calendarHandler.handle(request);
 
-        CalendarHandlerResponse response = (CalendarHandlerResponse) calendarHandler.handle(calendarHandlerRequest);
+        return response.getText();
+    }
+
+    @GetMapping("email")
+    public String getProtectedEmail() {
+        EmailHandlerRequest emailHandlerRequest = new EmailHandlerRequest();
+        emailHandlerRequest.setText("email-test");
+        EmailHandlerResponse response = (EmailHandlerResponse) emailHandler.handle(emailHandlerRequest);
+
+        return response.getText();
+    }
+
+    @GetMapping("legal")
+    public String getProtectedLegal() {
+        LegalHandlerRequest legalHandlerRequest = new LegalHandlerRequest();
+        legalHandlerRequest.setText("legal-test");
+        LegalHandlerResponse response = (LegalHandlerResponse) legalHandler.handle(legalHandlerRequest);
 
         return response.getText();
     }
@@ -87,10 +101,10 @@ public class ProtectedController {
         idToken = arr[1];
         return idToken;
     }
-    // TODO UNHARDCODE ALL OF THIS
-    private CalendarHandlerRequest generateCalendarRequest() {
+
+    private CalendarHandlerRequest generateMockCalendarRequest() {
         CalendarHandlerRequest calendarHandlerRequest = new CalendarHandlerRequest();
-        ZonedDateTime zdt = ZonedDateTime.of(2020, 02, 20, 0, 0, 0, 0, ZoneId.of("UTC"));
+        ZonedDateTime zdt = ZonedDateTime.of(2021, 2, 20, 0, 0, 0, 0, ZoneId.of("UTC"));
         Service service = new Service();
         service.setServiceId(4);
         service.setOrigin("BCN Airport");
@@ -111,24 +125,6 @@ public class ProtectedController {
         calendarHandlerRequest.setService(service);
 
         return calendarHandlerRequest;
-    }
-
-    @GetMapping("email")
-    public String getProtectedEmail() {
-        EmailHandlerRequest emailHandlerRequest = new EmailHandlerRequest();
-        emailHandlerRequest.setText("email-test");
-        EmailHandlerResponse response = (EmailHandlerResponse) emailHandler.handle(emailHandlerRequest);
-
-        return response.getText();
-    }
-
-    @GetMapping("legal")
-    public String getProtectedLegal() {
-        LegalHandlerRequest legalHandlerRequest = new LegalHandlerRequest();
-        legalHandlerRequest.setText("legal-test");
-        LegalHandlerResponse response = (LegalHandlerResponse) legalHandler.handle(legalHandlerRequest);
-
-        return response.getText();
     }
 
 }

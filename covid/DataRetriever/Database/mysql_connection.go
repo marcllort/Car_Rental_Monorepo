@@ -167,7 +167,7 @@ func UpdateCovidCountry(db *sql.DB, covid Model.Covid) {
 		query.WriteString(fmt.Sprintf("TotalDeaths=%d", element.TotalDeaths))
 		query.WriteString(" ,")
 
-		// Sometimes, the API is not updated and displays 0 cases (TODO: FIX)
+		// Sometimes, the API is not updated and displays 0 cases
 		if element.NewRecovered != 0 {
 			query.WriteString(fmt.Sprintf("NewRecovered=%d", element.NewRecovered))
 			query.WriteString(" ,")

@@ -37,7 +37,6 @@ func ReadCredentials(credentials, dbpass string) string {
 	var creds Credentials
 	creds.user = m["user"].(string)
 	creds.password = dbpass
-	//creds.password = m["password"].(string)
 	creds.hostname = m["hostname"].(string)
 	creds.port = m["port"].(string)
 	creds.database = m["database"].(string)
