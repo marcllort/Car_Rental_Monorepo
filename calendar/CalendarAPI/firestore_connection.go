@@ -9,11 +9,13 @@ import (
 	"google.golang.org/api/option"
 	"log"
 	"net/http"
+	"os"
 )
 
 func ConnectFirestore() *firestore.Client {
 	ctx := context.Background()
-	sa := option.WithCredentialsFile("calendar/Creds/car-rental.json")
+	creds_firestore := os.Getenv("CREDS_FIRESTORE")
+	sa := option.WithCredentialsFile(creds_firestore)
 
 	app, err := firebase.NewApp(ctx, nil, sa)
 	if err != nil {

@@ -28,12 +28,28 @@ spec:
                   name: secret-db
                   key: SECRET_DB
             - name: CREDS
-              value: /app/creds.json
+              value: /database/creds.json
+            - name: CREDS_CALENDAR
+              value: /calendar/calendar-api-credentials.json
+            - name: CREDS_FIRESTORE
+              value: /firestore/car-rental.json
           volumeMounts:
             - name: database-config-volume
-              mountPath: /app/
+              mountPath: /database/
+              readOnly: true # no editing!
+            - name: calendar-config-volume
+              mountPath: /calendar/
+              readOnly: true # no editing!
+            - name: firebase-config-volume
+              mountPath: /firestore/
               readOnly: true # no editing!
       volumes:
         - name: database-config-volume
           secret:
             secretName: dbcreds-secret
+        - name: calendar-config-volume
+          secret:
+            secretName: calendar-secret
+        - name: firebase-config-volume
+          secret:
+            secretName: firebase-secret

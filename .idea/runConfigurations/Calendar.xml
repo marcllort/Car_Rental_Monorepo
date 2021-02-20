@@ -6,6 +6,8 @@
       <env name="URL" value="amqp://guest:guest@localhost:5672" />
       <env name="SECRET_DB" value="marcpassword" />
       <env name="CREDS" value="calendar/Creds/creds.json" />
+      <env name="CREDS_CALENDAR" value="calendar/Creds/calendar-api-credentials.json" />
+      <env name="CREDS_FIRESTORE" value="calendar/Creds/car-rental.json" />
     </envs>
     <kind value="FILE" />
     <filePath value="$PROJECT_DIR$/calendar/main.go" />

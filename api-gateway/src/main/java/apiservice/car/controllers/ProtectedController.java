@@ -87,7 +87,7 @@ public class ProtectedController {
         idToken = arr[1];
         return idToken;
     }
-
+    // TODO UNHARDCODE ALL OF THIS
     private CalendarHandlerRequest generateCalendarRequest() {
         CalendarHandlerRequest calendarHandlerRequest = new CalendarHandlerRequest();
         ZonedDateTime zdt = ZonedDateTime.of(2020, 02, 20, 0, 0, 0, 0, ZoneId.of("UTC"));

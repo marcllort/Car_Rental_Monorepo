@@ -8,6 +8,7 @@ import (
 	"google.golang.org/api/calendar/v3"
 	"io/ioutil"
 	"log"
+	"os"
 	"time"
 )
 
@@ -138,8 +139,9 @@ func GetDriversEmail(srv *calendar.Service, excludeCalendars []string) []string 
 
 func GetCalendarClient(uid string) *calendar.Service {
 	client := ConnectFirestore()
+	creds_calendar := os.Getenv("CREDS_CALENDAR")
 
-	b, err := ioutil.ReadFile("calendar/Creds/calendar-api-credentials.json")
+	b, err := ioutil.ReadFile(creds_calendar)
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
 	}

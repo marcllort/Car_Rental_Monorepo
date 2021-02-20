@@ -17,8 +17,8 @@ func Consume(body string, db *gorm.DB) string {
 
 	var request Model.CalendarRequest
 	json.Unmarshal([]byte(body), &request)
-
-	calendarClient := CalendarAPI.GetCalendarClient("YOPKsz7f1ITbC1V8WES81CTf12H3")
+	// todo projectid must be defined
+	calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
 
 	switch request.Flow {
 	case "eventsMonth":

@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Calendar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Calendar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/model/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Model/Service.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Model/Service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/firestore_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/firestore_connection.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/service_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/service_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/service_view.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/service_view.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/test_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/test_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/user_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/user_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/calendar-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/calendar-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +104,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.API-Gateway">
+  <component name="RunManager" selected="Go Build.Calendar">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -215,14 +213,7 @@
       <workItem from="1612451722173" duration="3736000" />
       <workItem from="1612515205805" duration="40283000" />
       <workItem from="1613120127843" duration="27591000" />
-      <workItem from="1613293600723" duration="30229000" />
-    </task>
-    <task id="LOCAL-00053" summary="Test frontend">
-      <created>1610271333188</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1610271333188</updated>
+      <workItem from="1613293600723" duration="34178000" />
     </task>
     <task id="LOCAL-00054" summary="Added READMEs">
       <created>1610275241547</created>
@@ -560,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613759644748</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Calendar ALL flows working">
+      <created>1613761462588</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1613761462588</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +566,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Encryption of passwords in apigw and kuberentes" />
     <MESSAGE value="AWS Password in kubernetes" />
     <MESSAGE value="Readme updates" />
     <MESSAGE value="Impletented GORM for calendar" />
@@ -593,7 +590,8 @@
     <MESSAGE value="Calendar Logic createEvent" />
     <MESSAGE value="Rabbit Flow created" />
     <MESSAGE value="EventsMonth working" />
-    <option name="LAST_COMMIT_MESSAGE" value="EventsMonth working" />
+    <MESSAGE value="Calendar ALL flows working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calendar ALL flows working" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -606,7 +604,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go</url>
-          <line>37</line>
+          <line>38</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
