@@ -62,9 +62,12 @@ func confirmService(db *gorm.DB, calendarClient *calendar.Service, request Model
 	} else {
 		summary = driver.Email
 	}
-	summary = "[" + string(request.Service.ServiceId) + "]" + summary + ": " + request.Service.Origin + " - " + request.Service.Destination
-	CalendarAPI.CreateCalendarEvent(calendarClient, summary, request.Service.Origin, request.Service.Description, driver.Email, startTime, duration)
-	Database.UpdateConfirmedTime(db, request.Service.ServiceId)
+
+	id := strconv.Itoa(request.Service.ServiceId)
+	summary = "[" + id + "]" + summary + ": " + request.Service.Origin + " - " + request.Service.Destination
+	request.Service.CalendarEvent = CalendarAPI.CreateCalendarEvent(calendarClient, summary, request.Service.Origin, request.Service.Description, driver.Email, startTime, duration)
+
+	Database.UpdateConfirmedTime(db, request.Service)
 
 	return "Service with confirmed successfully!"
 }
@@ -81,8 +84,10 @@ func modifyService(db *gorm.DB, calendarClient *calendar.Service, request Model.
 	} else {
 		summary = driver.Email
 	}
-	summary = summary + ": " + request.Service.Origin + " - " + request.Service.Destination
+
 	id := strconv.Itoa(request.Service.ServiceId)
+	summary = "[" + id + "]" + summary + ": " + request.Service.Origin + " - " + request.Service.Destination
+
 	CalendarAPI.UpdateCalendarEvent(calendarClient, id, summary, request.Service.Origin, request.Service.Description, driver.Email, startTime, duration, excludeEmails)
 	Database.UpdateService(db, request.Service)
 

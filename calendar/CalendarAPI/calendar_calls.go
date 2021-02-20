@@ -97,7 +97,7 @@ func GetFreeDrivers(srv *calendar.Service, startTime *time.Time, duration time.D
 	return freeDrivers
 }
 
-func CreateCalendarEvent(srv *calendar.Service, summary string, location string, description string, driver string, startTime *time.Time, duration time.Duration) {
+func CreateCalendarEvent(srv *calendar.Service, summary string, location string, description string, driver string, startTime *time.Time, duration time.Duration) string {
 	event := &calendar.Event{
 		Summary:     summary,
 		Location:    location,
@@ -121,6 +121,8 @@ func CreateCalendarEvent(srv *calendar.Service, summary string, location string,
 		log.Fatalf("Unable to create event. %v\n", err)
 	}
 	fmt.Printf("Event created: %s\n", event.HtmlLink)
+
+	return event.HtmlLink
 }
 
 func UpdateCalendarEvent(srv *calendar.Service, eventId string, summary string, location string, description string, driver string, startTime *time.Time, duration time.Duration, excludeCalendars []string) {
@@ -133,26 +135,24 @@ func UpdateCalendarEvent(srv *calendar.Service, eventId string, summary string, 
 		if strings.Contains(v.Summary, "["+eventId+"]") {
 			event = v
 			calendarId = eventsCalendar[i]
+			event.Summary = summary
+			event.Location = location
+			event.Description = description
+			event.Attendees = []*calendar.EventAttendee{
+				{Email: driver},
+			}
+			event.Start = &calendar.EventDateTime{
+				DateTime: startTime.Format(time.RFC3339),
+				TimeZone: "Europe/Madrid",
+			}
+			event.End = &calendar.EventDateTime{
+				DateTime: startTime.Add(duration).Format(time.RFC3339),
+				TimeZone: "Europe/Madrid",
+			}
+
+			srv.Events.Update(calendarId, event.Id, event).Do() //Update with Id
 		}
 	}
-
-	event.Summary = summary
-	event.Location = location
-	event.Description = description
-	event.Attendees = []*calendar.EventAttendee{
-		{Email: driver},
-	}
-	event.Start = &calendar.EventDateTime{
-		DateTime: startTime.Format(time.RFC3339),
-		TimeZone: "Europe/Madrid",
-	}
-	event.End = &calendar.EventDateTime{
-		DateTime: startTime.Add(duration).Format(time.RFC3339),
-		TimeZone: "Europe/Madrid",
-	}
-
-	srv.Events.Update(calendarId, event.Id, event).Do() //Update with Id
-
 }
 
 func GetDriversEmail(srv *calendar.Service, excludeCalendars []string) []string {

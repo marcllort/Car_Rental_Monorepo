@@ -156,9 +156,10 @@ func UpdateService(db *gorm.DB, service Model.Service) Model.Service {
 }
 
 // Update confirmed time
-func UpdateConfirmedTime(db *gorm.DB, serviceId int) Model.Service {
-	var service Model.Service
-	db.Table("Service").Where("service_id = ?", serviceId).Model(&service).Update("confirmed_datetime", time.Now())
+func UpdateConfirmedTime(db *gorm.DB, service Model.Service) Model.Service {
+	t := time.Now()
+	service.ConfirmedDatetime = &t
+	db.Table("Service").Where("service_id = ?", service.ServiceId).Model(&service).Updates(Model.Service{ConfirmedDatetime: service.ConfirmedDatetime, CalendarEvent: service.CalendarEvent})
 
 	return service
 }
