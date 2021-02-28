@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Email k8s configuration and readme update">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_pdfbox_fontbox_2_0_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_pdfbox_pdfbox_2_0_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/handler/Consumer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/LegalRequest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/Service.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/email/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/email/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Template/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/legal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/legal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/LegalApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/LegalApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postman/CarRental.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/postman/CarRental.postman_collection.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +33,7 @@
         <option value="Go Application" />
         <option value="Class" />
         <option value="Go File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -50,6 +58,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
@@ -68,23 +77,24 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/email/Template" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/template" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/api-gateway/k8/ingress-service.yaml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\legal\src\main\kotlin\com\car\rental\legal\template" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar\Creds" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Creds" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template" />
@@ -101,7 +111,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.API-Gateway">
+  <component name="RunManager" selected="Spring Boot.Legal">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -219,14 +229,7 @@
       <workItem from="1614419261266" duration="372000" />
       <workItem from="1614419651721" duration="155000" />
       <workItem from="1614419816723" duration="104000" />
-      <workItem from="1614419932367" duration="25892000" />
-    </task>
-    <task id="LOCAL-00061" summary="RabbitMQ kubernetes working">
-      <created>1611401985961</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1611401985961</updated>
+      <workItem from="1614419932367" duration="33439000" />
     </task>
     <task id="LOCAL-00062" summary="Added local development script">
       <created>1611403950356</created>
@@ -564,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614512710911</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Email k8s configuration and readme update">
+      <created>1614522614798</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1614522614798</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +582,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Updated readme and postman" />
     <MESSAGE value="Calendar retrieval endpoint" />
     <MESSAGE value="Change firebase login for Google login" />
     <MESSAGE value="UID dependant calendar code" />
@@ -597,7 +606,8 @@
     <MESSAGE value="Updated Calendar readme" />
     <MESSAGE value="Send email logic" />
     <MESSAGE value="Send email working 3 flows" />
-    <option name="LAST_COMMIT_MESSAGE" value="Send email working 3 flows" />
+    <MESSAGE value="Email k8s configuration and readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Email k8s configuration and readme update" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -606,6 +616,15 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/handler/Consumer.kt</url>
+          <line>15</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="java.util.Optional" memberName="value" />

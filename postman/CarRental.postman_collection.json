@@ -476,16 +476,16 @@
 				"url": {
 					"raw": "{{PUBLIC_URL}}/protected/data",
 					"host": [
-						"{{PUBLIC_URL}}"
-					],
-					"path": [
-						"protected",
-						"data"
-					]
-				}
-			},
-			"response": []
-		},
+                      "{{PUBLIC_URL}}"
+                    ],
+                  "path": [
+                    "protected",
+                    "data"
+                  ]
+                }
+            },
+          "response": []
+        },
       {
         "name": "Protected/Calendar",
         "protocolProfileBehavior": {
@@ -506,7 +506,7 @@
           "header": [],
           "body": {
             "mode": "raw",
-            "raw": "{\r\n    \"service\": {\r\n        \"description\": \"Test description\",\r\n        \"origin\": \"BCN Airporttttt\",\r\n        \"destination\": \"Girona Airport\",\r\n        \"serviceId\": 4,\r\n        \"driverId\": 1,\r\n        \"extraPrice\": 0.0,\r\n        \"serviceDatetime\": \"2021-02-20T00:00:00Z\",\r\n        \"payedDatetime\": \"2020-02-25T00:00:00Z\",\r\n        \"specialNeeds\": \"none\",\r\n        \"passengers\": 3,\r\n        \"basePrice\": 12.0,\r\n        \"calendarEvent\": \"calendarURL\",\r\n        \"clientId\": 1,\r\n        \"confirmedDatetime\": null\r\n    },\r\n    \"flow\": \"confirmService\"\r\n}",
+            "raw": "{\r\n    \"service\": {\r\n        \"description\": \"Test descriptionmodified\",\r\n        \"origin\": \"BCN Airporttttt\",\r\n        \"destination\": \"Girona Airport\",\r\n        \"serviceId\": 4,\r\n        \"driverId\": 1,\r\n        \"extraPrice\": 0.0,\r\n        \"serviceDatetime\": \"2021-02-20T00:00:00Z\",\r\n        \"payedDatetime\": \"2020-02-25T00:00:00Z\",\r\n        \"specialNeeds\": \"none\",\r\n        \"passengers\": 3,\r\n        \"basePrice\": 12.0,\r\n        \"calendarEvent\": \"calendarURL\",\r\n        \"clientId\": 1,\r\n        \"confirmedDatetime\": null\r\n    },\r\n    \"flow\": \"confirmService\"\r\n}",
             "options": {
               "raw": {
                 "language": "json"
@@ -523,65 +523,89 @@
               "calendar"
             ]
           }
-			},
-			"response": []
-		},
-		{
-			"name": "Protected/Email",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{ADMIN_API_KEY}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{PUBLIC_URL}}/protected/email",
-					"host": [
-						"{{PUBLIC_URL}}"
-					],
-					"path": [
-						"protected",
-						"email"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Protected/Legal",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{ADMIN_API_KEY}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{PUBLIC_URL}}/protected/legal",
-					"host": [
-                      "{{PUBLIC_URL}}"
-                    ],
-                  "path": [
-                    "protected",
-                    "legal"
-                  ]
-                }
-            },
-          "response": []
         },
+        "response": []
+      },
+      {
+        "name": "Protected/Email",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{ADMIN_API_KEY}}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    \"service\": {\r\n        \"description\": \"Test descriptionmodified\",\r\n        \"origin\": \"BCN Airporttttt\",\r\n        \"destination\": \"Girona Airport\",\r\n        \"serviceId\": 4,\r\n        \"driverId\": 1,\r\n        \"extraPrice\": 0.0,\r\n        \"serviceDatetime\": \"2021-02-20T00:00:00Z\",\r\n        \"payedDatetime\": \"2020-02-25T00:00:00Z\",\r\n        \"specialNeeds\": \"none\",\r\n        \"passengers\": 3,\r\n        \"basePrice\": 12.0,\r\n        \"calendarEvent\": \"calendarURL\",\r\n        \"clientId\": 1,\r\n        \"confirmedDatetime\": null\r\n    },\r\n    \"flow\": \"serviceInvoice\",\r\n    \"price\": \"pricetest\",\r\n    \"drivers\": \"a lot of drivers\",\r\n    \"company\": \"pressicar\"\r\n\r\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "{{PUBLIC_URL}}/protected/email",
+            "host": [
+              "{{PUBLIC_URL}}"
+            ],
+            "path": [
+              "protected",
+              "email"
+            ]
+          }
+			},
+			"response": []
+		},
+      {
+        "name": "Protected/Legal",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{ADMIN_API_KEY}}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    \"service\": {\r\n        \"description\": \"Test descriptionmodified\",\r\n        \"origin\": \"BCN Airporttttt\",\r\n        \"destination\": \"Girona Airport\",\r\n        \"serviceId\": 4,\r\n        \"driverId\": 1,\r\n        \"extraPrice\": 0.0,\r\n        \"serviceDatetime\": \"2021-02-20T00:00:00Z\",\r\n        \"payedDatetime\": \"2020-02-25T00:00:00Z\",\r\n        \"specialNeeds\": \"none\",\r\n        \"passengers\": 3,\r\n        \"basePrice\": 12.0,\r\n        \"calendarEvent\": \"calendarURL\",\r\n        \"clientId\": 1,\r\n        \"confirmedDatetime\": null\r\n    },\r\n    \"flow\": \"confirmService\"\r\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "{{PUBLIC_URL}}/protected/legal",
+            "host": [
+              "{{PUBLIC_URL}}"
+            ],
+            "path": [
+              "protected",
+              "legal"
+            ]
+          }
+        },
+        "response": []
+      },
       {
         "name": "Public/Login",
         "request": {
@@ -620,16 +644,16 @@
                 "key": "token",
                 "value": "{{ADMIN_API_KEY}}",
                 "type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"uid\":\"uid\",\r\n    \"name\":\"name\",\r\n    \"language\":\"lang\",\r\n    \"email\":\"mail\",\r\n    \"password\":\"pass\",\r\n    \"emailSign\":\"sign\",\r\n    \"calendarURL\":\"url\"\r\n}",
-					"options": {
-						"raw": {
+              }
+            ]
+          },
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    \"uid\":\"uid\",\r\n    \"name\":\"name\",\r\n    \"language\":\"lang\",\r\n    \"email\":\"mail\",\r\n    \"password\":\"pass\",\r\n    \"emailSign\":\"sign\",\r\n    \"calendarURL\":\"url\"\r\n}",
+            "options": {
+              "raw": {
 							"language": "json"
 						}
 					}
