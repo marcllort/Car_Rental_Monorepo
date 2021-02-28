@@ -4,10 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Updated Calendar readme">
+      <change afterPath="$PROJECT_DIR$/email/Model/EmailRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/calendar-template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/CEO_-_Video_Conference.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/Location_-_P.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/Logo_Octopus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/Time-p.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/User_-_p.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/bee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/facebook2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/googleplus2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/instagram2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/images/twitter2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/template.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/email/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +42,8 @@
         <option value="CSS File" />
         <option value="Interface" />
         <option value="Go Application" />
-        <option value="Go File" />
         <option value="Class" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -66,30 +86,30 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/calendar/Creds" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/email/Template" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/api-gateway/k8/ingress-service.yaml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar\Creds" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Creds" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\database" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Model" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\assets" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\creds" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\scripts" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="apiservice.car.handler.calendar" />
@@ -99,7 +119,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.API-Gateway">
+  <component name="RunManager" selected="Go Build.Email">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -160,9 +180,9 @@
     </configuration>
     <list>
       <item itemvalue="Database Script.test_data.sql" />
-      <item itemvalue="Docker.legal/Dockerfile" />
-      <item itemvalue="Docker.calendar/Dockerfile" />
       <item itemvalue="Docker.api-gateway/Dockerfile" />
+      <item itemvalue="Docker.calendar/Dockerfile" />
+      <item itemvalue="Docker.legal/Dockerfile" />
       <item itemvalue="Go Build.Calendar" />
       <item itemvalue="Go Build.Email" />
       <item itemvalue="Spring Boot.API-Gateway" />
@@ -170,10 +190,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Database Script.test_data.sql" />
-        <item itemvalue="Docker.api-gateway/Dockerfile" />
         <item itemvalue="Docker.legal/Dockerfile" />
         <item itemvalue="Docker.calendar/Dockerfile" />
+        <item itemvalue="Docker.api-gateway/Dockerfile" />
+        <item itemvalue="Database Script.test_data.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -211,14 +231,13 @@
       <workItem from="1612451722173" duration="3736000" />
       <workItem from="1612515205805" duration="40283000" />
       <workItem from="1613120127843" duration="27591000" />
-      <workItem from="1613293600723" duration="45700000" />
-    </task>
-    <task id="LOCAL-00058" summary="Added dockerfiles for all projects">
-      <created>1611340937263</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1611340937263</updated>
+      <workItem from="1613293600723" duration="46550000" />
+      <workItem from="1613905882838" duration="2465000" />
+      <workItem from="1614333952502" duration="1754000" />
+      <workItem from="1614419261266" duration="372000" />
+      <workItem from="1614419651721" duration="155000" />
+      <workItem from="1614419816723" duration="104000" />
+      <workItem from="1614419932367" duration="13719000" />
     </task>
     <task id="LOCAL-00059" summary="Added dockerfiles for all projects">
       <created>1611343324423</created>
@@ -556,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613821900274</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="Updated Calendar readme">
+      <created>1613838580563</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1613838580563</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Added credentials and kubernetes configuration for email and calendar" />
     <MESSAGE value="Added firestore connection to email" />
     <MESSAGE value="Updated readme" />
     <MESSAGE value="Updated readme and postman" />
@@ -589,7 +614,8 @@
     <MESSAGE value="Parametrized calendar endpoint" />
     <MESSAGE value="Update service flow working" />
     <MESSAGE value="Improved confirmService flow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved confirmService flow" />
+    <MESSAGE value="Updated Calendar readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Calendar readme" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

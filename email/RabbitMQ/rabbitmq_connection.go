@@ -1,7 +1,10 @@
 package RabbitMQ
 
 import (
+	"cloud.google.com/go/firestore"
+	"context"
 	"github.com/streadway/amqp"
+	"gorm.io/gorm"
 	"log"
 	"os"
 )
@@ -12,7 +15,7 @@ func failOnError(err error, msg string) {
 	}
 }
 
-func Connect() {
+func Connect(db *gorm.DB, firestore *firestore.Client, ctx context.Context) {
 	host := os.Getenv("URL")
 	conn, err := amqp.Dial(host)
 	failOnError(err, "Failed to connect to RabbitMQ")
@@ -23,13 +26,13 @@ func Connect() {
 	defer ch.Close()
 
 	msgs, err := ch.Consume(
-		"email-queue", // queue
-		"",            // consumer
-		true,          // auto-ack
-		false,         // exclusive
-		false,         // no-local
-		false,         // no-wait
-		nil,           // args
+		"calendar-queue", // queue
+		"",               // consumer
+		true,             // auto-ack
+		false,            // exclusive
+		false,            // no-local
+		false,            // no-wait
+		nil,              // args
 	)
 	failOnError(err, "Failed to register a consumer")
 
@@ -37,22 +40,25 @@ func Connect() {
 
 	go func() {
 		for d := range msgs {
-			log.Printf("Received a message: %s", d.Body)
-			//HALF WORKING, ONLY THE FIRST REQUEST
-			err = ch.Publish(
-				"",        // exchange
-				d.ReplyTo, // routing key
-				false,     // mandatory
-				false,     // immediate
-				amqp.Publishing{
-					ContentType:   "text/plain",
-					CorrelationId: d.CorrelationId,
-					Body:          []byte("answer reeceived"),
-				})
-			failOnError(err, "Failed to publish a message")
+			response := Consume(string(d.Body), db, firestore, ctx)
+			publishMessage(err, ch, d, response)
 		}
 	}()
 
 	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
 	<-forever
+}
+
+func publishMessage(err error, ch *amqp.Channel, d amqp.Delivery, response string) {
+	err = ch.Publish(
+		"",        // exchange
+		d.ReplyTo, // routing key
+		false,     // mandatory
+		false,     // immediate
+		amqp.Publishing{
+			ContentType:   "text/plain",
+			CorrelationId: d.CorrelationId,
+			Body:          []byte(response),
+		})
+	failOnError(err, "Failed to publish a message")
 }

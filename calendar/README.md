@@ -38,7 +38,6 @@ data. It is called GORM, the most popular ORM for Golang.
 
 ```
 func CreateConnection(creds, dbpass string) *gorm.DB {
-
 	dbURL := Utils.ReadCredentials(creds, dbpass)
 
 	db, err := gorm.Open(mysql.Open(dbURL), &gorm.Config{})
@@ -101,40 +100,40 @@ needed fields are specified in the following section:
 
 ### Create New Service
 
-- Required data: The request contains all the service data but the confirmedDatetime.
-- Functionality: Create a new unconfirmed (not in calendar) service. Basically a request for service, that the company
-  must accept/deny.
-- Involved services: Database
-- Response: Success/Error message
+- **Required data**: The request contains all the service data but the confirmedDatetime.
+- **Functionality**: Create a new unconfirmed (not in calendar) service. Basically a request for service, that the
+  company must accept/deny.
+- **Involved services**: Database
+- **Response**: Success/Error message
 
 ### Confirm Service
 
-- Required data: The request contains all the service data but the confirmedDatetime.
-- Functionality: Once a service has been confirmed, a confirmedDatetime will be added to the Database table, and a
+- **Required data**: The request contains all the service data but the confirmedDatetime.
+- **Functionality**: Once a service has been confirmed, a confirmedDatetime will be added to the Database table, and a
   Calendar event will be created, which will send invitations to the drivers, add the description, destination...
-- Involved services: Database and Calendar API
-- Response: Success/Error message
+- **Involved services**: Database and Calendar API
+- **Response**: Success/Error message
 
 ### Update Service
 
-- Required data: The request contains all the service data but the confirmedDatetime.
-- Functionality: Updates the service that has been sent. In case it has a confirmedDatetime (which means it already has
-  a calendar event), will also update the calendar event.
-- Involved services: Database and Calendar API
-- Response: Success/Error message
+- **Required data**: The request contains all the service data but the confirmedDatetime.
+- **Functionality**: Updates the service that has been sent. In case it has a confirmedDatetime (which means it already
+  has a calendar event), will also update the calendar event.
+- **Involved services**: Database and Calendar API
+- **Response**: Success/Error message
 
 ### Free drivers
 
-- Required data: The request contains the startTime. The endTime is calculated adding 1:30h of duration to the
+- **Required data**: The request contains the startTime. The endTime is calculated adding 1:30h of duration to the
   startTime. To be improved, by making this parametrized instead of hardcoded.
-- Functionality: Returns the drivers that are free between the specified timeframe.
-- Involved services: Calendar API
-- Response: Array of drivers emails.
+- **Functionality**: Returns the drivers that are free between the specified timeframe.
+- **Involved services**: Calendar API
+- **Response**: Array of drivers emails.
 
 ### Driver Setup
 
-- Required data: No data required. As an improvement, a slice of extra excludedEmails will be added.
-- Functionality: Retrieves all the "shared with you" calendars (ignoring the ones in the excludedEmails array) and
+- **Required data**: No data required. As an improvement, a slice of extra excludedEmails will be added.
+- **Functionality**: Retrieves all the "shared with you" calendars (ignoring the ones in the excludedEmails array) and
   creates a driverUser in the DB.
-- Involved services: Database and Calendar API
-- Response: Success/Error message
+- **Involved services**: Database and Calendar API
+- **Response**: Success/Error message

@@ -97,7 +97,9 @@ func GetFreeDrivers(srv *calendar.Service, startTime *time.Time, duration time.D
 	return freeDrivers
 }
 
-func CreateCalendarEvent(srv *calendar.Service, summary string, location string, description string, driver string, startTime *time.Time, duration time.Duration) string {
+func CreateCalendarEvent(srv *calendar.Service, summary string, location string, description string, driver string,
+	startTime *time.Time, duration time.Duration) string {
+
 	event := &calendar.Event{
 		Summary:     summary,
 		Location:    location,
@@ -125,7 +127,9 @@ func CreateCalendarEvent(srv *calendar.Service, summary string, location string,
 	return event.HtmlLink
 }
 
-func UpdateCalendarEvent(srv *calendar.Service, eventId string, summary string, location string, description string, driver string, startTime *time.Time, duration time.Duration, excludeCalendars []string) {
+func UpdateCalendarEvent(srv *calendar.Service, eventId string, summary string, location string, description string,
+	driver string, startTime *time.Time, duration time.Duration, excludeCalendars []string) {
+
 	durationParse, _ := time.ParseDuration("1h30m")
 	events, eventsCalendar := GetEvents(srv, startTime.Format(time.RFC3339), startTime.Add(durationParse).Format(time.RFC3339), excludeCalendars)
 

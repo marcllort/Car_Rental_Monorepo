@@ -13,8 +13,14 @@ This script will do a few installations:
 - Apply all the declarative configurations (deployments, services, ingress...) found in the folder.
 
 ## Deployments
-- apigw-deployment: Retrieves the apigw image, and starts X amounts of replicas, with the proper environment variables. The firebase-config JSON is retrieved as a secret.
-- legal-deployment:  Retrieves the legal image, and starts X amounts of replicas, without any environment variables. No need for a service, as it connects to the other services using RabbitMQ.
+- apigw-deployment: Retrieves the apigw image, and starts X amounts of replicas, with the proper environment variables.
+  The firebase-config JSON is retrieved as a secret.
+- legal-deployment:  Retrieves the legal image, and starts X amounts of replicas, without any environment variables. No
+  need for a service, as it connects to the other services using RabbitMQ.
+- calendar-deployment:  Retrieves the calendar image, and starts X amounts of replicas, without any environment
+  variables. No need for a service, as it connects to the other services using RabbitMQ.
+- email-deployment:  Retrieves the email image, and starts X amounts of replicas, without any environment variables. No
+  need for a service, as it connects to the other services using RabbitMQ.
 
 ## Services
 - apigw-service: NodePort. Sets the port to connect to if another service wants to connect to the apigw-deployment.
