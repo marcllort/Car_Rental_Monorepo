@@ -26,5 +26,9 @@ WORKDIR /dist
 # Copy binary from build to main folder
 RUN cp /build/main .
 
+## Add the templates inside the folder of the docker container
+WORKDIR /
+ADD Template/ ./email/Template
+
 # Command to run when starting the container
 CMD ["/dist/main"]

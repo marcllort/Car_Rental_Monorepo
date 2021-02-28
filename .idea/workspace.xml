@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/email/Template/calendar-invoice-template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/calendar-request-template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/model/EmailHandlerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/model/EmailHandlerRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Database/mysql_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Model/EmailRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Model/EmailRequest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Template/calendar-template.html" beforeDir="false" afterPath="$PROJECT_DIR$/email/Template/calendar-confirm-template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/email-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/email-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/email/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/email/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,14 +219,7 @@
       <workItem from="1614419261266" duration="372000" />
       <workItem from="1614419651721" duration="155000" />
       <workItem from="1614419816723" duration="104000" />
-      <workItem from="1614419932367" duration="19626000" />
-    </task>
-    <task id="LOCAL-00060" summary="Fix dockerfiles">
-      <created>1611392454427</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1611392454427</updated>
+      <workItem from="1614419932367" duration="25892000" />
     </task>
     <task id="LOCAL-00061" summary="RabbitMQ kubernetes working">
       <created>1611401985961</created>
@@ -573,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614506751080</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Send email working 3 flows">
+      <created>1614512710910</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1614512710911</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,7 +572,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Updated readme" />
     <MESSAGE value="Updated readme and postman" />
     <MESSAGE value="Calendar retrieval endpoint" />
     <MESSAGE value="Change firebase login for Google login" />
@@ -606,7 +596,8 @@
     <MESSAGE value="Improved confirmService flow" />
     <MESSAGE value="Updated Calendar readme" />
     <MESSAGE value="Send email logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Send email logic" />
+    <MESSAGE value="Send email working 3 flows" />
+    <option name="LAST_COMMIT_MESSAGE" value="Send email working 3 flows" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

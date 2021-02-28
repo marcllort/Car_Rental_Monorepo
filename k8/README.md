@@ -1,18 +1,23 @@
 # Kubernetes
-The kubernetes deployment files can be found in this directory. A declarative approach is being used, as it is the best practice.
-There are some specific configurations depending on where the cluster is being deployed, but that logic is being handled by the installation script.
+
+The kubernetes deployment files can be found in this directory. A declarative approach is being used, as it is the best
+practice. There are some specific configurations depending on where the cluster is being deployed, but that logic is
+being handled by the installation script.
 
 ## Installation
+
 To install the kubernetes cluster in your local machine, you must have Docker desktop running with Kubernetes enabled.
 
-Then, just run the setup-kubernetes.sh script, that can be found in the scripts folder.
-This script will do a few installations:
+Then, just run the setup-kubernetes.sh script, that can be found in the scripts folder. This script will do a few
+installations:
+
 - Install the nginx ingress controller.
 - Create the firebase config secret.
 - Create the TLS config secret.
 - Apply all the declarative configurations (deployments, services, ingress...) found in the folder.
 
 ## Deployments
+
 - apigw-deployment: Retrieves the apigw image, and starts X amounts of replicas, with the proper environment variables.
   The firebase-config JSON is retrieved as a secret.
 - legal-deployment:  Retrieves the legal image, and starts X amounts of replicas, without any environment variables. No
@@ -23,11 +28,14 @@ This script will do a few installations:
   need for a service, as it connects to the other services using RabbitMQ.
 
 ## Services
+
 - apigw-service: NodePort. Sets the port to connect to if another service wants to connect to the apigw-deployment.
-- rabbitmq-service: Two services an internal clusterIP, and an external LoadBalancer, so all the microservices can connect using the dns name: `rabbitmq`. 
-  This loadBalancer points to the internal RabbitMQ ClusterIP service, which points to the RabbitMQ deployment.
+- rabbitmq-service: Two services an internal clusterIP, and an external LoadBalancer, so all the microservices can
+  connect using the dns name: `rabbitmq`. This loadBalancer points to the internal RabbitMQ ClusterIP service, which
+  points to the RabbitMQ deployment.
 
 ## Ingress
+
 - ingress-service: Configuration of the nginx ingress. Uses the TLS secret to decrypt the incoming requests.
 
 ## RBAC

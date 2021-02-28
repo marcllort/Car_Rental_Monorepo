@@ -83,7 +83,7 @@ This is a simple example of how the retrieval of all the Services would be store
 ## Flows
 
 All the flows (but `newService`) require access to the `calendarClient`, which is the connection to the Google Calendar
-API. In conjunction with the calendarClient, there is always the slice of `exlcludeEmails`, to avoid looking at Birthday
+API. In conjunction with the calendarClient, there is always the slice of `excludeEmails`, to avoid looking at Birthday
 or Vacation calendars.
 
 It is important to note is that a request of type `Model.CalendarRequest` is always used to select the flow and also has
