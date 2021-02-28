@@ -9,5 +9,8 @@ public class EmailHandlerRequest extends HandlerRequest {
 
     private String Flow;
     private Service Service;
+    private String Price;
+    private String Drivers;
+    private String Company;
 
 }

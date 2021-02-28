@@ -7,6 +7,8 @@
       <env name="SECRET_DB" value="marcpassword" />
       <env name="CREDS" value="email/Creds/creds.json" />
       <env name="SECRET_FIREBASE" value="email/Creds/car-rental.json" />
+      <env name="EMAIL_USER" value="futbolsupplier@gmail.com" />
+      <env name="EMAIL_PASS" value="shopifySupplier2019" />
     </envs>
     <kind value="FILE" />
     <filePath value="$PROJECT_DIR$/email/main.go" />

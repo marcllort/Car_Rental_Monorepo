@@ -27,6 +27,13 @@ spec:
                 secretKeyRef:
                   name: secret-db
                   key: SECRET_DB
+            - name: EMAIL_USER
+              value: "futbolsupplier@gmail.com"
+            - name: EMAIL_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: secret-email-creds
+                  key: EMAIL_PASS
             - name: CREDS
               value: /database/creds.json
             - name: SECRET_FIREBASE

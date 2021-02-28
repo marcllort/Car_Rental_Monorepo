@@ -26,13 +26,13 @@ func Connect(db *gorm.DB, firestore *firestore.Client, ctx context.Context) {
 	defer ch.Close()
 
 	msgs, err := ch.Consume(
-		"calendar-queue", // queue
-		"",               // consumer
-		true,             // auto-ack
-		false,            // exclusive
-		false,            // no-local
-		false,            // no-wait
-		nil,              // args
+		"email-queue", // queue
+		"",            // consumer
+		true,          // auto-ack
+		false,         // exclusive
+		false,         // no-local
+		false,         // no-wait
+		nil,           // args
 	)
 	failOnError(err, "Failed to register a consumer")
 

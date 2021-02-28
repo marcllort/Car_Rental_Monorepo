@@ -4,30 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Updated Calendar readme">
-      <change afterPath="$PROJECT_DIR$/email/Model/EmailRequest.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/calendar-template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/CEO_-_Video_Conference.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/Location_-_P.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/Logo_Octopus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/Time-p.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/User_-_p.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/bee.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/facebook2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/googleplus2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/instagram2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/images/twitter2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/Template/template.html" afterDir="false" />
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/email/Template/calendar-invoice-template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/Template/calendar-request-template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/controllers/ProtectedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/model/EmailHandlerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/apiservice/car/handler/email/model/EmailHandlerRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Model/EmailRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Model/EmailRequest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/email/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Template/calendar-template.html" beforeDir="false" afterPath="$PROJECT_DIR$/email/Template/calendar-confirm-template.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/email-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/email-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +110,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Email">
+  <component name="RunManager" selected="Spring Boot.API-Gateway">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -237,14 +228,7 @@
       <workItem from="1614419261266" duration="372000" />
       <workItem from="1614419651721" duration="155000" />
       <workItem from="1614419816723" duration="104000" />
-      <workItem from="1614419932367" duration="13719000" />
-    </task>
-    <task id="LOCAL-00059" summary="Added dockerfiles for all projects">
-      <created>1611343324423</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1611343324423</updated>
+      <workItem from="1614419932367" duration="19626000" />
     </task>
     <task id="LOCAL-00060" summary="Fix dockerfiles">
       <created>1611392454427</created>
@@ -582,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613838580563</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Send email logic">
+      <created>1614506751080</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1614506751080</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +581,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Added firestore connection to email" />
     <MESSAGE value="Updated readme" />
     <MESSAGE value="Updated readme and postman" />
     <MESSAGE value="Calendar retrieval endpoint" />
@@ -615,7 +605,8 @@
     <MESSAGE value="Update service flow working" />
     <MESSAGE value="Improved confirmService flow" />
     <MESSAGE value="Updated Calendar readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Calendar readme" />
+    <MESSAGE value="Send email logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Send email logic" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

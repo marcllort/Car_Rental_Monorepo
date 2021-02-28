@@ -15,7 +15,6 @@ func main() {
 
 	db := Database.CreateConnection(creds, dbpass)
 	firestore, ctx := Firestore.CreateFirestoreConnection(google_creds)
-	RabbitMQ.SendCalendarEmail("futbolsupplier@gmail.com", "shopifySupplier2019", "mac12llm@gmail.com")
 
 	RabbitMQ.Connect(db, firestore, ctx)
 	defer firestore.Close()

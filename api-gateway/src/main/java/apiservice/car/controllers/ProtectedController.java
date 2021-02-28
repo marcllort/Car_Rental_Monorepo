@@ -131,6 +131,30 @@ public class ProtectedController {
         return calendarHandlerRequest;
     }
 
+    private CalendarHandlerRequest generateMockEmailRequest() {
+        CalendarHandlerRequest calendarHandlerRequest = new CalendarHandlerRequest();
+        ZonedDateTime zdt = ZonedDateTime.of(2021, 2, 20, 0, 0, 0, 0, ZoneId.of("UTC"));
+        Service service = new Service();
+        service.setServiceId(4);
+        service.setOrigin("BCN Airport");
+        service.setDestination("Girona Airport");
+        service.setClientId(1);
+        service.setDriverId(1);
+        service.setDescription("Test description");
+        service.setServiceDatetime(zdt);
+        service.setCalendarEvent("calendarURL");
+        service.setPayedDatetime(zdt.plusDays(5));
+        service.setBasePrice(12F);
+        service.setExtraPrice((float) 0);
+        //service.setConfirmedDatetime(zdt.plusDays(2));
+        service.setPassengers(3);
+        service.setSpecialNeeds("none");
+
+        calendarHandlerRequest.setService(service);
+
+        return calendarHandlerRequest;
+    }
+
 }
 
 
