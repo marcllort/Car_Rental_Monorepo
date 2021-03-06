@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Legal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Legal.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Model/EmailRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Model/EmailRequest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Model/Service.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Model/Service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/email/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/LegalRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/LegalRequest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,14 +230,7 @@
       <workItem from="1614419651721" duration="155000" />
       <workItem from="1614419816723" duration="104000" />
       <workItem from="1614419932367" duration="33465000" />
-      <workItem from="1615021339064" duration="10517000" />
-    </task>
-    <task id="LOCAL-00064" summary="Improved readmes">
-      <created>1611406884750</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1611406884750</updated>
+      <workItem from="1615021339064" duration="13838000" />
     </task>
     <task id="LOCAL-00065" summary="Implementation of rabbitmq configuration">
       <created>1611491914815</created>
@@ -575,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615026845579</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Calendar sends attached files">
+      <created>1615033472627</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1615033472627</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,7 +583,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="UID dependant calendar code" />
     <MESSAGE value="Security improvement" />
     <MESSAGE value="Access token received dinamically" />
     <MESSAGE value="Calendar Token refresh working" />
@@ -608,7 +607,8 @@
     <MESSAGE value="Email k8s configuration and readme update" />
     <MESSAGE value="Legal MS logic" />
     <MESSAGE value="Implemented rest api for legal microservice" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented rest api for legal microservice" />
+    <MESSAGE value="Calendar sends attached files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calendar sends attached files" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -627,7 +627,7 @@
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt</url>
           <line>29</line>
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

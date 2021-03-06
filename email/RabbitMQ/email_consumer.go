@@ -34,7 +34,7 @@ func Consume(body string, db *gorm.DB, firestore *firestore.Client, ctx context.
 		SendCalendarConfirmEmail(user, pass, request.Company, request.Service, db)
 	case "serviceInvoice":
 		fmt.Print("serviceInvoice")
-		SendCalendarInvoiceEmail(user, pass, request.Company, request.Price, request.Drivers, request.Service, db)
+		SendCalendarInvoiceEmail(user, pass, request, db)
 
 	default:
 		fmt.Print("default")
@@ -176,19 +176,21 @@ func SendCalendarRequestEmail(user string, password string, company string, pric
 
 }
 
-func SendCalendarInvoiceEmail(user string, password string, company string, price string, drivers string, service Model.Service, db *gorm.DB) {
+func SendCalendarInvoiceEmail(user string, password string, request Model.EmailRequest, db *gorm.DB) {
 
 	t, _ := template.ParseFiles("email/Template/calendar-invoice-template.html")
 
-	err := DownloadFile("email/file.pdf", "http://localhost:8081/legal/pdf")
+	request.Flow = "invoice"
+
+	err := DownloadFile("email/file.pdf", "http://localhost:8081/legal/pdf", request)
 
 	if err != nil {
 		panic(err)
 	}
 
 	var body bytes.Buffer
-	driver := Database.GetDriver(db, service.DriverId)
-	client := Database.GetClient(db, service.ClientId)
+	driver := Database.GetDriver(db, request.Service.DriverId)
+	client := Database.GetClient(db, request.Service.ClientId)
 	//mimeHeaders := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
 	//body.Write([]byte(fmt.Sprintf("Subject: This is a test subject \n%s\n\n", mimeHeaders)))
 
@@ -202,9 +204,9 @@ func SendCalendarInvoiceEmail(user string, password string, company string, pric
 		ExtraServices   string
 	}{
 		ClientName:      client.Name,
-		CompanyName:     company,
-		ServiceDatetime: service.ServiceDatetime.Format("2006-01-02 15:04:05"),
-		ServiceName:     service.Origin + " - " + service.Destination,
+		CompanyName:     request.Company,
+		ServiceDatetime: request.Service.ServiceDatetime.Format("2006-01-02 15:04:05"),
+		ServiceName:     request.Service.Origin + " - " + request.Service.Destination,
 		ServicePrice:    "price test",
 		TotalPrice:      "total price test",
 		ExtraServices:   "<tr>\n                    <td>{{.ServiceName}}</td>\n                    <td>{{.ServicePrice}}</td>\n                </tr>",
@@ -215,8 +217,8 @@ func SendCalendarInvoiceEmail(user string, password string, company string, pric
 	m := gomail.NewMessage()
 	m.SetHeader("From", user)
 	m.SetHeader("To", client.Email)
-	m.SetAddressHeader("Cc", driver.Email, company)
-	m.SetHeader("Subject", company+" - Service Invoice")
+	m.SetAddressHeader("Cc", driver.Email, request.Company)
+	m.SetHeader("Subject", request.Company+" - Service Invoice")
 	m.SetBody("text/html", result)
 	m.Embed("email/Template/images/CEO_-_Video_Conference.png")
 	m.Embed("email/Template/images/facebook2x.png")
@@ -240,33 +242,17 @@ func SendCalendarInvoiceEmail(user string, password string, company string, pric
 
 }
 
-func DownloadFile(filepath string, url string) error {
+func DownloadFile(filepath string, url string, request Model.EmailRequest) error {
 
 	// Get the data
-	jsonStr := strings.NewReader(`{
-    "service": {
-        "description": "Test descriptionmodified",
-        "origin": "BCN Airporttttt",
-        "destination": "Girona Airport",
-        "serviceId": 4,
-        "driverId": 1,
-        "extraPrice": 0.0,
-        "serviceDatetime": "2021-02-20T00:00:00Z",
-        "payedDatetime": "2020-02-25T00:00:00Z",
-        "specialNeeds": "none",
-        "passengers": 3,
-        "basePrice": 12.0,
-        "calendarEvent": "calendarURL",
-        "clientId": 1,
-        "confirmedDatetime": null
-    },
-    "flow": "invoice"
-}`)
-	url2 := "http://localhost:8081/legal/pdf"
+	myBytes, _ := json.Marshal(request)
+	myString := string(myBytes[:])
+
+	jsonStr := strings.NewReader(myString)
 	method := "GET"
 
 	client := &http.Client{}
-	req, err := http.NewRequest(method, url2, jsonStr)
+	req, err := http.NewRequest(method, url, jsonStr)
 	req.Header.Add("Content-Type", "application/json")
 
 	res, err := client.Do(req)
