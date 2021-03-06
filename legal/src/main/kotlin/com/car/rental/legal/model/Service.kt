@@ -1,19 +1,19 @@
 package com.car.rental.legal.model
 
 data class Service(
-        private val serviceId: Int,
-        private val origin: String?,
-        private val destination: String?,
-        private val clientId: Int,
-        private val driverId: Int,
-        private val description: String?,
-        private val serviceDatetime: String?,
-        private val calendarEvent: String?,
-        private val payedDatetime: String?,
-        private val basePrice: Float?,
-        private val extraPrice: Float?,
-        private val confirmedDatetime: String?,
-        private val passengers: Int,
-        private val specialNeeds: String?
+    val serviceId: Int,
+    val origin: String?,
+    val destination: String?,
+    val clientId: Int,
+    val driverId: Int,
+    val description: String?,
+    val serviceDatetime: String?,
+    val calendarEvent: String?,
+    val payedDatetime: String?,
+    val basePrice: Float?,
+    val extraPrice: Float?,
+    val confirmedDatetime: String?,
+    val passengers: Int,
+    val specialNeeds: String?
 )
 

@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Email k8s configuration and readme update">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_pdfbox_fontbox_2_0_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_pdfbox_pdfbox_2_0_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/handler/Consumer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/LegalRequest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/Service.kt" afterDir="false" />
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/InvoiceGenerator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/RoutePaperGenerator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Legal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Legal.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Template/template.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/legal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/legal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/LegalApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/LegalApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postman/CarRental.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/postman/CarRental.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/handler/Consumer.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/LegalRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/LegalRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/Service.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/Service.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +30,8 @@
         <option value="CSS File" />
         <option value="Interface" />
         <option value="Go Application" />
-        <option value="Class" />
         <option value="Go File" />
+        <option value="Class" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -67,8 +66,8 @@
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth0" value="15" />
+    <property name="RequestMappingsPanelWidth1" value="15" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -112,13 +111,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Legal">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,6 +127,9 @@
     <configuration name="test_data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/database/test_data.sql" />
       <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="api-gateway/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
@@ -177,11 +181,13 @@
       <item itemvalue="Docker.legal/Dockerfile" />
       <item itemvalue="Go Build.Calendar" />
       <item itemvalue="Go Build.Email" />
+      <item itemvalue="HTTP Request.generated-requests#7" />
       <item itemvalue="Spring Boot.API-Gateway" />
       <item itemvalue="Spring Boot.Legal" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests#7" />
         <item itemvalue="Docker.legal/Dockerfile" />
         <item itemvalue="Docker.calendar/Dockerfile" />
         <item itemvalue="Docker.api-gateway/Dockerfile" />
@@ -229,14 +235,8 @@
       <workItem from="1614419261266" duration="372000" />
       <workItem from="1614419651721" duration="155000" />
       <workItem from="1614419816723" duration="104000" />
-      <workItem from="1614419932367" duration="33439000" />
-    </task>
-    <task id="LOCAL-00062" summary="Added local development script">
-      <created>1611403950356</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1611403950356</updated>
+      <workItem from="1614419932367" duration="33465000" />
+      <workItem from="1615021339064" duration="3910000" />
     </task>
     <task id="LOCAL-00063" summary="Improved readmes">
       <created>1611405900065</created>
@@ -574,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614522614798</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Legal MS logic">
+      <created>1614531948841</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1614531948841</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +589,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Calendar retrieval endpoint" />
     <MESSAGE value="Change firebase login for Google login" />
     <MESSAGE value="UID dependant calendar code" />
     <MESSAGE value="Security improvement" />
@@ -607,7 +613,8 @@
     <MESSAGE value="Send email logic" />
     <MESSAGE value="Send email working 3 flows" />
     <MESSAGE value="Email k8s configuration and readme update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Email k8s configuration and readme update" />
+    <MESSAGE value="Legal MS logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Legal MS logic" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
