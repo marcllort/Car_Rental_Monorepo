@@ -10,7 +10,10 @@ import (
 	"fmt"
 	"gopkg.in/gomail.v2"
 	"gorm.io/gorm"
+	"io"
+	"net/http"
 	"os"
+	"strings"
 	"text/template"
 )
 
@@ -177,6 +180,12 @@ func SendCalendarInvoiceEmail(user string, password string, company string, pric
 
 	t, _ := template.ParseFiles("email/Template/calendar-invoice-template.html")
 
+	err := DownloadFile("email/file.pdf", "http://localhost:8081/legal/pdf")
+
+	if err != nil {
+		panic(err)
+	}
+
 	var body bytes.Buffer
 	driver := Database.GetDriver(db, service.DriverId)
 	client := Database.GetClient(db, service.ClientId)
@@ -218,6 +227,7 @@ func SendCalendarInvoiceEmail(user string, password string, company string, pric
 	m.Embed("email/Template/images/Time-p.png")
 	m.Embed("email/Template/images/twitter2x.png")
 	m.Embed("email/Template/images/User_-_p.png")
+	m.Attach("email/file.pdf")
 
 	d := gomail.NewDialer("smtp.gmail.com", 587, user, password)
 
@@ -228,4 +238,50 @@ func SendCalendarInvoiceEmail(user string, password string, company string, pric
 
 	fmt.Println("Email sent to: " + client.Email + " and " + driver.Email)
 
+}
+
+func DownloadFile(filepath string, url string) error {
+
+	// Get the data
+	jsonStr := strings.NewReader(`{
+    "service": {
+        "description": "Test descriptionmodified",
+        "origin": "BCN Airporttttt",
+        "destination": "Girona Airport",
+        "serviceId": 4,
+        "driverId": 1,
+        "extraPrice": 0.0,
+        "serviceDatetime": "2021-02-20T00:00:00Z",
+        "payedDatetime": "2020-02-25T00:00:00Z",
+        "specialNeeds": "none",
+        "passengers": 3,
+        "basePrice": 12.0,
+        "calendarEvent": "calendarURL",
+        "clientId": 1,
+        "confirmedDatetime": null
+    },
+    "flow": "invoice"
+}`)
+	url2 := "http://localhost:8081/legal/pdf"
+	method := "GET"
+
+	client := &http.Client{}
+	req, err := http.NewRequest(method, url2, jsonStr)
+	req.Header.Add("Content-Type", "application/json")
+
+	res, err := client.Do(req)
+
+	defer res.Body.Close()
+
+	// Create the file
+	out, err := os.Create(filepath)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+
+	// Write the body to file
+	_, err = io.Copy(out, res.Body)
+
+	return err
 }
