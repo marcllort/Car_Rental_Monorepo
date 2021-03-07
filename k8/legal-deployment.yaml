@@ -15,10 +15,10 @@ spec:
         app: legal-middleware
     spec:
       containers:
-        - name: legal-middleware
+        - name: legal-pod
           image: marcllort/car-rental-legal:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "docker"

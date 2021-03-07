@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Fix requests">
+      <change afterPath="$PROJECT_DIR$/k8/legal-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Model/EmailRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Model/EmailRequest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Model/Service.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Model/Service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/email/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/LegalRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/model/LegalRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/apigw-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/apigw-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/calendar-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/calendar-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/email-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/email-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/legal-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/legal-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/legal/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +110,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Email">
+  <component name="RunManager" selected="Spring Boot.Legal">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -230,14 +236,7 @@
       <workItem from="1614419651721" duration="155000" />
       <workItem from="1614419816723" duration="104000" />
       <workItem from="1614419932367" duration="33465000" />
-      <workItem from="1615021339064" duration="13838000" />
-    </task>
-    <task id="LOCAL-00065" summary="Implementation of rabbitmq configuration">
-      <created>1611491914815</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1611491914816</updated>
+      <workItem from="1615021339064" duration="22836000" />
     </task>
     <task id="LOCAL-00066" summary="Golang response working">
       <created>1611492267308</created>
@@ -575,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615033472627</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="Fix requests">
+      <created>1615036850869</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1615036850869</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,7 +589,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Security improvement" />
     <MESSAGE value="Access token received dinamically" />
     <MESSAGE value="Calendar Token refresh working" />
     <MESSAGE value="Code cleanup" />
@@ -608,7 +613,8 @@
     <MESSAGE value="Legal MS logic" />
     <MESSAGE value="Implemented rest api for legal microservice" />
     <MESSAGE value="Calendar sends attached files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calendar sends attached files" />
+    <MESSAGE value="Fix requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix requests" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -628,6 +634,11 @@
           <url>file://$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt</url>
           <line>29</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/email/RabbitMQ/email_consumer.go</url>
+          <line>258</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

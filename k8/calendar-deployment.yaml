@@ -15,7 +15,7 @@ spec:
         app: calendar-middleware
     spec:
       containers:
-        - name: calendar-middleware
+        - name: calendar-pod
           image: marcllort/car-rental-calendar:latest
           ports:
             - containerPort: 8080

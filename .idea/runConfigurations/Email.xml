@@ -9,6 +9,7 @@
       <env name="SECRET_FIREBASE" value="email/Creds/car-rental.json" />
       <env name="EMAIL_USER" value="futbolsupplier@gmail.com" />
       <env name="EMAIL_PASS" value="shopifySupplier2019" />
+      <env name="LEGAL_URL" value="http://localhost:8081/legal/pdf" />
     </envs>
     <kind value="FILE" />
     <filePath value="$PROJECT_DIR$/email/main.go" />

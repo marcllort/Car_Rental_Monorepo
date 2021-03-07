@@ -23,7 +23,7 @@ func Consume(body string, db *gorm.DB, firestore *firestore.Client, ctx context.
 	var request Model.EmailRequest
 	_ = json.Unmarshal([]byte(body), &request)
 
-	user, pass := getCredentials()
+	user, pass, legalURL := getCredentials()
 
 	switch request.Flow {
 	case "serviceRequest":
@@ -34,7 +34,7 @@ func Consume(body string, db *gorm.DB, firestore *firestore.Client, ctx context.
 		SendCalendarConfirmEmail(user, pass, request.Company, request.Service, db)
 	case "serviceInvoice":
 		fmt.Print("serviceInvoice")
-		SendCalendarInvoiceEmail(user, pass, request, db)
+		SendCalendarInvoiceEmail(user, pass, legalURL, request, db)
 
 	default:
 		fmt.Print("default")
@@ -46,10 +46,11 @@ func Consume(body string, db *gorm.DB, firestore *firestore.Client, ctx context.
 	return response
 }
 
-func getCredentials() (string, string) {
+func getCredentials() (string, string, string) {
 	emailUser := os.Getenv("EMAIL_USER")
 	emailPass := os.Getenv("EMAIL_PASS")
-	return emailUser, emailPass
+	legalURL := os.Getenv("LEGAL_URL")
+	return emailUser, emailPass, legalURL
 }
 
 func SendCalendarConfirmEmail(user string, password string, company string, service Model.Service, db *gorm.DB) {
@@ -176,13 +177,13 @@ func SendCalendarRequestEmail(user string, password string, company string, pric
 
 }
 
-func SendCalendarInvoiceEmail(user string, password string, request Model.EmailRequest, db *gorm.DB) {
+func SendCalendarInvoiceEmail(user string, password string, url string, request Model.EmailRequest, db *gorm.DB) {
 
 	t, _ := template.ParseFiles("email/Template/calendar-invoice-template.html")
 
 	request.Flow = "invoice"
 
-	err := DownloadFile("email/file.pdf", "http://localhost:8081/legal/pdf", request)
+	err := DownloadFile("email/file.pdf", url, request)
 
 	if err != nil {
 		panic(err)
