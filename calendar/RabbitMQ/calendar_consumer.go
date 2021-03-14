@@ -24,6 +24,8 @@ func Consume(body string, db *gorm.DB) string {
 	switch request.Flow {
 	case "eventsMonth":
 		response = getEventsMonth(calendarClient, request, excludeEmails)
+	case "eventById":
+		response = getEventById(db, request)
 	case "freeDrivers":
 		response = getFreeDrivers(calendarClient, request, excludeEmails)
 	case "newService":
@@ -131,4 +133,14 @@ func getEventsMonth(calendarClient *calendar.Service, request Model.CalendarRequ
 	}
 
 	return string(eventsJson)
+}
+
+func getEventById(db *gorm.DB, request Model.CalendarRequest) string {
+	fmt.Print("eventById\n")
+	id := request.Service.ServiceId
+	service := Database.GetEventById(db, id)
+
+	json, _ := json.Marshal(service)
+
+	return string(json)
 }

@@ -80,6 +80,14 @@ func GetAllUnconfirmedServices(db *gorm.DB) []Model.ServiceView {
 	return services
 }
 
+func GetEventById(db *gorm.DB, eventId int) Model.Service {
+	var service Model.Service
+
+	db.Table("Service").Find(&service, eventId)
+
+	return service
+}
+
 func GetDriver(db *gorm.DB, driverId int) Model.DriverUser {
 	var driver Model.DriverUser
 

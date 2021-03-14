@@ -5,49 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/orchestrator/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/orchestrator.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/OrchestratorApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/business/Cronjob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/car.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/config/JacksonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/config/config.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/EndpointHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/HandlerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/HandlerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/RabbitMQDirectConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/RetrieveCalendarHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/RetrieveCalendarProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/calendar.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/model/CalendarHandlerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/model/CalendarHandlerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/model/model.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/RetrieveEmailHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/RetrieveEmailProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/email.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/model/EmailHandlerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/model/EmailHandlerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/model/model.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/handler.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/RetrieveLegalHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/RetrieveLegalProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/legal.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/model/LegalHandlerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/model/LegalHandlerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/model/model.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/CalendarEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/FirebaseUserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/UserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/model.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/resources/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/business/Cronjob.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/business/Cronjob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,14 +251,7 @@
       <workItem from="1615021339064" duration="24470000" />
       <workItem from="1615318005827" duration="1211000" />
       <workItem from="1615627728012" duration="7711000" />
-      <workItem from="1615662319128" duration="6951000" />
-    </task>
-    <task id="LOCAL-00067" summary="Implemented email and calendar endpoints">
-      <created>1611493383979</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1611493383979</updated>
+      <workItem from="1615662319128" duration="14844000" />
     </task>
     <task id="LOCAL-00068" summary="Communication working. Kubuernetes bootup to improve">
       <created>1611503597395</created>
@@ -633,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615116865884</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Orchestrator microservice creation">
+      <created>1615718690994</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1615718690995</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +604,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Calendar Token refresh working" />
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Delete firestore code field" />
     <MESSAGE value="Update readme" />
@@ -666,7 +628,8 @@
     <MESSAGE value="Calendar sends attached files" />
     <MESSAGE value="Fix requests" />
     <MESSAGE value="Legal service kubernetes implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Legal service kubernetes implementation" />
+    <MESSAGE value="Orchestrator microservice creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Orchestrator microservice creation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -687,10 +650,10 @@
           <line>29</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/email/RabbitMQ/email_consumer.go</url>
-          <line>258</line>
-          <option name="timeStamp" value="18" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/business/Cronjob.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -35,6 +35,9 @@ func Consume(body string, db *gorm.DB, firestore *firestore.Client, ctx context.
 	case "serviceInvoice":
 		fmt.Print("serviceInvoice")
 		SendCalendarInvoiceEmail(user, pass, legalURL, request, db)
+	case "serviceRoutePaper":
+		fmt.Print("serviceRoutePaper")
+		SendCalendarInvoiceEmail(user, pass, legalURL, request, db) //TODO
 
 	default:
 		fmt.Print("default")
