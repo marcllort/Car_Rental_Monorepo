@@ -4,18 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Fix requests">
-      <change afterPath="$PROJECT_DIR$/k8/legal-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Email.xml" afterDir="false" />
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/orchestrator/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/orchestrator.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/OrchestratorApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/business/Cronjob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/car.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/config/JacksonConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/config/config.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/EndpointHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/HandlerRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/HandlerResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/RabbitMQDirectConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/RetrieveCalendarHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/RetrieveCalendarProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/calendar.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/model/CalendarHandlerRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/model/CalendarHandlerResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/calendar/model/model.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/RetrieveEmailHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/RetrieveEmailProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/email.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/model/EmailHandlerRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/model/EmailHandlerResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/email/model/model.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/handler.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/RetrieveLegalHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/RetrieveLegalProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/legal.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/model/LegalHandlerRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/model/LegalHandlerResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/handler/legal/model/model.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/CalendarEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/FirebaseUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/UserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/apiservice/car/model/model.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/resources/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/email/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/apigw-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/apigw-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/calendar-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/calendar-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/email-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/email-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/legal-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/legal-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/legal/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +62,9 @@
         <option value="CSS File" />
         <option value="Interface" />
         <option value="Go Application" />
-        <option value="Class" />
         <option value="Kotlin Class" />
         <option value="Go File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -77,7 +109,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/template" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -89,11 +121,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\legal\src\main\kotlin\com\car\rental\legal\template" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar\Creds" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Creds" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template" />
@@ -110,7 +142,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Legal">
+  <component name="RunManager" selected="Spring Boot.Orchestrator">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -131,6 +163,22 @@
     </configuration>
     <configuration name="generated-requests#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" runType="Run single request">
       <method v="2" />
+    </configuration>
+    <configuration name="Orchestrator" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="orchestrator" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="apiservice.car.OrchestratorApplication" />
+      <option name="VM_PARAMETERS" value="-Dspring.profiles.active=dev" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <envs>
+        <env name="GOOGLE_APPLICATION_CREDENTIALS" value="orchestrator/creds/car-rental.json" />
+        <env name="SUPER_ADMINS" value="mac12llm2@gmail.com" />
+        <env name="CORS_DOMAIN" value="http://localhost:63343" />
+        <env name="SECRET_HASH" value="marcpassword" />
+        <env name="google.client.client-secret" value="CjIp6Jd7-g6I2V4VcLbh4Ylc" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="api-gateway/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
@@ -184,6 +232,7 @@
       <item itemvalue="HTTP Request.generated-requests#7" />
       <item itemvalue="Spring Boot.API-Gateway" />
       <item itemvalue="Spring Boot.Legal" />
+      <item itemvalue="Spring Boot.Orchestrator" />
     </list>
     <recent_temporary>
       <list>
@@ -236,14 +285,10 @@
       <workItem from="1614419651721" duration="155000" />
       <workItem from="1614419816723" duration="104000" />
       <workItem from="1614419932367" duration="33465000" />
-      <workItem from="1615021339064" duration="22836000" />
-    </task>
-    <task id="LOCAL-00066" summary="Golang response working">
-      <created>1611492267308</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1611492267308</updated>
+      <workItem from="1615021339064" duration="24470000" />
+      <workItem from="1615318005827" duration="1211000" />
+      <workItem from="1615627728012" duration="7711000" />
+      <workItem from="1615662319128" duration="6951000" />
     </task>
     <task id="LOCAL-00067" summary="Implemented email and calendar endpoints">
       <created>1611493383979</created>
@@ -581,7 +626,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615036850869</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Legal service kubernetes implementation">
+      <created>1615116865884</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1615116865884</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +641,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Access token received dinamically" />
     <MESSAGE value="Calendar Token refresh working" />
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Delete firestore code field" />
@@ -614,7 +665,8 @@
     <MESSAGE value="Implemented rest api for legal microservice" />
     <MESSAGE value="Calendar sends attached files" />
     <MESSAGE value="Fix requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix requests" />
+    <MESSAGE value="Legal service kubernetes implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Legal service kubernetes implementation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

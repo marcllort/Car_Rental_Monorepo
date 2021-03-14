@@ -1,0 +1,77 @@
+@startuml
+
+title __HANDLER's Class Diagram__\n
+
+  namespace apiservice.car {
+    namespace handler {
+      interface apiservice.car.handler.EndpointHandler {
+          {abstract} + handle()
+      }
+    }
+  }
+  
+
+  namespace apiservice.car {
+    namespace handler {
+      abstract class apiservice.car.handler.HandlerRequest {
+          - userId : String
+          + HandlerRequest()
+          + equals()
+          + getUserId()
+          + hashCode()
+          + setUserId()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+  
+
+  namespace apiservice.car {
+    namespace handler {
+      abstract class apiservice.car.handler.HandlerResponse {
+          - userId : String
+          + HandlerResponse()
+          + equals()
+          + getUserId()
+          + hashCode()
+          + setUserId()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+  
+
+  namespace apiservice.car {
+    namespace handler {
+      class apiservice.car.handler.RabbitMQDirectConfig {
+          {static} + CALENDAR_KEY : String
+          {static} + CALENDAR_QUEUE : String
+          {static} + EMAIL_KEY : String
+          {static} + EMAIL_QUEUE : String
+          {static} + EXCHANGE : String
+          {static} + LEGAL_KEY : String
+          {static} + LEGAL_QUEUE : String
+          - amqpAdmin : AmqpAdmin
+          + createQueues()
+          ~ calendarBinding()
+          ~ calendarQueue()
+          ~ emailBinding()
+          ~ emailQueue()
+          ~ exchange()
+          ~ legalBinding()
+          ~ legalQueue()
+      }
+    }
+  }
+  
+
+
+
+right footer
+
+
+endfooter
+
+@enduml

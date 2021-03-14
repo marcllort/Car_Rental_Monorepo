@@ -1,0 +1,53 @@
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    virtual-host: /
+    port: 5672
+google:
+  client:
+    client-id: 294401568654-agao4nqpvntfa4h9d2ni6h1akqujplh1.apps.googleusercontent.com
+    redirectUri: postmessage
+logging:
+  level:
+    root: WARN
+    org:
+      springframework:
+        web: DEBUG
+      hibernate: ERROR
+    io:
+      thepro: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss} || %highlight(%5p) < %highlight(%-35.35logger{35}) > %highlight(%m%n)"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "docker"
+  rabbitmq:
+    host: rabbitmq
+    username: guest
+    password: guest
+    virtual-host: /
+    port: 5672
+google:
+  client:
+    client-id: 294401568654-agao4nqpvntfa4h9d2ni6h1akqujplh1.apps.googleusercontent.com
+    redirectUri: postmessage
+logging:
+  level:
+    root: WARN
+    org:
+      springframework:
+        web: DEBUG
+      hibernate: ERROR
+    io:
+      thepro: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss} || %highlight(%5p) < %highlight(%-35.35logger{35}) > %highlight(%m%n)"
