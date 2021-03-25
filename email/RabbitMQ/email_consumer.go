@@ -37,7 +37,7 @@ func Consume(body string, db *gorm.DB, firestore *firestore.Client, ctx context.
 		SendCalendarInvoiceEmail(user, pass, legalURL, request, db)
 	case "serviceRoutePaper":
 		fmt.Print("serviceRoutePaper")
-		SendCalendarInvoiceEmail(user, pass, legalURL, request, db) //TODO
+		SendCalendarRoutePaperEmail(user, pass, legalURL, request, db) //TODO review
 
 	default:
 		fmt.Print("default")
@@ -177,6 +177,73 @@ func SendCalendarRequestEmail(user string, password string, company string, pric
 	}
 
 	fmt.Println("Email sent to: " + driver.Email)
+
+}
+
+func SendCalendarRoutePaperEmail(user string, password string, url string, request Model.EmailRequest, db *gorm.DB) {
+
+	t, _ := template.ParseFiles("email/Template/calendar-invoice-template.html")
+
+	request.Flow = "route-paper"
+
+	err := DownloadFile("email/file.pdf", url, request)
+
+	if err != nil {
+		panic(err)
+	}
+
+	var body bytes.Buffer
+	driver := Database.GetDriver(db, request.Service.DriverId)
+	client := Database.GetClient(db, request.Service.ClientId)
+	//mimeHeaders := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
+	//body.Write([]byte(fmt.Sprintf("Subject: This is a test subject \n%s\n\n", mimeHeaders)))
+
+	// TODO: review, as it has been copy pasted from the invoice
+	t.Execute(&body, struct {
+		ClientName      string
+		CompanyName     string
+		ServiceDatetime string
+		ServiceName     string
+		ServicePrice    string
+		TotalPrice      string
+		ExtraServices   string
+	}{
+		ClientName:      client.Name,
+		CompanyName:     request.Company,
+		ServiceDatetime: request.Service.ServiceDatetime.Format("2006-01-02 15:04:05"),
+		ServiceName:     request.Service.Origin + " - " + request.Service.Destination,
+		ServicePrice:    "price test",
+		TotalPrice:      "total price test",
+		ExtraServices:   "<tr>\n                    <td>{{.ServiceName}}</td>\n                    <td>{{.ServicePrice}}</td>\n                </tr>",
+	})
+
+	result := body.String()
+
+	m := gomail.NewMessage()
+	m.SetHeader("From", user)
+	m.SetHeader("To", client.Email)
+	m.SetAddressHeader("Cc", driver.Email, request.Company)
+	m.SetHeader("Subject", request.Company+" - Service Invoice")
+	m.SetBody("text/html", result)
+	m.Embed("email/Template/images/CEO_-_Video_Conference.png")
+	m.Embed("email/Template/images/facebook2x.png")
+	m.Embed("email/Template/images/googleplus2x.png")
+	m.Embed("email/Template/images/instagram2x.png")
+	m.Embed("email/Template/images/Location_-_P.png")
+	m.Embed("email/Template/images/Logo_Octopus.png")
+	m.Embed("email/Template/images/Time-p.png")
+	m.Embed("email/Template/images/twitter2x.png")
+	m.Embed("email/Template/images/User_-_p.png")
+	m.Attach("email/file.pdf")
+
+	d := gomail.NewDialer("smtp.gmail.com", 587, user, password)
+
+	// Send the email to Bob, Cora and Dan.
+	if err := d.DialAndSend(m); err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Email sent to: " + client.Email + " and " + driver.Email)
 
 }
 
