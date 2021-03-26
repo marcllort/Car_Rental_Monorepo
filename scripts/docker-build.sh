@@ -1,43 +1,48 @@
-
-
 case $1 in
 
-  api-gw)
-    pushd ../api-gateway
-    docker build -t marcllort/car-rental-apigw .
-    docker push marcllort/car-rental-apigw
-    popd
-    ;;
+api-gw)
+  pushd ../api-gateway
+  docker build -t marcllort/car-rental-apigw .
+  docker push marcllort/car-rental-apigw
+  popd
+  ;;
 
-  legal)
-    pushd ../legal
-    docker build -t marcllort/car-rental-legal .
-    docker push marcllort/car-rental-legal
-    popd
-    ;;
+orchestrator)
+  pushd ../orchestrator
+  docker build -t marcllort/car-rental-orchestrator .
+  docker push marcllort/car-rental-orchestrator
+  popd
+  ;;
 
-  calendar)
-    pushd ../calendar
-    docker build -t marcllort/car-rental-calendar .
-    docker push marcllort/car-rental-calendar
-    popd
-    ;;
+legal)
+  pushd ../legal
+  docker build -t marcllort/car-rental-legal .
+  docker push marcllort/car-rental-legal
+  popd
+  ;;
 
-  email)
-    pushd ../email
-    docker build -t marcllort/car-rental-email .
-    docker push marcllort/car-rental-email
-    popd
-    ;;
+calendar)
+  pushd ../calendar
+  docker build -t marcllort/car-rental-calendar .
+  docker push marcllort/car-rental-calendar
+  popd
+  ;;
 
-  payment)
-    pushd ../payment
-    docker build -t marcllort/car-rental-payment .
-    docker push marcllort/car-rental-payment
-    popd
-    ;;
+email)
+  pushd ../email
+  docker build -t marcllort/car-rental-email .
+  docker push marcllort/car-rental-email
+  popd
+  ;;
 
-  *)
-    echo "Error, non-existing option"
-    ;;
+payment)
+  pushd ../payment
+  docker build -t marcllort/car-rental-payment .
+  docker push marcllort/car-rental-payment
+  popd
+  ;;
+
+*)
+  echo "Error, non-existing option"
+  ;;
 esac

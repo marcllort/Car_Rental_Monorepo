@@ -96,6 +96,14 @@ func GetDriver(db *gorm.DB, driverId int) Model.DriverUser {
 	return driver
 }
 
+func GetDriverByEmail(db *gorm.DB, emailDriver string) Model.DriverUser {
+	var driver Model.DriverUser
+
+	db.Table("DriverUser").Where("email = ?", emailDriver).Find(&driver)
+
+	return driver
+}
+
 // Get free drivers at X time
 func GetFreeDrivers(db *gorm.DB, startTimeString string, endTimeString string) []Model.DriverUser {
 	var drivers []Model.DriverUser

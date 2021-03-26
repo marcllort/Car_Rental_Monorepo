@@ -73,7 +73,7 @@ public class RabbitMQDirectConfig {
     }
 
     @Bean
-    Binding orchestratorlBinding(Queue orchestratorQueue, DirectExchange exchange) {
+    Binding orchestratorBinding(Queue orchestratorQueue, DirectExchange exchange) {
         return BindingBuilder.bind(orchestratorQueue).to(exchange).with(ORCHESTRATOR_KEY);
     }
 

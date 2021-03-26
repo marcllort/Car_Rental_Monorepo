@@ -7,32 +7,32 @@ import java.time.ZonedDateTime;
 
 @Data
 public class Service {
-    @JsonProperty("ServiceId")
+    @JsonProperty("serviceId")
     private int ServiceId;
-    @JsonProperty("Origin")
+    @JsonProperty("origin")
     private String Origin;
-    @JsonProperty("Destination")
+    @JsonProperty("destination")
     private String Destination;
-    @JsonProperty("ClientId")
+    @JsonProperty("clientId")
     private int ClientId;
-    @JsonProperty("DriverId")
+    @JsonProperty("driverId")
     private int DriverId;
-    @JsonProperty("Description")
+    @JsonProperty("description")
     private String Description;
-    @JsonProperty("ServiceDatetime")
+    @JsonProperty("serviceDatetime")
     private ZonedDateTime ServiceDatetime;
-    @JsonProperty("CalendarEvent")
+    @JsonProperty("calendarEvent")
     private String CalendarEvent;
-    @JsonProperty("PayedDatetime")
+    @JsonProperty("payedDatetime")
     private ZonedDateTime PayedDatetime;
-    @JsonProperty("BasePrice")
+    @JsonProperty("basePrice")
     private Float BasePrice;
-    @JsonProperty("ExtraPrice")
+    @JsonProperty("extraPrice")
     private Float ExtraPrice;
-    @JsonProperty("ConfirmedDatetime")
+    @JsonProperty("confirmedDatetime")
     private ZonedDateTime ConfirmedDatetime;
-    @JsonProperty("Passengers")
+    @JsonProperty("passengers")
     private int Passengers;
-    @JsonProperty("SpecialNeeds")
+    @JsonProperty("specialNeeds")
     private String SpecialNeeds;
 }

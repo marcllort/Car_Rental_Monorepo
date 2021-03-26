@@ -27,7 +27,7 @@ func Consume(body string, db *gorm.DB) string {
 	case "eventById":
 		response = getEventById(db, request)
 	case "freeDrivers":
-		response = getFreeDrivers(calendarClient, request, excludeEmails)
+		response = getFreeDrivers(db, calendarClient, request, excludeEmails)
 	case "newService":
 		response = createNewServiceDB(db, request)
 	case "confirmService":
@@ -106,13 +106,16 @@ func createNewServiceDB(db *gorm.DB, request Model.CalendarRequest) string {
 	return "Service created successfully!"
 }
 
-func getFreeDrivers(calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string) string {
+func getFreeDrivers(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string) string {
 	fmt.Print("freeDrivers")
 	startTime := request.Service.ServiceDatetime
 	duration, _ := time.ParseDuration("1h30m")
-	drivers := CalendarAPI.GetFreeDrivers(calendarClient, startTime, duration, excludeEmails)
+	driversEmails, driversids := CalendarAPI.GetFreeDrivers(db, calendarClient, startTime, duration, excludeEmails)
+	var freeDrivers Model.FreeDriversResponse
+	freeDrivers.DriversIds = driversids
+	freeDrivers.DriversNames = driversEmails
 
-	driversJson, err := json.Marshal(drivers)
+	driversJson, err := json.Marshal(freeDrivers)
 	if err != nil {
 		fmt.Println(err)
 	}

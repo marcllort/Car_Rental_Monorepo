@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchestrator-deployment
+  labels:
+    app: orchestrator-middleware
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orchestrator-middleware
+  template:
+    metadata:
+      labels:
+        app: orchestrator-middleware
+    spec:
+      containers:
+        - name: orchestrator-pod
+          image: marcllort/car-rental-orchestrator:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SUPER_ADMINS
+              value: "mac12llm2@gmail.com"
+            - name: CORS_DOMAIN
+              value: "http://localhost:63343"
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /app/car-rental.json
+            - name: SPRING_PROFILES_ACTIVE
+              value: "docker"
+            - name: SECRET_HASH
+              valueFrom:
+                secretKeyRef:
+                  name: secret-hash
+                  key: SECRET_HASH
+            - name: google.client.client-secret
+              valueFrom:
+                secretKeyRef:
+                  name: secret-google-api
+                  key: google.client.client-secret
+          volumeMounts:
+            - name: firebase-config-volume
+              mountPath: /app/
+              readOnly: true # no editing!
+      volumes:
+        - name: firebase-config-volume
+          secret:
+            secretName: firebase-secret

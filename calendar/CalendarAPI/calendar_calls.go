@@ -1,11 +1,13 @@
 package CalendarAPI
 
 import (
+	"calendar/Database"
 	"calendar/Utils"
 	"errors"
 	"fmt"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/calendar/v3"
+	"gorm.io/gorm"
 	"io/ioutil"
 	"log"
 	"os"
@@ -77,24 +79,27 @@ func GetDriverEventsByEmail(srv *calendar.Service, driver string, startTime stri
 	return getDriverEvents(srv, id, startTime, endTime)
 }
 
-func GetFreeDrivers(srv *calendar.Service, startTime *time.Time, duration time.Duration, excludeCalendars []string) []string {
+func GetFreeDrivers(db *gorm.DB, srv *calendar.Service, startTime *time.Time, duration time.Duration, excludeCalendars []string) ([]string, []int) {
 	err, _, listRes := getEventList("all", srv)
 	if err != nil {
 		log.Fatalf("Unable to retrieve list of calendars: %v", err)
 	}
 
-	var freeDrivers []string
+	var freeDriversEmails []string
+	var freeDriversIds []int
 
 	for _, v := range listRes.Items {
 		if !Utils.Contains(excludeCalendars, v.Id) {
 			services := getDriverEvents(srv, v.Id, startTime.Format(time.RFC3339), startTime.Add(duration).Format(time.RFC3339))
 			if len(services) == 0 {
-				freeDrivers = append(freeDrivers, v.Id)
+				driver := Database.GetDriverByEmail(db, v.Id)
+				freeDriversIds = append(freeDriversIds, driver.UserId)
+				freeDriversEmails = append(freeDriversEmails, v.Id)
 			}
 		}
 	}
-	fmt.Printf("%v\n", freeDrivers)
-	return freeDrivers
+
+	return freeDriversEmails, freeDriversIds
 }
 
 func CreateCalendarEvent(srv *calendar.Service, summary string, location string, description string, driver string,

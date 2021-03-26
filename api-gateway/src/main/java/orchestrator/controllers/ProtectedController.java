@@ -12,8 +12,6 @@ import orchestrator.handler.email.model.EmailHandlerRequest;
 import orchestrator.handler.email.model.EmailHandlerResponse;
 import orchestrator.handler.firebase.FirebaseUserHandler;
 import orchestrator.handler.legal.RetrieveLegalHandler;
-import orchestrator.handler.legal.model.LegalHandlerRequest;
-import orchestrator.handler.legal.model.LegalHandlerResponse;
 import orchestrator.model.FirebaseUserRequest;
 import orchestrator.model.Service;
 import orchestrator.security.SecurityService;
@@ -81,22 +79,12 @@ public class ProtectedController {
     @GetMapping("email")
     public String getProtectedEmail(@RequestHeader("Authorization") String authHeader, @RequestBody EmailHandlerRequest request)
             throws JsonProcessingException, FirebaseAuthException {
-        FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
+        /*FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
         request.setUserId(decodedToken.getUid());
 
-        EmailHandlerResponse response = (EmailHandlerResponse) emailHandler.handle(request);
-
-        return response.getText();
-    }
-
-    @GetMapping("legal")
-    public String getProtectedLegal(@RequestHeader("Authorization") String authHeader, @RequestBody LegalHandlerRequest request)
-            throws JsonProcessingException, FirebaseAuthException {
-        FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
-        request.setUserId(decodedToken.getUid());
-
-        LegalHandlerResponse response = (LegalHandlerResponse) legalHandler.handle(request);
-
+        EmailHandlerResponse response = (EmailHandlerResponse) emailHandler.handle(request);*/
+        EmailHandlerResponse response = new EmailHandlerResponse();
+        response.setText("Disabled endpoint. Now it works through a cronjob.");
         return response.getText();
     }
 
