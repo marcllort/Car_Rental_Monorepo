@@ -11,6 +11,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
 public class OrchestratorConsumer {
 
@@ -24,7 +26,7 @@ public class OrchestratorConsumer {
     private ObjectMapper mapper;
 
     @RabbitListener(queues = RabbitMQDirectConfig.ORCHESTRATOR_QUEUE)
-    public String listen(String input) throws JsonProcessingException {
+    public String listen(String input) throws IOException {
         CalendarHandlerResponse response;
         CalendarHandlerRequest request = mapper.readValue(input, CalendarHandlerRequest.class);
 
@@ -59,7 +61,7 @@ public class OrchestratorConsumer {
         request.getService().setDriverId(freeDriversResponse.getDriversIds().get(0));
     }
 
-    private void updatePrice(CalendarHandlerRequest request) {
+    private void updatePrice(CalendarHandlerRequest request) throws IOException {
         float price;
         price = priceCalculator.generatePrice(request);
         request.getService().setBasePrice(price);

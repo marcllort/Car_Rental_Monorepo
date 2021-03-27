@@ -59,6 +59,9 @@ public class Cronjob {
     }
 
     private boolean isRoutePaper(CalendarEvent event) {
+        if (event.getOriginalStartTime() == null) {
+            return false;
+        }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date = LocalDate.parse(event.getOriginalStartTime().getDate(), formatter);
         ZonedDateTime startTime = date.atStartOfDay(ZoneId.systemDefault());
@@ -67,6 +70,9 @@ public class Cronjob {
     }
 
     private boolean isInvoice(CalendarEvent event) {
+        if (event.getOriginalStartTime() == null) {
+            return false;
+        }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date = LocalDate.parse(event.getOriginalStartTime().getDate(), formatter);
         ZonedDateTime startTime = date.atStartOfDay(ZoneId.systemDefault());

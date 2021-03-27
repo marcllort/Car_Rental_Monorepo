@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/calendar/Model/FreeDriversResponse.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8/orchestrator-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/PriceCalculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/FreeDriversResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/ProtectedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/orchestrator-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/orchestrator-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/RabbitMQDirectConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/RabbitMQDirectConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/docker-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/docker-build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/PriceCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/PriceCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +28,8 @@
         <option value="Interface" />
         <option value="Go Application" />
         <option value="Kotlin Class" />
-        <option value="Class" />
         <option value="Go File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -113,7 +107,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Calendar">
+  <component name="RunManager" selected="Spring Boot.Orchestrator">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -144,6 +138,7 @@
         <env name="CORS_DOMAIN" value="http://localhost:63343" />
         <env name="SECRET_HASH" value="marcpassword" />
         <env name="google.client.client-secret" value="CjIp6Jd7-g6I2V4VcLbh4Ylc" />
+        <env name="HERE_API_KEY" value="yMWpQrDkSse8uapoXiJQTp1VTKtRs5zatlNdJbrMK2c" />
       </envs>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -258,14 +253,7 @@
       <workItem from="1615318005827" duration="1211000" />
       <workItem from="1615627728012" duration="7711000" />
       <workItem from="1615662319128" duration="15391000" />
-      <workItem from="1616683677400" duration="12316000" />
-    </task>
-    <task id="LOCAL-00070" summary="Added firebase user creation backend and frontend">
-      <created>1612011581655</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1612011581655</updated>
+      <workItem from="1616683677400" duration="23656000" />
     </task>
     <task id="LOCAL-00071" summary="Update firebase profile working">
       <created>1612022507597</created>
@@ -603,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616700242129</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="Orchestrator interceptor working">
+      <created>1616756702520</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1616756702520</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +606,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Update readme" />
     <MESSAGE value="Calendar logic implemented in calendar micorservice" />
     <MESSAGE value="Logic refactor" />
     <MESSAGE value="Calendar Logic refactor" />
@@ -636,7 +630,8 @@
     <MESSAGE value="Orchestrator microservice creation" />
     <MESSAGE value="Routine flow working" />
     <MESSAGE value="Refactor spring projects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor spring projects" />
+    <MESSAGE value="Orchestrator interceptor working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Orchestrator interceptor working" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -658,14 +653,14 @@
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="32" />
+          <url>file://$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/PriceCalculator.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="35" />
+          <url>file://$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/PriceCalculator.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

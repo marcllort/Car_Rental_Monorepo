@@ -38,6 +38,11 @@ spec:
                 secretKeyRef:
                   name: secret-google-api
                   key: google.client.client-secret
+            - name: HERE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-here-api
+                  key: HERE_API_KEY
           volumeMounts:
             - name: firebase-config-volume
               mountPath: /app/
