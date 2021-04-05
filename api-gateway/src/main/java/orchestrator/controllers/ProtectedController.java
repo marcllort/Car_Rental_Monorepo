@@ -79,12 +79,12 @@ public class ProtectedController {
     @GetMapping("email")
     public String getProtectedEmail(@RequestHeader("Authorization") String authHeader, @RequestBody EmailHandlerRequest request)
             throws JsonProcessingException, FirebaseAuthException {
-        /*FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
+        FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
         request.setUserId(decodedToken.getUid());
 
-        EmailHandlerResponse response = (EmailHandlerResponse) emailHandler.handle(request);*/
-        EmailHandlerResponse response = new EmailHandlerResponse();
-        response.setText("Disabled endpoint. Now it works through a cronjob.");
+        EmailHandlerResponse response = (EmailHandlerResponse) emailHandler.handle(request);
+
+        response.setText("Disabled endpoint. Now it works through a cronjob. Forcing cronjob execution...");
         return response.getText();
     }
 

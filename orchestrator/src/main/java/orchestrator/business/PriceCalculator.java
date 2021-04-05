@@ -29,7 +29,7 @@ public class PriceCalculator {
 
         Request request = new Request.Builder()
                 .url("https://router.hereapi.com/v8/routes?transportMode=car&origin=" + origin + "&destination="
-                        + destination + "&return=summary&apiKey=skK8ML15S2xxZ3UU_LJnLbE344kvZvl20vOAj2f9uSY")
+                        + destination + "&return=summary&apiKey=5whVWVf50L_WeDlfSakfJNXlK20qcud9507K5UWpBq8")
                 .method("GET", null)
                 .build();
         Response response = client.newCall(request).execute();
@@ -44,7 +44,7 @@ public class PriceCalculator {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
-                .url("https://geocode.search.hereapi.com/v1/geocode?q=" + location + "&apiKey=" + apiKey)
+                .url("https://geocode.search.hereapi.com/v1/geocode?q=" + location + "&apiKey=5whVWVf50L_WeDlfSakfJNXlK20qcud9507K5UWpBq8")
                 .method("GET", null)
                 .build();
         Response response = client.newCall(request).execute();

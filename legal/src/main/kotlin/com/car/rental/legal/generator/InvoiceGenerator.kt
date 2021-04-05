@@ -8,17 +8,25 @@ import java.io.*
 @Component
 class InvoiceGenerator {
 
-    val FILE_PATH = "legal/src/main/kotlin/com/car/rental/legal/template/unfilled_form.pdf"
+    val FILE_PATH = "legal/src/main/kotlin/com/car/rental/legal/template/unfilled_route_paper_form.pdf"
 
     fun generateInvoicePDF(service: Service): InputStream? {
         try {
             val pDDocument =
                 PDDocument.load(File(FILE_PATH))
             val pDAcroForm = pDDocument.documentCatalog.acroForm
-            var field = pDAcroForm.getField("name")
-            field.setValue("Kalyan")
-            field = pDAcroForm.getField("name2")
-            field.setValue("Gutta")
+            var field = pDAcroForm.getField("client")
+            field.setValue(service.clientId.toString())
+            field = pDAcroForm.getField("date")
+            field.setValue(service.serviceDatetime)
+            field = pDAcroForm.getField("time")
+            field.setValue(service.serviceDatetime)
+            field = pDAcroForm.getField("destination")
+            field.setValue(service.destination)
+            field = pDAcroForm.getField("passenger")
+            field.setValue(service.passengers.toString())
+            field = pDAcroForm.getField("info")
+            field.setValue(service.description)
 
             val byteArrayOutputStream = ByteArrayOutputStream()
 

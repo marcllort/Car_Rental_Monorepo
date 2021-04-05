@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/orchestrator-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8/orchestrator-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/ProtectedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/ProtectedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/handler/email/RetrieveEmailProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/handler/email/RetrieveEmailProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/InvoiceGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/InvoiceGenerator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/PriceCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/PriceCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,13 +106,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Orchestrator">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -253,14 +253,8 @@
       <workItem from="1615318005827" duration="1211000" />
       <workItem from="1615627728012" duration="7711000" />
       <workItem from="1615662319128" duration="15391000" />
-      <workItem from="1616683677400" duration="23656000" />
-    </task>
-    <task id="LOCAL-00071" summary="Update firebase profile working">
-      <created>1612022507597</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1612022507597</updated>
+      <workItem from="1616683677400" duration="27329000" />
+      <workItem from="1617636383757" duration="585000" />
     </task>
     <task id="LOCAL-00072" summary="Encryption of passwords in apigw and kuberentes">
       <created>1612091085350</created>
@@ -598,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616756702520</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Orchestrator interceptor working">
+      <created>1616839215196</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1616839215196</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,16 +652,6 @@
           <url>file://$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt</url>
           <line>29</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/PriceCalculator.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/PriceCalculator.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

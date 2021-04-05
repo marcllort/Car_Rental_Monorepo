@@ -25,9 +25,12 @@ public class OrchestratorConsumer {
     @Autowired
     private ObjectMapper mapper;
 
+    @Autowired
+    private Cronjob cronjob;
+
     @RabbitListener(queues = RabbitMQDirectConfig.ORCHESTRATOR_QUEUE)
     public String listen(String input) throws IOException {
-        CalendarHandlerResponse response;
+        CalendarHandlerResponse response = new CalendarHandlerResponse();
         CalendarHandlerRequest request = mapper.readValue(input, CalendarHandlerRequest.class);
 
         switch (request.getFlow()) {
@@ -43,7 +46,12 @@ public class OrchestratorConsumer {
                 updatePrice(request);
                 response = (CalendarHandlerResponse) calendarHandler.handle(request);
                 break;
+            case "serviceInvoice":
+                cronjob.runCronjob();
+                response.setText("Running cronjob...");
+                break;
             default:
+
                 response = (CalendarHandlerResponse) calendarHandler.handle(request);
                 break;
         }

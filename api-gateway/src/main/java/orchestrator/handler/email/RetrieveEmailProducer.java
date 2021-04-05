@@ -12,7 +12,7 @@ public class RetrieveEmailProducer {
     private RabbitTemplate rabbitTemplate;
 
     public String produce(String request) {
-        Object response = rabbitTemplate.convertSendAndReceive(RabbitMQDirectConfig.EXCHANGE, RabbitMQDirectConfig.EMAIL_KEY, request);
+        Object response = rabbitTemplate.convertSendAndReceive(RabbitMQDirectConfig.EXCHANGE, RabbitMQDirectConfig.ORCHESTRATOR_KEY, request);
         return response.toString();
     }
 
