@@ -36,12 +36,19 @@ func Consume(body string, db *gorm.DB) string {
 		response = setupDrivers(db, calendarClient, excludeEmails)
 	case "modifyService":
 		response = modifyService(db, calendarClient, request, excludeEmails)
+	case "summary":
+		response = summary(db)
 	default:
 		fmt.Print("default")
 		response = "CALENDAR: Error - Unknown flow"
 	}
 
 	return response
+}
+
+func summary(db *gorm.DB) string {
+	fmt.Print("summary")
+	return Database.Summary(db)
 }
 
 func setupDrivers(db *gorm.DB, calendarClient *calendar.Service, excludeEmails []string) string {

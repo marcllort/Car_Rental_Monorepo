@@ -3,6 +3,7 @@ package Database
 import (
 	"calendar/Model"
 	"calendar/Utils"
+	"encoding/json"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"gorm.io/driver/mysql"
@@ -30,6 +31,38 @@ func GetAllServices(db *gorm.DB) []Model.ServiceView {
 	printServices(services)
 
 	return services
+}
+
+func Summary(db *gorm.DB) string {
+
+	endMonth := time.Now()
+	monthIncome := make([]int, 12)
+	totalIncome := 0
+	for i := 0; i < 12; i++ {
+		startMonth := endMonth.AddDate(0, -1, 0)
+		var services []Model.ServiceView
+		db.Table("service_view").Where("ServiceDatetime BETWEEN ? AND ?", startMonth, endMonth).Find(&services)
+
+		for _, service := range services {
+			monthIncome[i] = monthIncome[i] + int(service.BasePrice)
+		}
+		totalIncome = totalIncome + monthIncome[i]
+		endMonth = startMonth
+	}
+
+	var unconfirmedEvents int
+	db.Table("service_view").Where("ConfirmedDatetime is NULL").Find(&unconfirmedEvents)
+
+	var summary Model.Summary
+
+	summary.ActualMonthIncome = monthIncome[0]
+	summary.MonthlyIncome = monthIncome
+	summary.AnualIncome = totalIncome
+	summary.UnconfirmedEvents = unconfirmedEvents
+
+	json, _ := json.Marshal(summary)
+
+	return string(json)
 }
 
 // Get all events X month X driver/drivers
