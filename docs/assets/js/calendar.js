@@ -1,4 +1,4 @@
-import {getCalendar, getEventById, getFreeDrivers, logOut, setToken, startUp} from "./api_script.js";
+import {confirmServiceId, getCalendar, getEventById, getFreeDrivers, logOut, setToken, startUp} from "./api_script.js";
 import {prepareUI} from "./ui_script.js";
 
 var eventsString;
@@ -100,9 +100,9 @@ function createCalendar() {
 
                 getEventById(id[1]).then((response) => {
                     if (response.ConfirmedDatetime != null) {
-                        console.log("infoo");
+
                     } else {
-                        assignService(calEvent);
+                        assignService(calEvent, response);
                     }
                 });
             }
@@ -115,7 +115,7 @@ function createCalendar() {
     calendar.render();
 }
 
-function assignService(calEvent) {
+function assignService(calEvent, data) {
     var htmlContent = '    <h4 class="text-muted card-subtitle mb-2">Start Event</h4>\n' +
         '    <p class="card-text">' + calEvent.event.start.toLocaleString("es-ES") + '<br /></p>\n' +
         '    <h4 class="text-muted card-subtitle mb-2">End Event</h4>\n' +
@@ -180,6 +180,15 @@ function assignService(calEvent) {
                               `,
                     confirmButtonText: 'Ok'
                 })
+
+                if (answers[2] === "me") {
+                    data.DriverId = response.DriversIds[0];
+                } else {
+                    data.DriverId = 2;
+                }
+                confirmServiceId(data).then((response) => {
+
+                });
             }
         })
     });

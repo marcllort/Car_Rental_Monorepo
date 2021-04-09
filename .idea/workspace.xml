@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/assets/js/api_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/api_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/assets/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/calendar.js" afterDir="false" />
     </list>
@@ -244,14 +243,7 @@
       <workItem from="1616683677400" duration="27329000" />
       <workItem from="1617636383757" duration="6224000" />
       <workItem from="1617954050629" duration="14291000" />
-      <workItem from="1617982952403" duration="3523000" />
-    </task>
-    <task id="LOCAL-00077" summary="Impletented GORM for calendar">
-      <created>1612632444785</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1612632444785</updated>
+      <workItem from="1617982952403" duration="6416000" />
     </task>
     <task id="LOCAL-00078" summary="Implemented DB methods, not tested">
       <created>1612636562587</created>
@@ -589,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617983371219</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="Calendar adaptations">
+      <created>1617986528969</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1617986528969</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,7 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Calendar Logic createEvent" />
     <MESSAGE value="Rabbit Flow created" />
     <MESSAGE value="EventsMonth working" />
     <MESSAGE value="Calendar ALL flows working" />
@@ -622,7 +620,8 @@
     <MESSAGE value="Implementation summary endpoint" />
     <MESSAGE value="Summmary frontend implementation" />
     <MESSAGE value="Mapping calendar events" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mapping calendar events" />
+    <MESSAGE value="Calendar adaptations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calendar adaptations" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

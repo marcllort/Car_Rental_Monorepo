@@ -124,6 +124,23 @@ function getEventById(input) {
     });
 }
 
+function confirmServiceId(data) {
+
+    var url = 'https://carrentalbarcelona.tk/protected/calendar';
+    data.flow = "confirmService";
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + idToken,
+    }
+
+    return axios.post(url, data, {
+        headers: headers
+    }).then(resp => {
+        console.log(resp);
+        return resp.data
+    });
+}
+
 function getFreeDrivers(input) {
     var date = new Date(input)
 
@@ -366,5 +383,6 @@ export {
     getCalendar,
     getFreeDrivers,
     getEventById,
+    confirmServiceId,
     idToken
 };
