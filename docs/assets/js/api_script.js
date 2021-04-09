@@ -55,12 +55,35 @@ function getUser(email) {
 }
 
 function getCalendar() {
-    var url = URL.concat('/protected/calendar')
-    return axios.get(url, {
-        headers: {
-            Authorization: 'Bearer ' + idToken
-        }
+    var url = 'https://carrentalbarcelona.tk/protected/calendar';
+    var data = JSON.stringify({
+        "service": {
+            "description": "Test descriptionmodified",
+            "origin": "BCN Airporttttt",
+            "destination": "Girona Airport",
+            "serviceId": 4,
+            "driverId": 1,
+            "extraPrice": 0,
+            "serviceDatetime": "2021-02-20T00:00:00Z",
+            "payedDatetime": "2020-02-25T00:00:00Z",
+            "specialNeeds": "none",
+            "passengers": 3,
+            "basePrice": 12,
+            "calendarEvent": "calendarURL",
+            "clientId": 1,
+            "confirmedDatetime": null
+        },
+        "flow": "eventsMonth"
+    });
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + idToken,
+    }
+
+    return axios.post(url, data, {
+        headers: headers
     }).then(resp => {
+        console.log(resp);
         return resp
     });
 }

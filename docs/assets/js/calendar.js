@@ -12,17 +12,35 @@ window.onload = function () {
                 setToken(idToken);
                 getCalendar().then((response) => {
                     eventsString = response.data;
+                    mapEvents();
                     createCalendar();
                 });
             }).catch(function (error) {
                 console.error(error.data);
-                logOut();
             });
         } else {
             logOut();
         }
     });
 };
+
+function mapEvents() {
+    eventsString.forEach(function (entry) {
+
+        if (!entry.start.hasOwnProperty("dateTime")) {
+            entry.start = entry.start.date
+        } else {
+            entry.start = entry.start.dateTime;
+        }
+
+        if (!entry.end.hasOwnProperty("dateTime")) {
+            entry.end = entry.end.date
+        } else {
+            entry.end = entry.end.dateTime;
+        }
+        entry.title = entry.summary;
+    })
+}
 
 function createCalendar() {
     document.getElementById("spinner").hidden = true;
@@ -39,6 +57,7 @@ function createCalendar() {
         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
 
         // US Holidays
+
 
         events: eventsString,
         headerToolbar: {
