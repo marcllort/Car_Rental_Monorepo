@@ -65,7 +65,7 @@ public class ProtectedController {
         return firebaseHandler.updateUserFirebase(request);
     }
 
-    @GetMapping("calendar")
+    @PostMapping("calendar")
     public String getProtectedCalendar(@RequestHeader("Authorization") String authHeader, @RequestBody CalendarHandlerRequest request)
             throws JsonProcessingException, FirebaseAuthException {
         FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));
@@ -76,7 +76,7 @@ public class ProtectedController {
         return response.getText();
     }
 
-    @GetMapping("email")
+    @PostMapping("email")
     public String getProtectedEmail(@RequestHeader("Authorization") String authHeader, @RequestBody EmailHandlerRequest request)
             throws JsonProcessingException, FirebaseAuthException {
         FirebaseToken decodedToken = firebaseAuth.verifyIdToken(getIdToken(authHeader));

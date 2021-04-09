@@ -50,15 +50,15 @@ func Summary(db *gorm.DB) string {
 		endMonth = startMonth
 	}
 
-	var unconfirmedEvents int
-	db.Table("service_view").Where("ConfirmedDatetime is NULL").Find(&unconfirmedEvents)
+	var unconfirmedEvents int64
+	db.Table("service_view").Where("ConfirmedDatetime is NULL").Count(&unconfirmedEvents)
 
 	var summary Model.Summary
 
 	summary.ActualMonthIncome = monthIncome[0]
 	summary.MonthlyIncome = monthIncome
 	summary.AnualIncome = totalIncome
-	summary.UnconfirmedEvents = unconfirmedEvents
+	summary.UnconfirmedEvents = int(unconfirmedEvents)
 
 	json, _ := json.Marshal(summary)
 
