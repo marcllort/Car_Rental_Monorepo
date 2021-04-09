@@ -133,7 +133,7 @@ func getFreeDrivers(db *gorm.DB, calendarClient *calendar.Service, request Model
 func getEventsMonth(calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string) string {
 	fmt.Print("eventsMonth\n")
 	startTime := request.Service.ServiceDatetime
-	duration, _ := time.ParseDuration("720h")
+	duration, _ := time.ParseDuration("72000h") //it will return all the events
 	endTime := startTime.Add(duration)
 	events, _ := CalendarAPI.GetEvents(calendarClient, startTime.Format(time.RFC3339), endTime.Format(time.RFC3339), excludeEmails)
 	fmt.Print(events)

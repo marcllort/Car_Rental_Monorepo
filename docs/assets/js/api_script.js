@@ -2,8 +2,8 @@ var idToken;
 
 const URL = "https://carrentalbarcelona.tk";
 
-function setToken(idToken1){
-    idToken=idToken1;
+function setToken(idToken1) {
+    idToken = idToken1;
     console.log(idToken);
 }
 
@@ -85,6 +85,78 @@ function getCalendar() {
     }).then(resp => {
         console.log(resp);
         return resp
+    });
+}
+
+function getEventById(input) {
+    var eventId = Number(input);
+
+    var url = 'https://carrentalbarcelona.tk/protected/calendar';
+    var data = JSON.stringify({
+        "service": {
+            "description": "Test descriptionmodified",
+            "origin": "BCN Airporttttt",
+            "destination": "Girona Airport",
+            "serviceId": eventId,
+            "driverId": 1,
+            "extraPrice": 0,
+            "serviceDatetime": "2020-02-25T00:00:00Z",
+            "payedDatetime": "2020-02-25T00:00:00Z",
+            "specialNeeds": "none",
+            "passengers": 3,
+            "basePrice": 12,
+            "calendarEvent": "calendarURL",
+            "clientId": 1,
+            "confirmedDatetime": null
+        },
+        "flow": "eventById"
+    });
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + idToken,
+    }
+
+    return axios.post(url, data, {
+        headers: headers
+    }).then(resp => {
+        console.log(resp);
+        return resp.data
+    });
+}
+
+function getFreeDrivers(input) {
+    var date = new Date(input)
+
+    var url = 'https://carrentalbarcelona.tk/protected/calendar';
+    var data = JSON.stringify({
+        "service": {
+            "description": "Test descriptionmodified",
+            "origin": "BCN Airporttttt",
+            "destination": "Girona Airport",
+            "serviceId": 4,
+            "driverId": 1,
+            "extraPrice": 0,
+            "serviceDatetime": date.toISOString(),
+            "payedDatetime": "2020-02-25T00:00:00Z",
+            "specialNeeds": "none",
+            "passengers": 3,
+            "basePrice": 12,
+            "calendarEvent": "calendarURL",
+            "clientId": 1,
+            "confirmedDatetime": null
+        },
+        "flow": "freeDrivers"
+    });
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + idToken,
+    }
+
+    return axios.post(url, data, {
+        headers: headers
+    }).then(resp => {
+        console.log(resp);
+        return resp.data
     });
 }
 
@@ -292,5 +364,7 @@ export {
     deleteUser,
     logOut,
     getCalendar,
+    getFreeDrivers,
+    getEventById,
     idToken
 };

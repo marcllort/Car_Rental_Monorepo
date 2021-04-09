@@ -1,4 +1,4 @@
-import {getCalendar, logOut, setToken, startUp} from "./api_script.js";
+import {getCalendar, getEventById, getFreeDrivers, logOut, setToken, startUp} from "./api_script.js";
 import {prepareUI} from "./ui_script.js";
 
 var eventsString;
@@ -87,68 +87,25 @@ function createCalendar() {
         eventClick: function (calEvent, jsEvent, view, resourceObj) {
             calEvent.jsEvent.preventDefault();
             console.log(calEvent);
-            var htmlContent = '    <h4 class="text-muted card-subtitle mb-2">Start Event</h4>\n' +
-                '    <p class="card-text">' + calEvent.event.start.toLocaleString("es-ES") + '<br /></p>\n' +
-                '    <h4 class="text-muted card-subtitle mb-2">End Event</h4>\n' +
-                '    <p class="card-text">' + calEvent.event.end.toLocaleString("es-ES") + '<br /></p>\n' +
-                '    <h4 class="text-muted card-subtitle mb-2">Description</h4>\n' +
-                '    <p class="card-text">' + calEvent.event.extendedProps.description + '</p>\n'
 
-            if (calEvent.event.extendedProps.collision !== undefined) {
-                htmlContent += '    <h4 class="text-muted card-subtitle mb-2">Collisions</h4>\n' + 'Collision with event ' + calEvent.event.extendedProps.collision + '<br>';
-            }
-            var textAvailability;
-            if (calEvent.event.extendedProps.availableDrivers['me'] === 'Me') {
-                textAvailability = 'You are available for this transfer. Want to assign it to yourself?';
+            var id = calEvent.event._def.title.match(/\[(.*?)\]/);
+
+            if (id == null) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'This event does not have an ID, so no info could be found',
+                })
             } else {
-                textAvailability = 'You are NOT available for this transfer. Do you still want to assign it to yourself?';
-            }
 
-            var inputOptions = new Promise(function (resolve) {
-                resolve({
-                    'me': 'Yes',
-                    'none': 'No'
-                });
-            });
-            Swal.mixin({
-                confirmButtonText: 'Next &rarr;',
-                showCancelButton: true,
-                progressSteps: ['1', '2', '3']
-            }).queue([
-                {
-                    title: calEvent.event.title,
-                    html: htmlContent
-                },
-                {
-                    title: 'Available',
-                    text: textAvailability,
-                    input: 'radio',
-                    inputOptions: inputOptions,
-                    inputValidator: (value) => {
-                        if (!value) {
-                            return 'You need to choose something!'
-                        }
+                getEventById(id[1]).then((response) => {
+                    if (response.ConfirmedDatetime != null) {
+                        console.log("infoo");
+                    } else {
+                        assignService(calEvent);
                     }
-                },
-                {
-                    title: 'Drivers',
-                    text: 'Joint service? Assign to someone else? ',
-                    input: 'select',
-                    inputOptions: calEvent.event.extendedProps.availableDrivers
-                },
-            ]).then((result) => {
-                if (result.value) {
-                    const answers = JSON.stringify(result.value)
-                    Swal.fire({
-                        title: 'All done!',
-                        html: `
-                                Your answers:
-                                <pre><code>${answers}</code></pre>
-                              `,
-                        confirmButtonText: 'Ok'
-                    })
-                }
-            })
+                });
+            }
         },
 
         editable: true,
@@ -158,6 +115,75 @@ function createCalendar() {
     calendar.render();
 }
 
+function assignService(calEvent) {
+    var htmlContent = '    <h4 class="text-muted card-subtitle mb-2">Start Event</h4>\n' +
+        '    <p class="card-text">' + calEvent.event.start.toLocaleString("es-ES") + '<br /></p>\n' +
+        '    <h4 class="text-muted card-subtitle mb-2">End Event</h4>\n' +
+        '    <p class="card-text">' + calEvent.event.end.toLocaleString("es-ES") + '<br /></p>\n' +
+        '    <h4 class="text-muted card-subtitle mb-2">Description</h4>\n' +
+        '    <p class="card-text">' + calEvent.event.extendedProps.description + '</p>\n'
+
+    if (calEvent.event.extendedProps.collision !== undefined) {
+        htmlContent += '    <h4 class="text-muted card-subtitle mb-2">Collisions</h4>\n' + 'Collision with event ' + calEvent.event.extendedProps.collision + '<br>';
+    }
+    var textAvailability;
+
+    console.log(calEvent.event._def.extendedProps);
+
+    getFreeDrivers(calEvent.event._instance.range.start).then((response) => {
+        if (response.DriversNames[0] === 'futbolsupplier@gmail.com') {
+            textAvailability = 'You are available for this transfer. Want to assign it to yourself?';
+        } else {
+            textAvailability = 'You are NOT available for this transfer. Do you still want to assign it to yourself?';
+        }
+
+        var inputOptions = new Promise(function (resolve) {
+            resolve({
+                'me': 'Yes',
+                'none': 'No'
+            });
+        });
+        Swal.mixin({
+            confirmButtonText: 'Next &rarr;',
+            showCancelButton: true,
+            progressSteps: ['1', '2', '3']
+        }).queue([
+            {
+                title: calEvent.event.title,
+                html: htmlContent
+            },
+            {
+                title: 'Available',
+                text: textAvailability,
+                input: 'radio',
+                inputOptions: inputOptions,
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'You need to choose something!'
+                    }
+                }
+            },
+            {
+                title: 'Drivers',
+                text: 'Joint service? Assign to someone else? ',
+                input: 'select',
+                inputOptions: response.DriversNames
+            },
+        ]).then((result) => {
+            if (result.value) {
+                const answers = JSON.stringify(result.value)
+                Swal.fire({
+                    title: 'All done!',
+                    html: `
+                                Your answers:
+                                <pre><code>${answers}</code></pre>
+                              `,
+                    confirmButtonText: 'Ok'
+                })
+            }
+        })
+    });
+}
 
 window.logOut = function (event) {
     logOut();
