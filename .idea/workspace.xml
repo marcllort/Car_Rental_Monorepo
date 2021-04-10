@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/api_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/api_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/handler/firebase/FirebaseUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/handler/firebase/FirebaseUserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +105,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Calendar">
+  <component name="RunManager" selected="Spring Boot.API-Gateway">
     <configuration name="test_data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/database/test_data.sql" />
       <script-mode>FILE</script-mode>
@@ -244,14 +243,7 @@
       <workItem from="1616683677400" duration="27329000" />
       <workItem from="1617636383757" duration="6224000" />
       <workItem from="1617954050629" duration="14291000" />
-      <workItem from="1617982952403" duration="19543000" />
-    </task>
-    <task id="LOCAL-00079" summary="Added credentials and kubernetes configuration for email and calendar">
-      <created>1612691265089</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1612691265089</updated>
+      <workItem from="1617982952403" duration="21883000" />
     </task>
     <task id="LOCAL-00080" summary="Added firestore connection to email">
       <created>1612695138007</created>
@@ -589,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617989423154</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="Calendar flow working">
+      <created>1618053516981</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1618053516981</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,7 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="EventsMonth working" />
     <MESSAGE value="Calendar ALL flows working" />
     <MESSAGE value="Calendar working in K8s" />
     <MESSAGE value="Parametrized calendar endpoint" />
@@ -622,7 +620,8 @@
     <MESSAGE value="Mapping calendar events" />
     <MESSAGE value="Calendar adaptations" />
     <MESSAGE value="Non confirmed event flow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Non confirmed event flow" />
+    <MESSAGE value="Calendar flow working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calendar flow working" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

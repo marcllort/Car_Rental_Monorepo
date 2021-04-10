@@ -68,7 +68,7 @@ function updateUI(user, data) {
 }
 
 function updateUserAPICall(data) {
-    var url = 'https://carrentalbarcelona.tk/protected/update-user-firebase';
+    var url = 'http://localhost:8080/protected/update-user-firebase';
 
     /*if (document.getElementById("password-text").value === "") {
         document.getElementById("password-text").value = "null";
@@ -83,9 +83,9 @@ function updateUserAPICall(data) {
     }).then(resp => {
         console.log(resp);
     }).catch(error => {
-        swalWithBootstrapButtons.fire(
+        swal.fire(
             'Error',
-            capitalizeFirstLetter(error.response.data.message),
+            error.response.data.message,
             'error'
         )
     });

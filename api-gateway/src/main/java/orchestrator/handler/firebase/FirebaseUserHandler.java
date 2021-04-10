@@ -80,31 +80,31 @@ public class FirebaseUserHandler {
 
         if (document.exists()) {
             Map<String, Object> data = new HashMap<>();
-            if (!request.getName().isEmpty()) {
+            if (request.getName() != null && !request.getName().isEmpty()) {
                 data.put("name", request.getName());
             }
-            if (!request.getEmail().isEmpty()) {
+            if (request.getEmail() != null && !request.getEmail().isEmpty()) {
                 data.put("email", request.getEmail());
             }
-            if (!request.getPassword().isEmpty()) {
+            if (request.getPassword() != null && !request.getPassword().isEmpty()) {
                 data.put("password", encryptionUtility.encrypt(key, request.getPassword()));
             }
-            if (!request.getLanguage().isEmpty()) {
+            if (request.getLanguage() != null && !request.getLanguage().isEmpty()) {
                 data.put("language", request.getLanguage());
             }
-            if (!request.getEmailSign().isEmpty()) {
+            if (request.getEmailSign() != null && !request.getEmailSign().isEmpty()) {
                 data.put("emailSign", request.getEmailSign());
             }
-            if (!request.getCalendarURL().isEmpty()) {
+            if (request.getCalendarURL() != null && !request.getCalendarURL().isEmpty()) {
                 data.put("calendarURL", request.getCalendarURL());
             }
-            if (!request.getCity().isEmpty()) {
+            if (request.getCity() != null && !request.getCity().isEmpty()) {
                 data.put("city", request.getCity());
             }
-            if (!request.getCountry().isEmpty()) {
+            if (request.getCountry() != null && !request.getCountry().isEmpty()) {
                 data.put("country", request.getCountry());
             }
-            if (!request.getPhone().isEmpty()) {
+            if (request.getPhone() != null && !request.getPhone().isEmpty()) {
                 data.put("phone", request.getPhone());
             }
             data.put("checked", request.isChecked());
