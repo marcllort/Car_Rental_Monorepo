@@ -10,10 +10,10 @@ window.onload = function () {
             firebase.auth().currentUser.getIdToken(true).then(function (idToken1) {
                 setToken(idToken1);
                 summaryAPICall();
+                checkUserInfoExists(user);
             }).catch(function (error) {
                 console.error(error.data);
             });
-            checkUserInfoExists(user);
 
         } else {
             logOut();
@@ -25,7 +25,8 @@ function checkUserInfoExists(user) {
     var db = firebase.firestore();
     db.collection("users").doc(user.uid).get().then(snapshot => {
         const data = snapshot.data()  // a plain JS object
-        if (data === undefined) {
+
+        if (data.name === undefined) {
             createUserFirebaseAPI(user);
         }
     }).catch(error => {
@@ -167,22 +168,23 @@ function validateEmail(email) {
 function updateUserAPICall(data) {
     var url = 'https://carrentalbarcelona.tk/protected/update-user-firebase';
 
-    /*if (document.getElementById("password-text").value === "") {
-        document.getElementById("password-text").value = "null";
-    }*/
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + idToken,
     }
+
+    axios.get('https://carrentalbarcelona.tk/public/login', {
+        headers: headers
+    })
 
     axios.post(url, data, {
         headers: headers
     }).then(resp => {
         console.log(resp);
     }).catch(error => {
-        swalWithBootstrapButtons.fire(
+        swal.fire(
             'Error',
-            capitalizeFirstLetter(error.response.data.message),
+            error.response.data.message,
             'error'
         )
     });

@@ -65,7 +65,7 @@ public class CalendarController {
     @GetMapping(value = "login")
     public ResponseEntity<String> getCalendarEvents(@RequestHeader("Authorization") String authHeader) {
         com.google.api.services.calendar.model.Events eventList;
-        String message;
+        String message = "Login correct";
         String idToken = getIdToken(authHeader);
 
         try {
@@ -73,12 +73,12 @@ public class CalendarController {
 
             if (isFirstTime(idToken)) {
                 GoogleTokenResponse token = getNewToken(idToken);
-                eventList = getEvents(token);
-                message = eventList.getItems().toString();
+                //eventList = getEvents(token);
+                //message = eventList.getItems().toString();
             } else {
                 TokenResponse token = getTokenWithRefreshToken(idToken);
-                eventList = getEvents(token);
-                message = eventList.getItems().toString();
+                //eventList = getEvents(token);
+                //message = eventList.getItems().toString();
             }
         } catch (Exception e) {
             e.printStackTrace();

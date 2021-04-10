@@ -95,9 +95,9 @@ function createUserAPICall(code) {
                 console.log(resp);
                 redirectUserAdmin();
             }).catch(error => {
-                swalWithBootstrapButtons.fire(
+                swal.fire(
                     'Error',
-                    capitalizeFirstLetter(error.response.data.message),
+                    error.response.data.message,
                     'error'
                 )
             });
