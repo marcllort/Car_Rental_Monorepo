@@ -136,14 +136,14 @@ func UpdateCalendarEvent(srv *calendar.Service, eventId string, summary string, 
 	driver string, startTime *time.Time, duration time.Duration, excludeCalendars []string) {
 
 	durationParse, _ := time.ParseDuration("1h30m")
-	events, eventsCalendar := GetEvents(srv, startTime.Format(time.RFC3339), startTime.Add(durationParse).Format(time.RFC3339), excludeCalendars)
+	events, _ := GetEvents(srv, startTime.Format(time.RFC3339), startTime.Add(durationParse).Format(time.RFC3339), excludeCalendars)
 
 	var event *calendar.Event
 	var calendarId string
-	for i, v := range events {
+	for _, v := range events {
 		if strings.Contains(v.Summary, "["+eventId+"]") {
 			event = v
-			calendarId = eventsCalendar[i]
+			calendarId = event.Attendees[0].Email
 			event.Summary = summary
 			event.Location = location
 			event.Description = description

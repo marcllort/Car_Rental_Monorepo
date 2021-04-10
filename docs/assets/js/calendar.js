@@ -1,4 +1,13 @@
-import {confirmServiceId, getCalendar, getEventById, getFreeDrivers, logOut, setToken, startUp} from "./api_script.js";
+import {
+    confirmServiceId,
+    getCalendar,
+    getEventById,
+    getFreeDrivers,
+    logOut,
+    setToken,
+    startUp,
+    updateService
+} from "./api_script.js";
 import {prepareUI} from "./ui_script.js";
 
 var eventsString;
@@ -100,7 +109,7 @@ function createCalendar() {
 
                 getEventById(id[1]).then((response) => {
                     if (response.ConfirmedDatetime != null) {
-
+                        infoService(response);
                     } else {
                         assignService(calEvent, response);
                     }
@@ -113,6 +122,81 @@ function createCalendar() {
     });
 
     calendar.render();
+}
+
+function infoService(data) {
+
+
+    var htmlContent =
+        '    <h4 class="text-muted card-subtitle mb-2">Start Event</h4>\n' +
+        '    <input type="text" class="card-text" id=data.ServiceDatetime > <br /><br />\n' +
+        '    <h4 class="text-muted card-subtitle mb-2">Origin</h4>\n' +
+        '    <input type="text" class="card-text" id=data.Origin><br /><br />\n' +
+        '    <h4 class="text-muted card-subtitle mb-2">Destination</h4>\n' +
+        '    <input type="text" class="card-text" id=data.Destination><br /><br />\n' +
+        '    <h4 class="text-muted card-subtitle mb-2">Description</h4>\n' +
+        '    <input type="text" class="card-text" id=data.Description><br /> <br />\n' +
+        '    <h4 class="text-muted card-subtitle mb-2">Price</h4>\n' +
+        '    <input type="text" class="card-text" id=data.BasePrice><br /><br />\n' +
+        '    <a href=data.CalendarEvent>Google calendar event</a> '
+    Swal.fire({
+        title: '<strong>Service information</strong>',
+        icon: 'info',
+        html: htmlContent,
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+            '<i class="fa fa-thumbs-up"></i> Great!',
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+        cancelButtonText:
+            '<i class="fa fa-thumbs-down"></i>',
+        cancelButtonAriaLabel: 'Thumbs down'
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            var datetime = document.getElementById("data.ServiceDatetime").value;
+            var origin = document.getElementById("data.Origin").value;
+            var destination = document.getElementById("data.Destination").value;
+            var description = document.getElementById("data.Description").value;
+            var price = document.getElementById("data.BasePrice").value;
+            if (hasChanged(data)) {
+                data.ServiceDatetime = datetime;
+                data.Origin = origin;
+                data.Destination = destination;
+                data.Description = description;
+                data.BasePrice = price;
+                updateService(data);
+                Swal.fire('Saved!', '', 'success')
+            } else {
+                Swal.fire('No changes!', '', 'info')
+            }
+
+        } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+        }
+    })
+    document.getElementById("data.ServiceDatetime").value = data.ServiceDatetime.toLocaleString("es-ES");
+    document.getElementById("data.Origin").value = data.Origin;
+    document.getElementById("data.Destination").value = data.Destination;
+    document.getElementById("data.Description").value = data.Description;
+    document.getElementById("data.BasePrice").value = data.BasePrice;
+
+}
+
+function hasChanged(data) {
+    var datetime = document.getElementById("data.ServiceDatetime").value;
+    var origin = document.getElementById("data.Origin").value;
+    var destination = document.getElementById("data.Destination").value;
+    var description = document.getElementById("data.Description").value;
+    var price = document.getElementById("data.BasePrice").value;
+
+    if (datetime !== data.ServiceDatetime || origin !== data.Origin || destination !== data.Destination || description !== data.Description || Number(price) !== data.BasePrice) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 function assignService(calEvent, data) {
@@ -131,10 +215,15 @@ function assignService(calEvent, data) {
     console.log(calEvent.event._def.extendedProps);
 
     getFreeDrivers(calEvent.event._instance.range.start).then((response) => {
-        if (response.DriversNames[0] === 'futbolsupplier@gmail.com') {
-            textAvailability = 'You are available for this transfer. Want to assign it to yourself?';
+        if (response.DriversNames !== null) {
+            if (response.DriversNames[0] === 'futbolsupplier@gmail.com') {
+                textAvailability = 'You are available for this transfer. Want to assign it to yourself?';
+            } else {
+                textAvailability = 'You are NOT available for this transfer. Do you still want to assign it to yourself?';
+            }
         } else {
             textAvailability = 'You are NOT available for this transfer. Do you still want to assign it to yourself?';
+            response.DriversNames = ["Myself"];
         }
 
         var inputOptions = new Promise(function (resolve) {
@@ -186,9 +275,7 @@ function assignService(calEvent, data) {
                 } else {
                     data.DriverId = 2;
                 }
-                confirmServiceId(data).then((response) => {
-
-                });
+                confirmServiceId(data);
             }
         })
     });

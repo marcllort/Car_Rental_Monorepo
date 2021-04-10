@@ -124,14 +124,73 @@ function getEventById(input) {
     });
 }
 
-function confirmServiceId(data) {
+function confirmServiceId(data2) {
 
     var url = 'https://carrentalbarcelona.tk/protected/calendar';
-    data.flow = "confirmService";
+
+    var data = JSON.stringify({
+        "service": {
+            "description": data2.Description,
+            "origin": data2.Origin,
+            "destination": data2.Destination,
+            "serviceId": data2.ServiceId,
+            "driverId": data2.DriverId,
+            "extraPrice": data2.ExtraPrice,
+            "serviceDatetime": data2.ServiceDatetime,
+            "payedDatetime": data2.PayedDatetime,
+            "specialNeeds": data2.SpecialNeeds,
+            "passengers": data2.Passengers,
+            "basePrice": data2.BasePrice,
+            "calendarEvent": data2.CalendarEvent,
+            "clientId": data2.ClientId,
+            "confirmedDatetime": data2.ConfirmedDatetime
+        },
+        "flow": "confirmService"
+    });
+
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + idToken,
     }
+    console.log(data);
+    return axios.post(url, data, {
+        headers: headers
+    }).then(resp => {
+        console.log(resp);
+        return resp.data
+    });
+}
+
+function updateService(data2) {
+
+    var url = 'https://carrentalbarcelona.tk/protected/calendar';
+    var data = JSON.stringify({
+        "service": {
+            "description": data2.Description,
+            "origin": data2.Origin,
+            "destination": data2.Destination,
+            "serviceId": data2.ServiceId,
+            "driverId": data2.DriverId,
+            "extraPrice": data2.ExtraPrice,
+            "serviceDatetime": data2.ServiceDatetime,
+            "payedDatetime": data2.PayedDatetime,
+            "specialNeeds": data2.SpecialNeeds,
+            "passengers": data2.Passengers,
+            "basePrice": Number(data2.BasePrice),
+            "calendarEvent": data2.CalendarEvent,
+            "clientId": data2.ClientId,
+            "confirmedDatetime": data2.ConfirmedDatetime
+        },
+        "flow": "modifyService"
+    });
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + idToken,
+    }
+
+    console.log(data2);
+    console.log(data);
 
     return axios.post(url, data, {
         headers: headers
@@ -384,5 +443,6 @@ export {
     getFreeDrivers,
     getEventById,
     confirmServiceId,
+    updateService,
     idToken
 };

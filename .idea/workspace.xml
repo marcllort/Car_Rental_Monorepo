@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/assets/js/api_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/api_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/assets/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/calendar.js" afterDir="false" />
     </list>
@@ -105,7 +106,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.API-Gateway">
+  <component name="RunManager" selected="Go Build.Calendar">
     <configuration name="test_data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/database/test_data.sql" />
       <script-mode>FILE</script-mode>
@@ -243,14 +244,7 @@
       <workItem from="1616683677400" duration="27329000" />
       <workItem from="1617636383757" duration="6224000" />
       <workItem from="1617954050629" duration="14291000" />
-      <workItem from="1617982952403" duration="6416000" />
-    </task>
-    <task id="LOCAL-00078" summary="Implemented DB methods, not tested">
-      <created>1612636562587</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1612636562587</updated>
+      <workItem from="1617982952403" duration="19543000" />
     </task>
     <task id="LOCAL-00079" summary="Added credentials and kubernetes configuration for email and calendar">
       <created>1612691265089</created>
@@ -588,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617986528969</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Non confirmed event flow">
+      <created>1617989423154</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1617989423154</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +597,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Rabbit Flow created" />
     <MESSAGE value="EventsMonth working" />
     <MESSAGE value="Calendar ALL flows working" />
     <MESSAGE value="Calendar working in K8s" />
@@ -621,7 +621,8 @@
     <MESSAGE value="Summmary frontend implementation" />
     <MESSAGE value="Mapping calendar events" />
     <MESSAGE value="Calendar adaptations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calendar adaptations" />
+    <MESSAGE value="Non confirmed event flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Non confirmed event flow" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -641,6 +642,16 @@
           <url>file://$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt</url>
           <line>29</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go</url>
+          <line>111</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/ProtectedController.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
