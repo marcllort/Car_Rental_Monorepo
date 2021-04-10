@@ -6,7 +6,7 @@ window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
         if (user && window.location.pathname.includes("login.html")) {
-            //redirectUserAdmin();
+            redirectUserAdmin();
         }
     });
     loadAuth2()
@@ -28,7 +28,6 @@ window.emailLogin = function () {
         firebase.auth()
             .signInWithEmailAndPassword(document.getElementById("email").value,
                 document.getElementById("password").value).then(function (result) {
-            protectedCall();
         }).catch(function (error) {
             console.log(error);
             alert(error);
@@ -56,7 +55,6 @@ window.googleLogin = function () {
                 return firebase.auth().signInWithCredential(credential);
             }).then(user => {
                 createUserAPICall(code)
-                protectedCall();
             });
         });
     } else {

@@ -15,21 +15,33 @@ var eventsString;
 window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user && window.location.pathname.includes("calendar.html")) {
-            prepareUI(user);
-            firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
-                setToken(idToken);
-                getCalendar().then((response) => {
-                    eventsString = response.data;
-                    mapEvents();
-                    createCalendar();
+        firebase.auth().currentUser.getIdTokenResult().then((idTokenResult) => {
+            if (!idTokenResult.claims.role_super) {
+                firebase.auth().onAuthStateChanged(function (user) {
+
+                    if (user && window.location.pathname.includes("calendar.html")) {
+                        prepareUI(user);
+                        firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
+                            setToken(idToken);
+                            getCalendar().then((response) => {
+                                eventsString = response.data;
+                                mapEvents();
+                                createCalendar();
+                            });
+                        }).catch(function (error) {
+                            console.error(error.data);
+                        });
+                    } else {
+                        logOut();
+                    }
+
                 });
-            }).catch(function (error) {
-                console.error(error.data);
-            });
-        } else {
-            logOut();
-        }
+            } else {
+                Swal.fire('Calendar not available for admins!', '', 'error').then((result) => {
+                    window.location = 'admin_table.html'
+                });
+            }
+        });
     });
 };
 

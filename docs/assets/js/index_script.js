@@ -5,19 +5,29 @@ import {prepareUI} from "./ui_script.js";
 window.onload = function () {
     startUp()
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user && window.location.pathname.includes("index.html")) {
-            prepareUI(user);
-            firebase.auth().currentUser.getIdToken(true).then(function (idToken1) {
-                setToken(idToken1);
-                summaryAPICall();
-                checkUserInfoExists(user);
-            }).catch(function (error) {
-                console.error(error.data);
-            });
+        firebase.auth().currentUser.getIdTokenResult().then((idTokenResult) => {
+            if (!idTokenResult.claims.role_super) {
+                firebase.auth().onAuthStateChanged(function (user) {
+                    if (user && window.location.pathname.includes("index.html")) {
+                        prepareUI(user);
+                        firebase.auth().currentUser.getIdToken(true).then(function (idToken1) {
+                            setToken(idToken1);
+                            summaryAPICall();
+                            checkUserInfoExists(user);
+                        }).catch(function (error) {
+                            console.error(error.data);
+                        });
 
-        } else {
-            logOut();
-        }
+                    } else {
+                        logOut();
+                    }
+                });
+            } else {
+                Swal.fire('Dashboard not available for admins!', '', 'error').then((result) => {
+                    window.location = 'admin_table.html'
+                });
+            }
+        });
     });
 };
 

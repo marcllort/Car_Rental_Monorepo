@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Fix profile page">
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/CalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/calendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/assets/js/index_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/index_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/assets/js/login_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/login_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,14 +257,7 @@
       <workItem from="1616683677400" duration="27329000" />
       <workItem from="1617636383757" duration="6224000" />
       <workItem from="1617954050629" duration="14291000" />
-      <workItem from="1617982952403" duration="26993000" />
-    </task>
-    <task id="LOCAL-00081" summary="Updated readme">
-      <created>1612697159452</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1612697159452</updated>
+      <workItem from="1617982952403" duration="28366000" />
     </task>
     <task id="LOCAL-00082" summary="Updated readme and postman">
       <created>1612699038346</created>
@@ -603,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618057893907</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="Fix login user creation">
+      <created>1618063951987</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1618063951987</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +610,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Calendar working in K8s" />
     <MESSAGE value="Parametrized calendar endpoint" />
     <MESSAGE value="Update service flow working" />
     <MESSAGE value="Improved confirmService flow" />
@@ -636,7 +634,8 @@
     <MESSAGE value="Non confirmed event flow" />
     <MESSAGE value="Calendar flow working" />
     <MESSAGE value="Fix profile page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix profile page" />
+    <MESSAGE value="Fix login user creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix login user creation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
