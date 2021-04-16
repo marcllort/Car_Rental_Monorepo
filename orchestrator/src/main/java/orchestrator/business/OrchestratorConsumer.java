@@ -6,6 +6,8 @@ import orchestrator.handler.RabbitMQDirectConfig;
 import orchestrator.handler.calendar.RetrieveCalendarHandler;
 import orchestrator.handler.calendar.model.CalendarHandlerRequest;
 import orchestrator.handler.calendar.model.CalendarHandlerResponse;
+import orchestrator.handler.email.RetrieveEmailHandler;
+import orchestrator.handler.email.model.EmailHandlerRequest;
 import orchestrator.model.FreeDriversResponse;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class OrchestratorConsumer {
 
     @Autowired
     private RetrieveCalendarHandler calendarHandler;
+
+    @Autowired
+    private RetrieveEmailHandler emailHandler;
 
     @Autowired
     private PriceCalculator priceCalculator;
@@ -35,12 +40,15 @@ public class OrchestratorConsumer {
 
         switch (request.getFlow()) {
             case "newService":
-                updateFreeDrivers(request);
+                FreeDriversResponse freeDriversResponse = updateFreeDrivers(request);
                 updatePrice(request);
                 response = (CalendarHandlerResponse) calendarHandler.handle(request);
+
+                emailHandler.handle(generateEmailServiceRequest(request, freeDriversResponse));
                 break;
             case "confirmService":
                 response = (CalendarHandlerResponse) calendarHandler.handle(request);
+                emailHandler.handle(generateEmailConfirmServiceRequest(request));
                 break;
             case "modifyService":
                 updatePrice(request);
@@ -58,15 +66,44 @@ public class OrchestratorConsumer {
         return response.getText();
     }
 
-    private void updateFreeDrivers(CalendarHandlerRequest request) throws JsonProcessingException {
+    private EmailHandlerRequest generateEmailServiceRequest(CalendarHandlerRequest request, FreeDriversResponse freeDriversResponse) {
+        EmailHandlerRequest handlerRequest = new EmailHandlerRequest();
+        handlerRequest.setFlow("serviceRequest");
+        handlerRequest.setCompany("Pressicar");
+        handlerRequest.setUserId(request.getUserId());
+        if (freeDriversResponse.getDriversNames() != null) {
+            handlerRequest.setDrivers(freeDriversResponse.getDriversNames().toString());
+        } else {
+            handlerRequest.setDrivers("No driver suggestions available");
+        }
+        handlerRequest.setPrice(String.valueOf(request.getService().getBasePrice()));
+        handlerRequest.setService(request.getService());
+        return handlerRequest;
+    }
+
+    private EmailHandlerRequest generateEmailConfirmServiceRequest(CalendarHandlerRequest request) {
+        EmailHandlerRequest handlerRequest = new EmailHandlerRequest();
+        handlerRequest.setFlow("serviceConfirmed");
+        handlerRequest.setCompany("Pressicar");
+        handlerRequest.setUserId(request.getUserId());
+        handlerRequest.setPrice(String.valueOf(request.getService().getBasePrice()));
+        handlerRequest.setService(request.getService());
+        return handlerRequest;
+    }
+
+    private FreeDriversResponse updateFreeDrivers(CalendarHandlerRequest request) throws JsonProcessingException {
         CalendarHandlerRequest freeDriversRequest = new CalendarHandlerRequest();
+        request.setUserId("YOPKsz7f1ITbC1V8WES81CTf12H3");
         freeDriversRequest.setService(request.getService());
         freeDriversRequest.setUserId(request.getUserId());
         CalendarHandlerResponse freeDrivers = null;
         freeDriversRequest.setFlow("freeDrivers");
         freeDrivers = (CalendarHandlerResponse) calendarHandler.handle(freeDriversRequest);
-        FreeDriversResponse freeDriversResponse = mapper.readValue(freeDrivers.getText(), FreeDriversResponse.class);
-        request.getService().setDriverId(freeDriversResponse.getDriversIds().get(0));
+        if (freeDrivers == null) {
+            FreeDriversResponse freeDriversResponse = mapper.readValue(freeDrivers.getText(), FreeDriversResponse.class);
+            request.getService().setDriverId(freeDriversResponse.getDriversIds().get(0));
+        }
+        return new FreeDriversResponse();
     }
 
     private void updatePrice(CalendarHandlerRequest request) throws IOException {

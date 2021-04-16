@@ -9,5 +9,6 @@ public class CalendarHandlerRequest extends HandlerRequest {
 
     private String Flow;
     private Service Service;
+    private Client Client;
 
 }

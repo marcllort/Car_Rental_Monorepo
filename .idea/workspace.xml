@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/model/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/model/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/index_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/index_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/login_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/login_script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/PublicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/handler/calendar/model/CalendarHandlerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/handler/calendar/model/CalendarHandlerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Model/CalendarRequest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/model/CalendarHandlerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/model/CalendarHandlerRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +29,9 @@
         <option value="Interface" />
         <option value="Go Application" />
         <option value="Kotlin Class" />
-        <option value="Class" />
         <option value="HTML File" />
         <option value="Go File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -73,7 +79,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/k8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pressicat-frontend" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -102,20 +108,19 @@
       <recent name="apiservice.car.handler.calendar" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="orchestrator.handler.calendar.model" />
       <recent name="apiservice.car.controller.handler.legal" />
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Calendar">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.Email">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -258,6 +263,8 @@
       <workItem from="1617636383757" duration="6224000" />
       <workItem from="1617954050629" duration="14291000" />
       <workItem from="1617982952403" duration="28366000" />
+      <workItem from="1618162572487" duration="72000" />
+      <workItem from="1618559799977" duration="8783000" />
     </task>
     <task id="LOCAL-00082" summary="Updated readme and postman">
       <created>1612699038346</created>
@@ -656,10 +663,15 @@
           <line>29</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+        <line-breakpoint type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go</url>
           <line>111</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/PublicController.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

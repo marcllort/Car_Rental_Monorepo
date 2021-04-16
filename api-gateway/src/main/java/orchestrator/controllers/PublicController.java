@@ -1,10 +1,14 @@
 package orchestrator.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.firebase.auth.FirebaseAuthException;
+import okhttp3.RequestBody;
 import okhttp3.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import orchestrator.handler.calendar.RetrieveCalendarHandler;
+import orchestrator.handler.calendar.model.CalendarHandlerRequest;
+import orchestrator.handler.calendar.model.CalendarHandlerResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -12,9 +16,24 @@ import java.io.IOException;
 @RequestMapping("public")
 public class PublicController {
 
+    @Autowired
+    private RetrieveCalendarHandler calendarHandler;
+
     @GetMapping("data")
     public String getPublicData() {
         return "You have accessed public data from spring boot";
+    }
+
+    @PostMapping("calendar")
+    public String getProtectedCalendar(@org.springframework.web.bind.annotation.RequestBody CalendarHandlerRequest request)
+            throws JsonProcessingException, FirebaseAuthException {
+        if (request.getFlow().equals("newService")) {
+            CalendarHandlerResponse response = (CalendarHandlerResponse) calendarHandler.handle(request);
+
+            return response.getText();
+        } else {
+            return "Not allowed. You must log in.";
+        }
     }
 
     @GetMapping("covid")

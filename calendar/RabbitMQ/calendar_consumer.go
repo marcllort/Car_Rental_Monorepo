@@ -19,22 +19,25 @@ func Consume(body string, db *gorm.DB) string {
 	var request Model.CalendarRequest
 	json.Unmarshal([]byte(body), &request)
 
-	calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
-
 	switch request.Flow {
 	case "eventsMonth":
+		calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
 		response = getEventsMonth(calendarClient, request, excludeEmails)
 	case "eventById":
 		response = getEventById(db, request)
 	case "freeDrivers":
+		calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
 		response = getFreeDrivers(db, calendarClient, request, excludeEmails)
 	case "newService":
 		response = createNewServiceDB(db, request)
 	case "confirmService":
+		calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
 		response = confirmService(db, calendarClient, request)
 	case "driverSetup":
+		calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
 		response = setupDrivers(db, calendarClient, excludeEmails)
 	case "modifyService":
+		calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
 		response = modifyService(db, calendarClient, request, excludeEmails)
 	case "summary":
 		response = summary(db)
@@ -108,6 +111,8 @@ func modifyService(db *gorm.DB, calendarClient *calendar.Service, request Model.
 
 func createNewServiceDB(db *gorm.DB, request Model.CalendarRequest) string {
 	fmt.Print("newService")
+	id := Database.CreateClientUser(db, request.Client)
+	request.Service.ClientId = id
 	Database.CreateService(db, request.Service)
 
 	return "Service created successfully!"
