@@ -59,22 +59,37 @@ public class Cronjob {
     }
 
     private boolean isRoutePaper(CalendarEvent event) {
-        if (event.getOriginalStartTime() == null) {
+        if (event.getOriginalStartTime() == null && event.getStart().dateTime == null) {
             return false;
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate date = LocalDate.parse(event.getOriginalStartTime().getDate(), formatter);
+        LocalDate date;
+        if (event.getOriginalStartTime() == null) {
+            String[] parts = event.getStart().dateTime.split("\\+");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+            date = LocalDate.parse(parts[0], formatter);
+        } else {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            date = LocalDate.parse(event.getOriginalStartTime().getDate(), formatter);
+        }
         ZonedDateTime startTime = date.atStartOfDay(ZoneId.systemDefault());
 
         return startTime.isBefore(ZonedDateTime.now()) && startTime.isAfter(ZonedDateTime.now().minusDays(1)) && event.summary.contains("[");
     }
 
     private boolean isInvoice(CalendarEvent event) {
-        if (event.getOriginalStartTime() == null) {
+        if (event.getOriginalStartTime() == null && event.getStart().dateTime == null) {
             return false;
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate date = LocalDate.parse(event.getOriginalStartTime().getDate(), formatter);
+        LocalDate date;
+        if (event.getOriginalStartTime() == null) {
+            String[] parts = event.getStart().dateTime.split("\\+");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+            date = LocalDate.parse(parts[0], formatter);
+        } else {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            date = LocalDate.parse(event.getOriginalStartTime().getDate(), formatter);
+        }
+
         ZonedDateTime startTime = date.atStartOfDay(ZoneId.systemDefault());
 
         return startTime.isBefore(ZonedDateTime.now().plusDays(1)) && startTime.isAfter(ZonedDateTime.now()) && event.summary.contains("[");
@@ -119,17 +134,17 @@ public class Cronjob {
         //retrieve service by id found in the event summary
         CalendarHandlerResponse calendarResponse = (CalendarHandlerResponse) calendarHandler.handle(calendarRequest);
         String json = calendarResponse.getText();
-        orchestrator.model.Service service = objectMapper.readValue(json, orchestrator.model.Service.class);
+        orchestrator.model.ServiceCaps service = objectMapper.readValue(json, orchestrator.model.ServiceCaps.class);
 
 
         //send event to legal (which will send it to email)
         EmailHandlerRequest emailRequest = (EmailHandlerRequest) generateMockLegalRequest();
         emailRequest.setFlow("serviceInvoice");
         emailRequest.getService().setServiceId(eventId);
-        emailRequest.setCompany("test");  // TODO: Parametrize
+        emailRequest.setCompany("Pressicar");  // TODO: Parametrize
         float price = service.getBasePrice() + service.getExtraPrice();
         emailRequest.setPrice(String.valueOf(price));
-        emailRequest.setDrivers("testdriver"); // TODO: Parametrize
+        emailRequest.setDrivers("Company driver"); // TODO: Parametrize
         EmailHandlerResponse emailResponse = (EmailHandlerResponse) emailHandler.handle(emailRequest);
 
     }

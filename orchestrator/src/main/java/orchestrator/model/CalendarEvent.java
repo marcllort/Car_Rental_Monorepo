@@ -166,6 +166,8 @@ public class CalendarEvent {
 
         @JsonProperty("date")
         public String date;
+        @JsonProperty("dateTime")
+        public String dateTime;
 
     }
 }

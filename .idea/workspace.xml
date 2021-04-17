@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/ServiceCaps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/admin_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/admin_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/calendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/CalendarEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/CalendarEvent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,12 +102,13 @@
       <recent name="apiservice.car.handler.calendar" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="orchestrator.model" />
       <recent name="orchestrator.handler.calendar.model" />
       <recent name="apiservice.car.controller.handler.legal" />
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Calendar">
+  <component name="RunManager" selected="Spring Boot.Orchestrator">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -261,14 +259,7 @@
       <workItem from="1617954050629" duration="14291000" />
       <workItem from="1617982952403" duration="28366000" />
       <workItem from="1618162572487" duration="72000" />
-      <workItem from="1618559799977" duration="22837000" />
-    </task>
-    <task id="LOCAL-00086" summary="Change firebase login for Google login">
-      <created>1613126117508</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1613126117509</updated>
+      <workItem from="1618559799977" duration="25669000" />
     </task>
     <task id="LOCAL-00087" summary="UID dependant calendar code">
       <created>1613127915602</created>
@@ -606,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618681918538</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="UI Improvements admin">
+      <created>1618683006801</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1618683006801</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,7 +612,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Send email logic" />
     <MESSAGE value="Send email working 3 flows" />
     <MESSAGE value="Email k8s configuration and readme update" />
     <MESSAGE value="Legal MS logic" />
@@ -639,7 +636,8 @@
     <MESSAGE value="Fix kuberentes" />
     <MESSAGE value="Google Calendar event creation and improve template" />
     <MESSAGE value="Calendar ID fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calendar ID fix" />
+    <MESSAGE value="UI Improvements admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI Improvements admin" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -669,6 +667,11 @@
           <url>file://$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/PublicController.java</url>
           <line>55</line>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
