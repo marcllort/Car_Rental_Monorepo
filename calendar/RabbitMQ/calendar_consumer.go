@@ -66,14 +66,14 @@ func setupDrivers(db *gorm.DB, calendarClient *calendar.Service, excludeEmails [
 func confirmService(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest) string {
 	fmt.Print("confirmService")
 
-	createCalendarEvent(db, calendarClient, request)
+	//createCalendarEvent(db, calendarClient, request)
 
 	Database.UpdateConfirmedTime(db, request.Service)
 
 	return "Service with confirmed successfully!"
 }
 
-func createCalendarEvent(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest) {
+func createCalendarEvent(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest, id int) {
 	var summary string
 	driver := Database.GetDriver(db, request.Service.DriverId)
 	startTime := request.Service.ServiceDatetime
@@ -84,8 +84,8 @@ func createCalendarEvent(db *gorm.DB, calendarClient *calendar.Service, request 
 		summary = driver.Email
 	}
 
-	id := strconv.Itoa(request.Service.ServiceId)
-	summary = "[" + id + "]" + summary + ": " + request.Service.Origin + " - " + request.Service.Destination
+	idString := strconv.Itoa(id)
+	summary = "[" + idString + "]" + summary + ": " + request.Service.Origin + " - " + request.Service.Destination
 	request.Service.CalendarEvent = CalendarAPI.CreateCalendarEvent(calendarClient, summary, request.Service.Origin, request.Service.Description, driver.Email, startTime, duration)
 }
 
@@ -118,8 +118,9 @@ func createNewServiceDB(db *gorm.DB, calendarClient *calendar.Service, request M
 	fmt.Print("newService")
 	id := Database.CreateClientUser(db, request.Client)
 	request.Service.ClientId = id
-	Database.CreateService(db, request.Service)
-	createCalendarEvent(db, calendarClient, request)
+	idService := Database.CreateService(db, request.Service)
+
+	createCalendarEvent(db, calendarClient, request, idService)
 
 	return "Service created successfully!"
 }

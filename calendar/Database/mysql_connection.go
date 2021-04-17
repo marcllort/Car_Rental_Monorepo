@@ -154,14 +154,16 @@ func GetFreeDrivers(db *gorm.DB, startTimeString string, endTimeString string) [
 	return drivers
 }
 
-func CreateService(db *gorm.DB, service Model.Service) Model.Service {
+func CreateService(db *gorm.DB, service Model.Service) int {
 	result := db.Table("Service").Omit("service_id", "confirmed_datetime").Create(&service)
 
 	if result.Error != nil {
 		panic(result.Error)
 	}
+	var created Model.Service
 
-	return service
+	db.Table("Service").Last(&created)
+	return created.ServiceId
 }
 
 func CreateDriverFromList(db *gorm.DB, emails []string) {

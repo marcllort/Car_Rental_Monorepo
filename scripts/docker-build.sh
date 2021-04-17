@@ -42,6 +42,29 @@ payment)
   popd
   ;;
 
+all)
+  pushd ../api-gateway
+  docker build -t marcllort/car-rental-apigw .
+  docker push marcllort/car-rental-apigw
+  popd
+  pushd ../orchestrator
+  docker build -t marcllort/car-rental-orchestrator .
+  docker push marcllort/car-rental-orchestrator
+  popd
+  pushd ../legal
+  docker build -t marcllort/car-rental-legal .
+  docker push marcllort/car-rental-legal
+  popd
+  pushd ../calendar
+  docker build -t marcllort/car-rental-calendar .
+  docker push marcllort/car-rental-calendar
+  popd
+  pushd ../email
+  docker build -t marcllort/car-rental-email .
+  docker push marcllort/car-rental-email
+  popd
+  ;;
+
 *)
   echo "Error, non-existing option"
   ;;
