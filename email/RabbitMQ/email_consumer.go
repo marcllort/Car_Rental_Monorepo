@@ -278,8 +278,8 @@ func SendCalendarInvoiceEmail(user string, password string, url string, request 
 		CompanyName:     request.Company,
 		ServiceDatetime: request.Service.ServiceDatetime.Format("2006-01-02 15:04:05"),
 		ServiceName:     request.Service.Origin + " - " + request.Service.Destination,
-		ServicePrice:    "price test",
-		TotalPrice:      "total price test",
+		ServicePrice:    request.Price,
+		TotalPrice:      request.Price,
 		ExtraServices:   "<tr>\n                    <td>{{.ServiceName}}</td>\n                    <td>{{.ServicePrice}}</td>\n                </tr>",
 	})
 

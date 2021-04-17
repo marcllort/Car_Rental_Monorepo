@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-kubernetes.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Template/calendar-invoice-template.html" beforeDir="false" afterPath="$PROJECT_DIR$/email/Template/calendar-invoice-template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Template/calendar-request-template.html" beforeDir="false" afterPath="$PROJECT_DIR$/email/Template/calendar-request-template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Template/images/Logo_Octopus.png" beforeDir="false" afterPath="$PROJECT_DIR$/email/Template/images/Logo_Octopus.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,11 +94,11 @@
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar\Creds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template\images" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Model" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\assets" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway\creds" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="apiservice.car.handler.calendar" />
@@ -256,14 +260,7 @@
       <workItem from="1617954050629" duration="14291000" />
       <workItem from="1617982952403" duration="28366000" />
       <workItem from="1618162572487" duration="72000" />
-      <workItem from="1618559799977" duration="13723000" />
-    </task>
-    <task id="LOCAL-00083" summary="Calendar retrieval endpoint">
-      <created>1612722312076</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1612722312076</updated>
+      <workItem from="1618559799977" duration="17942000" />
     </task>
     <task id="LOCAL-00084" summary="Calendar retrieval endpoint">
       <created>1612723992228</created>
@@ -601,7 +598,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618570640314</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="Fix kuberentes">
+      <created>1618658250386</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1618658250386</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,7 +613,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Update service flow working" />
     <MESSAGE value="Improved confirmService flow" />
     <MESSAGE value="Updated Calendar readme" />
     <MESSAGE value="Send email logic" />
@@ -634,7 +637,8 @@
     <MESSAGE value="Fix profile page" />
     <MESSAGE value="Fix login user creation" />
     <MESSAGE value="New event flow fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="New event flow fix" />
+    <MESSAGE value="Fix kuberentes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix kuberentes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
