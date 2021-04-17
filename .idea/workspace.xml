@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/docker-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/docker-build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/admin_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/admin_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/calendar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,14 +261,7 @@
       <workItem from="1617954050629" duration="14291000" />
       <workItem from="1617982952403" duration="28366000" />
       <workItem from="1618162572487" duration="72000" />
-      <workItem from="1618559799977" duration="21843000" />
-    </task>
-    <task id="LOCAL-00085" summary="Calendar retrieval endpoint">
-      <created>1612724835280</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1612724835280</updated>
+      <workItem from="1618559799977" duration="22837000" />
     </task>
     <task id="LOCAL-00086" summary="Change firebase login for Google login">
       <created>1613126117508</created>
@@ -603,7 +599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618673153883</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Calendar ID fix">
+      <created>1618681918538</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1618681918538</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +614,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Updated Calendar readme" />
     <MESSAGE value="Send email logic" />
     <MESSAGE value="Send email working 3 flows" />
     <MESSAGE value="Email k8s configuration and readme update" />
@@ -636,7 +638,8 @@
     <MESSAGE value="New event flow fix" />
     <MESSAGE value="Fix kuberentes" />
     <MESSAGE value="Google Calendar event creation and improve template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Google Calendar event creation and improve template" />
+    <MESSAGE value="Calendar ID fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calendar ID fix" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
