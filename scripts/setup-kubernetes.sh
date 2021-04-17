@@ -26,6 +26,7 @@ kubectl create secret generic secret-db --from-literal="SECRET_DB=$1"
 kubectl create secret generic secret-google-api --from-literal="google.client.client-secret=$2"
 kubectl create secret generic secret-email-creds --from-literal="futbolsupplier=$3"
 kubectl create secret generic secret-here-api --from-literal="HERE_API_KEY=$4"
+kubectl create secret generic secret-email-creds --from-literal="EMAIL_PASS=$5"
 
 # Apply all kubernetes configurations
 kubectl apply -f ../k8
