@@ -11,6 +11,7 @@ import orchestrator.handler.email.RetrieveEmailHandler;
 import orchestrator.handler.email.model.EmailHandlerRequest;
 import orchestrator.handler.email.model.EmailHandlerResponse;
 import orchestrator.model.CalendarEvent;
+import orchestrator.model.ServiceCaps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -41,9 +42,6 @@ public class Cronjob {
         CalendarHandlerRequest request = (CalendarHandlerRequest) generateMockCalendarRequest();
         CalendarHandlerResponse response = (CalendarHandlerResponse) calendarHandler.handle(request);
 
-        //CalendarEvent event2 = new CalendarEvent();
-        //event2.setSummary("[1]");
-        //invoiceFlow(event2);
         List<CalendarEvent> listEvents = objectMapper.readValue(response.getText(), new TypeReference<List<CalendarEvent>>() {
         });
 
@@ -112,15 +110,34 @@ public class Cronjob {
 
         //retrieve service by id found in the event summary
         CalendarHandlerResponse calendarResponse = (CalendarHandlerResponse) calendarHandler.handle(calendarRequest);
-        orchestrator.model.Service service = objectMapper.readValue(calendarResponse.getText(), orchestrator.model.Service.class);
+        orchestrator.model.ServiceCaps service = objectMapper.readValue(calendarResponse.getText(), orchestrator.model.ServiceCaps.class);
 
 
         //send event to legal (which will send it to email)
         EmailHandlerRequest emailRequest = (EmailHandlerRequest) generateMockLegalRequest();
         emailRequest.setFlow("serviceRoutePaper");
-        emailRequest.setService(service);
+        emailRequest.setService(mapService(service));
         EmailHandlerResponse emailResponse = (EmailHandlerResponse) emailHandler.handle(emailRequest);
 
+    }
+
+    orchestrator.model.Service mapService(ServiceCaps caps) {
+        orchestrator.model.Service service = new orchestrator.model.Service();
+        service.setServiceId(caps.getServiceId());
+        service.setServiceDatetime(caps.getServiceDatetime());
+        service.setDriverId(caps.getDriverId());
+        service.setCalendarEvent(caps.getCalendarEvent());
+        service.setClientId(caps.getClientId());
+        service.setDescription(caps.getDescription());
+        service.setConfirmedDatetime(caps.getConfirmedDatetime());
+        service.setDestination(caps.getDestination());
+        service.setOrigin(caps.getOrigin());
+        service.setBasePrice(caps.getBasePrice());
+        service.setExtraPrice(caps.getExtraPrice());
+        service.setPassengers(caps.getPassengers());
+        service.setPayedDatetime(caps.getPayedDatetime());
+        service.setSpecialNeeds(caps.getSpecialNeeds());
+        return service;
     }
 
     @Async
