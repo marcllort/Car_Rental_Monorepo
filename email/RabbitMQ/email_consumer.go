@@ -195,10 +195,7 @@ func SendCalendarRoutePaperEmail(user string, password string, url string, reque
 	var body bytes.Buffer
 	driver := Database.GetDriver(db, request.Service.DriverId)
 	client := Database.GetClient(db, request.Service.ClientId)
-	//mimeHeaders := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
-	//body.Write([]byte(fmt.Sprintf("Subject: This is a test subject \n%s\n\n", mimeHeaders)))
 
-	// TODO: review, as it has been copy pasted from the invoice
 	t.Execute(&body, struct {
 		ClientName      string
 		CompanyName     string
@@ -214,26 +211,15 @@ func SendCalendarRoutePaperEmail(user string, password string, url string, reque
 		ServiceName:     request.Service.Origin + " - " + request.Service.Destination,
 		ServicePrice:    "price test",
 		TotalPrice:      "total price test",
-		ExtraServices:   "<tr>\n                    <td>{{.ServiceName}}</td>\n                    <td>{{.ServicePrice}}</td>\n                </tr>",
 	})
 
 	result := body.String()
 
 	m := gomail.NewMessage()
 	m.SetHeader("From", user)
-	m.SetHeader("To", client.Email)
-	m.SetAddressHeader("Cc", driver.Email, request.Company)
-	m.SetHeader("Subject", request.Company+" - Service Invoice")
+	m.SetHeader("To", driver.Email)
+	m.SetHeader("Subject", request.Company+" - Service Route Paper")
 	m.SetBody("text/html", result)
-	m.Embed("email/Template/images/CEO_-_Video_Conference.png")
-	m.Embed("email/Template/images/facebook2x.png")
-	m.Embed("email/Template/images/googleplus2x.png")
-	m.Embed("email/Template/images/instagram2x.png")
-	m.Embed("email/Template/images/Location_-_P.png")
-	m.Embed("email/Template/images/Logo_Octopus.png")
-	m.Embed("email/Template/images/Time-p.png")
-	m.Embed("email/Template/images/twitter2x.png")
-	m.Embed("email/Template/images/User_-_p.png")
 	m.Attach("email/file.pdf")
 
 	d := gomail.NewDialer("smtp.gmail.com", 587, user, password)
@@ -253,17 +239,15 @@ func SendCalendarInvoiceEmail(user string, password string, url string, request 
 
 	request.Flow = "invoice"
 
-	err := DownloadFile("email/file.pdf", url, request)
+	//err := DownloadFile("email/file.pdf", url, request)
 
-	if err != nil {
-		panic(err)
-	}
+	//if err != nil {
+	//	panic(err)
+	//}
 
 	var body bytes.Buffer
 	driver := Database.GetDriver(db, request.Service.DriverId)
 	client := Database.GetClient(db, request.Service.ClientId)
-	//mimeHeaders := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
-	//body.Write([]byte(fmt.Sprintf("Subject: This is a test subject \n%s\n\n", mimeHeaders)))
 
 	t.Execute(&body, struct {
 		ClientName      string
@@ -280,7 +264,6 @@ func SendCalendarInvoiceEmail(user string, password string, url string, request 
 		ServiceName:     request.Service.Origin + " - " + request.Service.Destination,
 		ServicePrice:    request.Price,
 		TotalPrice:      request.Price,
-		ExtraServices:   "<tr>\n                    <td>{{.ServiceName}}</td>\n                    <td>{{.ServicePrice}}</td>\n                </tr>",
 	})
 
 	result := body.String()
@@ -291,20 +274,11 @@ func SendCalendarInvoiceEmail(user string, password string, url string, request 
 	m.SetAddressHeader("Cc", driver.Email, request.Company)
 	m.SetHeader("Subject", request.Company+" - Service Invoice")
 	m.SetBody("text/html", result)
-	m.Embed("email/Template/images/CEO_-_Video_Conference.png")
-	m.Embed("email/Template/images/facebook2x.png")
-	m.Embed("email/Template/images/googleplus2x.png")
-	m.Embed("email/Template/images/instagram2x.png")
-	m.Embed("email/Template/images/Location_-_P.png")
-	m.Embed("email/Template/images/Logo_Octopus.png")
-	m.Embed("email/Template/images/Time-p.png")
-	m.Embed("email/Template/images/twitter2x.png")
-	m.Embed("email/Template/images/User_-_p.png")
-	m.Attach("email/file.pdf")
+
+	//m.Attach("email/file.pdf")
 
 	d := gomail.NewDialer("smtp.gmail.com", 587, user, password)
 
-	// Send the email to Bob, Cora and Dan.
 	if err := d.DialAndSend(m); err != nil {
 		panic(err)
 	}

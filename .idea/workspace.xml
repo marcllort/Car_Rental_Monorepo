@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/RouteGenerator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/InvoiceGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/InvoiceGenerator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/RoutePaperGenerator.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +111,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Orchestrator">
+  <component name="RunManager" selected="Go Build.Email">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -257,14 +262,7 @@
       <workItem from="1617954050629" duration="14291000" />
       <workItem from="1617982952403" duration="28366000" />
       <workItem from="1618162572487" duration="72000" />
-      <workItem from="1618559799977" duration="28294000" />
-    </task>
-    <task id="LOCAL-00088" summary="Security improvement">
-      <created>1613132394693</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1613132394693</updated>
+      <workItem from="1618559799977" duration="31784000" />
     </task>
     <task id="LOCAL-00089" summary="Access token received dinamically">
       <created>1613159434150</created>
@@ -602,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618686613052</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="Orchestrator flow fix">
+      <created>1618738333846</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1618738333846</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,7 +615,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Email k8s configuration and readme update" />
     <MESSAGE value="Legal MS logic" />
     <MESSAGE value="Implemented rest api for legal microservice" />
     <MESSAGE value="Calendar sends attached files" />
@@ -635,7 +639,8 @@
     <MESSAGE value="Calendar ID fix" />
     <MESSAGE value="UI Improvements admin" />
     <MESSAGE value="Fix orchestrator mapping" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix orchestrator mapping" />
+    <MESSAGE value="Orchestrator flow fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Orchestrator flow fix" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -660,6 +665,11 @@
           <url>file://$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go</url>
           <line>111</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/email/RabbitMQ/email_consumer.go</url>
+          <line>251</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/PublicController.java</url>

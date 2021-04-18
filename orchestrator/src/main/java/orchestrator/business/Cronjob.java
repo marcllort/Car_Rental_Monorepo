@@ -116,6 +116,10 @@ public class Cronjob {
         //send event to legal (which will send it to email)
         EmailHandlerRequest emailRequest = (EmailHandlerRequest) generateMockLegalRequest();
         emailRequest.setFlow("serviceRoutePaper");
+        emailRequest.setCompany("Pressicar");
+        float price = service.getBasePrice() + service.getExtraPrice();
+        emailRequest.setPrice(String.valueOf(price));
+        emailRequest.setDrivers("Company driver");
         emailRequest.setService(mapService(service));
         EmailHandlerResponse emailResponse = (EmailHandlerResponse) emailHandler.handle(emailRequest);
 
@@ -158,10 +162,11 @@ public class Cronjob {
         EmailHandlerRequest emailRequest = (EmailHandlerRequest) generateMockLegalRequest();
         emailRequest.setFlow("serviceInvoice");
         emailRequest.getService().setServiceId(eventId);
-        emailRequest.setCompany("Pressicar");  // TODO: Parametrize
+        emailRequest.setCompany("Pressicar");
+        emailRequest.setService(mapService(service));
         float price = service.getBasePrice() + service.getExtraPrice();
         emailRequest.setPrice(String.valueOf(price));
-        emailRequest.setDrivers("Company driver"); // TODO: Parametrize
+        emailRequest.setDrivers("Company driver");
         EmailHandlerResponse emailResponse = (EmailHandlerResponse) emailHandler.handle(emailRequest);
 
     }

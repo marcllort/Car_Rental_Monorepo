@@ -1,7 +1,7 @@
 package com.car.rental.legal.rest
 
 import com.car.rental.legal.generator.InvoiceGenerator
-import com.car.rental.legal.generator.RoutePaperGenerator
+import com.car.rental.legal.generator.RouteGenerator
 import com.car.rental.legal.model.LegalRequest
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.io.InputStreamResource
@@ -21,7 +21,7 @@ class PdfRestAPI {
     @GetMapping("/pdf")
     fun customerReport(
         @Autowired invoiceGenerator: InvoiceGenerator,
-        @Autowired routeGenerator: RoutePaperGenerator,
+        @Autowired routeGenerator: RouteGenerator,
         @RequestBody request: LegalRequest
     ): ResponseEntity<InputStreamResource> {
 
