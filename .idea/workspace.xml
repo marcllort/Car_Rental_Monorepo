@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/RouteGenerator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/InvoiceGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/InvoiceGenerator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/generator/RoutePaperGenerator.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,14 +257,7 @@
       <workItem from="1617954050629" duration="14291000" />
       <workItem from="1617982952403" duration="28366000" />
       <workItem from="1618162572487" duration="72000" />
-      <workItem from="1618559799977" duration="31784000" />
-    </task>
-    <task id="LOCAL-00089" summary="Access token received dinamically">
-      <created>1613159434150</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1613159434150</updated>
+      <workItem from="1618559799977" duration="35688000" />
     </task>
     <task id="LOCAL-00090" summary="Calendar Token refresh working">
       <created>1613208697683</created>
@@ -607,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618738333846</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="Fix emails">
+      <created>1618742110676</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1618742110676</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +610,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Legal MS logic" />
     <MESSAGE value="Implemented rest api for legal microservice" />
     <MESSAGE value="Calendar sends attached files" />
     <MESSAGE value="Fix requests" />
@@ -640,7 +634,8 @@
     <MESSAGE value="UI Improvements admin" />
     <MESSAGE value="Fix orchestrator mapping" />
     <MESSAGE value="Orchestrator flow fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Orchestrator flow fix" />
+    <MESSAGE value="Fix emails" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix emails" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

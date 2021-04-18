@@ -181,22 +181,27 @@ func CreateDriverFromList(db *gorm.DB, emails []string) {
 
 func createDriverUser(db *gorm.DB, driver Model.DriverUser) int {
 	result := db.Table("DriverUser").Omit("user_id").Create(&driver)
+	var created Model.DriverUser
+	db.Table("DriverUser").Last(&created)
 
 	if result.Error != nil {
 		panic(result.Error)
 	}
 
-	return driver.UserId
+	return created.UserId
 }
 
 func CreateClientUser(db *gorm.DB, client Model.ClientUser) int {
 	result := db.Table("ClientUser").Omit("user_id").Create(&client)
 
+	var created Model.ClientUser
+	db.Table("ClientUser").Last(&created)
+
 	if result.Error != nil {
 		panic(result.Error)
 	}
 
-	return client.UserId
+	return created.UserId
 }
 
 func UpdateService(db *gorm.DB, service Model.Service) Model.Service {
