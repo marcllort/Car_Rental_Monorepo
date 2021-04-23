@@ -1,0 +1,56 @@
+# Continuous Integration
+name: CI
+
+# Only will run when there is a commit or a pull request in the master branch (to be changed)
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Installs NPM
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+          collectionID: 10954437-8cb0d465-dff6-4319-a607-caad24998335
+          environmentID: 98798-a974f882-8ecg0-4c80-9901-a583778393987a
+
+        # Go environment check out (not needed for now till tests run)
+      - name: Setup Go environment
+        uses: actions/setup-go@v2.1.1
+
+        # Build of Api-gw
+      - name: Building API-GW binary
+        run: |
+          cd api-gateway
+          mvn clean package
+        # Build calendar
+      - name: Building Calendar binary
+        run: |
+          cd calendar
+          go build -o calendar
+        # Build of email
+      - name: Building Email binary
+        run: |
+          cd email
+          go build -o email
+        # Build legal
+      - name: Building Legal binary
+        run: |
+          cd legal
+          mvn clean package
+        # Build orchestrator
+      - name: Building Orchestrator binary
+        run: |
+          cd orchestrator
+          mvn clean package
