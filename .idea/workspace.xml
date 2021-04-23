@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/k8/ingress-service_gke.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,18 +106,7 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Email">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Database Script.test_data.sql">
     <configuration name="test_data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/database/test_data.sql" />
       <script-mode>FILE</script-mode>
@@ -190,8 +179,6 @@
       <item itemvalue="Docker.api-gateway/Dockerfile" />
       <item itemvalue="Docker.calendar/Dockerfile" />
       <item itemvalue="Docker.legal/Dockerfile" />
-      <item itemvalue="Go Build.Calendar" />
-      <item itemvalue="Go Build.Email" />
       <item itemvalue="HTTP Request.generated-requests#7" />
       <item itemvalue="Spring Boot.API-Gateway" />
       <item itemvalue="Spring Boot.Legal" />
@@ -257,14 +244,7 @@
       <workItem from="1617954050629" duration="14291000" />
       <workItem from="1617982952403" duration="28366000" />
       <workItem from="1618162572487" duration="72000" />
-      <workItem from="1618559799977" duration="35688000" />
-    </task>
-    <task id="LOCAL-00090" summary="Calendar Token refresh working">
-      <created>1613208697683</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1613208697683</updated>
+      <workItem from="1618559799977" duration="37167000" />
     </task>
     <task id="LOCAL-00091" summary="Code cleanup">
       <created>1613210414619</created>
@@ -602,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618742110676</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="Fix calendar client creation">
+      <created>1618762365561</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1618762365561</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,7 +597,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Implemented rest api for legal microservice" />
     <MESSAGE value="Calendar sends attached files" />
     <MESSAGE value="Fix requests" />
     <MESSAGE value="Legal service kubernetes implementation" />
@@ -635,7 +621,8 @@
     <MESSAGE value="Fix orchestrator mapping" />
     <MESSAGE value="Orchestrator flow fix" />
     <MESSAGE value="Fix emails" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix emails" />
+    <MESSAGE value="Fix calendar client creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix calendar client creation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
