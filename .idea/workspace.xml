@@ -5,69 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/.github/workflows/cd.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/.github/workflows/ci.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/.idea/CanITravelTo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Controller/get_handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Controller/options_handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Controller/post_handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Controller/response_handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Database/mysql_connection.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Middleware/auth.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Middleware/white_list.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Model/APIRequest.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Model/Covid.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Model/InfoCountry.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Tests/Controller/handler_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Tests/Creds/creds.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Tests/Utils/credentials_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/Utils/credentials.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/BusinessHandler/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Controller/covid_controller.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Controller/database_handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Database/mysql_connection.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Database/travel_Covid.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Database/travel_Passport.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Model/Covid.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Model/InfoCountry.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Tests/covid_controller_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/Utils/credentials.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/DataRetriever/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Assets/Anotación 2020-09-01 105100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Assets/backend-response-time.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Assets/binary-response-time.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Assets/ci-cd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Assets/docker-response-time.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Assets/github-projects.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Assets/postmanExample.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Assets/webExample.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Deprecated/readme_deprecated.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Deprecated/update.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Deprecated/updateServer.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Postman/CanITravelToGlobal.postman_collection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Postman/CanITravelToLocal.postman_collection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Ubuntu/FileStructure.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/Ubuntu/update.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/Documentation/usefulCommands.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/docker-compose-local.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/docker-compose.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/oauth_flow.png" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/assets/oauth_flow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/service_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/service_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/service_view.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/service_view.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/test_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/test_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/travel_Covid.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/travel_Passport.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/user_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/user_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/email/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legal/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/legal/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +86,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/k8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Go/bin/src/CanITravelTo" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -152,11 +105,11 @@
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar\Creds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\legal" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\database" />
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\api-gateway" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template\images" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Model" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\assets" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="apiservice.car.handler.calendar" />
@@ -168,16 +121,21 @@
       <recent name="apiservice.car.handler.email" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager" selected="Database Script.test_data.sql">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -254,6 +212,8 @@
       <item itemvalue="Docker.api-gateway/Dockerfile" />
       <item itemvalue="Docker.calendar/Dockerfile" />
       <item itemvalue="Docker.legal/Dockerfile" />
+      <item itemvalue="Go Build.Calendar" />
+      <item itemvalue="Go Build.Email" />
       <item itemvalue="HTTP Request.generated-requests#7" />
       <item itemvalue="Spring Boot.API-Gateway" />
       <item itemvalue="Spring Boot.Legal" />
@@ -320,14 +280,10 @@
       <workItem from="1617982952403" duration="28366000" />
       <workItem from="1618162572487" duration="72000" />
       <workItem from="1618559799977" duration="37167000" />
-      <workItem from="1619172120371" duration="1839000" />
-    </task>
-    <task id="LOCAL-00092" summary="Delete firestore code field">
-      <created>1613210612417</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1613210612417</updated>
+      <workItem from="1619172120371" duration="3440000" />
+      <workItem from="1619249852381" duration="938000" />
+      <workItem from="1619251592978" duration="3371000" />
+      <workItem from="1619268321328" duration="13075000" />
     </task>
     <task id="LOCAL-00093" summary="Update readme">
       <created>1613212789446</created>
@@ -665,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619172259659</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="Added CI">
+      <created>1619175361499</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1619175361499</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,7 +636,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Calendar sends attached files" />
     <MESSAGE value="Fix requests" />
     <MESSAGE value="Legal service kubernetes implementation" />
     <MESSAGE value="Orchestrator microservice creation" />
@@ -698,7 +660,8 @@
     <MESSAGE value="Orchestrator flow fix" />
     <MESSAGE value="Fix emails" />
     <MESSAGE value="Fix calendar client creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix calendar client creation" />
+    <MESSAGE value="Added CI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added CI" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

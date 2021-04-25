@@ -1,4 +1,4 @@
-RetrieveCalendarProducer# Kubernetes
+# Kubernetes
 
 The kubernetes deployment files can be found in this directory. A declarative approach is being used, as it is the best
 practice. There are some specific configurations depending on where the cluster is being deployed, but that logic is
@@ -21,11 +21,13 @@ installations:
 - apigw-deployment: Retrieves the apigw image, and starts X amounts of replicas, with the proper environment variables.
   The firebase-config JSON is retrieved as a secret.
 - legal-deployment:  Retrieves the legal image, and starts X amounts of replicas, without any environment variables. No
-  need for a service, as it connects to the other services using RabbitMQ.
-- calendar-deployment:  Retrieves the calendar image, and starts X amounts of replicas, without any environment
+  need for a service, as it connects to the other services using a REST endpoint.
+- calendar-deployment:  Retrieves the calendar image, and starts X amounts of replicas, with the proper environment
   variables. No need for a service, as it connects to the other services using RabbitMQ.
-- email-deployment:  Retrieves the email image, and starts X amounts of replicas, without any environment variables. No
-  need for a service, as it connects to the other services using RabbitMQ.
+- email-deployment:  Retrieves the email image, and starts X amounts of replicas, with the proper environment variables.
+  No need for a service, as it connects to the other services using RabbitMQ.
+- orchestrator-deployment:  Retrieves the orchestrator image, and starts X amounts of replicas, with the proper
+  environment variables. No need for a service, as it connects to the other services using RabbitMQ.
 
 ## Services
 

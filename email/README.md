@@ -32,42 +32,6 @@ the requests and publish the responses.
 
 A function can be defined to be run once a message is received, that returns the response to send back.
 
-## Database
-
-To connect to the database an ORM(Object-relational mapping) is used, to facilitate the creation and retrieval of DB
-data. It is called GORM, the most popular ORM for Golang.
-
-```
-func CreateConnection(creds, dbpass string) *gorm.DB {
-
-	dbURL := Utils.ReadCredentials(creds, dbpass)
-
-	db, err := gorm.Open(mysql.Open(dbURL), &gorm.Config{})
-	if err != nil {
-		panic("failed to connect database")
-	}
-	fmt.Println("DB is connected!")
-
-	return db
-}
-```
-
-To connect to the DB, this function is used. The ReadCredentials is generating the URL with user and password, and once
-we have the url, it is just a matter of passing it to the GORM.Open function, to do the connection to the DB.
-
-```
-func GetAllServices(db *gorm.DB) []Model.ServiceView {
-	var services []Model.ServiceView
-
-	db.Table("service_view").Find(&services)
-	printServices(services)
-
-	return services
-}
-```
-
-This is a simple example of how the retrieval of all the Services would be stored in the `services` variable.
-
 ## Firestore
 
 This microservice is the responsible to send the emails to the user. To do so, the credentials of the "sender" are
@@ -125,9 +89,11 @@ Then, to retrieve we must determine the collection that we want to retrieve the 
 
 - SECRET_FIREBASE: A json file that contains the firebase project configuration and secrets to be able to connect to it.
 
-- EMAIL_USER: Email account from which it be sending emails to clients and company administrators.
+- EMAIL_USER: Email account from which it is sending emails to clients and company administrators.
 
 - EMAIL_PASS: Password of the email account.
+
+- LEGAL_URL: URL of the legal microservice, to send the request to create a new document.
 
 ## Flows
 

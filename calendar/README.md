@@ -92,11 +92,12 @@ needed fields are specified in the following section:
 
 ### Get Month Service
 
-- Required data: The request contains the startTime. The endTime is calculated adding 1 month of duration to the
+- **Required data**: The request contains the startTime. The endTime is calculated adding 1 month of duration to the
   startTime.
-- Functionality: Returns the services in the given month. Improvement possible would be to be able to filter per driver.
-- Involved services: Calendar API
-- Response: JSON Array of calendar events
+- **Functionality**: Returns the services in the given month. Improvement possible would be to be able to filter per
+  driver.
+- **Involved services**: Calendar API
+- **Response**: JSON Array of calendar events
 
 ### Create New Service
 
@@ -137,3 +138,18 @@ needed fields are specified in the following section:
   creates a driverUser in the DB.
 - **Involved services**: Database and Calendar API
 - **Response**: Success/Error message
+
+### Get event by Id
+
+- **Required data**: The event Id is needed.
+- **Functionality**: Retrieves the event with the specified ID from your database, with all the information related to
+  it.
+- **Involved services**: Database
+- **Response**: Event information
+
+### Summary
+
+- **Required data**: Company name.
+- **Functionality**: Calculates the amount of money that has been generated per month, and in a year.
+- **Involved services**: Database
+- **Response**: Array of revenue per month, actual month income and annual income.

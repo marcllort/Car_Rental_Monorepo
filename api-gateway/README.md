@@ -11,11 +11,12 @@ It checks if the user is logged in, and has the necessary role/permissions to do
 
 - /public/covid
 - /public/data
+- /public/calendar
 
 - /protected/data
 - /protected/calendar
-- /protected/
-- /protected/
+- /protected/email
+- /protected/legal
 
 - /super/user
 - /super/list-users
@@ -63,11 +64,11 @@ with **Spring Security** to seamlessly create and use protected rest API's.
 - I personally like to define per role annotations like **`@IsSuper`** etc for the sake of simplicity.
 
 ```java
-    @GetMapping("data")
-@isSuper
-public String getProtectedData(){
-        return"You have accessed seller only data from spring boot";
-        }
+  @GetMapping("data")
+  @isSuper
+  public String getProtectedData(){
+    return"You have accessed seller only data from spring boot";
+  }
 ```
 
 ## Environment vars
@@ -75,7 +76,8 @@ public String getProtectedData(){
 - GOOGLE_APPLICATION_CREDENTIALS=api-gateway/scripts/car-rental.json
 - SUPER_ADMINS=mac12llm2@gmail.com
 - CORS_DOMAIN=http://localhost:63343
-- SECRET_HASH=xxxxxxx   (used for the encryption and decryption of the user email password stored in firebase)
+- SECRET_HASH=xxxxxxx (used for the encryption and decryption of the user email password stored in firebase)
+- google.client.client-secret=xxxxxx (GoogleAPI secret)
 
 ## RabbitMQ
 
