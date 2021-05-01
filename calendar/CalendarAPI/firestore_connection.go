@@ -12,6 +12,9 @@ import (
 	"os"
 )
 
+type FirestoreConnection struct {
+}
+
 func ConnectFirestore() *firestore.Client {
 	ctx := context.Background()
 	credsFirestore := os.Getenv("CREDS_FIRESTORE")

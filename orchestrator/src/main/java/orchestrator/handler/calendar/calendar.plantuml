@@ -2,10 +2,10 @@
 
 title __CALENDAR's Class Diagram__\n
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace calendar {
-        class apiservice.car.handler.calendar.RetrieveCalendarHandler {
+        class orchestrator.handler.calendar.RetrieveCalendarHandler {
             - jacksonObjectMapper : ObjectMapper
             + handle()
         }
@@ -14,10 +14,10 @@ title __CALENDAR's Class Diagram__\n
   }
   
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace calendar {
-        class apiservice.car.handler.calendar.RetrieveCalendarProducer {
+        class orchestrator.handler.calendar.RetrieveCalendarProducer {
             - rabbitTemplate : RabbitTemplate
             + produce()
         }
@@ -26,8 +26,8 @@ title __CALENDAR's Class Diagram__\n
   }
   
 
-  apiservice.car.handler.calendar.RetrieveCalendarHandler .up.|> apiservice.car.handler.EndpointHandler
-  apiservice.car.handler.calendar.RetrieveCalendarHandler o-- apiservice.car.handler.calendar.RetrieveCalendarProducer : producer
+  orchestrator.handler.calendar.RetrieveCalendarHandler .up.|> orchestrator.handler.EndpointHandler
+  orchestrator.handler.calendar.RetrieveCalendarHandler o-- orchestrator.handler.calendar.RetrieveCalendarProducer : producer
 
 
 right footer

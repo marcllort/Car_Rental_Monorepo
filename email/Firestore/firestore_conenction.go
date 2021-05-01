@@ -10,6 +10,9 @@ import (
 	"log"
 )
 
+type FirestoreConnection struct {
+}
+
 func GetDocuments(firestore *firestore.Client, ctx context.Context) {
 	iter := firestore.Collection("users").Documents(ctx)
 	for {

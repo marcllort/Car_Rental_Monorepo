@@ -2,18 +2,27 @@
 
 title __MODEL's Class Diagram__\n
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace email {
         namespace model {
-          class apiservice.car.handler.email.model.EmailHandlerRequest {
+          class orchestrator.handler.email.model.EmailHandlerRequest {
+              - Company : String
+              - Drivers : String
               - Flow : String
+              - Price : String
               + EmailHandlerRequest()
               + equals()
+              + getCompany()
+              + getDrivers()
               + getFlow()
+              + getPrice()
               + getService()
               + hashCode()
+              + setCompany()
+              + setDrivers()
               + setFlow()
+              + setPrice()
               + setService()
               + toString()
               # canEqual()
@@ -24,11 +33,11 @@ title __MODEL's Class Diagram__\n
   }
   
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace email {
         namespace model {
-          class apiservice.car.handler.email.model.EmailHandlerResponse {
+          class orchestrator.handler.email.model.EmailHandlerResponse {
               - text : String
               + EmailHandlerResponse()
               + equals()
@@ -44,9 +53,9 @@ title __MODEL's Class Diagram__\n
   }
   
 
-  apiservice.car.handler.email.model.EmailHandlerRequest -up-|> apiservice.car.handler.HandlerRequest
-  apiservice.car.handler.email.model.EmailHandlerRequest o-- apiservice.car.model.Service : Service
-  apiservice.car.handler.email.model.EmailHandlerResponse -up-|> apiservice.car.handler.HandlerResponse
+  orchestrator.handler.email.model.EmailHandlerRequest -up-|> orchestrator.handler.HandlerRequest
+  orchestrator.handler.email.model.EmailHandlerRequest o-- orchestrator.model.Service : Service
+  orchestrator.handler.email.model.EmailHandlerResponse -up-|> orchestrator.handler.HandlerResponse
 
 
 right footer

@@ -12,6 +12,9 @@ import (
 	"time"
 )
 
+type CalendarConsumer struct {
+}
+
 func Consume(body string, db *gorm.DB) string {
 	var response string
 	excludeEmails := []string{"es.spain#holiday@group.v.calendar.google.com", "addressbook#contacts@group.v.calendar.google.com"}

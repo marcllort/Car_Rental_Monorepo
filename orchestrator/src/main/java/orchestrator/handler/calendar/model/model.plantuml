@@ -2,17 +2,19 @@
 
 title __MODEL's Class Diagram__\n
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace calendar {
         namespace model {
-          class apiservice.car.handler.calendar.model.CalendarHandlerRequest {
+          class orchestrator.handler.calendar.model.CalendarHandlerRequest {
               - Flow : String
               + CalendarHandlerRequest()
               + equals()
+              + getClient()
               + getFlow()
               + getService()
               + hashCode()
+              + setClient()
               + setFlow()
               + setService()
               + toString()
@@ -24,11 +26,11 @@ title __MODEL's Class Diagram__\n
   }
   
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace calendar {
         namespace model {
-          class apiservice.car.handler.calendar.model.CalendarHandlerResponse {
+          class orchestrator.handler.calendar.model.CalendarHandlerResponse {
               - text : String
               + CalendarHandlerResponse()
               + equals()
@@ -44,9 +46,45 @@ title __MODEL's Class Diagram__\n
   }
   
 
-  apiservice.car.handler.calendar.model.CalendarHandlerRequest -up-|> apiservice.car.handler.HandlerRequest
-  apiservice.car.handler.calendar.model.CalendarHandlerRequest o-- apiservice.car.model.Service : Service
-  apiservice.car.handler.calendar.model.CalendarHandlerResponse -up-|> apiservice.car.handler.HandlerResponse
+  namespace orchestrator {
+    namespace handler {
+      namespace calendar {
+        namespace model {
+          class orchestrator.handler.calendar.model.Client {
+              ~ Country : String
+              ~ Email : String
+              ~ Name : String
+              ~ Phone : String
+              ~ Role : String
+              ~ UserId : int
+              + Client()
+              + equals()
+              + getCountry()
+              + getEmail()
+              + getName()
+              + getPhone()
+              + getRole()
+              + getUserId()
+              + hashCode()
+              + setCountry()
+              + setEmail()
+              + setName()
+              + setPhone()
+              + setRole()
+              + setUserId()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+  
+
+  orchestrator.handler.calendar.model.CalendarHandlerRequest -up-|> orchestrator.handler.HandlerRequest
+  orchestrator.handler.calendar.model.CalendarHandlerRequest o-- orchestrator.handler.calendar.model.Client : Client
+  orchestrator.handler.calendar.model.CalendarHandlerRequest o-- orchestrator.model.Service : Service
+  orchestrator.handler.calendar.model.CalendarHandlerResponse -up-|> orchestrator.handler.HandlerResponse
 
 
 right footer

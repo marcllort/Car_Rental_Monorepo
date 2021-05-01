@@ -5,22 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calendar/calendar.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/email/email.plantuml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/oauth_flow.png" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/assets/oauth_flow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/service_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/service_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/service_view.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/service_view.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/test_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/test_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/travel_Covid.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/travel_Passport.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/user_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/user_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/email/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/k8/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legal/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/legal/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/firestore_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/firestore_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/Firestore/firestore_conenction.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Firestore/firestore_conenction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/config/config.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/config/config.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/calendar.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/calendar.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/model/model.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/model/model.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/email/email.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/email/email.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/email/model/model.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/email/model/model.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/handler.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/handler.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/legal/legal.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/legal/legal.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/legal/model/model.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/legal/model/model.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/model.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/model.plantuml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +99,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/api-gateway/k8/ingress-service.yaml" />
   </component>
   <component name="RecentsManager">
@@ -283,14 +289,9 @@
       <workItem from="1619172120371" duration="3440000" />
       <workItem from="1619249852381" duration="938000" />
       <workItem from="1619251592978" duration="3371000" />
-      <workItem from="1619268321328" duration="13075000" />
-    </task>
-    <task id="LOCAL-00093" summary="Update readme">
-      <created>1613212789446</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1613212789446</updated>
+      <workItem from="1619268321328" duration="14860000" />
+      <workItem from="1619861565788" duration="40000" />
+      <workItem from="1619861624174" duration="5628000" />
     </task>
     <task id="LOCAL-00094" summary="Update readme">
       <created>1613212861287</created>
@@ -628,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619175361499</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="Update readmes">
+      <created>1619368793190</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1619368793190</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,7 +644,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Fix requests" />
     <MESSAGE value="Legal service kubernetes implementation" />
     <MESSAGE value="Orchestrator microservice creation" />
     <MESSAGE value="Routine flow working" />
@@ -661,7 +668,8 @@
     <MESSAGE value="Fix emails" />
     <MESSAGE value="Fix calendar client creation" />
     <MESSAGE value="Added CI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added CI" />
+    <MESSAGE value="Update readmes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update readmes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -695,5 +703,9 @@
         <PinnedItemInfo parentTag="com.google.firebase.auth.ListUsersPage" memberName="maxResults" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

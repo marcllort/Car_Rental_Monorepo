@@ -11,6 +11,9 @@ import (
 	"time"
 )
 
+type MySQLConnection struct {
+}
+
 func CreateConnection(creds, dbpass string) *gorm.DB {
 
 	dbURL := Utils.ReadCredentials(creds, dbpass)

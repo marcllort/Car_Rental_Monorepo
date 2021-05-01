@@ -1,0 +1,165 @@
+@startuml
+namespace Database {
+    class MySQLConnection << (S,Aquamarine) >> {
+        + CreateConnection(creds, dbpass string) *gorm.DB
+        + GetAllServices(db *gorm.DB) []Model.ServiceView
+        + Summary(db *gorm.DB) string
+        + getEventsMonth(db *gorm.DB, month string) []Model.ServiceView
+        + GetAllServicesClient(db *gorm.DB, clientId int) []Model.ServiceView
+        + GetAllUnpaidServices(db *gorm.DB) []Model.ServiceView
+        + GetAllUnconfirmedServices(db *gorm.DB) []Model.ServiceView
+        + GetEventById(db *gorm.DB, eventId int) Model.Service
+        + GetDriver(db *gorm.DB, driverId int) Model.DriverUser
+        + GetDriverByEmail(db *gorm.DB, emailDriver string) Model.DriverUser
+        + GetFreeDrivers(db *gorm.DB, startTimeString string, endTimeString string) []Model.DriverUser
+        + CreateService(db *gorm.DB, service Model.Service) int
+        + CreateDriverFromList(db *gorm.DB, emails []string)
+        + createDriverUser(db *gorm.DB, driver Model.DriverUser) int
+        + CreateClientUser(db *gorm.DB, client Model.ClientUser) int
+        + UpdateService(db *gorm.DB, service Model.Service) Model.Service
+        + UpdateConfirmedTime(db *gorm.DB, service Model.Service) Model.Service
+        + updatePayedTime(db *gorm.DB, serviceId int) Model.Service
+        + updateEvent(db *gorm.DB, service Model.Service) Model.Service
+        + updateDriver(db *gorm.DB, driver Model.DriverUser) Model.DriverUser
+        + updateClient(db *gorm.DB, client Model.ClientUser) Model.ClientUser
+        + updateDriverForService(db *gorm.DB, driverId int, serviceId int) Model.Service
+        + printServices(services []Model.ServiceView)
+    }
+}
+
+
+
+namespace Firestore {
+    class FirestoreConnection << (S,Aquamarine) >> {
+        + GetDocuments(firestore *firestore.Client, ctx context.Context)
+        + CreateFirestoreConnection(google_creds string) (*firestore.Client, context.Context)
+    }
+}
+
+
+
+namespace Model {
+    class ClientUser << (S,Aquamarine) >> {
+        + UserId int
+        + Name string
+        + Email string
+        + Phone string
+        + Country string
+        + Role string
+
+    }
+    class DateType << (S,Aquamarine) >> {
+        + String() string
+
+    }
+    class DriverUser << (S,Aquamarine) >> {
+        + UserId int
+        + Name string
+        + Email string
+        + Phone string
+        + Country string
+        + Role string
+
+    }
+    class EmailRequest << (S,Aquamarine) >> {
+        + Flow string
+        + UserId string
+        + Company string
+        + Price string
+        + Drivers string
+        + Service Service
+
+    }
+    class Model.DateType << (T, #FF7700) >>  {
+    }
+    class Service << (S,Aquamarine) >> {
+        + ServiceId int
+        + Origin string
+        + Destination string
+        + ClientId int
+        + DriverId int
+        + Description string
+        + ServiceDatetime *time.Time
+        + CalendarEvent string
+        + CalendarDatetime *time.Time
+        + PayedDatetime *time.Time
+        + BasePrice float32
+        + ExtraPrice float32
+        + ConfirmedDatetime *time.Time
+        + Passengers int
+        + SpecialNeeds string
+
+    }
+    class ServiceView << (S,Aquamarine) >> {
+        + ServiceId int
+        + Origin string
+        + Destination string
+        + DriverId int
+        + DriverName string
+        + DriverPhone string
+        + DriverMail string
+        + DriverCountry string
+        + ClientId int
+        + ClientName string
+        + ClientPhone string
+        + ClientMail string
+        + ClientCountry string
+        + Description string
+        + ServiceDatetime *time.Time
+        + CalendarEvent string
+        + CalendarDatetime *time.Time
+        + PayedDatetime *time.Time
+        + BasePrice float32
+        + ExtraPrice float32
+        + ConfirmedDatetime *time.Time
+        + Passengers int
+        + SpecialNeeds string
+
+    }
+    class "time.Time" as timeTime {
+        'This class was created so that we can correctly have an alias pointing to this name. Since it contains dots that can break namespaces
+    }
+}
+
+
+"Model.EmailRequest""uses" o-- "Model.Service"
+"Model.Service""uses" o-- "time.Time"
+"Model.ServiceView""uses" o-- "time.Time"
+"RabbitMQ.EmailConsumer""uses" o-- "Database.MySQLConnection"
+"RabbitMQ.EmailConsumer""uses" o-- "RabbitMQ.RabbitMQConnection"
+"RabbitMQ.EmailConsumer""uses" o-- "Firestore.FirestoreConnection"
+"RabbitMQ.EmailConsumer""uses" o-- "Model"
+"Firestore.FirestoreConnection""uses" o-- "Utils.Credentials"
+
+namespace RabbitMQ {
+    class EmailConsumer << (S,Aquamarine) >> {
+        + Consume(body string, db *gorm.DB, firestore *firestore.Client, ctx context.Context) string
+        + getCredentials() (string, string, string)
+        + SendCalendarConfirmEmail(user string, password string, company string, service Model.Service, db *gorm.DB)
+        + SendCalendarRequestEmail(user string, password string, company string, price string, drivers string, service Model.Service, db *gorm.DB)
+        + SendCalendarInvoiceEmail(user string, password string, url string, request Model.EmailRequest, db *gorm.DB)
+        + DownloadFile(filepath string, url string, request Model.EmailRequest) error
+    }
+    class RabbitMQConnection << (S,Aquamarine) >> {
+        + failOnError(err error, msg string)
+        + Connect(db *gorm.DB, firestore *firestore.Client, ctx context.Context)
+        + publishMessage(err error, ch *amqp.Channel, d amqp.Delivery, response string)
+    }
+}
+
+
+
+namespace Utils {
+    class Credentials << (S,Aquamarine) >> {
+        - user string
+        - password string
+        - hostname string
+        - port string
+        - database string
+    }
+}
+
+
+
+"Model.timeTime" #.. "alias of""Model.DateType"
+@enduml

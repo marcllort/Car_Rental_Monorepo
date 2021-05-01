@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+type CalendarCalls struct {
+}
+
 func getEventList(calendarName string, srv *calendar.Service) (error, string, *calendar.CalendarList) {
 	listRes, err := srv.CalendarList.List().Fields("items/id").Do()
 	if calendarName == "all" {

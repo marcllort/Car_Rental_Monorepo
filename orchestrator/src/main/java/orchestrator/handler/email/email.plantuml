@@ -2,10 +2,10 @@
 
 title __EMAIL's Class Diagram__\n
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace email {
-        class apiservice.car.handler.email.RetrieveEmailHandler {
+        class orchestrator.handler.email.RetrieveEmailHandler {
             - jacksonObjectMapper : ObjectMapper
             + handle()
         }
@@ -14,10 +14,10 @@ title __EMAIL's Class Diagram__\n
   }
   
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace email {
-        class apiservice.car.handler.email.RetrieveEmailProducer {
+        class orchestrator.handler.email.RetrieveEmailProducer {
             - rabbitTemplate : RabbitTemplate
             + produce()
         }
@@ -26,8 +26,8 @@ title __EMAIL's Class Diagram__\n
   }
   
 
-  apiservice.car.handler.email.RetrieveEmailHandler .up.|> apiservice.car.handler.EndpointHandler
-  apiservice.car.handler.email.RetrieveEmailHandler o-- apiservice.car.handler.email.RetrieveEmailProducer : producer
+  orchestrator.handler.email.RetrieveEmailHandler .up.|> orchestrator.handler.EndpointHandler
+  orchestrator.handler.email.RetrieveEmailHandler o-- orchestrator.handler.email.RetrieveEmailProducer : producer
 
 
 right footer

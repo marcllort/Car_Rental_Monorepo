@@ -1,0 +1,194 @@
+@startuml
+namespace CalendarAPI {
+    class CalendarCalls << (S,Aquamarine) >> {
+        + getEventList(calendarName string, srv *calendar.Service) (error, string, *calendar.CalendarList)
+        + getDriverEvents(srv *calendar.Service, id string, startTime string, endTime string) []*calendar.Event
+        + GetEvents(srv *calendar.Service, startTime string, endTime string, excludeCalendars []string) ([]*calendar.Event, []string)
+        + GetDriverEventsByEmail(srv *calendar.Service, driver string, startTime string, endTime string) []*calendar.Event
+        + GetFreeDrivers(db *gorm.DB, srv *calendar.Service, startTime *time.Time, duration time.Duration, excludeCalendars []string) ([]string, []int)
+        + CreateCalendarEvent(srv *calendar.Service, summary string, location string, description string, driver string, startTime *time.Time, duration time.Duration) string
+        + UpdateCalendarEvent(srv *calendar.Service, eventId string, summary string, location string, description string, driver string, startTime *time.Time, duration time.Duration, excludeCalendars []string)
+        + GetDriversEmail(srv *calendar.Service, excludeCalendars []string) []string
+        + GetCalendarClient(uid string) *calendar.Service
+    }
+    class FirestoreConnection << (S,Aquamarine) >> {
+        + ConnectFirestore() *firestore.Client
+        + GetRefreshToken(client *firestore.Client, uid string) string
+        + getClientToken(client *firestore.Client, uid string, config *oauth2.Config) *http.Client
+    }
+}
+
+
+
+namespace Database {
+    class MySQLConnection << (S,Aquamarine) >> {
+        + CreateConnection(creds, dbpass string) *gorm.DB
+        + GetAllServices(db *gorm.DB) []Model.ServiceView
+        + Summary(db *gorm.DB) string
+        + getEventsMonth(db *gorm.DB, month string) []Model.ServiceView
+        + GetAllServicesClient(db *gorm.DB, clientId int) []Model.ServiceView
+        + GetAllUnpaidServices(db *gorm.DB) []Model.ServiceView
+        + GetAllUnconfirmedServices(db *gorm.DB) []Model.ServiceView
+        + GetEventById(db *gorm.DB, eventId int) Model.Service
+        + GetDriver(db *gorm.DB, driverId int) Model.DriverUser
+        + GetDriverByEmail(db *gorm.DB, emailDriver string) Model.DriverUser
+        + GetFreeDrivers(db *gorm.DB, startTimeString string, endTimeString string) []Model.DriverUser
+        + CreateService(db *gorm.DB, service Model.Service) int
+        + CreateDriverFromList(db *gorm.DB, emails []string)
+        + createDriverUser(db *gorm.DB, driver Model.DriverUser) int
+        + CreateClientUser(db *gorm.DB, client Model.ClientUser) int
+        + UpdateService(db *gorm.DB, service Model.Service) Model.Service
+        + UpdateConfirmedTime(db *gorm.DB, service Model.Service) Model.Service
+        + updatePayedTime(db *gorm.DB, serviceId int) Model.Service
+        + updateEvent(db *gorm.DB, service Model.Service) Model.Service
+        + updateDriver(db *gorm.DB, driver Model.DriverUser) Model.DriverUser
+        + updateClient(db *gorm.DB, client Model.ClientUser) Model.ClientUser
+        + updateDriverForService(db *gorm.DB, driverId int, serviceId int) Model.Service
+        + printServices(services []Model.ServiceView)
+    }
+}
+
+
+
+namespace Model {
+    class CalendarRequest << (S,Aquamarine) >> {
+        + Flow string
+        + UserId string
+        + Service Service
+        + Client ClientUser
+
+    }
+    class ClientUser << (S,Aquamarine) >> {
+        + UserId int
+        + Name string
+        + Email string
+        + Phone string
+        + Country string
+        + Role string
+
+    }
+    class DateType << (S,Aquamarine) >> {
+        + String() string
+
+    }
+    class DriverUser << (S,Aquamarine) >> {
+        + UserId int
+        + Name string
+        + Email string
+        + Phone string
+        + Country string
+        + Role string
+
+    }
+    class FreeDriversResponse << (S,Aquamarine) >> {
+        + DriversIds []int
+        + DriversNames []string
+
+    }
+    class Model.DateType << (T, #FF7700) >>  {
+    }
+    class Service << (S,Aquamarine) >> {
+        + ServiceId int
+        + Origin string
+        + Destination string
+        + ClientId int
+        + DriverId int
+        + Description string
+        + ServiceDatetime *time.Time
+        + CalendarEvent string
+        + PayedDatetime *time.Time
+        + BasePrice float32
+        + ExtraPrice float32
+        + ConfirmedDatetime *time.Time
+        + Passengers int
+        + SpecialNeeds string
+
+    }
+    class ServiceView << (S,Aquamarine) >> {
+        + ServiceId int
+        + Origin string
+        + Destination string
+        + DriverId int
+        + DriverName string
+        + DriverPhone string
+        + DriverMail string
+        + DriverCountry string
+        + ClientId int
+        + ClientName string
+        + ClientPhone string
+        + ClientMail string
+        + ClientCountry string
+        + Description string
+        + ServiceDatetime *time.Time
+        + CalendarEvent string
+        + CalendarDatetime *time.Time
+        + PayedDatetime *time.Time
+        + BasePrice float32
+        + ExtraPrice float32
+        + ConfirmedDatetime *time.Time
+        + Passengers int
+        + SpecialNeeds string
+
+    }
+    class Summary << (S,Aquamarine) >> {
+        + AnualIncome int
+        + MonthlyIncome []int
+        + ActualMonthIncome int
+        + UnconfirmedEvents int
+
+    }
+    class "time.Time" as timeTime {
+        'This class was created so that we can correctly have an alias pointing to this name. Since it contains dots that can break namespaces
+    }
+}
+
+
+"Model.CalendarRequest""uses" o-- "Model.ClientUser"
+"Model.CalendarRequest""uses" o-- "Model.Service"
+"Model.Service""uses" o-- "time.Time"
+"Model.ServiceView""uses" o-- "time.Time"
+
+"RabbitMQ.CalendarConsumer""uses" o-- "Database.MySQLConnection"
+"RabbitMQ.CalendarConsumer""uses" o-- "RabbitMQ.RabbitMQConnection"
+"RabbitMQ.CalendarConsumer""uses" o-- "Firestore.FirestoreConnection"
+"RabbitMQ.CalendarConsumer""uses" o-- "CalendarAPI.CalendarCalls"
+"RabbitMQ.CalendarConsumer""uses" o-- "Model"
+"CalendarAPI.FirestoreConnection""uses" o-- "Utils.Credentials"
+
+namespace RabbitMQ {
+    class CalendarConsumer << (S,Aquamarine) >> {
+        + Consume(body string, db *gorm.DB) string
+        + summary(db *gorm.DB) string
+        + setupDrivers(db *gorm.DB, calendarClient *calendar.Service, excludeEmails []string) string
+        + confirmService(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest) string
+        + createCalendarEvent(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest, id int)
+        + modifyService(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string)
+        + createNewServiceDB(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest) string
+        + getFreeDrivers(db *gorm.DB, calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string) string
+        + getEventsMonth(calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string) string
+        + getEventById(db *gorm.DB, request Model.CalendarRequest) string
+    }
+    class RabbitMQConnection << (S,Aquamarine) >> {
+        + failOnError(err error, msg string)
+        + Connect(db *gorm.DB)
+        + publishMessage(err error, ch *amqp.Channel, d amqp.Delivery, response string)
+    }
+}
+
+
+
+namespace Utils {
+    class Credentials << (S,Aquamarine) >> {
+        - user string
+        - password string
+        - hostname string
+        - port string
+        - database string
+
+    }
+}
+
+
+
+"Model.timeTime" #.. "alias of""Model.DateType"
+@enduml

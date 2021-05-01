@@ -17,6 +17,9 @@ import (
 	"text/template"
 )
 
+type EmailConsumer struct {
+}
+
 func Consume(body string, db *gorm.DB, firestore *firestore.Client, ctx context.Context) string {
 	var response string
 

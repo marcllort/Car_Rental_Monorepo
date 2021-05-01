@@ -2,11 +2,11 @@
 
 title __MODEL's Class Diagram__\n
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace legal {
         namespace model {
-          class apiservice.car.handler.legal.model.LegalHandlerRequest {
+          class orchestrator.handler.legal.model.LegalHandlerRequest {
               - Flow : String
               + LegalHandlerRequest()
               + equals()
@@ -24,11 +24,11 @@ title __MODEL's Class Diagram__\n
   }
   
 
-  namespace apiservice.car {
+  namespace orchestrator {
     namespace handler {
       namespace legal {
         namespace model {
-          class apiservice.car.handler.legal.model.LegalHandlerResponse {
+          class orchestrator.handler.legal.model.LegalHandlerResponse {
               - text : String
               + LegalHandlerResponse()
               + equals()
@@ -44,9 +44,9 @@ title __MODEL's Class Diagram__\n
   }
   
 
-  apiservice.car.handler.legal.model.LegalHandlerRequest -up-|> apiservice.car.handler.HandlerRequest
-  apiservice.car.handler.legal.model.LegalHandlerRequest o-- apiservice.car.model.Service : Service
-  apiservice.car.handler.legal.model.LegalHandlerResponse -up-|> apiservice.car.handler.HandlerResponse
+  orchestrator.handler.legal.model.LegalHandlerRequest -up-|> orchestrator.handler.HandlerRequest
+  orchestrator.handler.legal.model.LegalHandlerRequest o-- orchestrator.model.Service : Service
+  orchestrator.handler.legal.model.LegalHandlerResponse -up-|> orchestrator.handler.HandlerResponse
 
 
 right footer
