@@ -6,9 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/Company/test_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/test_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/api_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/api_script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/admin_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/admin_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/index_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/index_script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/ui_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/ui_script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/user_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/user_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,14 +285,7 @@
       <workItem from="1620837171152" duration="1889000" />
       <workItem from="1620977677061" duration="5832000" />
       <workItem from="1622275856951" duration="2960000" />
-      <workItem from="1622281872057" duration="10390000" />
-    </task>
-    <task id="LOCAL-00096" summary="Logic refactor">
-      <created>1613502824882</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1613502824882</updated>
+      <workItem from="1622281872057" duration="13240000" />
     </task>
     <task id="LOCAL-00097" summary="Calendar Logic refactor">
       <created>1613732774037</created>
@@ -623,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622293266616</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Demo fixes">
+      <created>1622294793327</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1622294793327</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,6 +683,11 @@
           <url>file://$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/PublicController.java</url>
           <line>55</line>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/calendar/Database/mysql_connection.go</url>
+          <line>218</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -23,9 +23,7 @@ window.onload = function () {
                     }
                 });
             } else {
-                Swal.fire('Dashboard not available for admins!', '', 'error').then((result) => {
-                    window.location = 'admin_table.html'
-                });
+                window.location = 'admin_table.html'
             }
         });
     });

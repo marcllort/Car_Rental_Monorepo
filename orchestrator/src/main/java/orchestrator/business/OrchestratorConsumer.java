@@ -51,7 +51,6 @@ public class OrchestratorConsumer {
                 emailHandler.handle(generateEmailConfirmServiceRequest(request));
                 break;
             case "modifyService":
-                updatePrice(request);
                 response = (CalendarHandlerResponse) calendarHandler.handle(request);
                 break;
             case "serviceInvoice":

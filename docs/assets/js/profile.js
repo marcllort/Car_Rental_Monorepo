@@ -8,6 +8,16 @@ window.onload = function () {
             prepareUI(user);
             firebase.auth().currentUser.getIdToken(true).then(function (idToken1) {
                 setToken(idToken1);
+                firebase.auth().currentUser.getIdTokenResult().then((idTokenResult) => {
+                    if (idTokenResult.claims.role_super) {
+                        var index = document.getElementById("indexNav");
+                        var calendar = document.getElementById("calendarNav");
+                        var accordeon = document.getElementById("accordionSidebar");
+                        index.remove();
+                        calendar.remove();
+                        accordeon.appendChild("<li class=\"nav-item\"><a class=\"nav-link\" href=\"admin_table.html\"><i class=\"fas fa-table\"></i><span>Table</span></a></li>")
+                    }
+                })
             }).catch(function (error) {
                 console.error(error.data);
             });

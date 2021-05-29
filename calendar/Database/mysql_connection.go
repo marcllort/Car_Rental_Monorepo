@@ -59,6 +59,11 @@ func Summary(db *gorm.DB) string {
 	var summary Model.Summary
 
 	summary.ActualMonthIncome = monthIncome[0]
+
+	for i, j := 0, int(endMonth.Month())-2; i < j; i, j = i+1, j-1 {
+		monthIncome[i], monthIncome[j] = monthIncome[j], monthIncome[i]
+	}
+
 	summary.MonthlyIncome = monthIncome
 	summary.AnualIncome = totalIncome
 	summary.UnconfirmedEvents = int(unconfirmedEvents)

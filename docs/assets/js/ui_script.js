@@ -26,7 +26,7 @@ function redirectUserAdmin() {
                 window.location = 'admin_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
             }
         } else {
-            // Show regular user UI.
+            // Show regular user UI
             if (!window.location.pathname.includes("user_table.html")) {
                 window.location = 'user_table.html' // fer que es puguin fer totes les funcions de firebase.admin AbstractFirebaseAuth.java
             }
