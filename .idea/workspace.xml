@@ -4,29 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/calendar/calendar.plantuml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email/email.plantuml" afterDir="false" />
+    <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="Added diagrams">
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/orchestrator.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legal/legal.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/orchestrator.plantuml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/calendar_calls.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/CalendarAPI/firestore_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/CalendarAPI/firestore_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/PublicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/calendar_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Database/mysql_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/Firestore/firestore_conenction.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/Firestore/firestore_conenction.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/email_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/email/RabbitMQ/rabbitmq_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/config/config.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/config/config.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/calendar.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/calendar.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/model/model.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/calendar/model/model.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/email/email.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/email/email.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/email/model/model.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/email/model/model.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/handler.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/handler.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/legal/legal.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/legal/legal.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/legal/model/model.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/handler/legal/model/model.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/model.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/model/model.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8/ingress-service_gke.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/Cronjob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/car.plantuml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +81,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Go/bin/src/CanITravelTo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/legal" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -104,11 +93,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\legal" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\k8" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\legal\src\main\kotlin\com\car\rental\legal\template" />
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\email\Template" />
-      <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\calendar\Creds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mac12\IdeaProjects\car-rental-monorepo\legal" />
@@ -134,7 +123,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Database Script.test_data.sql">
+  <component name="RunManager" selected="Spring Boot.Legal">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -291,14 +280,12 @@
       <workItem from="1619251592978" duration="3371000" />
       <workItem from="1619268321328" duration="14860000" />
       <workItem from="1619861565788" duration="40000" />
-      <workItem from="1619861624174" duration="5628000" />
-    </task>
-    <task id="LOCAL-00094" summary="Update readme">
-      <created>1613212861287</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1613212861287</updated>
+      <workItem from="1619861624174" duration="10633000" />
+      <workItem from="1620382260540" duration="1099000" />
+      <workItem from="1620837171152" duration="1889000" />
+      <workItem from="1620977677061" duration="5832000" />
+      <workItem from="1622275856951" duration="2960000" />
+      <workItem from="1622281872057" duration="8860000" />
     </task>
     <task id="LOCAL-00095" summary="Calendar logic implemented in calendar micorservice">
       <created>1613305502721</created>
@@ -636,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619368793190</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="Added diagrams">
+      <created>1619867329202</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1619867329202</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +638,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Legal service kubernetes implementation" />
     <MESSAGE value="Orchestrator microservice creation" />
     <MESSAGE value="Routine flow working" />
     <MESSAGE value="Refactor spring projects" />
@@ -669,7 +662,8 @@
     <MESSAGE value="Fix calendar client creation" />
     <MESSAGE value="Added CI" />
     <MESSAGE value="Update readmes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update readmes" />
+    <MESSAGE value="Added diagrams" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added diagrams" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -684,11 +678,6 @@
           <url>file://$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/handler/Consumer.kt</url>
           <line>15</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/legal/src/main/kotlin/com/car/rental/legal/rest/PdfRestAPI.kt</url>
-          <line>29</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/api-gateway/src/main/java/orchestrator/controllers/PublicController.java</url>

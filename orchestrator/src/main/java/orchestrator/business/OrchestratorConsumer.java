@@ -58,6 +58,10 @@ public class OrchestratorConsumer {
                 cronjob.runCronjob();
                 response.setText("Running cronjob...");
                 break;
+            case "serviceRoutePaper":
+                cronjob.runCronjob();
+                response.setText("Running cronjob...");
+                break;
             default:
 
                 response = (CalendarHandlerResponse) calendarHandler.handle(request);

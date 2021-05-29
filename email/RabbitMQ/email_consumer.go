@@ -185,8 +185,6 @@ func SendCalendarRequestEmail(user string, password string, company string, pric
 
 func SendCalendarRoutePaperEmail(user string, password string, url string, request Model.EmailRequest, db *gorm.DB) {
 
-	t, _ := template.ParseFiles("email/Template/calendar-invoice-template.html")
-
 	request.Flow = "route-paper"
 
 	err := DownloadFile("email/file.pdf", url, request)
@@ -195,34 +193,14 @@ func SendCalendarRoutePaperEmail(user string, password string, url string, reque
 		panic(err)
 	}
 
-	var body bytes.Buffer
 	driver := Database.GetDriver(db, request.Service.DriverId)
 	client := Database.GetClient(db, request.Service.ClientId)
-
-	t.Execute(&body, struct {
-		ClientName      string
-		CompanyName     string
-		ServiceDatetime string
-		ServiceName     string
-		ServicePrice    string
-		TotalPrice      string
-		ExtraServices   string
-	}{
-		ClientName:      client.Name,
-		CompanyName:     request.Company,
-		ServiceDatetime: request.Service.ServiceDatetime.Format("2006-01-02 15:04:05"),
-		ServiceName:     request.Service.Origin + " - " + request.Service.Destination,
-		ServicePrice:    "price test",
-		TotalPrice:      "total price test",
-	})
-
-	result := body.String()
 
 	m := gomail.NewMessage()
 	m.SetHeader("From", user)
 	m.SetHeader("To", driver.Email)
 	m.SetHeader("Subject", request.Company+" - Service Route Paper")
-	m.SetBody("text/html", result)
+	m.SetBody("text/html", "Find the service route paper attached.")
 	m.Attach("email/file.pdf")
 
 	d := gomail.NewDialer("smtp.gmail.com", 587, user, password)

@@ -1,0 +1,925 @@
+@startuml
+
+
+  namespace orchestrator {
+    class orchestrator.APIServiceApplication {
+      {static} + main()
+    }
+
+    namespace security {
+      class orchestrator.security.CookieService {
+          ~ httpServletRequest : HttpServletRequest
+          ~ httpServletResponse : HttpServletResponse
+          + deleteCookie()
+          + deleteSecureCookie()
+          + getCookie()
+          + setCookie()
+          + setSecureCookie()
+          + setSecureCookie()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace security {
+      class orchestrator.security.EncryptionUtility {
+          + decrypt()
+          + encrypt()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace security {
+      class orchestrator.security.SecurityConfig {
+          - objectMapper : ObjectMapper
+          + restAuthenticationEntryPoint()
+          # configure()
+          ~ corsConfigurationSource()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace security {
+      class orchestrator.security.SecurityFilter {
+          - firebaseAuth : FirebaseAuth
+          {static} - log : Logger
+          # doFilterInternal()
+          - authorize()
+          - firebaseTokenToUserDto()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace security {
+      class orchestrator.security.SecurityService {
+          + getBearerToken()
+          + getCredentials()
+          + getUser()
+      }
+    }
+  }
+
+
+  orchestrator.security.CookieService o-- orchestrator.security.models.SecurityProperties : restSecProps
+  orchestrator.security.SecurityConfig -up-|> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+  orchestrator.security.SecurityConfig o-- orchestrator.security.models.SecurityProperties : restSecProps
+  orchestrator.security.SecurityConfig o-- orchestrator.security.SecurityFilter : tokenAuthenticationFilter
+  orchestrator.security.SecurityFilter -up-|> org.springframework.web.filter.OncePerRequestFilter
+  orchestrator.security.SecurityFilter o-- orchestrator.security.roles.RoleService : securityRoleService
+  orchestrator.security.SecurityFilter o-- orchestrator.security.CookieService : cookieUtils
+  orchestrator.security.SecurityFilter o-- orchestrator.security.models.SecurityProperties : securityProps
+  orchestrator.security.SecurityFilter o-- orchestrator.security.SecurityService : securityService
+
+namespace orchestrator {
+    namespace security {
+      namespace models {
+        class orchestrator.security.models.CookieProperties {
+            - domain : String
+            - httpOnly : boolean
+            - maxAgeInMinutes : int
+            - path : String
+            - secure : boolean
+            + CookieProperties()
+            + equals()
+            + getDomain()
+            + getMaxAgeInMinutes()
+            + getPath()
+            + hashCode()
+            + isHttpOnly()
+            + isSecure()
+            + setDomain()
+            + setHttpOnly()
+            + setMaxAgeInMinutes()
+            + setPath()
+            + setSecure()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace security {
+      namespace models {
+        class orchestrator.security.models.Credentials {
+            - decodedToken : FirebaseToken
+            - idToken : String
+            - session : String
+            + Credentials()
+            + equals()
+            + getDecodedToken()
+            + getIdToken()
+            + getSession()
+            + getType()
+            + hashCode()
+            + setDecodedToken()
+            + setIdToken()
+            + setSession()
+            + setType()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace security {
+      namespace models {
+        enum CredentialType {
+          ID_TOKEN
+          SESSION
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace security {
+      namespace models {
+        class orchestrator.security.models.FirebaseProperties {
+            - databaseUrl : String
+            - enableCheckSessionRevoked : boolean
+            - enableLogoutEverywhere : boolean
+            - enableStrictServerSession : boolean
+            - sessionExpiryInDays : int
+            + FirebaseProperties()
+            + equals()
+            + getDatabaseUrl()
+            + getSessionExpiryInDays()
+            + hashCode()
+            + isEnableCheckSessionRevoked()
+            + isEnableLogoutEverywhere()
+            + isEnableStrictServerSession()
+            + setDatabaseUrl()
+            + setEnableCheckSessionRevoked()
+            + setEnableLogoutEverywhere()
+            + setEnableStrictServerSession()
+            + setSessionExpiryInDays()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace security {
+      namespace models {
+        class orchestrator.security.models.SecurityProperties {
+            ~ superAdmins : List<String>
+            ~ validApplicationRoles : List<String>
+            - allowCredentials : boolean
+            - allowedHeaders : List<String>
+            - allowedMethods : List<String>
+            - allowedOrigins : List<String>
+            - allowedPublicApis : List<String>
+            - exposedHeaders : List<String>
+            + SecurityProperties()
+            + equals()
+            + getAllowedHeaders()
+            + getAllowedMethods()
+            + getAllowedOrigins()
+            + getAllowedPublicApis()
+            + getCookieProps()
+            + getExposedHeaders()
+            + getFirebaseProps()
+            + getSuperAdmins()
+            + getValidApplicationRoles()
+            + hashCode()
+            + isAllowCredentials()
+            + setAllowCredentials()
+            + setAllowedHeaders()
+            + setAllowedMethods()
+            + setAllowedOrigins()
+            + setAllowedPublicApis()
+            + setCookieProps()
+            + setExposedHeaders()
+            + setFirebaseProps()
+            + setSuperAdmins()
+            + setValidApplicationRoles()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace security {
+      namespace models {
+        class orchestrator.security.models.User {
+            - email : String
+            - isEmailVerified : boolean
+            - issuer : String
+            - name : String
+            - picture : String
+            {static} - serialVersionUID : long
+            - uid : String
+            + User()
+            + equals()
+            + getEmail()
+            + getIssuer()
+            + getName()
+            + getPicture()
+            + getUid()
+            + hashCode()
+            + isEmailVerified()
+            + setEmail()
+            + setEmailVerified()
+            + setIssuer()
+            + setName()
+            + setPicture()
+            + setUid()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+
+
+  orchestrator.security.models.Credentials o-- orchestrator.security.models.Credentials.CredentialType : type
+  orchestrator.security.models.Credentials +-down- orchestrator.security.models.Credentials.CredentialType
+  orchestrator.security.models.SecurityProperties o-- orchestrator.security.models.CookieProperties : cookieProps
+  orchestrator.security.models.SecurityProperties o-- orchestrator.security.models.FirebaseProperties : firebaseProps
+  orchestrator.security.models.User .up.|> java.io.Serializable
+
+  namespace orchestrator {
+      namespace security {
+        namespace roles {
+          interface orchestrator.security.roles.IsSuper {
+          }
+        }
+      }
+    }
+
+
+    namespace orchestrator {
+      namespace security {
+        namespace roles {
+          class orchestrator.security.roles.RoleConstants {
+              {static} + ROLE_ADMIN : String
+              {static} + ROLE_SELLER : String
+              {static} + ROLE_SUPER : String
+          }
+        }
+      }
+    }
+
+
+    namespace orchestrator {
+      namespace security {
+        namespace roles {
+          class orchestrator.security.roles.RoleController {
+              ~ firebaseAuth : FirebaseAuth
+              + addRole()
+              + removeRole()
+          }
+        }
+      }
+    }
+
+
+    namespace orchestrator {
+      namespace security {
+        namespace roles {
+          interface orchestrator.security.roles.RoleService {
+              {abstract} + addRole()
+              {abstract} + removeRole()
+          }
+        }
+      }
+    }
+
+
+    namespace orchestrator {
+      namespace security {
+        namespace roles {
+          class orchestrator.security.roles.RoleServiceImpl {
+              ~ firebaseAuth : FirebaseAuth
+              {static} - log : Logger
+              + addRole()
+              + removeRole()
+          }
+        }
+      }
+    }
+
+
+    orchestrator.security.roles.RoleController o-- orchestrator.security.roles.RoleService : roleService
+    orchestrator.security.roles.RoleServiceImpl .up.|> orchestrator.security.roles.RoleService
+    orchestrator.security.roles.RoleServiceImpl o-- orchestrator.security.models.SecurityProperties : securityProps
+
+    namespace orchestrator {
+        namespace model {
+          class orchestrator.model.Client {
+              ~ Country : String
+              ~ Email : String
+              ~ Name : String
+              ~ Phone : String
+              ~ Role : String
+              ~ UserId : int
+              + Client()
+              + equals()
+              + getCountry()
+              + getEmail()
+              + getName()
+              + getPhone()
+              + getRole()
+              + getUserId()
+              + hashCode()
+              + setCountry()
+              + setEmail()
+              + setName()
+              + setPhone()
+              + setRole()
+              + setUserId()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+
+
+      namespace orchestrator {
+        namespace model {
+          class orchestrator.model.FirebaseUserRequest {
+              - calendarURL : String
+              - checked : boolean
+              - city : String
+              - code : String
+              - country : String
+              - email : String
+              - emailSign : String
+              - language : String
+              - name : String
+              - password : String
+              - phone : String
+              - uid : String
+              + FirebaseUserRequest()
+              + equals()
+              + getCalendarURL()
+              + getCity()
+              + getCode()
+              + getCountry()
+              + getEmail()
+              + getEmailSign()
+              + getLanguage()
+              + getName()
+              + getPassword()
+              + getPhone()
+              + getUid()
+              + hashCode()
+              + isChecked()
+              + setCalendarURL()
+              + setChecked()
+              + setCity()
+              + setCode()
+              + setCountry()
+              + setEmail()
+              + setEmailSign()
+              + setLanguage()
+              + setName()
+              + setPassword()
+              + setPhone()
+              + setUid()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+
+
+      namespace orchestrator {
+        namespace model {
+          class orchestrator.model.Service {
+              - BasePrice : Float
+              - CalendarEvent : String
+              - ClientId : int
+              - ConfirmedDatetime : ZonedDateTime
+              - Description : String
+              - Destination : String
+              - DriverId : int
+              - ExtraPrice : Float
+              - Origin : String
+              - Passengers : int
+              - PayedDatetime : ZonedDateTime
+              - ServiceDatetime : ZonedDateTime
+              - ServiceId : int
+              - SpecialNeeds : String
+              + Service()
+              + equals()
+              + getBasePrice()
+              + getCalendarEvent()
+              + getClientId()
+              + getConfirmedDatetime()
+              + getDescription()
+              + getDestination()
+              + getDriverId()
+              + getExtraPrice()
+              + getOrigin()
+              + getPassengers()
+              + getPayedDatetime()
+              + getServiceDatetime()
+              + getServiceId()
+              + getSpecialNeeds()
+              + hashCode()
+              + setBasePrice()
+              + setCalendarEvent()
+              + setClientId()
+              + setConfirmedDatetime()
+              + setDescription()
+              + setDestination()
+              + setDriverId()
+              + setExtraPrice()
+              + setOrigin()
+              + setPassengers()
+              + setPayedDatetime()
+              + setServiceDatetime()
+              + setServiceId()
+              + setSpecialNeeds()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+
+
+    namespace orchestrator {
+    namespace model {
+      class orchestrator.model.UserRequest {
+          - customClaim : String
+          - disabled : String
+          - displayName : String
+          - email : String
+          - emailVerified : String
+          - password : String
+          - phoneNumber : String
+          - photoURL : String
+          + UserRequest()
+          + equals()
+          + getCustomClaim()
+          + getDisabled()
+          + getDisplayName()
+          + getEmail()
+          + getEmailVerified()
+          + getPassword()
+          + getPhoneNumber()
+          + getPhotoURL()
+          + hashCode()
+          + setCustomClaim()
+          + setDisabled()
+          + setDisplayName()
+          + setEmail()
+          + setEmailVerified()
+          + setPassword()
+          + setPhoneNumber()
+          + setPhotoURL()
+          + toString()
+          # canEqual()
+      }
+    }
+    }
+
+    namespace orchestrator {
+      namespace handler {
+        interface orchestrator.handler.EndpointHandler {
+            {abstract} + handle()
+        }
+      }
+    }
+
+
+    namespace orchestrator {
+      namespace handler {
+        abstract class orchestrator.handler.HandlerRequest {
+            - userId : String
+            + HandlerRequest()
+            + equals()
+            + getUserId()
+            + hashCode()
+            + setUserId()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+
+
+    namespace orchestrator {
+      namespace handler {
+        abstract class orchestrator.handler.HandlerResponse {
+            - userId : String
+            + HandlerResponse()
+            + equals()
+            + getUserId()
+            + hashCode()
+            + setUserId()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+
+
+    namespace orchestrator {
+      namespace handler {
+        class orchestrator.handler.RabbitMQDirectConfig {
+            {static} + CALENDAR_KEY : String
+            {static} + CALENDAR_QUEUE : String
+            {static} + EMAIL_KEY : String
+            {static} + EMAIL_QUEUE : String
+            {static} + EXCHANGE : String
+            {static} + LEGAL_KEY : String
+            {static} + LEGAL_QUEUE : String
+            {static} + ORCHESTRATOR_KEY : String
+            {static} + ORCHESTRATOR_QUEUE : String
+            - amqpAdmin : AmqpAdmin
+            + createQueues()
+            ~ calendarBinding()
+            ~ calendarQueue()
+            ~ emailBinding()
+            ~ emailQueue()
+            ~ exchange()
+            ~ legalBinding()
+            ~ legalQueue()
+            ~ orchestratorQueue()
+            ~ orchestratorlBinding()
+        }
+      }
+    }
+
+    namespace orchestrator {
+        namespace handler {
+          namespace calendar {
+            class orchestrator.handler.calendar.RetrieveCalendarHandler {
+                - jacksonObjectMapper : ObjectMapper
+                + handle()
+            }
+          }
+        }
+    }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace calendar {
+        class orchestrator.handler.calendar.RetrieveCalendarProducer {
+            - rabbitTemplate : RabbitTemplate
+            + produce()
+        }
+      }
+    }
+  }
+
+    namespace orchestrator {
+        namespace handler {
+          namespace calendar {
+            namespace model {
+              class orchestrator.handler.calendar.model.CalendarHandlerRequest {
+                  - Flow : String
+                  + CalendarHandlerRequest()
+                  + equals()
+                  + getClient()
+                  + getFlow()
+                  + getService()
+                  + hashCode()
+                  + setClient()
+                  + setFlow()
+                  + setService()
+                  + toString()
+                  # canEqual()
+              }
+            }
+          }
+        }
+      }
+
+
+      namespace orchestrator {
+        namespace handler {
+          namespace calendar {
+            namespace model {
+              class orchestrator.handler.calendar.model.CalendarHandlerResponse {
+                  - text : String
+                  + CalendarHandlerResponse()
+                  + equals()
+                  + getText()
+                  + hashCode()
+                  + setText()
+                  + toString()
+                  # canEqual()
+              }
+            }
+          }
+        }
+      }
+
+
+      orchestrator.handler.calendar.model.CalendarHandlerRequest -up-|> orchestrator.handler.HandlerRequest
+      orchestrator.handler.calendar.model.CalendarHandlerRequest o-- orchestrator.model.Client : Client
+      orchestrator.handler.calendar.model.CalendarHandlerRequest o-- orchestrator.model.Service : Service
+      orchestrator.handler.calendar.model.CalendarHandlerResponse -up-|> orchestrator.handler.HandlerResponse
+
+namespace orchestrator {
+    namespace handler {
+      namespace email {
+        class orchestrator.handler.email.RetrieveEmailHandler {
+            - jacksonObjectMapper : ObjectMapper
+            + handle()
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace email {
+        class orchestrator.handler.email.RetrieveEmailProducer {
+            - rabbitTemplate : RabbitTemplate
+            + produce()
+        }
+      }
+    }
+  }
+
+
+  orchestrator.handler.email.RetrieveEmailHandler .up.|> orchestrator.handler.EndpointHandler
+  orchestrator.handler.email.RetrieveEmailHandler o-- orchestrator.handler.email.RetrieveEmailProducer : producer
+
+
+
+  orchestrator.handler.calendar.RetrieveCalendarHandler .up.|> orchestrator.handler.EndpointHandler
+  orchestrator.handler.calendar.RetrieveCalendarHandler o-- orchestrator.handler.calendar.RetrieveCalendarProducer : producer
+
+namespace orchestrator {
+    namespace handler {
+      namespace email {
+        namespace model {
+          class orchestrator.handler.email.model.EmailHandlerRequest {
+              - Company : String
+              - Drivers : String
+              - Flow : String
+              - Price : String
+              + EmailHandlerRequest()
+              + equals()
+              + getCompany()
+              + getDrivers()
+              + getFlow()
+              + getPrice()
+              + getService()
+              + hashCode()
+              + setCompany()
+              + setDrivers()
+              + setFlow()
+              + setPrice()
+              + setService()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace email {
+        namespace model {
+          class orchestrator.handler.email.model.EmailHandlerResponse {
+              - text : String
+              + EmailHandlerResponse()
+              + equals()
+              + getText()
+              + hashCode()
+              + setText()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+
+
+  orchestrator.handler.email.model.EmailHandlerRequest -up-|> orchestrator.handler.HandlerRequest
+  orchestrator.handler.email.model.EmailHandlerRequest o-- orchestrator.model.Service : Service
+  orchestrator.handler.email.model.EmailHandlerResponse -up-|> orchestrator.handler.HandlerResponse
+
+namespace orchestrator {
+    namespace handler {
+      namespace firebase {
+        class orchestrator.handler.firebase.FirebaseUserHandler {
+            ~ firebaseAuth : FirebaseAuth
+            - db : Firestore
+            - key : String
+            + createUserFirebase()
+            + createUserFirebaseToken()
+            + updateUserFirebase()
+        }
+      }
+    }
+  }
+
+
+  orchestrator.handler.firebase.FirebaseUserHandler o-- orchestrator.security.EncryptionUtility : encryptionUtility
+
+namespace orchestrator {
+    namespace handler {
+      namespace legal {
+        class orchestrator.handler.legal.RetrieveLegalHandler {
+            - jacksonObjectMapper : ObjectMapper
+            + handle()
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace legal {
+        class orchestrator.handler.legal.RetrieveLegalProducer {
+            - rabbitTemplate : RabbitTemplate
+            + produce()
+        }
+      }
+    }
+  }
+
+
+  orchestrator.handler.legal.RetrieveLegalHandler .up.|> orchestrator.handler.EndpointHandler
+  orchestrator.handler.legal.RetrieveLegalHandler o-- orchestrator.handler.legal.RetrieveLegalProducer : producer
+
+  namespace orchestrator {
+    namespace handler {
+      namespace legal {
+        namespace model {
+          class orchestrator.handler.legal.model.LegalHandlerRequest {
+              - Flow : String
+              + LegalHandlerRequest()
+              + equals()
+              + getFlow()
+              + getService()
+              + hashCode()
+              + setFlow()
+              + setService()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace legal {
+        namespace model {
+          class orchestrator.handler.legal.model.LegalHandlerResponse {
+              - text : String
+              + LegalHandlerResponse()
+              + equals()
+              + getText()
+              + hashCode()
+              + setText()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+
+
+  orchestrator.handler.legal.model.LegalHandlerRequest -up-|> orchestrator.handler.HandlerRequest
+  orchestrator.handler.legal.model.LegalHandlerRequest o-- orchestrator.model.Service : Service
+  orchestrator.handler.legal.model.LegalHandlerResponse -up-|> orchestrator.handler.HandlerResponse
+
+  namespace orchestrator {
+    namespace controllers {
+      class orchestrator.controllers.CalendarController {
+          ~ clientSecrets : GoogleClientSecrets
+          ~ credential : Credential
+          ~ date1 : DateTime
+          ~ date2 : DateTime
+          ~ flow : GoogleAuthorizationCodeFlow
+          {static} - APPLICATION_NAME : String
+          {static} - JSON_FACTORY : JsonFactory
+          - clientId : String
+          - clientSecret : String
+          - db : Firestore
+          - firebaseAuth : FirebaseAuth
+          {static} - httpTransport : HttpTransport
+          - redirectURI : String
+          + getCalendarEvents()
+          - flowSetup()
+          - getCodeToken()
+          - getEvents()
+          - getIdToken()
+          - getNewToken()
+          - getRefreshToken()
+          - getTokenWithRefreshToken()
+          - isFirstTime()
+          - updateRefreshToken()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace controllers {
+      class orchestrator.controllers.ProtectedController {
+          - firebaseAuth : FirebaseAuth
+          + createUserFirebase()
+          + getProtectedCalendar()
+          + getProtectedData()
+          + getProtectedEmail()
+          + updateUserFirebase()
+          - generateMockCalendarRequest()
+          - generateMockEmailRequest()
+          - getIdToken()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace controllers {
+      class orchestrator.controllers.PublicController {
+          + getProtectedCalendar()
+          + getProtectedCovidData()
+          + getPublicData()
+          - covidCall()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace controllers {
+      class orchestrator.controllers.SuperAdminController {
+          - firebaseAuth : FirebaseAuth
+          + deleteUser()
+          + getActivateAccount()
+          + getListUsers()
+          + getResetPassword()
+          + getRevokeToken()
+          + getUser()
+          + postNewUser()
+          + postSetClaim()
+          + postUpdateUser()
+      }
+    }
+  }
+
+
+  orchestrator.controllers.ProtectedController o-- orchestrator.handler.calendar.RetrieveCalendarHandler : calendarHandler
+  orchestrator.controllers.ProtectedController o-- orchestrator.handler.email.RetrieveEmailHandler : emailHandler
+  orchestrator.controllers.ProtectedController o-- orchestrator.handler.firebase.FirebaseUserHandler : firebaseHandler
+  orchestrator.controllers.ProtectedController o-- orchestrator.handler.legal.RetrieveLegalHandler : legalHandler
+  orchestrator.controllers.ProtectedController o-- orchestrator.security.SecurityService : securityService
+  orchestrator.controllers.PublicController o-- orchestrator.handler.calendar.RetrieveCalendarHandler : calendarHandler
+  orchestrator.controllers.SuperAdminController o-- orchestrator.security.roles.RoleService : securityRoleService
+
+  namespace orchestrator {
+    namespace config {
+      class orchestrator.config.FirebaseConfig {
+          + getAuth()
+          + getDB()
+          + getFirebaseApp()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace config {
+      class orchestrator.config.JacksonConfig {
+          + jacksonObjectMapper()
+      }
+    }
+  }
+
+
+  orchestrator.config.FirebaseConfig o-- orchestrator.security.models.SecurityProperties : secProps
+
+
+@enduml

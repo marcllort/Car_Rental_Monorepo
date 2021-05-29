@@ -47,10 +47,10 @@ public class Cronjob {
 
         for (CalendarEvent event : listEvents) {
             if (isInvoice(event)) {
-                System.out.println("Starting invoice flow for service X");
+                System.out.println("Starting invoice flow for service " + event.getSummary());
                 invoiceFlow(event);
             } else if (isRoutePaper(event)) {
-                System.out.println("Starting route paper flow for service X");
+                System.out.println("Starting route paper flow for service " + event.getSummary());
                 routePaperFlow(event);
             }
         }
@@ -71,7 +71,7 @@ public class Cronjob {
         }
         ZonedDateTime startTime = date.atStartOfDay(ZoneId.systemDefault());
 
-        return startTime.isBefore(ZonedDateTime.now()) && startTime.isAfter(ZonedDateTime.now().minusDays(1)) && event.summary.contains("[");
+        return startTime.isAfter(ZonedDateTime.now()) && startTime.isBefore(ZonedDateTime.now().plusDays(1)) && event.summary.contains("[");
     }
 
     private boolean isInvoice(CalendarEvent event) {
@@ -90,7 +90,7 @@ public class Cronjob {
 
         ZonedDateTime startTime = date.atStartOfDay(ZoneId.systemDefault());
 
-        return startTime.isBefore(ZonedDateTime.now().plusDays(1)) && startTime.isAfter(ZonedDateTime.now()) && event.summary.contains("[");
+        return startTime.plusHours(23).isAfter(ZonedDateTime.now().minusDays(1)) && startTime.plusHours(23).isBefore(ZonedDateTime.now().plusDays(1)) && event.summary.contains("[");
     }
 
     private int getEventId(String summary) {

@@ -1,0 +1,1000 @@
+@startuml
+
+title __ORCHESTRATOR's Class Diagram__\n
+
+  namespace orchestrator {
+    class orchestrator.OrchestratorApplication {
+        {static} + main()
+    }
+  }
+
+namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Address {
+          + city : String
+          + countryCode : String
+          + countryName : String
+          + county : String
+          + label : String
+          + postalCode : String
+          + state : String
+          + stateCode : String
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Arrival {
+          + time : String
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.CalendarEvent {
+          + created : String
+          + etag : String
+          + eventType : String
+          + htmlLink : String
+          + iCalUID : String
+          + id : String
+          + kind : String
+          + recurringEventId : String
+          + sequence : Integer
+          + status : String
+          + summary : String
+          + transparency : String
+          + updated : String
+          + CalendarEvent()
+          + equals()
+          + getCreated()
+          + getCreator()
+          + getEnd()
+          + getEtag()
+          + getEventType()
+          + getHtmlLink()
+          + getICalUID()
+          + getId()
+          + getKind()
+          + getOrganizer()
+          + getOriginalStartTime()
+          + getRecurringEventId()
+          + getReminders()
+          + getSequence()
+          + getStart()
+          + getStatus()
+          + getSummary()
+          + getTransparency()
+          + getUpdated()
+          + hashCode()
+          + setCreated()
+          + setCreator()
+          + setEnd()
+          + setEtag()
+          + setEventType()
+          + setHtmlLink()
+          + setICalUID()
+          + setId()
+          + setKind()
+          + setOrganizer()
+          + setOriginalStartTime()
+          + setRecurringEventId()
+          + setReminders()
+          + setSequence()
+          + setStart()
+          + setStatus()
+          + setSummary()
+          + setTransparency()
+          + setUpdated()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.CalendarEvent.Creator {
+          + email : String
+          + self : Boolean
+          + Creator()
+          + equals()
+          + getEmail()
+          + getSelf()
+          + hashCode()
+          + setEmail()
+          + setSelf()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.CalendarEvent.End {
+          + date : String
+          + End()
+          + equals()
+          + getDate()
+          + hashCode()
+          + setDate()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.CalendarEvent.Organizer {
+          + email : String
+          + self : Boolean
+          + Organizer()
+          + equals()
+          + getEmail()
+          + getSelf()
+          + hashCode()
+          + setEmail()
+          + setSelf()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.CalendarEvent.OriginalStartTime {
+          + date : String
+          + OriginalStartTime()
+          + equals()
+          + getDate()
+          + hashCode()
+          + setDate()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.CalendarEvent.Override {
+          + method : String
+          + minutes : Integer
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.CalendarEvent.Reminders {
+          + overrides : List<Override>
+          + Reminders()
+          + equals()
+          + getOverrides()
+          + hashCode()
+          + setOverrides()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.CalendarEvent.Start {
+          + date : String
+          + dateTime : String
+          + Start()
+          + equals()
+          + getDate()
+          + getDateTime()
+          + hashCode()
+          + setDate()
+          + setDateTime()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Departure {
+          + time : String
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.FieldScore {
+          + city : Double
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.FirebaseUserRequest {
+          - calendarURL : String
+          - checked : boolean
+          - city : String
+          - code : String
+          - country : String
+          - email : String
+          - emailSign : String
+          - language : String
+          - name : String
+          - password : String
+          - phone : String
+          - uid : String
+          + FirebaseUserRequest()
+          + equals()
+          + getCalendarURL()
+          + getCity()
+          + getCode()
+          + getCountry()
+          + getEmail()
+          + getEmailSign()
+          + getLanguage()
+          + getName()
+          + getPassword()
+          + getPhone()
+          + getUid()
+          + hashCode()
+          + isChecked()
+          + setCalendarURL()
+          + setChecked()
+          + setCity()
+          + setCode()
+          + setCountry()
+          + setEmail()
+          + setEmailSign()
+          + setLanguage()
+          + setName()
+          + setPassword()
+          + setPhone()
+          + setUid()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.FreeDriversResponse {
+          - driversIds : List<Integer>
+          - driversNames : List<String>
+          + FreeDriversResponse()
+          + equals()
+          + getDriversIds()
+          + getDriversNames()
+          + hashCode()
+          + setDriversIds()
+          + setDriversNames()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Geocode {
+          + items : List<Item>
+          + Geocode()
+          + equals()
+          + getItems()
+          + hashCode()
+          + setItems()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Item {
+          + id : String
+          + localityType : String
+          + resultType : String
+          + title : String
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Location {
+          + lat : Double
+          + lng : Double
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Location_ {
+          + lat : Double
+          + lng : Double
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.MapView {
+          + east : Double
+          + north : Double
+          + south : Double
+          + west : Double
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.OriginalLocation {
+          + lat : Double
+          + lng : Double
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.OriginalLocation_ {
+          + lat : Double
+          + lng : Double
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Place {
+          + type : String
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Place_ {
+          + type : String
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Position {
+          + lat : Double
+          + lng : Double
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Route {
+          + routes : List<Route_>
+          + Route()
+          + equals()
+          + getRoutes()
+          + hashCode()
+          + setRoutes()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Route_ {
+          + id : String
+          + sections : List<Section>
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Scoring {
+          + queryScore : Double
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Section {
+          + id : String
+          + type : String
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Service {
+          - BasePrice : Float
+          - CalendarEvent : String
+          - ClientId : int
+          - ConfirmedDatetime : ZonedDateTime
+          - Description : String
+          - Destination : String
+          - DriverId : int
+          - ExtraPrice : Float
+          - Origin : String
+          - Passengers : int
+          - PayedDatetime : ZonedDateTime
+          - ServiceDatetime : ZonedDateTime
+          - ServiceId : int
+          - SpecialNeeds : String
+          + Service()
+          + equals()
+          + getBasePrice()
+          + getCalendarEvent()
+          + getClientId()
+          + getConfirmedDatetime()
+          + getDescription()
+          + getDestination()
+          + getDriverId()
+          + getExtraPrice()
+          + getOrigin()
+          + getPassengers()
+          + getPayedDatetime()
+          + getServiceDatetime()
+          + getServiceId()
+          + getSpecialNeeds()
+          + hashCode()
+          + setBasePrice()
+          + setCalendarEvent()
+          + setClientId()
+          + setConfirmedDatetime()
+          + setDescription()
+          + setDestination()
+          + setDriverId()
+          + setExtraPrice()
+          + setOrigin()
+          + setPassengers()
+          + setPayedDatetime()
+          + setServiceDatetime()
+          + setServiceId()
+          + setSpecialNeeds()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.ServiceCaps {
+          - BasePrice : Float
+          - CalendarEvent : String
+          - ClientId : int
+          - ConfirmedDatetime : ZonedDateTime
+          - Description : String
+          - Destination : String
+          - DriverId : int
+          - ExtraPrice : Float
+          - Origin : String
+          - Passengers : int
+          - PayedDatetime : ZonedDateTime
+          - ServiceDatetime : ZonedDateTime
+          - ServiceId : int
+          - SpecialNeeds : String
+          + ServiceCaps()
+          + equals()
+          + getBasePrice()
+          + getCalendarEvent()
+          + getClientId()
+          + getConfirmedDatetime()
+          + getDescription()
+          + getDestination()
+          + getDriverId()
+          + getExtraPrice()
+          + getOrigin()
+          + getPassengers()
+          + getPayedDatetime()
+          + getServiceDatetime()
+          + getServiceId()
+          + getSpecialNeeds()
+          + hashCode()
+          + setBasePrice()
+          + setCalendarEvent()
+          + setClientId()
+          + setConfirmedDatetime()
+          + setDescription()
+          + setDestination()
+          + setDriverId()
+          + setExtraPrice()
+          + setOrigin()
+          + setPassengers()
+          + setPayedDatetime()
+          + setServiceDatetime()
+          + setServiceId()
+          + setSpecialNeeds()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Summary {
+          + baseDuration : Integer
+          + duration : Integer
+          + length : Integer
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.Transport {
+          + mode : String
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace model {
+      class orchestrator.model.UserRequest {
+          - customClaim : String
+          - disabled : String
+          - displayName : String
+          - email : String
+          - emailVerified : String
+          - password : String
+          - phoneNumber : String
+          - photoURL : String
+          + UserRequest()
+          + equals()
+          + getCustomClaim()
+          + getDisabled()
+          + getDisplayName()
+          + getEmail()
+          + getEmailVerified()
+          + getPassword()
+          + getPhoneNumber()
+          + getPhotoURL()
+          + hashCode()
+          + setCustomClaim()
+          + setDisabled()
+          + setDisplayName()
+          + setEmail()
+          + setEmailVerified()
+          + setPassword()
+          + setPhoneNumber()
+          + setPhotoURL()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  orchestrator.model.Arrival o-- orchestrator.model.Place_ : place
+  orchestrator.model.CalendarEvent o-- orchestrator.model.CalendarEvent.Creator : creator
+  orchestrator.model.CalendarEvent o-- orchestrator.model.CalendarEvent.End : end
+  orchestrator.model.CalendarEvent o-- orchestrator.model.CalendarEvent.Organizer : organizer
+  orchestrator.model.CalendarEvent o-- orchestrator.model.CalendarEvent.OriginalStartTime : originalStartTime
+  orchestrator.model.CalendarEvent o-- orchestrator.model.CalendarEvent.Reminders : reminders
+  orchestrator.model.CalendarEvent o-- orchestrator.model.CalendarEvent.Start : start
+  orchestrator.model.CalendarEvent +-down- orchestrator.model.CalendarEvent.Creator
+  orchestrator.model.CalendarEvent +-down- orchestrator.model.CalendarEvent.End
+  orchestrator.model.CalendarEvent +-down- orchestrator.model.CalendarEvent.Organizer
+  orchestrator.model.CalendarEvent +-down- orchestrator.model.CalendarEvent.OriginalStartTime
+  orchestrator.model.CalendarEvent +-down- orchestrator.model.CalendarEvent.Override
+  orchestrator.model.CalendarEvent +-down- orchestrator.model.CalendarEvent.Reminders
+  orchestrator.model.CalendarEvent +-down- orchestrator.model.CalendarEvent.Start
+  orchestrator.model.Departure o-- orchestrator.model.Place : place
+  orchestrator.model.Item o-- orchestrator.model.Address : address
+  orchestrator.model.Item o-- orchestrator.model.MapView : mapView
+  orchestrator.model.Item o-- orchestrator.model.Position : position
+  orchestrator.model.Item o-- orchestrator.model.Scoring : scoring
+  orchestrator.model.Place o-- orchestrator.model.Location : location
+  orchestrator.model.Place o-- orchestrator.model.OriginalLocation : originalLocation
+  orchestrator.model.Place_ o-- orchestrator.model.Location_ : location
+  orchestrator.model.Place_ o-- orchestrator.model.OriginalLocation_ : originalLocation
+  orchestrator.model.Scoring o-- orchestrator.model.FieldScore : fieldScore
+  orchestrator.model.Section o-- orchestrator.model.Arrival : arrival
+  orchestrator.model.Section o-- orchestrator.model.Departure : departure
+  orchestrator.model.Section o-- orchestrator.model.Summary : summary
+  orchestrator.model.Section o-- orchestrator.model.Transport : transport
+
+namespace orchestrator {
+    namespace handler {
+      namespace calendar {
+        namespace model {
+          class orchestrator.handler.calendar.model.CalendarHandlerRequest {
+              - Flow : String
+              + CalendarHandlerRequest()
+              + equals()
+              + getClient()
+              + getFlow()
+              + getService()
+              + hashCode()
+              + setClient()
+              + setFlow()
+              + setService()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace calendar {
+        namespace model {
+          class orchestrator.handler.calendar.model.CalendarHandlerResponse {
+              - text : String
+              + CalendarHandlerResponse()
+              + equals()
+              + getText()
+              + hashCode()
+              + setText()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace calendar {
+        namespace model {
+          class orchestrator.handler.calendar.model.Client {
+              ~ Country : String
+              ~ Email : String
+              ~ Name : String
+              ~ Phone : String
+              ~ Role : String
+              ~ UserId : int
+              + Client()
+              + equals()
+              + getCountry()
+              + getEmail()
+              + getName()
+              + getPhone()
+              + getRole()
+              + getUserId()
+              + hashCode()
+              + setCountry()
+              + setEmail()
+              + setName()
+              + setPhone()
+              + setRole()
+              + setUserId()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+
+
+  orchestrator.handler.calendar.model.CalendarHandlerRequest -up-|> orchestrator.handler.HandlerRequest
+  orchestrator.handler.calendar.model.CalendarHandlerRequest o-- orchestrator.handler.calendar.model.Client : Client
+  orchestrator.handler.calendar.model.CalendarHandlerRequest o-- orchestrator.model.Service : Service
+  orchestrator.handler.calendar.model.CalendarHandlerResponse -up-|> orchestrator.handler.HandlerResponse
+
+  namespace orchestrator {
+      namespace handler {
+        namespace calendar {
+          class orchestrator.handler.calendar.RetrieveCalendarHandler {
+              - jacksonObjectMapper : ObjectMapper
+              + handle()
+          }
+        }
+      }
+    }
+
+
+    namespace orchestrator {
+      namespace handler {
+        namespace calendar {
+          class orchestrator.handler.calendar.RetrieveCalendarProducer {
+              - rabbitTemplate : RabbitTemplate
+              + produce()
+          }
+        }
+      }
+    }
+
+
+    orchestrator.handler.calendar.RetrieveCalendarHandler .up.|> orchestrator.handler.EndpointHandler
+    orchestrator.handler.calendar.RetrieveCalendarHandler o-- orchestrator.handler.calendar.RetrieveCalendarProducer : producer
+
+namespace orchestrator {
+    namespace handler {
+      interface orchestrator.handler.EndpointHandler {
+          {abstract} + handle()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      abstract class orchestrator.handler.HandlerRequest {
+          - userId : String
+          + HandlerRequest()
+          + equals()
+          + getUserId()
+          + hashCode()
+          + setUserId()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      abstract class orchestrator.handler.HandlerResponse {
+          - userId : String
+          + HandlerResponse()
+          + equals()
+          + getUserId()
+          + hashCode()
+          + setUserId()
+          + toString()
+          # canEqual()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      class orchestrator.handler.RabbitMQDirectConfig {
+          {static} + CALENDAR_KEY : String
+          {static} + CALENDAR_QUEUE : String
+          {static} + EMAIL_KEY : String
+          {static} + EMAIL_QUEUE : String
+          {static} + EXCHANGE : String
+          {static} + LEGAL_KEY : String
+          {static} + LEGAL_QUEUE : String
+          {static} + ORCHESTRATOR_KEY : String
+          {static} + ORCHESTRATOR_QUEUE : String
+          - amqpAdmin : AmqpAdmin
+          + createQueues()
+          ~ calendarBinding()
+          ~ calendarQueue()
+          ~ emailBinding()
+          ~ emailQueue()
+          ~ exchange()
+          ~ legalBinding()
+          ~ legalQueue()
+          ~ orchestratorBinding()
+          ~ orchestratorQueue()
+      }
+    }
+  }
+
+namespace orchestrator {
+    namespace config {
+      class orchestrator.config.JacksonConfig {
+          + jacksonObjectMapper()
+      }
+    }
+  }
+
+namespace orchestrator {
+    namespace business {
+      class orchestrator.business.Cronjob {
+          - objectMapper : ObjectMapper
+          + runCronjob()
+          ~ invoiceFlow()
+          ~ mapService()
+          ~ routePaperFlow()
+          - generateMockCalendarRequest()
+          - generateMockLegalRequest()
+          - getEventId()
+          - isInvoice()
+          - isRoutePaper()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace business {
+      class orchestrator.business.OrchestratorConsumer {
+          - mapper : ObjectMapper
+          + listen()
+          - generateEmailConfirmServiceRequest()
+          - generateEmailServiceRequest()
+          - updateFreeDrivers()
+          - updatePrice()
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace business {
+      class orchestrator.business.PriceCalculator {
+          - apiKey : String
+          - mapper : ObjectMapper
+          + generatePrice()
+          - apiCallLocation()
+          - apiCallRoute()
+      }
+    }
+  }
+
+
+  orchestrator.business.Cronjob o-- orchestrator.handler.calendar.RetrieveCalendarHandler : calendarHandler
+  orchestrator.business.Cronjob o-- orchestrator.handler.email.RetrieveEmailHandler : emailHandler
+  orchestrator.business.OrchestratorConsumer o-- orchestrator.handler.calendar.RetrieveCalendarHandler : calendarHandler
+  orchestrator.business.OrchestratorConsumer o-- orchestrator.business.Cronjob : cronjob
+  orchestrator.business.OrchestratorConsumer o-- orchestrator.handler.email.RetrieveEmailHandler : emailHandler
+  orchestrator.business.OrchestratorConsumer o-- orchestrator.business.PriceCalculator : priceCalculator
+
+namespace orchestrator {
+    namespace handler {
+      namespace email {
+        class orchestrator.handler.email.RetrieveEmailHandler {
+            - jacksonObjectMapper : ObjectMapper
+            + handle()
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace email {
+        class orchestrator.handler.email.RetrieveEmailProducer {
+            - rabbitTemplate : RabbitTemplate
+            + produce()
+        }
+      }
+    }
+  }
+
+
+  orchestrator.handler.email.RetrieveEmailHandler .up.|> orchestrator.handler.EndpointHandler
+  orchestrator.handler.email.RetrieveEmailHandler o-- orchestrator.handler.email.RetrieveEmailProducer : producer
+
+namespace orchestrator {
+    namespace handler {
+      namespace email {
+        namespace model {
+          class orchestrator.handler.email.model.EmailHandlerRequest {
+              - Company : String
+              - Drivers : String
+              - Flow : String
+              - Price : String
+              + EmailHandlerRequest()
+              + equals()
+              + getCompany()
+              + getDrivers()
+              + getFlow()
+              + getPrice()
+              + getService()
+              + hashCode()
+              + setCompany()
+              + setDrivers()
+              + setFlow()
+              + setPrice()
+              + setService()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace email {
+        namespace model {
+          class orchestrator.handler.email.model.EmailHandlerResponse {
+              - text : String
+              + EmailHandlerResponse()
+              + equals()
+              + getText()
+              + hashCode()
+              + setText()
+              + toString()
+              # canEqual()
+          }
+        }
+      }
+    }
+  }
+
+
+  orchestrator.handler.email.model.EmailHandlerRequest -up-|> orchestrator.handler.HandlerRequest
+  orchestrator.handler.email.model.EmailHandlerRequest o-- orchestrator.model.Service : Service
+  orchestrator.handler.email.model.EmailHandlerResponse -up-|> orchestrator.handler.HandlerResponse
+
+namespace orchestrator {
+    namespace handler {
+      namespace legal {
+        class orchestrator.handler.legal.RetrieveLegalHandler {
+            - jacksonObjectMapper : ObjectMapper
+            + handle()
+        }
+      }
+    }
+  }
+
+
+  namespace orchestrator {
+    namespace handler {
+      namespace legal {
+        class orchestrator.handler.legal.RetrieveLegalProducer {
+            - rabbitTemplate : RabbitTemplate
+            + produce()
+        }
+      }
+    }
+  }
+
+
+  orchestrator.handler.legal.RetrieveLegalHandler .up.|> orchestrator.handler.EndpointHandler
+  orchestrator.handler.legal.RetrieveLegalHandler o-- orchestrator.handler.legal.RetrieveLegalProducer : producer
+
+
+
+@enduml

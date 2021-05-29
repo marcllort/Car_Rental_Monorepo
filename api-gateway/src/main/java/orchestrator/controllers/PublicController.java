@@ -48,7 +48,7 @@ public class PublicController {
             MediaType mediaType = MediaType.parse("text/plain");
             RequestBody body = RequestBody.create(mediaType, "{\r\n    \"destination\": " + destination + ",\r\n    \"origin\": " + origin + "\r\n}");
             Request request = new Request.Builder()
-                    .url("https://canitravelto.wtf/travel")
+                    .url("https://canitravelto.eu/travel")
                     .method("POST", body)
                     .addHeader("X-Auth-Token", "SUPER_SECRET_API_KEY")
                     .addHeader("Content-Type", "text/plain")

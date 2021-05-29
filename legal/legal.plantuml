@@ -1,0 +1,61 @@
+@startuml
+namespace Rest {
+    class PdfRestAPI << (S,Aquamarine) >> {
+        + customerReport(@Autowired invoiceGenerator: InvoiceGenerator, @Autowired routeGenerator: RouteGenerator, @RequestBody request: LegalRequest): ResponseEntity<InputStreamResource>
+    }
+}
+
+
+
+namespace Generator {
+    class InvoiceGenerator << (S,Aquamarine) >> {
+        ~ FILE_PATH : String
+        + generateInvoicePDF(Service) InputStream
+    }
+    class RouteGenerator << (S,Aquamarine) >> {
+        ~ FILE_PATH : String
+        + generateRoutePDF(Service) InputStream
+    }
+}
+
+
+
+namespace Model {
+    class LegalRequest << (S,Aquamarine) >> {
+        + Flow string
+        + UserId string
+        + Company string
+        + Price string
+        + Service Service
+        + Client ClientUser
+
+    }
+
+    class Service << (S,Aquamarine) >> {
+        + ServiceId int
+        + Origin string
+        + Destination string
+        + ClientId int
+        + DriverId int
+        + Description string
+        + ServiceDatetime String
+        + CalendarEvent string
+        + PayedDatetime String
+        + BasePrice float32
+        + ExtraPrice float32
+        + ConfirmedDatetime String
+        + Passengers int
+        + SpecialNeeds string
+
+    }
+
+}
+
+
+"Rest.PdfRestAPI""uses" o-- "Generator.RouteGenerator"
+"Rest.PdfRestAPI""uses" o-- "Generator.InvoiceGenerator"
+"Generator.InvoiceGenerator""uses" o-- "Model"
+"Generator.RouteGenerator""uses" o-- "Model"
+
+
+@enduml
