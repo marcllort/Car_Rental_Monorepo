@@ -73,7 +73,7 @@ function getCalendar() {
             "clientId": 1,
             "confirmedDatetime": null
         },
-        "flow": "eventsMonth"
+        "flow": "allEvents"
     });
     const headers = {
         'Content-Type': 'application/json',

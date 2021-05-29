@@ -1,7 +1,13 @@
 USE company_pressicar;
 
 INSERT INTO `DriverUser`(name, email, phone, country, role)
-VALUES ('Chop Bolson', 'chop@gmail.com', '656801150', 'Catalunya', 'Driver');
+VALUES ('Driver 1', 'futbolsupplier@gmail.com', '656801150', 'Catalunya', 'Driver');
+
+INSERT INTO `DriverUser`(name, email, phone, country, role)
+VALUES ('Driver 2', 'futbolsupplier@gmail.com', '656801150', 'Catalunya', 'Driver');
+
+INSERT INTO `DriverUser`(name, email, phone, country, role)
+VALUES ('Driver 3', 'futbolsupplier@gmail.com', '656801150', 'Catalunya', 'Driver');
 
 INSERT INTO `ClientUser`(name, email, phone, country, role)
 VALUES ('Pau Bolson', 'pau@gmail.com', '656801151', 'Catalunya', 'Client');

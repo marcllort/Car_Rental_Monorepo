@@ -27,6 +27,10 @@ func Consume(body string, db *gorm.DB) string {
 		calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
 		excludeEmails2 := []string{"es.spain#holiday@group.v.calendar.google.com", "addressbook#contacts@group.v.calendar.google.com", "futbolsupplier@gmail.com"}
 		response = getEventsMonth(calendarClient, request, excludeEmails2)
+	case "allEvents":
+		calendarClient := CalendarAPI.GetCalendarClient(request.UserId)
+		excludeEmails2 := []string{"es.spain#holiday@group.v.calendar.google.com", "addressbook#contacts@group.v.calendar.google.com"}
+		response = getAllEvents(calendarClient, request, excludeEmails2)
 	case "eventById":
 		response = getEventById(db, request)
 	case "freeDrivers":
@@ -153,6 +157,21 @@ func getEventsMonth(calendarClient *calendar.Service, request Model.CalendarRequ
 	endTime := startTime.Add(-duration)
 	endTime2 := startTime.Add(duration)
 	events, _ := CalendarAPI.GetEvents(calendarClient, endTime.Format(time.RFC3339), endTime2.Format(time.RFC3339), excludeEmails)
+	fmt.Print(events)
+	eventsJson, err := json.Marshal(events)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return string(eventsJson)
+}
+
+func getAllEvents(calendarClient *calendar.Service, request Model.CalendarRequest, excludeEmails []string) string {
+	fmt.Print("eventsMonth\n")
+	startTime := request.Service.ServiceDatetime
+	duration, _ := time.ParseDuration("72000h") //it will return all the events
+	endTime := startTime.Add(duration)
+	events, _ := CalendarAPI.GetEvents(calendarClient, startTime.Format(time.RFC3339), endTime.Format(time.RFC3339), excludeEmails)
 	fmt.Print(events)
 	eventsJson, err := json.Marshal(events)
 	if err != nil {
