@@ -33,8 +33,8 @@ function checkUserInfoExists(user) {
     var db = firebase.firestore();
     db.collection("users").doc(user.uid).get().then(snapshot => {
         const data = snapshot.data()  // a plain JS object
-
-        if (data.name === undefined) {
+        console.log(data);
+        if (data === undefined) {
             createUserFirebaseAPI(user);
         }
     }).catch(error => {
