@@ -6,16 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Company/test_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/Company/test_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/admin_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/admin_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/index_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/index_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/assets/js/ui_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/ui_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/user_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/user_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/src/main/java/orchestrator/business/OrchestratorConsumer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,17 +114,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Go Build.Calendar">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="test_data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/database/test_data.sql" />
       <script-mode>FILE</script-mode>
@@ -285,14 +264,8 @@
       <workItem from="1620837171152" duration="1889000" />
       <workItem from="1620977677061" duration="5832000" />
       <workItem from="1622275856951" duration="2960000" />
-      <workItem from="1622281872057" duration="13240000" />
-    </task>
-    <task id="LOCAL-00097" summary="Calendar Logic refactor">
-      <created>1613732774037</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1613732774037</updated>
+      <workItem from="1622281872057" duration="13583000" />
+      <workItem from="1624610443218" duration="1184000" />
     </task>
     <task id="LOCAL-00098" summary="Calendar Logic getDrivers working">
       <created>1613736452562</created>
@@ -630,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622294793327</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="Demo fixes">
+      <created>1622297704340</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1622297704340</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +666,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/calendar/Database/mysql_connection.go</url>
-          <line>218</line>
+          <line>216</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
