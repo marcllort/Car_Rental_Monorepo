@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/calendar/Database/mysql_connection.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +79,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/api-gateway/k8/ingress-service.yaml" />
   </component>
   <component name="RecentsManager">
@@ -265,14 +266,7 @@
       <workItem from="1620977677061" duration="5832000" />
       <workItem from="1622275856951" duration="2960000" />
       <workItem from="1622281872057" duration="13583000" />
-      <workItem from="1624610443218" duration="1184000" />
-    </task>
-    <task id="LOCAL-00098" summary="Calendar Logic getDrivers working">
-      <created>1613736452562</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1613736452562</updated>
+      <workItem from="1624610443218" duration="3761000" />
     </task>
     <task id="LOCAL-00099" summary="Calendar Logic createEvent">
       <created>1613737479095</created>
@@ -610,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622297704340</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="Demo fixes">
+      <created>1624611953231</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1624611953232</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

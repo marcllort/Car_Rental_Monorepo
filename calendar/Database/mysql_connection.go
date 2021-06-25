@@ -38,7 +38,7 @@ func GetAllServices(db *gorm.DB) []Model.ServiceView {
 
 func Summary(db *gorm.DB) string {
 
-	endMonth := time.Now()
+	endMonth := time.Now().AddDate(0, 1, 0)
 	monthIncome := make([]int, 12)
 	totalIncome := 0
 	for i := 0; i < 12; i++ {
@@ -60,7 +60,7 @@ func Summary(db *gorm.DB) string {
 
 	summary.ActualMonthIncome = monthIncome[0]
 
-	for i, j := 0, int(endMonth.Month())-2; i < j; i, j = i+1, j-1 {
+	for i, j := 0, int(endMonth.Month())-1; i < j; i, j = i+1, j-1 {
 		monthIncome[i], monthIncome[j] = monthIncome[j], monthIncome[i]
 	}
 
