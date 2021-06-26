@@ -162,7 +162,7 @@ function createUserFirebaseAPI(user) {
                 calendarURL: result.value[5]
             }
             createUserAPICall(data)
-            updateUserAPICall(data)
+
         }
     })
 
@@ -206,6 +206,7 @@ function createUserAPICall(data) {
         headers: headers
     }).then(resp => {
         console.log(resp);
+        updateUserAPICall(data)
     }).catch(error => {
         swal.fire(
             'Error',
