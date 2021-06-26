@@ -174,16 +174,12 @@ function validateEmail(email) {
 }
 
 function updateUserAPICall(data) {
-    var url = 'https://carrentalbarcelona.tk/protected/update-user-firebase';
+    var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
 
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + idToken,
     }
-
-    axios.get('https://carrentalbarcelona.tk/public/login', {
-        headers: headers
-    })
 
     axios.post(url, data, {
         headers: headers
