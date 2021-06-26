@@ -161,7 +161,7 @@ function createUserFirebaseAPI(user) {
                 language: result.value[4],
                 calendarURL: result.value[5]
             }
-
+            createUserAPICall(data)
             updateUserAPICall(data)
         }
     })
@@ -174,6 +174,27 @@ function validateEmail(email) {
 }
 
 function updateUserAPICall(data) {
+    var url = 'https://carrentalbarcelona.tk/protected/update-user-firebase';
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + idToken,
+    }
+
+    axios.post(url, data, {
+        headers: headers
+    }).then(resp => {
+        console.log(resp);
+    }).catch(error => {
+        swal.fire(
+            'Error',
+            error.response.data.message,
+            'error'
+        )
+    });
+}
+
+function createUserAPICall(data) {
     var url = 'https://carrentalbarcelona.tk/protected/create-user-firebase';
 
     const headers = {

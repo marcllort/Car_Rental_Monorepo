@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52940339-bb57-4672-adf5-bb401d860398" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/js/index_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/js/index_script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,14 +265,7 @@
       <workItem from="1620977677061" duration="5832000" />
       <workItem from="1622275856951" duration="2960000" />
       <workItem from="1622281872057" duration="13583000" />
-      <workItem from="1624610443218" duration="9679000" />
-    </task>
-    <task id="LOCAL-00102" summary="Calendar ALL flows working">
-      <created>1613761462588</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1613761462588</updated>
+      <workItem from="1624610443218" duration="10067000" />
     </task>
     <task id="LOCAL-00103" summary="Calendar working in K8s">
       <created>1613812547752</created>
@@ -610,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624621828917</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL-00151" summary="Fix new user">
+      <created>1624705103076</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1624705103076</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
