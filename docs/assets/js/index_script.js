@@ -180,7 +180,7 @@ function updateUserAPICall(data) {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + idToken,
     }
-
+    console.log(data)
     axios.post(url, data, {
         headers: headers
     }).then(resp => {
